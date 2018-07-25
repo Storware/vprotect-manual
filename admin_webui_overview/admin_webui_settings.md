@@ -24,7 +24,22 @@
 
 This section enables you to view current license status and upload a new license if necessary. License details:
 
-* `MAX_xxx_HOSTS` - variables \(maximum number of hosts for given platform
+* `MAX_VMS_WITH_BACKUP` - maximum number of VMs that have at least one backup - when limit is reached you need to remove one of your existing VMs from repository if you want to backup another VM \(next rescan should add VM again to the repository\)
+* `MAX_xxx_HOSTS` - maximum number of hosts for given platform
 * `BP_xxx` - maximum number of backup destinations per backup provider type
 * `EXPIRE_DATE` - trial period expiration date
+
+## Authentication
+
+This section enables you to setup LDAP authentication for administrative accounts in vProtect:
+
+* `Enable LDAP authentication` - enables LDAP authentication, vProtect will try to check for non-existing accounts in LDAP, and if authenticated successfully, new account will appear on the list
+* `Server URL` - LDAP server URL
+* `Search` - Base DN that needs to be searched
+* `User filter` - filter to be used to authenticate only users in a specific group
+* `Use SSL` - enables SSL for LDAP connection
+* `Use TLS` - enables TLS for LDAP connection
+* `Anonymous access allowed` - if users are not allowed to anonymously browse LDAP directory you need to provide account which has that privilege:
+  * `Service account DN` - DN of the user
+  * `Service account password` - password of that user 
 

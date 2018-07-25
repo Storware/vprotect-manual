@@ -13,6 +13,14 @@ sudo -u vprotect ssh -o HostKeyAlgorithms=ssh-rsa root@HYPERVISOR
 
 * make sure to have in your Node Confiuration `known_hosts` file path set to the location that is accessible for `vprotect` user - default `/opt/vprotect/.ssh/known_hosts`
 
+## KVM - VG scanning
+
+**Used with LVM-based VMs only.** In order to allow VG scanning please make sure to have your LVM packages up to date **on hypervisor**. LVM reporting was one of the features added in RHEL/CentOS 7.3 and is used by vProtect to collect information about VGs. Note that VGs can only be used in restore dialog box when VM was originally deployed with LVM volumes \(not QCOW2\).
+
+## KVM - full libvirt installation
+
+Please make sure to follow steps in this section: [Full versions of libvirt/qemu packages installation](../install/install_libvirt_qemu.md)
+
 ## Public key authentication
 
 Instead of using password authentication you also have public key alternative.
@@ -63,7 +71,5 @@ Instead of using password authentication you also have public key alternative.
 
 4. Now you should be able to index VMs regardless of the password set for hypervisor \(key should be used instead\).
 
-## KVM - full libvirt installation
-
-Please make sure to follow steps in this section: [Full versions of libvirt/qemu packages installation](../install/install_libvirt_qemu.md)
+## 
 

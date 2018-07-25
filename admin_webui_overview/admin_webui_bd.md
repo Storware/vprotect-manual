@@ -21,8 +21,16 @@ Each backup destination needs also a unique `Name` for easier identification in 
 
 ### File system
 
-* `Storage paths` - list of paths accessible from the node where backups should be stored 
+* `Paths` - list of storage paths accessible from the node where backups should be stored 
   * **note**: if more than one path is given vProtect will automatically balance each path and store file always in the path with the most free space available
+  * **note**: you can only provide one path if deduplication is enabled
+* `Encryption` - enables build-in encryption of the data at rest. Once enabled, new data being stored is going to be encrypted. 
+  * **note:** this implies that file move is not possible even if single file system is used both for staging and backup destinations
+* `Enable deduplication` - enables deduplication with VDO - you need to provide:
+  * `Deduplication device` - VDO requires a block device used to store actual data 
+    * **note:** this device will be initialized with a fresh VDO file system
+  * `Mount deduplicated file system to a different directory than backup destination path` - **optional** - by default vProtect will mount deduplicated file sytem in the backup destination path \(the only one that can be provided\), however you can use this parameter to setup deduplicated file system that covers both staging space and backup destination
+    * **example**: paths = `/vprotect_data/backups` but mount point for VDO and export path = `/vprotect_data`
 
 ### IBM Spectrum Protect
 
@@ -53,13 +61,21 @@ Each backup destination needs also a unique `Name` for easier identification in 
 * `Access key` - your S3 access key
 * `Secret key` - your S3 secret key
 * `Backup mode` - mode that specifies if backups should be stored in one bucket or in separate buckets for each VM
+
+  * Single bucket for all VMs - stores all backups in a single bucket \(default for Amazon S3\)
+  * Single bucket \(without versioning support\) for all VMs - same as above, but 3rd-party solutions may not support object versioning - choose that to store object versions as separate objects
+  * One bucket per VM - stores all backups in separate buckets \(note Amazon S3 may have limits on the number of buckets\)
+
+* `Record backup time after store` - some 3rd party solutions record object version after data transfer, enable this options only if you experience `Backup not found` issues.
 * `Bucket name (for SINGLE_BUCKET only)` - single bucket name to be used for backups
 * `Bucket name prefix (for ONE_BUCKET_PER_VM only)` - prefix for bucket names used in amazon \(must be globally unique\), buckets will have names starting with this prefix - one for each VM 
+* `Encryption` - enables build-in encryption of the data at rest. Once enabled, new data being stored is going to be encrypted. 
 
 ### Microsoft Azure
 
 * `Account name` - account name used to access container
 * `Account key` - account key used to access container
+* `Encryption` - enables build-in encryption of the data at rest. Once enabled, new data being stored is going to be encrypted. 
 
 ### OpenStack Swift
 
