@@ -2,7 +2,7 @@
 
 ![](.gitbook/assets/intro%20%281%29.png)
 
-## Storware vProtect 3.5 Manual
+## Storware vProtect 3.6 Manual
 
 This is the official documentation for Storware vProtect software. Here you'll find all the information needed to setup and configure backup for your virtual infrastructure.
 
@@ -20,7 +20,8 @@ Storware vProtect provides a crash-consistent backup of VMs running in open virt
 * Support for libvirt hypervisors \(KVM, PowerKVM, KVM for IBM z, Xen\), Citrix XenServer, RHV/oVirt and Oracle VM environments
 * Incremental backups \(CBT\) for Citrix XenServer, oVirt/RHV and Nutanix AHV 5.5+ hypervisors
 * Option to backup only selected VM disks \(Citrix, Nutanix, KVM/Xen\)
-* Data deduplication
+* Build in data deduplication with VDO
+* Data encryption for Amazon S3/Microsoft Azure/file system backup providers
 * Prioritized backup
 * Last backup can be kept on vProtect Server for faster recovery
 * File-level restore using mountable backups \(Citrix XenServer, RHV/oVirt Nutanix AHV, KVM/Xen and Oracle VM\)
@@ -30,6 +31,7 @@ Storware vProtect provides a crash-consistent backup of VMs running in open virt
 * Snapshot consistent technology \(and use of quiesced snapshots for Citrix XenServer, Nutanix AHV and FS freeze in oVirt/RHV enviornments\)
 * Pre/post snapshot remote command execution on VM to enable operations such as DB quiesce
 * Pre/post backup destination access command execution to allow mount/unmount operations on external storage providers
+* LDAP authentication in management console
 * Easy to use and intuitive management \(HTML5 web UI and CLI\) - protect your virtual infrastructure in 3 easy steps:
   1. Connect to your infrastructure and backup provider
   2. Schedule backups or backup on demand

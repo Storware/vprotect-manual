@@ -8,6 +8,7 @@
 * `Backup history retention` - how long should the history of backups be kept \(even removed from backup provider\)
 * `Task retention (in console)` - how long finished/failed tasks should be kept in the console in UI/CLI
 * `Periodic index interval` - how often vProtect should scan for changes in VM inventory on HV/HVMs
+* `Old backups removal time` - time, when daily backup destination cleanup should be invoked \(for all backup destinations\)
 
 ## E-mail
 
