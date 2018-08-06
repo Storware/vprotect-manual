@@ -4,7 +4,7 @@ Default certificate presented by application server uses `localhost`. This works
 
 **Notice**:
 
-* you can use default certificate - remember that you may need to use `./install_server_cert.sh` script after future updates to refresh certificate on the node
+* you can use default certificate - remember that you may need to use `./node_add_ssl_cert.sh` script after future updates to refresh certificate on the node
 * for default certificate - jump to the Node configuration and use `localhost` instead of `vprotectserver.local` example
 
 This section presents steps necessary to generate SSL certificate, setup vProtect to use it and how to regiester remote node.
