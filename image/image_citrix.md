@@ -24,12 +24,11 @@ When virtual appliance with vProtect was imported select second disk "vProtect-s
 Increase disk size, for vprotect staging space.  
 ![](../.gitbook/assets/images_citrix_08%20%281%29.png)
 
-Start vProtect virtual machine, login, and incrase disk size:
+Start vProtect virtual machine, login, and incrase disk size \(in that example to 500G\):
 
 ```text
-   pvresize /dev/xvdb
-   lvextend /dev/mapper/vg_vprotectdata-lv_vprotectdata -l+100%FREE
-   xfs_growfs /dev/mapper/vg_vprotectdata-lv_vprotectdata
+   vdo growLogical -n vprotect_data --vdoLogicalSize 500G
+   xfs_growfs /dev/mapper/vprotect_data
 ```
 
 After import image to enviroinment set IP addresation, run nmtui &gt; "Edit a connection".  
