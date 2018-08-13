@@ -117,7 +117,7 @@ This section presents steps necessary to generate SSL certificate, setup vProtec
 
    ```text
    cd /opt/vprotect/scripts
-   ./install_server_cert.sh [SERVER_HOST] [PORT] [KEYSTORE_PASS]
+   ./node_add_ssl_cert.sh [SERVER_HOST] [PORT] [KEYSTORE_PASS]
    ```
 
    where defaults \(if arguments have not been provided\) are `SERVER_HOST` = `localhost`, `PORT` = `8181`, `KEYSTORE_PASS` = `changeit` \(default java keystore password\), examples:
@@ -125,13 +125,13 @@ This section presents steps necessary to generate SSL certificate, setup vProtec
    * Default local installation \(Server and Node on the same host\):
 
      ```text
-     ./install_server_cert.sh
+     ./node_add_ssl_cert.sh
      ```
 
    * Remote Server on the custom port:
 
      ```text
-     ./install_server_cert.sh vprotectserver.local 8181
+     ./node_add_ssl_cert.sh vprotectserver.local 8181
      ```
 
 3. Register node with `NODE_NAME` of your choice `ADMIN_USER` user name which you would like to use and URL to vProtect API and provide password when prompted:
