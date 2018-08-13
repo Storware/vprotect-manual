@@ -49,7 +49,7 @@ vProtect consists of server \(central management point with WebUI\) and one or m
 1. Copy vprotect-server RPM file to your machine and install it using YUM \(where `XXX` is a placeholder for the vProtect version\):
 
    ```text
-   yum -y install vprotect-server-XXX.rpm
+   yum -y install vprotect-server-*.rpm
    ```
 
 2. Setup DB for vProtect:
@@ -93,7 +93,7 @@ vProtect Node is component that executes all tasks.
 1. Copy vprotect-node RPM file to your machine and install it using YUM \(where `XXX` is a placeholder for the vProtect version\):
 
    ```text
-   yum -y install vprotect-node-XXX.rpm
+   yum -y install vprotect-node-*.rpm
    ```
 
 2. Prepare your staging space \(on vProtect Node host only\):
