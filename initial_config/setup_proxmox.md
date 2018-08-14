@@ -4,7 +4,7 @@ Proxmomx environments require backup storage to be defined on each server. This 
 
 1. Create storage from NFS share \(Content type: VZDump\)
 
-   ![](../.gitbook/assets/setup_proxmox-editstorage%20%281%29.png)
+![](../.gitbook/assets/setup_proxmox-editstorage%20%281%29.png)
 
    * Note that export must be set to use UID and GID of `vprotect` user
    * Example export configuration in `/etc/exports` to the selected hypervisor in RHV cluster:
@@ -24,7 +24,7 @@ Proxmomx environments require backup storage to be defined on each server. This 
 
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by Proxmox.
 
-   ![](../.gitbook/assets/setup_proxmox-storagelist.png)
+![](../.gitbook/assets/setup_proxmox-storagelist.png)
 
 3. Name for storage must be later provided in node configuration \(`Hypervisor -> Proxmox` section\)
 4. Proxmomx \(like KVM/Xen\) environments require to have correct entry in known\_hosts on the node:
