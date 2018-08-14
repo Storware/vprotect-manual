@@ -4,8 +4,8 @@
 	Log in to vProtect node, and create mount directory in example `/backupdestination`
 	
 	 ```text
-      	mkdir /backupdestination
-         ```
+      mkdir /backupdestination
+     ```
 
 	List all existing disk's, and found your new:
 	
@@ -58,14 +58,14 @@
 	In "Storage paths" type `/backupdestination`
 	
 	a) Without deduplication example:
-	
+
 	 ![](../.gitbook/assets/setup_filessytem.png)
 	
 	
 	b) With deduplication example:
 
 	 ![](../.gitbook/assets/setup_filessytem_dedup.png)
-	 
+	
 	c) With deduplication example, and storage is staging directory:
 	
 	 In "Storage paths" type `/vprotect_data/backupdestination`.
