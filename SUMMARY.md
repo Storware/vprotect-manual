@@ -10,6 +10,7 @@
   * [vProtect Virtual Machine deployment on VMware](image/image_esxi.md)
 * [Initial configuration](initial_config/README.md)
   * [LVM setup on vProtect Node for disk attachment backup mode](initial_config/setup_lvm.md)
+  * [File system setup](initial_config/setup_filesystem.md)
   * [IBM Spectrum Protect setup](initial_config/setup_isp.md)
   * [Dell-EMC NetWorker setup](initial_config/setup_networker.md)
   * [Veritas NetBackup setup](initial_config/setup_netbackup.md)
