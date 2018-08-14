@@ -14,11 +14,9 @@ vProtect Node attaches VM disks that potentially are clones of its own \(i.e. if
 2. Check with `vgscan -vvv` that your OS volumes are still being detected:
 
    ```text
-   ...
         Allocated VG vg_vprotect at 0x55914f19fac0.
         Importing logical volume vg_vprotect/lv_root.
         Importing logical volume vg_vprotect/lv_swap.
-   ...
    ```
 
 3. Reboot:
