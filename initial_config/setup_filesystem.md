@@ -1,7 +1,7 @@
 # Local File System setup
 
 1. Prepare vProtect node:
-	Log in to vProtect node, and create mount directory in example `//backupdestination`/
+	Log in to vProtect node, and create mount directory in example `/backupdestination`
 	
 	 ```text
       mkdir /backupdestination
@@ -67,9 +67,10 @@
 	 ![](../.gitbook/assets/setup_filessytem_dedup.png)
 	 
 	c) With deduplication example, and storage is staging directory:
-	 In "Storage paths" type `/vprotect_data/backupdestination`
-	 In "Mount deduplicated file system to a different directory than backup destination path" type `/vprotect_data
-	 `
+	
+	 In "Storage paths" type `/vprotect_data/backupdestination`.
+	 In "Mount deduplicated file system to a different directory than backup destination path" type `/vprotect_data`.
+	 
 	 ![](../.gitbook/assets/setup_filessytem_dedup_vprotectdata.png)
 	
 	At the end save configuration.
