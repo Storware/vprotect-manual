@@ -69,7 +69,7 @@ RHV/oVirt 3.5.1+ environments \(using API v3\) require export storage domain to 
 
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by RHV/oVirt manager.
 
-   ![](../.gitbook/assets/setup_rhv-storagedomain%20%281%29.png)
+![](../.gitbook/assets/setup_rhv-storagedomain%20%281%29.png)
 
 3. When adding oVirt/RHV 4.0+ HV managers make sure to have URL like the following:
 
