@@ -67,10 +67,14 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
    ```
 
 4. Open "BACKUP DESTINATIONS" section from the left menu:
+
 ![](../.gitbook/assets/admin_webui_backup_destinations.png)
+
 5. Create new Catalogic vStor Server Backup Destination \(choose from the right-top drop-down menu\)
 6. Fill in template with your information:
+
 ![](../.gitbook/assets/setup_vstor_defaults.png)
+
    * `FIRST_VS_HOST` - your primary vStor Server IP/hostname
    * `SECOND_VS_HOST` - optional, secondary vStor Server IP/hostname, where data is going to be replicated to
    * `VS_PARTNER_ID` - optional, secondary vStor partner ID - you can get this ID by running this command on vStor Server shell:
