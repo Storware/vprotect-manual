@@ -66,7 +66,8 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
    and check to make sure that only the key(s) you wanted were added.
    ```
 
-4. Open "BACKUP DESTINATIONS" section from the left menu: ![](../.gitbook/assets/admin_webui_backup_destinations.png)
+4. Open "BACKUP DESTINATIONS" section from the left menu:
+![](../.gitbook/assets/admin_webui_backup_destinations.png)
 5. Create new Catalogic vStor Server Backup Destination \(choose from the right-top drop-down menu\)
 6. Fill in template with your information:
 ![](../.gitbook/assets/setup_vstor_defaults.png)
