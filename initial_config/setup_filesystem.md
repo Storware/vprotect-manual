@@ -55,11 +55,11 @@
 
    a\) Without deduplication example:
 
-   ![](../.gitbook/assets/setup_filessytem.png)
+![](../.gitbook/assets/setup_filessytem.png)
 
    b\) With deduplication example:
 
-   ![](../.gitbook/assets/setup_filessytem_dedup.png)
+![](../.gitbook/assets/setup_filessytem_dedup.png)
 
    c\) With deduplication example, and deduplicated storage is staging directory:
 
