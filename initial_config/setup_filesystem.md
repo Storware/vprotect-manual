@@ -1,7 +1,7 @@
 # Local File System setup
 
 1. Prepare vProtect node:
-	Log in to vProtect node, and create mount directory in example /backupdestination
+	Log in to vProtect node, and create mount directory in example `//backupdestination`/
 	
 	 ```text
       mkdir /backupdestination
@@ -20,48 +20,49 @@
 	  Disk /dev/mapper/centos-swap: 3221 MB, 3221225472 bytes, 6291456 sectors
      ```
 
-	 a) Without deduplication:
+	* Next steps only if you don't wan't use deduplication:
 	 
-	If you have new clean disk prepare filesystem on it:
+	 If you have new clean disk prepare filesystem on it:
 	
 	 ```text
       mkfs.xfs -K /dev/sdc
      ```
 	
-	Mount your existing filesystem in created directory:
+	 Mount your existing filesystem in created directory:
 	
 	 ```text
       mount /dev/sdc /backupdestination
      ```
 
-	Add permision for vprotect user to directory `/backupdestination`:
+	 Add permision for vprotect user to directory `/backupdestination`:
 	
 	 ```text
       chown vprotect:vprotect -R /backupdestination
      ```
 	 
-	Add line to `/etc/fstab` file, to automatically mount new filesystem after reboot:
+	 Add line to `/etc/fstab` file, to automatically mount new filesystem after reboot:
    
    	 ```text
       /dev/sdc	/backupdestination	xfs	defaults 0 0
      ```
 	
-	If you want store backups on NFS share then you need add to `/etc/fstab`
+	 If you want store backups on NFS share then you need add to `/etc/fstab`
    
 	 ```text
       10.50.1.28:/example_nfs_share /backupdestination nfs defaults  0 0
      ```
    
-   b) With deduplication
+2. Login to vProtect, and go to "Backup Destinations".
+	Click on "Create Backup Destination", chose "File system".
+	Type name for new backup destination, and set retention.
+	
+	a) Without deduplication example:
+	 In "Storage paths" type `/backupdestination`
+	 ![](../.gitbook/assets/setup_filessytem.png)
+	
+	
+	b) With deduplication example:
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-     ![](../.gitbook/assets/setup_isp.png)
+	 ![](../.gitbook/assets/setup_filessytem_dedup.png)
+	
+	At the end save configuration.
