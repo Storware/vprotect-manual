@@ -30,9 +30,13 @@ Copy pack to your export domain:
    cp -rf temp/vProtect-RHV/* 6abe3ee7-b174-4cc3-953a-af89c6e8b82c/
 ```
 
-Log in to RHV/oVirt, go to "Storage", and export domain, tab VM Import. Select vProtect image and import it. ![](../.gitbook/assets/images_rhv_01%20%281%29.png)
+Log in to RHV/oVirt, go to "Storage", and export domain, tab VM Import. Select vProtect image and import it.
 
-Choose Cluster, and deploy it. ![](../.gitbook/assets/images_rhv_02%20%281%29.png)
+![](../.gitbook/assets/images_rhv_01%20%281%29.png)
+
+Choose Cluster, and deploy it.
+
+![](../.gitbook/assets/images_rhv_02%20%281%29.png)
 
 After import image to enviroinment set IP addresation, run nmtui &gt; "Edit a connection". Select network interface, and edit it network settings.
 
