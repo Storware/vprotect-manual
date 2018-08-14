@@ -70,6 +70,6 @@
 	 In "Storage paths" type `/vprotect_data/backupdestination`.
 	 In "Mount deduplicated file system to a different directory than backup destination path" type `/vprotect_data`.
 
-	 ![](../.gitbook/assets/setup_filessytem_dedup_vpr.png)
+	 <img scr="../.gitbook/assets/setup_filessytem_dedup_vpr.png" width="500">
 	
 	At the end save configuration.
