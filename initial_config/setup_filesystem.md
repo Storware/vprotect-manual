@@ -55,22 +55,21 @@
 2. Login to vProtect, and go to "Backup Destinations".
 	Click on "Create Backup Destination", chose "File system".
 	Type name for new backup destination, and set retention.
-	In "Storage paths" type `/backupdestination`
+	In "Storage paths" type `/backupdestination`.
 	
 	a) Without deduplication example:
 
 	 ![](../.gitbook/assets/setup_filessytem.png)
-	
-	
+
 	b) With deduplication example:
 
 	 ![](../.gitbook/assets/setup_filessytem_dedup.png)
-	
-	c) With deduplication example, and storage is staging directory:
+
+	c) With deduplication example, and deduplicated storage is staging directory:
 	
 	 In "Storage paths" type `/vprotect_data/backupdestination`.
 	 In "Mount deduplicated file system to a different directory than backup destination path" type `/vprotect_data`.
-	 
+
 	 ![](../.gitbook/assets/setup_filessytem_dedup_vprotectdata.png)
 	
 	At the end save configuration.
