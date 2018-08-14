@@ -4,8 +4,8 @@
 	Log in to vProtect node, and create mount directory in example `/backupdestination`
 	
 	 ```text
-      mkdir /backupdestination
-     ```
+      	mkdir /backupdestination
+         ```
 
 	List all existing disk's, and found your new:
 	
