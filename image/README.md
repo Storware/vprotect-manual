@@ -6,9 +6,10 @@ RHV, Ovirt, or ESXi host to deploy vProtect image.
 
 2 CPU core 4GB RAM
 
-Default login, and password to SSH: login: root password: vPr0tect\`
+### Default login, and password 
 
-Default login, and password to WebUI: login: admin password: vPr0tect
+* Operating system / SSH: login: **root** password: **vPr0tect**
+* WebUI: login: **admin** password: **vPr0tect**
 
 ## First steps after deployment
 

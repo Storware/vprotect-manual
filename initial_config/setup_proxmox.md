@@ -6,28 +6,27 @@ Proxmomx environments require backup storage to be defined on each server. This 
 
 ![](../.gitbook/assets/setup_proxmox-editstorage%20%281%29.png)
 
-   * Note that export must be set to use UID and GID of `vprotect` user
-   * Example export configuration in `/etc/exports` to the selected hypervisor in RHV cluster:
+* Note that export must be set to use UID and GID of `vprotect` user
+* Example export configuration in `/etc/exports` to the selected hypervisor in RHV cluster:
 
-     ```text
-     /vprotect_data    PROXMOX_HOSTS(fsid=6,rw,sync,insecure,all_squash,anonuid=993,anongid=990)
-     ```
+  ```text
+  /vprotect_data    PROXMOX_HOSTS(fsid=6,rw,sync,insecure,all_squash,anonuid=993,anongid=990)
+  ```
 
-     where `anonuid=993` and `anongid=990` should have correct UID and GID returned by command:
+  where `anonuid=993` and `anongid=990` should have correct UID and GID returned by command:
 
-     ```text
-     [root@vProtect3 ~]# id vprotect
-     uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
-     ```
+  ```text
+  [root@vProtect3 ~]# id vprotect
+  uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
+  ```
 
-2. Both import and export operations will be done using this NFS shares – restore will be done directly to this storage domain, so you can easily import backup into Proxmox environment
-
+1. Both import and export operations will be done using this NFS shares – restore will be done directly to this storage domain, so you can easily import backup into Proxmox environment
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by Proxmox.
 
 ![](../.gitbook/assets/setup_proxmox-storagelist.png)
 
-3. Name for storage must be later provided in node configuration \(`Hypervisor -> Proxmox` section\)
-4. Proxmomx \(like KVM/Xen\) environments require to have correct entry in known\_hosts on the node:
+1. Name for storage must be later provided in node configuration \(`Hypervisor -> Proxmox` section\)
+2. Proxmomx \(like KVM/Xen\) environments require to have correct entry in known\_hosts on the node:
 
    * it must be known\_hosts file that belongs to `vprotect` user
    * algorithm must be set to `ssh-rsa`

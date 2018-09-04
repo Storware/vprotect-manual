@@ -57,13 +57,13 @@
 
 ![](../.gitbook/assets/setup_filessytem.png)
 
-   b\) With deduplication example:
+b\) With deduplication example:
 
 ![](../.gitbook/assets/setup_filessytem_dedup.png)
 
-   c\) With deduplication example, and deduplicated storage is staging directory:
+c\) With deduplication example, and deduplicated storage is staging directory:
 
-   In "Storage paths" type `/vprotect_data/backupdestination`. In "Mount deduplicated file system to a different directory than backup destination path" type `/vprotect_data`.
+In "Storage paths" type `/vprotect_data/backupdestination`. In "Mount deduplicated file system to a different directory than backup destination path" type `/vprotect_data`.
 
 ![](../.gitbook/assets/setup_filessytem_dedup_vpr.png)
 

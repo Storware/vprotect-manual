@@ -40,3 +40,5 @@ Choose Cluster, and deploy it.
 
 After import image to enviroinment set IP addresation, run nmtui &gt; "Edit a connection". Select network interface, and edit it network settings.
 
+You can find login credentials [here](./#default-login-and-password).
+

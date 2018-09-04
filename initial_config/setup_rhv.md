@@ -66,12 +66,11 @@ RHV/oVirt 3.5.1+ environments \(using API v3\) require export storage domain to 
      uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
      ```
 2. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import backup into RHEV/oVirt \(shown below\)
-
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by RHV/oVirt manager.
 
 ![](../.gitbook/assets/setup_rhv-storagedomain%20%281%29.png)
 
-3. When adding oVirt/RHV 4.0+ HV managers make sure to have URL like the following:
+1. When adding oVirt/RHV 4.0+ HV managers make sure to have URL like the following:
 
    ```text
    https://RHV_MGR_HOST/ovirt-engine/api/v3

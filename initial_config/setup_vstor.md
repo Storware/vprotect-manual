@@ -70,27 +70,27 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
 
 ![](../.gitbook/assets/admin_webui_backup_destinations.png)
 
-5. Create new Catalogic vStor Server Backup Destination \(choose from the right-top drop-down menu\)
-6. Fill in template with your information:
+1. Create new Catalogic vStor Server Backup Destination \(choose from the right-top drop-down menu\)
+2. Fill in template with your information:
 
 ![](../.gitbook/assets/setup_vstor_defaults.png)
 
-   * `FIRST_VS_HOST` - your primary vStor Server IP/hostname
-   * `SECOND_VS_HOST` - optional, secondary vStor Server IP/hostname, where data is going to be replicated to
-   * `VS_PARTNER_ID` - optional, secondary vStor partner ID - you can get this ID by running this command on vStor Server shell:
+* `FIRST_VS_HOST` - your primary vStor Server IP/hostname
+* `SECOND_VS_HOST` - optional, secondary vStor Server IP/hostname, where data is going to be replicated to
+* `VS_PARTNER_ID` - optional, secondary vStor partner ID - you can get this ID by running this command on vStor Server shell:
 
-     ```text
-     [root@localhost ~]# vstor partner show
-     ID                               | MGMT ADDRESS | API PORT | SSH PORT
-     55cd380b7dc848bbb439bfd444bc1799 | 10.10.10.2   | 8900     | 22
-     ```
+  ```text
+  [root@localhost ~]# vstor partner show
+  ID                               | MGMT ADDRESS | API PORT | SSH PORT
+  55cd380b7dc848bbb439bfd444bc1799 | 10.10.10.2   | 8900     | 22
+  ```
 
-   * if secondary server is not provided - vProtect will assume that no replication is needed
-   * **Example**:
+* if secondary server is not provided - vProtect will assume that no replication is needed
+* **Example**:
 
 ![](../.gitbook/assets/setup_vstor_example.png)
 
-7. Initiate backup to test it the scripts have been executed correctly - in the `vprotect_daemon.log` files you should be able to see messages like this:
+1. Initiate backup to test it the scripts have been executed correctly - in the `vprotect_daemon.log` files you should be able to see messages like this:
 
    ```text
    2018-05-04 15:31:39.133  INFO

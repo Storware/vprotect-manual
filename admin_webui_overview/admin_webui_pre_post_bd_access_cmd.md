@@ -24,12 +24,12 @@
 
 ![](../.gitbook/assets/admin_webui_backup_destinations.png)
 
-6. Open your Backup Destination \(click on its name\)
-7. Provide pre/post access command arguments \(first argument is the command being executed locally on the **node**\):
+1. Open your Backup Destination \(click on its name\)
+2. Provide pre/post access command arguments \(first argument is the command being executed locally on the **node**\):
 
 ![](../.gitbook/assets/admin_webui_bd_details_pre_post_access_cmd.png)
 
-8. Initiate backup to test it the scripts have been executed correctly - in the `vprotect_daemon.log` files you should be able to see messages like this:
+1. Initiate backup to test it the scripts have been executed correctly - in the `vprotect_daemon.log` files you should be able to see messages like this:
 
    ```text
    2018-05-04 15:31:39.133  INFO
