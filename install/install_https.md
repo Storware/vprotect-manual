@@ -1,15 +1,17 @@
 # Enabling HTTPS connectivity for remote nodes
 
-Default certificate presented by application server uses `localhost`. This works only for local node installations \(server and node on a single host\).
+Default certificate presented by application server uses `localhost.localdomain`. This works only for local node installations \(server and node on a single host\).
 
 **Notice**:
 
+* When asked for certificate/keystore password use: `changeit`.
 * you can use default certificate - remember that you may need to use `./node_add_ssl_cert.sh` script after future updates to refresh certificate on the node
-* for default certificate - jump to the Node configuration and use `localhost` instead of `vprotectserver.local` example
+* for default certificate - jump to the Node configuration and use `localhost.localdomain` instead of `vprotectserver.local` example
+* When registering locally node over HTTPS please note that URL you should use`localhost.localdomain` - **NOT** `localhost`
 
-This section presents steps necessary to generate SSL certificate, setup vProtect to use it and how to regiester remote node.
 
-**Notice**: When asked for certificate/keystore password use: `changeit`.
+
+This section presents steps necessary to generate SSL certificate, setup vProtect to use it and how to register remote node.
 
 ## vProtect Server \(new certificate\)
 
@@ -65,31 +67,7 @@ This section presents steps necessary to generate SSL certificate, setup vProtec
    chown vprotect:vprotect /opt/vprotect/keystore.jks
    ```
 
-6. Edit `/opt/vprotect/payara.properties` and uncomment the following lines so they look like this:
-
-   ```text
-   #eu.storware.vprotect.http.port=8080
-   #eu.storware.vprotect.https.port=8181
-   #eu.storware.vprotect.db.host=localhost
-   #eu.storware.vprotect.db.port=3306
-   eu.storware.vprotect.ssl.certname=vprotect
-   #payaramicro.userLogFile=/opt/vprotect/logs/appserver/server.log
-   #payaramicro.logToFile=true
-   javax.net.ssl.keyStore=/opt/vprotect/keystore.jks
-   javax.net.ssl.keyStorePassword=changeit
-   eu.storware.vprotect.db.user=vprotect
-   ```
-
-   ```text
-   **Note: there are 3 lines uncommented above**:
-   ```
-
-   ```text
-   eu.storware.vprotect.ssl.certname=vprotect
-   javax.net.ssl.keyStore=/opt/vprotect/keystore.jks
-   javax.net.ssl.keyStorePassword=changeit
-   ```
-
+6. Edit `/opt/vprotect/payara.properties` and and change path to the keystore:  `javax.net.ssl.keyStore=/opt/vprotect/keystore.jks`
 7. Restart vProtect Server:
 
    ```text
@@ -120,7 +98,7 @@ This section presents steps necessary to generate SSL certificate, setup vProtec
    ./node_add_ssl_cert.sh [SERVER_HOST] [PORT] [KEYSTORE_PASS]
    ```
 
-   where defaults \(if arguments have not been provided\) are `SERVER_HOST` = `localhost`, `PORT` = `8181`, `KEYSTORE_PASS` = `changeit` \(default java keystore password\), examples:
+   where defaults \(if arguments have not been provided\) are `SERVER_HOST` = `127.0.0.1`, `PORT` = `8181`, `KEYSTORE_PASS` = `changeit` \(default java keystore password\), examples:
 
    * Default local installation \(Server and Node on the same host\):
 
@@ -150,6 +128,6 @@ This section presents steps necessary to generate SSL certificate, setup vProtec
    * Local installation with default certificate:
 
      ```text
-     vprotect node -r node1 admin https://localhost:8181/api
+     vprotect node -r node1 admin https://localhost.localdomain:8181/api
      ```
 
