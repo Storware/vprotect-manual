@@ -7,13 +7,14 @@ To manage VMs in the system use `vprotect vm` sub-command.
 VMs are detected automatically during `Index` task executed on the HV or HV manager.
 
 ```text
-[root@localhost ~]# vprotect vm 
-Incorrect syntax: Missing required option: [-A Assign VM to the group, -d Delete VM, -D List detected VM disks, -g Show virtual machine details, -xC Set pre-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -XC Set post-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -wb Acknowledge warnings related to the backup, -l List VMs, -L List backups of the VM, -xE Set pre-snapshot CMD exec enabled (1) / disabled (0), -XE Set post-snapshot CMD exec enabled (1) / disabled (0), -sC Set SSH access credentials, -S List managed VM snapshots, -T List tasks related to the VM, -sH Set SSH access host/port, -w Acknowledge all backup warnings related to the VM, -gb Show backup details]
+[root@localhost ~]# vprotect vm
+Incorrect syntax: Missing required option: [-A Assign VM to the policy, -d Delete VM, -D List detected VM disks, -g Show virtual machine details, -xC Set pre-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -XC Set post-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -wb Acknowledge warnings related to the backup, -l List VMs, -L List backups of the VM, -xE Set pre-snapshot CMD exec enabled (1) / disabled (0), -XE Set post-snapshot CMD exec enabled (1) / disabled (0), -cS Create VM snapshot, -sC Set SSH access credentials, -S List managed VM snapshots, -T List tasks related to the VM, -sH Set SSH access host/port, -w Acknowledge all backup warnings related to the VM, -gb Show backup details]
 
-usage: vm -A <GUID> <VM_GROUP_GUID> | -d <GUID> | -D <GUID> | -g <<VM_GUID>> | -gb <<BACKUP_GUID>> | -l | -L <GUID> | -S <GUID> | -sC <GUID> <SSH_USER> <SSH_PASS> | -sH <GUID> <SSH_HOST>
-       <SSH_PORT> | -T <GUID> | -w <GUID> | -wb <BACKUP_GUID> | -xC <GUID> <CMD_STRING> | -XC <GUID> <CMD_STRING> | -xE <GUID> <0|1> | -XE <GUID> <0|1>
+usage: vm -A <GUID> <VM_POLICY_GUID> | -cS <GUID> <RULE_GUID> <PRIORITY> | -d <GUID> | -D <GUID> | -g <<VM_GUID>> | -gb <<BACKUP_GUID>> | -l | -L <GUID> | -S <GUID> | -sC <GUID> <SSH_USER> <SSH_PASS> | -sH <GUID>
+       <SSH_HOST> <SSH_PORT> | -T <GUID> | -w <GUID> | -wb <BACKUP_GUID> | -xC <GUID> <CMD_STRING> | -XC <GUID> <CMD_STRING> | -xE <GUID> <0|1> | -XE <GUID> <0|1>
 Virtual machine management
- -A,--assign-vmg <GUID> <VM_GROUP_GUID>                   Assign VM to the group
+ -A,--assign-vm-policy <GUID> <VM_POLICY_GUID>            Assign VM to the policy
+ -cS,--create-snapshot <GUID> <RULE_GUID> <PRIORITY>      Create VM snapshot
  -d,--delete <GUID>                                       Delete VM
  -D,--list-disks <GUID>                                   List detected VM disks
  -g,--details <<VM_GUID>>                                 Show virtual machine details
@@ -56,5 +57,11 @@ Virtual machine management
 
   ```text
   vprotect vm -L 0f36f40c-6427-4035-9f2b-1ead6aca3597
+  ```
+
+* To create snapshot of a VM with given GUID \(VM must have snapshot policy already assigned\):
+
+  ```text
+  vprotect vm -cS 0f36f40c-6427-4035-9f2b-1ead6aca3597
   ```
 

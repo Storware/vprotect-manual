@@ -9,22 +9,29 @@ Every node provides CLI that can be used to manage configuration and invoke task
 usage: vprotect <COMMAND> -<ARG_1> ... -<ARG_N>
 
 COMMAND is one of the following:
- node             Node management
- config           Node configuration management
- hv               Hypervisor management
- hvm              Hypervisor manager management
- vm               Virtual machine management
- vmg              VM group management
- bd               Backup destination management
- sched            Schedule management
- br               Backup/restore
- mnt              Mounted backup management
- task             Task management
- login            User login
- logout           Node and user logout
- stop             Safely stops node
- status            Shows node status
- start            Starts node
+ node     		Node management
+ config   		Node configuration management
+ hv       		Hypervisor management
+ hvm      		Hypervisor manager management
+ hc       		Hypervisor cluster management
+ hs       		Hypervisor storage management
+ vm       		Virtual machine management
+ vmpolicy 		VM backup policy management
+ bd       		Backup destination management
+ sched    		Schedule management
+ brvm     		VM backup & restore
+ brapp    		Application backup & restore
+ mnt      		Mounted backup management
+ task     		Task management
+ login    		User login
+ logout   		Node and user logout
+ stop     		Safely stops node
+ snappolicy		Snapshot policy management
+ app      		Application backup management
+ appconf  		App command execution management
+ apppolicy		Application backup policy management
+ status			Shows node status
+ start			Starts node
 ```
 
 ## Starting and stopping node

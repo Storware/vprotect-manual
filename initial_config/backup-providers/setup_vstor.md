@@ -68,12 +68,12 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
 
 4. Open "BACKUP DESTINATIONS" section from the left menu:
 
-![](../.gitbook/assets/admin_webui_backup_destinations.png)
+![](../../.gitbook/assets/admin_webui_backup_destinations.png)
 
 1. Create new Catalogic vStor Server Backup Destination \(choose from the right-top drop-down menu\)
 2. Fill in template with your information:
 
-![](../.gitbook/assets/setup_vstor_defaults.png)
+![](../../.gitbook/assets/setup_vstor_defaults.png)
 
 * `FIRST_VS_HOST` - your primary vStor Server IP/hostname
 * `SECOND_VS_HOST` - optional, secondary vStor Server IP/hostname, where data is going to be replicated to
@@ -88,7 +88,7 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
 * if secondary server is not provided - vProtect will assume that no replication is needed
 * **Example**:
 
-![](../.gitbook/assets/setup_vstor_example.png)
+![](../../.gitbook/assets/setup_vstor_example.png)
 
 1. Initiate backup to test it the scripts have been executed correctly - in the `vprotect_daemon.log` files you should be able to see messages like this:
 

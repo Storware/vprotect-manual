@@ -1,20 +1,18 @@
 # Disaster recovery
 
-Storware vProtect stores all of the metadata in the local database. It is **highly recommended** to setup periodic DB backup on vProtect Server. Database should be backed up when no tasks are running and therefore a common practice is to schedule it to be done during the day \(outside VM backup window\). Backup should be transferred to secure location.
+Storware vProtect stores all of the metadata in the local database. It is **highly recommended** to setup periodic DB backup on vProtect Server. Check [Initial configuration](initial_config/#server) for more informations. 
 
-Please find below commands required to backup and restore vProtect Server database. **Note**: there is no space after "-p”.
+In case you need to restore vProtect DB:
 
-* DB backup:
+* if you have a working vProtect - you can use it to restore this file to the specified location and then restore it as described in [Disaster recovery](admin_dr.md) section
+* if you don't have working vProtect - you can try to use the last copy of the database \(it is left by default in `/tmp/vprotect_db.sql.gz` on the server host.
+* if it is not there and you don't have vProtect working - you may need to use external tools such as S3 browser, TSM client, or just browse through your file system backup destination directories to find and download this file and later restore it as described in [Disaster recovery](admin_dr.md) section.
 
-  ```text
-  mysqldump -u root -pDBPASSWORD vprotect | gzip -9 > PATH_TO_GZIPPED_BACKUP
-  ```
+Once you have your backup you can restore DB with the following command:
 
-* In case of any issues - you can later restore DB with:
-
-  ```text
-  gunzip < PATH_TO_GZIPPED_BACKUP | mysql -u root -pDBPASSWORD vprotect
-  ```
+```text
+gunzip < PATH_TO_GZIPPED_BACKUP | mysql -u root -pDBPASSWORD vprotect
+```
 
 Additionally it is recommend to also keep a copy of backup provider specific files, i.e. `dsm.opt` and `dsm.sys` files for IBM Spectrum Protect, or other config files used by NetBackup, Networker, OpenDedup etc.
 

@@ -1,26 +1,29 @@
-# HV managers \(oVirt/RHV/Oracle VM\)
+# HV managers \(oVirt/RHV/Oracle VM/Nutanix/Kubernetes\)
 
 Hypervisor manager management module is used to add, remove hypervisor managers \(currently only oVirt and RHEV managers\) and invoke indexing task. Indexing tasks gathers information about hypervisors and VMs running in the managed environment and updates their location if the VM has been moved to the different hypervisor.
 
 To manage HV managers in the system use `vprotect hvm` sub-command.
 
-**Note** that if you're using RHV/oVirt/Oracle VM then hypervisors will be detected automatically as a part of index task. So there is no need to define OVM hypervisors and for RHV/oVirt KVM hosts will be detected automatically.
+**Note** that if you're using RHV/oVirt/Oracle VM/Nutanix/Kubernetes then hypervisors will be detected automatically as a part of index task. So there is no need to define every hypervisor manually as they will be detected automatically.
 
 ```text
-Incorrect syntax: Missing required option: [-c Create hypervisor manager (type = ["rhev", "ovm"]), -d Delete hypervisor manager, -u Set user/password, -V List VMs managed by hypervisor manager, -i Index inventory on hypervisor manager, -l List hypervisor managers, -L List hypervisors managed by hypervisor manager, -m Modify hypervisor manager, -n Set node for hypervisor]
+[root@vprotect ~]# vprotect hvm
+Incorrect syntax: Missing required option: [-c Create hypervisor manager (type = ["rhev", "rhv", "ovm", "nutanix"]), -d Delete hypervisor manager, -e Set export/import mode for HV manager, -u Set user/password, -V List VMs managed by hypervisor manager, -g Show HV manager details, -i Index inventory on hypervisor manager, -l List hypervisor managers, -L List hypervisors managed by hypervisor manager, -m Modify hypervisor manager, -n Set node for hypervisor]
 
-usage: hvm -c <URL> <TYPE> | -d <GUID | HOST> | -i <GUID | HOST> | -l | -L <GUID | HOST> | -m <GUID | HOST> <URL> | -n <GUID | HOST> <NODE_GUID | NODE_NAME> | -u <GUID | HOST> <USER> <PASSWORD> | -V <GUID |
-       HOST>
+usage: hvm -c <URL> <TYPE> | -d <GUID | HOST> | -e <GUID | HOST> <DEFAULT|DISK_ATTACHMENT|DISK_IMAGE_TRANSFER> | -g <GUID | HOST> | -i <GUID | HOST> | -l | -L <GUID | HOST> | -m <GUID | HOST> <URL> | -n <GUID |
+       HOST> <NODE_GUID | NODE_NAME> | -u <GUID | HOST> <USER> <PASSWORD> | -V <GUID | HOST>
 Hypervisor manager management
- -c,--create <URL> <TYPE>                              Create hypervisor manager (type = ["rhev", "ovm"])
- -d,--delete <GUID | HOST>                             Delete hypervisor manager
- -i,--index <GUID | HOST>                              Index inventory on hypervisor manager
- -l,--list                                             List hypervisor managers
- -L,--list-hvs <GUID | HOST>                           List hypervisors managed by hypervisor manager
- -m,--modify <GUID | HOST> <URL>                       Modify hypervisor manager
- -n,--set-node <GUID | HOST> <NODE_GUID | NODE_NAME>   Set node for hypervisor
- -u,--credentials <GUID | HOST> <USER> <PASSWORD>      Set user/password
- -V,--list-vms <GUID | HOST>                           List VMs managed by hypervisor manager
+ -c,--create <URL> <TYPE>                                                                  Create hypervisor manager (type = ["rhev", "rhv", "ovm", "nutanix", "kubernetes"])
+ -d,--delete <GUID | HOST>                                                                 Delete hypervisor manager
+ -e,--set-export-import-mode <GUID | HOST> <DEFAULT|DISK_ATTACHMENT|DISK_IMAGE_TRANSFER>   Set export/import mode for HV manager
+ -g,--details <GUID | HOST>                                                                Show HV manager details
+ -i,--index <GUID | HOST>                                                                  Index inventory on hypervisor manager
+ -l,--list                                                                                 List hypervisor managers
+ -L,--list-hvs <GUID | HOST>                                                               List hypervisors managed by hypervisor manager
+ -m,--modify <GUID | HOST> <URL>                                                           Modify hypervisor manager
+ -n,--set-node <GUID | HOST> <NODE_GUID | NODE_NAME>                                       Set node for hypervisor
+ -u,--credentials <GUID | HOST> <USER> <PASSWORD>                                          Set user/password
+ -V,--list-vms <GUID | HOST>                                                               List VMs managed by hypervisor manager
 ```
 
 ## Examples

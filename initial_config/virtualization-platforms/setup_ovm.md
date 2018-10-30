@@ -22,5 +22,5 @@ Oracle VM environments require storage repositories to be defined for each serve
 2. Both import and export operations will be done using this NFS shares – restore will be done directly to this storage domain, so you can easily import backup into Oracle VM environment
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by OVM manager.
 
-![](../.gitbook/assets/setup_ovm-storagerepo%20%281%29.png)
+![](../../.gitbook/assets/setup_ovm-storagerepo%20%281%29.png)
 

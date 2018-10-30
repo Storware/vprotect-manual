@@ -2,17 +2,20 @@
 
 ![](.gitbook/assets/intro%20%281%29.png)
 
-## Storware vProtect 3.6 Manual
+## Storware vProtect 3.7 Manual
 
 This is the official documentation for Storware vProtect software. Here you'll find all the information needed to setup and configure backup for your virtual infrastructure.
 
 ### About vProtect
 
-Storware vProtect provides a crash-consistent backup of VMs running in open virtual environments. With easy management interface, you are able to quickly set up protection and store backups in several different backup providers.
+Storware vProtect is a backup and snapshot-management tool for VMs/containers running in open virtual environments and any application which allows to automate backup process with scripts. With easy management interface, you are able to quickly set up protection and store backups in several different backup providers.
 
 #### Functional details:
 
 * VM-level backup and protection
+* Generic application backup with your custom scripts
+* Snapshot management \(Copy Data Management\) for KVM, Citrix, RHV 
+* Deployment protection for Kubernetes environments
 * Hybrid Protection \(2nd Tier can be at enterprise backup server or in the cloud\)
 * Multi-node support for better scalability or geographically dispersed environments
 * Disaster Recovery based on IBM Spectrum Protect \(TSM\), Dell-EMC Networker, Veritas Netbackup, Amazon S3, Microsoft Azure, OpenStack Swift or any mounted file-system \(local or remote\)
@@ -26,12 +29,13 @@ Storware vProtect provides a crash-consistent backup of VMs running in open virt
 * Last backup can be kept on vProtect Server for faster recovery
 * File-level restore using mountable backups \(Citrix XenServer, RHV/oVirt Nutanix AHV, KVM/Xen and Oracle VM\)
 * RHV API v4 support with proxy VM backup strategy \(which doesn't require export storage domain\)
-* VM auto-grouping based on regular expressions and tags \(Citrix, RHV/oVirt\)
+* VM auto-grouping based on regular expressions and tags \(Citrix, RHV/oVirt, Oracle VM\)
 * Data is exported in native \(hypervisor-specific\) format
-* Snapshot consistent technology \(and use of quiesced snapshots for Citrix XenServer, Nutanix AHV and FS freeze in oVirt/RHV enviornments\)
+* Snapshot consistent technology \(and use of quiesced snapshots for Citrix XenServer, Nutanix AHV and FS freeze in oVirt/RHV environments\)
 * Pre/post snapshot remote command execution on VM to enable operations such as DB quiesce
 * Pre/post backup destination access command execution to allow mount/unmount operations on external storage providers
 * LDAP authentication in management console
+* Build-in vProtect DB backup
 * Easy to use and intuitive management \(HTML5 web UI and CLI\) - protect your virtual infrastructure in 3 easy steps:
   1. Connect to your infrastructure and backup provider
   2. Schedule backups or backup on demand

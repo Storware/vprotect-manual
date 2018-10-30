@@ -26,5 +26,5 @@
    * Make sure to type IP address of your ISP server, TCP port, node name correctly:
    * Example:
 
-![](../.gitbook/assets/setup_isp.png)
+![](../../.gitbook/assets/setup_isp.png)
 

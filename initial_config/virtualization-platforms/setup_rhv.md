@@ -27,11 +27,11 @@ https://RHV_MGR_HOST/ovirt-engine/api
 
 Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node VM:
 
-![](../.gitbook/assets/setup_rhv-vitrio-scsi.png)
+![](../../.gitbook/assets/setup_rhv-vitrio-scsi.png)
 
 During the backup/restore operations, disks are transsferred by attaching them to the proxy VM. This approach does not require export storage domain to be set up.
 
-Please make sure to follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](setup_lvm.md)
+Please make sure to follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](../setup_lvm.md)
 
 ### Disk image transfer \(snapshot-chains\) mode - RHV/oVirt 4.2+
 
@@ -39,7 +39,7 @@ Disk image transfer mode exports data directly using RHV/oVirt 4.2+ API. There i
 
 You may need to open communication for additional port **54323** on the RHV/oVirt manager - it needs to be accessible from vProtect Node.
 
-Please make sure to follow steps in this section: [Full versions of libvirt/qemu packages installation](../install/install_libvirt_qemu.md)
+Please make sure to follow steps in this section: [Full versions of libvirt/qemu packages installation](../../install/install_libvirt_qemu.md)
 
 ## RHV/oVirt \(API v3\)
 
@@ -68,7 +68,7 @@ RHV/oVirt 3.5.1+ environments \(using API v3\) require export storage domain to 
 2. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import backup into RHEV/oVirt \(shown below\)
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by RHV/oVirt manager.
 
-![](../.gitbook/assets/setup_rhv-storagedomain%20%281%29.png)
+![](../../.gitbook/assets/setup_rhv-storagedomain%20%281%29.png)
 
 1. When adding oVirt/RHV 4.0+ HV managers make sure to have URL like the following:
 

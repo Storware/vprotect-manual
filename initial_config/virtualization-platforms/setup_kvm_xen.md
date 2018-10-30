@@ -19,7 +19,7 @@ sudo -u vprotect ssh -o HostKeyAlgorithms=ssh-rsa root@HYPERVISOR
 
 ## KVM - full libvirt installation
 
-Please make sure to follow steps in this section: [Full versions of libvirt/qemu packages installation](../install/install_libvirt_qemu.md)
+Please make sure to follow steps in this section: [Full versions of libvirt/qemu packages installation](../../install/install_libvirt_qemu.md)
 
 ## Public key authentication
 

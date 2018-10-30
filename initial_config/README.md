@@ -4,18 +4,7 @@
 
 1. Upload your license key:
    * log in to the web UI and go to the `Settings -> License` and upload your `license.key` file
-2. It is **highly recommended** to setup periodic **DB backup** on vProtect Server. Setup a cron job to do a periodic backup and transfer it to secure location to protect your configuration from being lost. Please find below commands required to backup and restore vProtect Server database. **Note**: there is no space after `-p`.
-   * DB backup:
-
-     ```text
-     mysqldump -u root -pDBPASSWORD vprotect | gzip -9 > PATH_TO_GZIPPED_BACKUP
-     ```
-
-   * In case of any issues - you can later restore DB with:
-
-     ```text
-     gunzip < PATH_TO_GZIPPED_BACKUP | mysql -u root -pDBPASSWORD vprotect
-     ```
+2. It is **highly recommended** to setup [vProtect DB backup](vprotect-db-backup.md) - database is key to restore your vProtect environment and later all of the backups that you need.
 3. Admin account setup:
    * for audit purposes it is recommended to add individual admin accounts using `Users` section \(accessible through `Users` menu item\)
    * **Notice** - make sure to set the correct **time zone** for each user - default admin account has **UTC** by default.
@@ -27,12 +16,12 @@
    * add backup destination from UI or CLI and provide necessary parmeters as described in [Backup destinations](../admin_webui_overview/admin_webui_bd.md) section.
 2. Add your HV managers \(RHV/oVirt/Oracle VM\) or Hypervisors \(KVM/Xen/Citrix XenServer/Proxmox\):
    * check for any specific requirements in the following sections \(some require additional steps to be run on **node**\):
-     * [Citrix XenServer Change Block Tracking setup](setup_citrix_cbt.md)
-     * [RHV/oVirt setup](setup_rhv.md)
-     * [Nutanix setup](setup_nutanix.md)
-     * [Oracle VM setup](setup_ovm.md)
-     * [Proxmox setup](setup_proxmox.md)
-     * [KVM \(stand-alone\)/Xen \(legacy\) setup](setup_kvm_xen.md)
+     * [Citrix XenServer Change Block Tracking setup](virtualization-platforms/setup_citrix_cbt.md)
+     * [RHV/oVirt setup](virtualization-platforms/setup_rhv.md)
+     * [Nutanix setup](virtualization-platforms/setup_nutanix.md)
+     * [Oracle VM setup](virtualization-platforms/setup_ovm.md)
+     * [Proxmox setup](virtualization-platforms/setup_proxmox.md)
+     * [KVM \(stand-alone\)/Xen \(legacy\) setup](virtualization-platforms/setup_kvm_xen.md)
    * add Hypervisors or HV managers using UI or CLI
 3. Optionally, if you have multiple node setup - to enable centralized logs view from all nodes you need to export as NFS shares `/opt/vprotect/logs/<NODE_NAME>` directories and mount them on nodes in the same location.
 
