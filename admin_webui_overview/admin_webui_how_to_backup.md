@@ -20,7 +20,7 @@ On admin task console you can see backup progress.
 
 ## Scheduled Backup
 
-Open "VIRTUAL MACHINES" tab, and go to ![](https://github.com/Storware/vprotect-manual/tree/cfa9bb2cf117ac097f14edc5da966ec14b20b951/images/admin_webui_how_backup_icon_virtual_machines_groups.png). Next create new virtual machines group, click ![](../.gitbook/assets/admin_webui_how_backup_icon_create_group.png). 
+Open "Policies" tab, and go to ![](https://github.com/Storware/vprotect-manual/tree/cfa9bb2cf117ac097f14edc5da966ec14b20b951/images/admin_webui_how_backup_icon_virtual_machines_groups.png). Next create new Policy, click ![](../.gitbook/assets/create_policy.png) . 
 
 ![](../.gitbook/assets/admin_webui_how_backup_virtual_machines_groups%20%281%29.png)
 
