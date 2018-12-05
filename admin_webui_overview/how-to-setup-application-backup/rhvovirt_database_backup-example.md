@@ -18,7 +18,7 @@ Open "APPLICATIONS" tab, and go to "Definitions", then click on ![](../../.gitbo
 
 Next create your Application, and click ![](../../.gitbook/assets/admin_webui_how_backup_icon_virtual_machines_groups_save.png).
 
-![](../../.gitbook/assets/RHVoVirt_Database_backup-example_APP_APP.png)
+![](../../.gitbook/assets/rhvovirt_database_backup-example_APP_APP.png)
 
 ## Create Policies
 
@@ -40,5 +40,5 @@ Open "SCHEDULES" tab, and go to "Aplication backup", then click on ![](../../.gi
 
 Next create your scheduler, and click ![](../../.gitbook/assets/admin_webui_how_backup_icon_virtual_machines_groups_save.png).
 
-![](../../.gitbook/assets/RHVoVirt_Database_backup-example_05.png)
+![](../../.gitbook/assets/rhvovirt_database_backup-example_05.png)
 
