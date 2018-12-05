@@ -28,7 +28,7 @@ Open "POLICIES" tab, and go to "Aplication backup", then click on ![](../../.git
 
 Next create your Policy, and click ![](../../.gitbook/assets/admin_webui_how_backup_icon_virtual_machines_groups_save.png).
 
-![](../../.gitbook/assets/xenserver_pool-example_app_pol.png)
+![](../../.gitbook/assets/xenserver_host-example_app_pol.png)
 
 From that moment you can manually run backup job. From "APPLICATIONS" tab, and go to "Definitions", then click on ![](../../.gitbook/assets/admin_webui_how_backup_icon_backup.png).
 
@@ -40,5 +40,5 @@ Open "SCHEDULES" tab, and go to "Aplication backup", then click on ![](../../.gi
 
 Next create your scheduler, and click ![](../../.gitbook/assets/admin_webui_how_backup_icon_virtual_machines_groups_save.png).
 
-![](../../.gitbook/assets/xenserver_pool_backup-example_05.png)
+![](../../.gitbook/assets/xenserver_host_backup-example_05.png)
 
