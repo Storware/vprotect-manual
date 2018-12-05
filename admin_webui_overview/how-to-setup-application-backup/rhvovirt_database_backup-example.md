@@ -22,7 +22,7 @@ Next create your Application, and click ![](../../.gitbook/assets/admin_webui_ho
 
 ## Create Policies
 
-Open "POLICIES" tab, and go to "Aplication backup", then click on ![](https://github.com/Storware/vprotect-manual/tree/fd78510bb27c97435b3e7d370c58bf0368c5c81e/.gitbook/assets/rhvovirt_database_backup-example_create_policy.png) and chose "Aplication backup".
+Open "POLICIES" tab, and go to "Aplication backup", then click on ![](../../.gitbook/assets/rhvovirt_database_backup-example_create_policy.png) and chose "Aplication backup".
 
 ![](../../.gitbook/assets/rhvovirt_database_backup-example_03.png)
 
