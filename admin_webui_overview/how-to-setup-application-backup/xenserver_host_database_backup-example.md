@@ -1,4 +1,4 @@
-# RHV/oVirt Database backup - example
+# XenServer host configuration backup - example
 
 ## Create Command
 
