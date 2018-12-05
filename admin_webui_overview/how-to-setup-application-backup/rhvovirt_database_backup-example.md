@@ -36,9 +36,9 @@ From that moment you can manually run backup job. From "APPLICATIONS" tab, and g
 
 Open "SCHEDULES" tab, and go to "Aplication backup", then click on ![](../../.gitbook/assets/admin_webui_schedules_button_create_schedule.png).
 
-![](https://github.com/Storware/vprotect-manual/tree/66661ed5f992e8c68b6dda2d6e99a38dc6e0088f/.gitbook/assets/RHVoVirt_Database_backup-example_04%20%281%29.png)
+![](../../.gitbook/assets/rhvovirt_database_backup-example_04.png)
 
 Next create your scheduler, and click ![](../../.gitbook/assets/admin_webui_how_backup_icon_virtual_machines_groups_save.png).
 
-![](https://github.com/Storware/vprotect-manual/tree/66661ed5f992e8c68b6dda2d6e99a38dc6e0088f/.gitbook/assets/RHVoVirt_Database_backup-example_05%20%281%29.png)
+![](../../.gitbook/assets/RHVoVirt_Database_backup-example_05.png)
 
