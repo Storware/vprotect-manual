@@ -8,7 +8,7 @@ Open "APPLICATIONS" tab, and go to "Command Configs", then click on ![](../../.g
 
 Next create your command config, and click ![](../../.gitbook/assets/admin_webui_how_backup_icon_virtual_machines_groups_save.png).
 
-![](https://github.com/Storware/vprotect-manual/tree/66661ed5f992e8c68b6dda2d6e99a38dc6e0088f/.gitbook/assets/RHVoVirt_Database_backup-example_APP_CMD%20%281%29.png)
+![](../../.gitbook/assets/RHVoVirt_Database_backup-example_APP_CMD.png)
 
 ## Create Application
 
