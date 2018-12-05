@@ -36,6 +36,7 @@
     * [RHV/oVirt Database backup - example](admin_webui_overview/how-to-setup-application-backup/rhvovirt_database_backup-example.md)
     * [XenServer host configuration backup - example](admin_webui_overview/how-to-setup-application-backup/xenserver_host_database_backup-example.md)
     * [XenServer pool configuration backup - example](admin_webui_overview/how-to-setup-application-backup/xenserver_pool_database_backup-example.md)
+    * [ORACLE VM Manager configuration backup - example](admin_webui_overview/how-to-setup-application-backup/oraclevm_manager_backup-example.md)
   * [How to setup pre/post snapshot command execution](admin_webui_overview/admin_webui_pre_post_snap_cmd.md)
   * [How to setup pre/post BD access command execution](admin_webui_overview/admin_webui_pre_post_bd_access_cmd.md)
   * [Hypervisor details and settings](admin_webui_overview/admin_webui_hv.md)
