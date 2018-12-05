@@ -34,6 +34,7 @@
   * [How to setup snapshot management](admin_webui_overview/how-to-setup-snapshot-management.md)
   * [How to setup Application backup](admin_webui_overview/how-to-setup-application-backup/README.md)
     * [RHV/oVirt Database backup - example](admin_webui_overview/how-to-setup-application-backup/rhvovirt_database_backup-example.md)
+	* [XenServer host configuration backup - example](admin_webui_overview/how-to-setup-application-backup/xenserver_host_database_backup-example.md)
   * [How to setup pre/post snapshot command execution](admin_webui_overview/admin_webui_pre_post_snap_cmd.md)
   * [How to setup pre/post BD access command execution](admin_webui_overview/admin_webui_pre_post_bd_access_cmd.md)
   * [Hypervisor details and settings](admin_webui_overview/admin_webui_hv.md)
