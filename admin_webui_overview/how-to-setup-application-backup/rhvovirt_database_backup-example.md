@@ -18,7 +18,7 @@ Open "APPLICATIONS" tab, and go to "Definitions", then click on ![](../../.gitbo
 
 Next create your Application, and click ![](../../.gitbook/assets/admin_webui_how_backup_icon_virtual_machines_groups_save.png).
 
-![](../../.gitbook/assets/rhvovirt_database_backup-example_APP_APP.png)
+![](../../.gitbook/assets/rhvovirt_database_backup-example_app_app.png)
 
 ## Create Policies
 
