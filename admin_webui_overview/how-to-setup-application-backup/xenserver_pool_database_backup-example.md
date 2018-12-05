@@ -1,4 +1,4 @@
-# XenServer host configuration backup - example
+# XenServer pool configuration backup - example
 
 ## Create Command
 
