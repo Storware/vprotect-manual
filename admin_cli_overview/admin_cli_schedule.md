@@ -29,7 +29,7 @@ Schedule management
 * To list all schedules
 
   ```text
-  vprotect shed -l
+  vprotect sched -l
   ```
 
 * To create a full backup schedule with name Schedule1 executed every day at 05:00 with 60 minutes of time window:
