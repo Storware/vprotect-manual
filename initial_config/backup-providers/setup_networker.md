@@ -11,4 +11,4 @@
 
 3. Login to vProtect, and go to "Backup Destinations". Click on "Create Backup Destination", chose "Dell EMC NetWorker". Type name for new backup destination, and set retention. Enter Networker client name, and Server address.
 
-   ![](../../.gitbook/assets/setup_networker_01.png)
+![](../../.gitbook/assets/setup_networker_01.png)
