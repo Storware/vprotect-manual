@@ -9,6 +9,7 @@
 * `Task retention (in console)` - how long finished/failed tasks should be kept in the console in UI/CLI
 * `Periodic index interval` - how often vProtect should scan for changes in VM inventory on HV/HVMs
 * `Old backups removal time` - time, when daily backup destination cleanup should be invoked \(for all backup destinations\)
+* `Old snapshots removal time` - time, when daily snapshots cleanup should be invoked \(for all VMs with any policy assigned\)
 
 ## E-mail
 
@@ -43,4 +44,11 @@ This section enables you to setup LDAP authentication for administrative account
 * `Anonymous access allowed` - if users are not allowed to anonymously browse LDAP directory you need to provide account which has that privilege:
   * `Service account DN` - DN of the user
   * `Service account password` - password of that user 
+
+## Storware Insight
+
+Storware Insight reporting is a mechanism that allows vProtect Server to sent periodic status reports. This will help support team to see status and basic information of your environment and provide better support in the future. 
+
+* `Enable status reporting` - enables daily reporting
+* `Show report contents` button - allows you would to preview contents of the report being sent
 

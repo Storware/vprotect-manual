@@ -1,6 +1,12 @@
 # How to setup snapshot management
 
-vProtect can periodically create snapshots and keep several of them on every VM. In order to enable snapshot management for VM you need to do the following steps:
+vProtect can periodically create snapshots and keep several of them on every VM. This feature is supported for Citrix XenServer, RHV/oVirt and Nutanix enviornments.
+
+**Notice:** Revert mechanism for Nutanix requires a new VM to be created as a result of snapshot reversion. Original VM will be removed and marked as not present in vProtect. You need to assign policies once the new VM is detected by Index task in vProtect.
+
+**Notice:** Nutanix doesn't show snapshots created by vProtect in Prism Console. These snapshots can only be reverted by vProtect
+
+In order to enable snapshot management for VM you need to do the following steps:
 
 1. Go to Policies and create a new Snapshot Management policy
    * provide a **name** of the policy
@@ -12,5 +18,9 @@ vProtect can periodically create snapshots and keep several of them on every VM.
    * apart from regular schedule settings - for snapshot management purposes it may be useful to use Interval based scheduling - to define schedules such as every 2h between 1 p.m. and 5 p.m.
    * optionally assign schedule to your policy - in most cases you want to be done automatically
 
-Now snapshots will be done automatically according to the schedule. They also can be created manually if you go to your VM details and click button in the right corner \(the one with photo camera\). 
+Now snapshots will be done automatically according to the schedule. 
+
+### Manual snapshot operations
+
+Manual snapshot are not available until VM has snapshot management policy assigned. Once it is assigned, you'll have new buttons in VM details page \(top-right corner, the one with photo camera\), and option to revert snapshots - button on the right site of each of the snapshots on the list \(also in VM details\).. 
 

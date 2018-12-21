@@ -15,11 +15,12 @@ In order to setup Application backup you need to do the following steps:
      * **STREAM** - select if your command generates backup to the standard output
    * **Timeout** - for script/command execution - make sure to have this timeout set to the value high enough to allow your command to complete its execution
 3. Create Application definition - you need to provide at least its **name** and **Command Execution Configuration** and select **node** which is going to do the work
-4. At this point you should be able to manually backup your application - verify it you have successfully created a backup and stored it in your backup provider
-5. To make your backup periodically you need to create **Schedule:**
+4. Optionally you can define **environment variables** that you'll later be able to use in your commands/scripts. Note, that variable name should not contain white-space characters. ****
+5. At this point you should be able to manually backup your application - verify it you have successfully created a backup and stored it in your backup provider
+6. To make your backup periodically you need to create **Schedule:**
    * In Schedules section go to the **Application backup tab** and create a new schedule 
    * optionally assign it the existing Application backup policies if you already have them
-6. Now go to **Policies** section and create a new **Application Backup policy:**
+7. Now go to **Policies** section and create a new **Application Backup policy:**
    * provide a policy **name**
    * select your applications from the list
    * specify backup rule details - especially **backup destination** and **schedules**

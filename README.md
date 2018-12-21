@@ -2,7 +2,7 @@
 
 ![](.gitbook/assets/intro%20%281%29.png)
 
-## Storware vProtect 3.7 Manual
+## Storware vProtect 3.7 \(Update 1\) Manual
 
 This is the official documentation for Storware vProtect software. Here you'll find all the information needed to setup and configure backup for your virtual infrastructure.
 
@@ -14,7 +14,7 @@ Storware vProtect is a backup and snapshot-management tool for VMs/containers ru
 
 * VM-level backup and protection
 * Generic application backup with your custom scripts
-* Snapshot management \(Copy Data Management\) for KVM, Citrix, RHV 
+* Snapshot management \(Copy Data Management\) for Citrix XenServer, RHV/oVirt and Nutanix AHV
 * Deployment protection for Kubernetes environments
 * Hybrid Protection \(2nd Tier can be at enterprise backup server or in the cloud\)
 * Multi-node support for better scalability or geographically dispersed environments
