@@ -36,7 +36,7 @@ vProtect Node requires `kubectl` installed and kubeconfig with a valid token \(p
 
 Kubernetes Nodes should appear in vProtect after indexing the cluster.
 
-**Notice:** Valid SSH credentials should be provided **for every Kubernetes node** by the user \(called _Hypervisor_ in vProtect UI\).
+**Notice:** Valid SSH credentials should be provided **for every Kubernetes node** by the user \(called _Hypervisor_ in vProtect UI\). If vProtect can't execute docker commands on Kubernetes/Openshift node, it means that it logged in as a user lacking admin privileges. Make sure you added your user to sudo/wheel group \( so it can execute commands with `sudo`\).
 
 ## Limitations
 
