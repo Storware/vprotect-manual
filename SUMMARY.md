@@ -15,7 +15,7 @@
     * [RHV/oVirt setup](initial_config/virtualization-platforms/setup_rhv.md)
     * [Nutanix setup](initial_config/virtualization-platforms/setup_nutanix.md)
     * [Oracle VM setup](initial_config/virtualization-platforms/setup_ovm.md)
-    * [Kubernetes setup](initial_config/virtualization-platforms/kubernetes-setup.md)
+    * [Kubernetes/OpenShift setup](initial_config/virtualization-platforms/kubernetes-setup.md)
     * [Citrix XenServer Change Block Tracking setup](initial_config/virtualization-platforms/setup_citrix_cbt.md)
     * [KVM \(stand-alone\)/Xen \(legacy\) setup](initial_config/virtualization-platforms/setup_kvm_xen.md)
     * [Proxmox setup](initial_config/virtualization-platforms/setup_proxmox.md)

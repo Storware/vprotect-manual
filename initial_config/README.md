@@ -19,6 +19,7 @@
      * [Citrix XenServer Change Block Tracking setup](virtualization-platforms/setup_citrix_cbt.md)
      * [RHV/oVirt setup](virtualization-platforms/setup_rhv.md)
      * [Nutanix setup](virtualization-platforms/setup_nutanix.md)
+     * [Kubernetes/OpenShift setup](virtualization-platforms/kubernetes-setup.md)
      * [Oracle VM setup](virtualization-platforms/setup_ovm.md)
      * [Proxmox setup](virtualization-platforms/setup_proxmox.md)
      * [KVM \(stand-alone\)/Xen \(legacy\) setup](virtualization-platforms/setup_kvm_xen.md)
