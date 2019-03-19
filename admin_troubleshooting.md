@@ -57,3 +57,35 @@ To verify if services are running you can use:
 * `systemctl status vprotect-server` for Server
 * `systemctl status vprotect-node` for Node or `vprotect status`
 
+## Collecting debug logs
+
+Quite often Storware support will ask for debug logs for more in-depth troubleshooting. In order to do that please follow steps below.
+
+### vProtect Node
+
+1. Stop vprotect-node service:
+
+   `systemctl stop vprotect-node`
+
+2. Edit `/usr/bin/vprotect` file - there is a `LOG_LEVEL=...` variable and it should look like this `LOG_LEVEL=DEBUG` and save the file.
+3. Start vprotect-node service:
+
+   `systemctl start vprotect-node`
+
+4. Proceed with operations that needs to be logged
+5. Then collect logs from `/opt/vprotect/logs/<NODE_NAME>` directory.
+
+### **vProtect Server**
+
+1. Stop vprotect-server service:
+
+   `systemctl stop vprotect-server`
+
+2. Rename `/opt/vprotect/log4j2.xml.sample` file to `/opt/vprotect/log4j2.xml`  - it is a logger config for vProtect Server and it already has debug enabled.
+3. Start vprotect-server service:
+
+   `systemctl start vprotect-node`
+
+4. Proceed with operations that needs to be logged
+5. Then collect logs from `/opt/vprotect/logs/api` and `/opt/vprotect/logs/appserver` directories.
+
