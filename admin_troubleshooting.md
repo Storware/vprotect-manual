@@ -72,7 +72,7 @@ Quite often Storware support will ask for debug logs for more in-depth troublesh
 
    `systemctl start vprotect-node`
 
-4. Proceed with operations that needs to be logged.
+4. Proceed with operations that need to be logged.
 5. Then collect logs from `/opt/vprotect/logs/<NODE_NAME>` directory.
 
 ### **vProtect Server**
@@ -86,6 +86,6 @@ Quite often Storware support will ask for debug logs for more in-depth troublesh
 
    `systemctl start vprotect-node`
 
-4. Proceed with operations that needs to be logged.
+4. Proceed with operations that need to be logged.
 5. Then collect logs from `/opt/vprotect/logs/api` and `/opt/vprotect/logs/appserver` directories.
 
