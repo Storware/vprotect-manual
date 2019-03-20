@@ -1,8 +1,8 @@
 # Oracle VM setup
 
-Oracle VM environments require storage repositories to be defined for each server pool and must be mounted on vProtect server.
+Oracle VM environments require storage repositories to be defined for each server pool and must be mounted on vProtect node.
 
-1. Create repository from NFS share
+1. Create repository from NFS share on vProtect node
    * one server pool should have separate subdirectory in export path i.e. `/vprotect_data/pool01`, `/vprotect_data/pool2` - each subdirectory is a separate NFS share
    * Export \(staging\) path in above-mentioned scenario is still `/vprotect_data`, while `pool01` and `pool02` are server pool names
    * specify mapping between server pool names and storage repository names in node configuration \(section `Hypervisor`\)
