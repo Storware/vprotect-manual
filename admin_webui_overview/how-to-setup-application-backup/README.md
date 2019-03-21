@@ -1,6 +1,6 @@
 # How to setup Application backup
 
-vProtect allows you to setup periodic backup with your own scripts or application-native backup commands. These can be executed either on the Node or remotely over SSH. Application can resbe anywhere - it can be a VM, Kubernetes deployement or on a physical box. The only requirement is to allow vProtect to execute set of commands over SSH or on the node to access data remotely.
+vProtect allows you to setup periodic backup with your own scripts or application-native backup commands. These can be executed either on the Node or remotely over SSH. Application can reside anywhere - it can be a in a VM, Kubernetes deployement or on a physical box. The only requirement is to allow vProtect to execute set of commands over SSH or on the node to access data remotely.
 
 In order to setup Application backup you need to do the following steps:
 
