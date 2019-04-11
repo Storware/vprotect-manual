@@ -1,6 +1,6 @@
 # Proxmox setup
 
-Proxmomx environments require backup storage to be defined on each server. This storage must be location accessible from vProtect Node \(the simplest setup, when you use only 1 node, is to create NFS share for staging path on vProtect Node\)
+Proxmox environments require backup storage to be defined on each server. This storage must be location accessible from vProtect Node \(the simplest setup, when you use only 1 node, is to create NFS share for staging path on vProtect Node\)
 
 1. Create storage from NFS share \(Content type: VZDump\)
 
@@ -26,18 +26,19 @@ Proxmomx environments require backup storage to be defined on each server. This 
 ![](../../.gitbook/assets/setup_proxmox-storagelist.png)
 
 1. Name for storage must be later provided in node configuration \(`Hypervisor -> Proxmox` section\)
-2. Proxmomx \(like KVM/Xen\) environments require to have correct entry in known\_hosts on the node:
+2. Prepare VMA extractor on vProtect Node - you have 2 options:
+   * build VMA extractor like this \(requires Internet on the **node**\):
 
-   * it must be known\_hosts file that belongs to `vprotect` user
-   * algorithm must be set to `ssh-rsa`
+     ```text
+     cd /opt/vprotect/scripts/vma
+     ./setup_vma.sh
+     ```
+3. * download VMA extractor from Storware FTP \(in Add-ons directory\) and install it
 
-   **Example:**
-
-   ```text
-   sudo -u vprotect ssh -o HostKeyAlgorithms=ssh-rsa root@HYPERVISOR
-   ```
-
-   * make sure to have in your Node Confiuration `known_hosts` file path \(in `KVM/Xen` section\) set to the location that is accessible for `vprotect` user - default `/opt/vprotect/.ssh/known_hosts`
+     ```text
+     cd /opt/vprotect/scripts/vma
+     ./setup_vma.sh PATH_TO_VMA_ARCHIVE
+     ```
 
 ## Public key authentication
 

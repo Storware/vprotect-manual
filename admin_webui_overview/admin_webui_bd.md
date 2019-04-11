@@ -71,6 +71,11 @@ Each backup destination needs also a unique `Name` for easier identification in 
 * `Bucket name prefix (for ONE_BUCKET_PER_VM only)` - prefix for bucket names used in amazon \(must be globally unique\), buckets will have names starting with this prefix - one for each VM 
 * `Encryption` - enables build-in encryption of the data at rest. Once enabled, new data being stored is going to be encrypted. 
 
+### Google Cloud Storage
+
+* `Bucket name` - specified during bucket creation \(your buckets can be found [here](https://console.cloud.google.com/storage/)\),
+* `Service account key` - paste content of service account key .json file. 
+
 ### Microsoft Azure
 
 * `Account name` - account name used to access container
