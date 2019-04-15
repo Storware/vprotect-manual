@@ -1,6 +1,8 @@
 # Introduction
 
-![](.gitbook/assets/intro%20%281%29.png)
+##  
+
+![](.gitbook/assets/vprotect_gitbook.png)
 
 ## Storware vProtect 3.8 Manual
 
