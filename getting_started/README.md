@@ -8,7 +8,7 @@ High level picture: vProtect gets data from your virtualization platform and sto
 
 
 
-![High level architecture](.gitbook/assets/vprotect-architektura.jpg)
+![High level architecture](../.gitbook/assets/vprotect-architektura.jpg)
 
 
 
@@ -37,27 +37,27 @@ To be more precise - vProtect consists of 2 main components:
 
 ## Installation options
 
-For some platforms \(Citrix XenServer, oVirt/RHV, VMware\) you may use ready pre-configured Virtual Appliance downloadable from FTP. You should check corresponding sections here: [vProtect Virtual Machine deployment](image/).
+For some platforms \(Citrix XenServer, oVirt/RHV, VMware\) you may use ready pre-configured Virtual Appliance downloadable from FTP. You should check corresponding sections here: [vProtect Virtual Machine deployment](../image/).
 
-Other platforms require preparation of CentOS 7 VM or physical installation and following regular [Installation](install/) steps.
+Other platforms require preparation of CentOS 7 VM or physical installation and following regular [Installation](../install/) steps.
 
 ## High level installation steps
 
-1. Deploy VM image as described in [vProtect Virtual Machine deployment](image/) **or** follow [Installation](install/) steps
+1. Deploy VM image as described in [vProtect Virtual Machine deployment](../image/) **or** follow [Installation](../install/) steps
    * In any case - Node requires **staging space** - assume number of concurrent export and store tasks and multiply it by biggest VM size \(**for example:** 6 export tasks + 4 store tasks \* 100 GB should require around 1 TB\)
-   * Virtual Appliance may not have the most recent version of the packages - we recommend to download RPMs from the FTP anyway and [Update](update.md) if necessary
-2. Now it is time for [Initial configuration](initial_config/)
+   * Virtual Appliance may not have the most recent version of the packages - we recommend to download RPMs from the FTP anyway and [Update](../update.md) if necessary
+2. Now it is time for [Initial configuration](../initial_config/)
 3. Add to your Hypervisor\(s\) or Hypervisor Manager\(s\) and initiate index to retrieve list of VMs, storage etc.:
    * by indexing Hypervisor Manager \(oVirt/RHV/Oracle VM/Nutanix Prism\) you'll have hypervisors added automatically. Other hypervisors are needed to be entered one by one \(KVM/Xen/Citrix XenServer/Proxmox VE\)
-   * check appropriate sub-section for your platform: [Virtualization platforms](initial_config/virtualization-platforms/)
+   * check appropriate sub-section for your platform: [Virtualization platforms](../initial_config/virtualization-platforms/)
 4. Setup backup provider:
-   * check appropriate sub-section for your provider: [Backup providers](initial_config/backup-providers/)
-   * we also recommend to check [Backup destinations](admin_webui_overview/admin_webui_bd.md) section for detailed description of properties
+   * check appropriate sub-section for your provider: [Backup providers](../initial_config/backup-providers/)
+   * we also recommend to check [Backup destinations](../admin_webui_overview/admin_webui_bd.md) section for detailed description of properties
 5. Test basic operations to verify that integration is completed:
-   * [How to backup](admin_webui_overview/admin_webui_how_to_backup.md)
-   * [How to restore](admin_webui_overview/admin_webui_how_to_restore.md)
-   * [How to mount](admin_webui_overview/admin_webui_how_to_mount.md)
-6. We recommend you also to read how to use [vProtect Web UI](admin_webui_overview/) and [vProtect CLI](admin_cli_overview/)
+   * [How to backup](../admin_webui_overview/admin_webui_how_to_backup.md)
+   * [How to restore](../admin_webui_overview/admin_webui_how_to_restore.md)
+   * [How to mount](../admin_webui_overview/admin_webui_how_to_mount.md)
+6. We recommend you also to read how to use [vProtect Web UI](../admin_webui_overview/) and [vProtect CLI](../admin_cli_overview/)
 
 **Notice:** you may want to watch this [video](https://www.youtube.com/watch?v=c3PnfXG5Fs4), which presents a complete vProtect setup with several virtualization platforms and backup providers.
 
