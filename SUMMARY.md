@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Getting started](planning.md)
+* [Getting started](getting_started.md)
 * [Installation](install/README.md)
   * [Enabling HTTPS connectivity for remote nodes](install/install_https.md)
   * [Full versions of libvirt/qemu packages installation](install/install_libvirt_qemu.md)
