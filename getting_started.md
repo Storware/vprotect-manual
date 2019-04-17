@@ -59,5 +59,7 @@ Other platforms require preparation of CentOS 7 VM or physical installation and 
    * [How to mount](admin_webui_overview/admin_webui_how_to_mount.md)
 6. We recommend you also to read how to use [vProtect Web UI](admin_webui_overview/) and [vProtect CLI](admin_cli_overview/)
 
+**Notice:** you may want to watch this [video](https://www.youtube.com/watch?v=c3PnfXG5Fs4), which presents a complete vProtect setup with several virtualization platforms and backup providers.
+
 
 
