@@ -1,5 +1,7 @@
 # Installation
 
+**Notice:** you may want to watch this [video](https://www.youtube.com/watch?v=c3PnfXG5Fs4), which presents a complete vProtect setup with several virtualization platforms and backup providers.
+
 ## Prerequisites
 
 1. Install CentOS 7 minimal
