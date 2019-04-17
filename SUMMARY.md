@@ -1,8 +1,8 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Getting started](getting_started/README.md)
-  * [oVirt/Red Hat Virtualization](getting_started/ovirt-red-hat-virtualization.md)
+* [Getting started](getting-started/README.md)
+  * [Planning for oVirt/RHV](getting-started/ovirt-red-hat-virtualization.md)
 * [Installation](install/README.md)
   * [Enabling HTTPS connectivity for remote nodes](install/install_https.md)
   * [Full versions of libvirt/qemu packages installation](install/install_libvirt_qemu.md)
