@@ -41,7 +41,7 @@ For some platforms \(Citrix XenServer, oVirt/RHV, VMware\) you may use ready pre
 
 Other platforms require preparation of CentOS 7 VM or physical installation and following regular [Installation](../install/) steps.
 
-## High level installation steps
+## OK, let's do it!
 
 1. Deploy VM image as described in [vProtect Virtual Machine deployment](../image/) **or** follow [Installation](../install/) steps
    * In any case - Node requires **staging space** - assume number of concurrent export and store tasks and multiply it by biggest VM size \(**for example:** 6 export tasks + 4 store tasks \* 100 GB should require around 1 TB\)
