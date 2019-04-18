@@ -2,6 +2,8 @@
 
 **Notice:** you may want to watch this [video](https://www.youtube.com/watch?v=c3PnfXG5Fs4), which presents a complete vProtect setup with several virtualization platforms and backup providers.
 
+We also encourage you to read [Getting started](../getting-started/) section if you haven't done that yet.
+
 ## Prerequisites
 
 1. Install CentOS 7 minimal
@@ -90,7 +92,7 @@ vProtect consists of server \(central management point with WebUI\) and one or m
 
 ## vProtect Node installation
 
-vProtect Node is component that executes all tasks.
+vProtect Node is component that executes all tasks. It can be installed together with Server \(it is common to have 1 server and just 1 node\). More nodes can be always added later.
 
 1. Copy vprotect-node RPM file to your machine and install it using YUM \(where `XXX` is a placeholder for the vProtect version\):
 
