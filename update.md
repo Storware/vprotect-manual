@@ -26,6 +26,7 @@
 6. Update each Node:
 
    ```text
+   systemctl stop vprotect-node
    yum -y update vprotect-node-XXX.rpm
    ```
 
