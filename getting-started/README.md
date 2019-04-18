@@ -21,7 +21,7 @@ To be more precise - vProtect consists of 2 main components:
 
 ## Component placement
 
-* vProtect Server and Node can be installed together - this is the most common case and 4 GB of RAM + 2 vCPU should be enough.
+* **vProtect Server and Node can be installed together** - this is the most common case and 4 GB of RAM + 2 vCPU should be enough to run both.
 * Server can be installed anywhere \(physical box or VM\) - nodes just need to be able to connect to it.
 * Nodes can be installed also inside a VM or physical box, but keep in mind that some backup strategies require Node to be installed as a VM on a Hypervisor Cluster \(especially when "disk attachment" export mode is mentioned\).
 * Both components assume they are installed on a CentOS 7 minimal.
@@ -29,6 +29,12 @@ To be more precise - vProtect consists of 2 main components:
 For detailed deployment scenarios please refer to the following sections:
 
 * [Deployment in oVirt/RHV environment](deployment-in-ovirt-rhv-environment.md)
+* [Deployment in Nutanix AHV environment](deployment-in-nutanix-ahv-environment.md)
+* [Deployment in Oracle VM environment](deployment-in-oracle-vm-environment.md)
+* [Deployment in Proxmox VE environment](deployment-in-proxmox-ve-environment.md)
+* [Deployment in Citrix XenServer environment](deployment-in-citrix-xenserver-environment.md)
+* [Deployment in KVM/Xen environment](deployment-in-kvm-xen-environment.md)
+* [Deployment in AWS EC2 environment](deployment-in-aws-ec2-environment.md)
 
 ## Network considerations
 
