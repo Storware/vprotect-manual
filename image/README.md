@@ -1,4 +1,4 @@
-# vProtect Virtual Machine deployment
+# vProtect Virtual Appliance deployment
 
 ## Prerequisites
 

@@ -1,4 +1,4 @@
-# vProtect Virtual Machine deployment on RHV/oVirt
+# vProtect Virtual Appliance deployment on RHV/oVirt
 
 Unpack downloaded tar pack:
 

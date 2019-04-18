@@ -26,6 +26,10 @@ To be more precise - vProtect consists of 2 main components:
 * Nodes can be installed also inside a VM or physical box, but keep in mind that some backup strategies require Node to be installed as a VM on a Hypervisor Cluster \(especially when "disk attachment" export mode is mentioned\).
 * Both components assume they are installed on a CentOS 7 minimal.
 
+For detailed deployment scenarios please refer to the following sections:
+
+* [Deployment in oVirt/RHV environment](deployment-in-ovirt-rhv-environment.md)
+
 ## Network considerations
 
 * Critical for data transfer, so first you need to understand which paths are used for backups as in many cases you're going to use LAN. Depending on where node is located you need to verify if data is not going to pass via low-bandwidth links.
@@ -43,7 +47,7 @@ Other platforms require preparation of CentOS 7 VM or physical installation and 
 
 ## OK, let's do it!
 
-1. Deploy VM image as described in [vProtect Virtual Machine deployment](../image/) **or** follow [Installation](../install/) steps
+1. Deploy VM image as described in [vProtect Virtual Appliance deployment](../image/) **or** follow [Installation](../install/) steps
    * In any case - Node requires **staging space** - assume number of concurrent export and store tasks and multiply it by biggest VM size \(**for example:** 6 export tasks + 4 store tasks \* 100 GB should require around 1 TB\)
    * Virtual Appliance may not have the most recent version of the packages - we recommend to download RPMs from the FTP anyway and [Update](../update.md) if necessary
 2. Now it is time for [Initial configuration](../initial_config/)

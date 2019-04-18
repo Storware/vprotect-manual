@@ -1,4 +1,4 @@
-# vProtect Virtual Machine deployment on VMware
+# vProtect Virtual Appliance deployment on VMware
 
 Log in to VMware vCenter/ESXi then click on "Create/Register VM".
 

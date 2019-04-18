@@ -1,4 +1,4 @@
-# vProtect Virtual Machine deployment on Citrix XenServer
+# vProtect Virtual Appliance deployment on Citrix XenServer
 
 Log in to Citrix XenServer, and import downloaded xva image:
 
