@@ -12,6 +12,7 @@ sudo -u vprotect ssh -o HostKeyAlgorithms=ssh-rsa root@HYPERVISOR
 ```
 
 * make sure to have in your Node Confiuration `known_hosts` file path set to the location that is accessible for `vprotect` user - default `/opt/vprotect/.ssh/known_hosts`
+* if your user/group used on KVM host is other than `qemu:qemu` then please provide them in hypervisor details form when you add/update hypervisor
 
 ## KVM - VG scanning
 
