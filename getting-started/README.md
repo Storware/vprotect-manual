@@ -24,7 +24,8 @@ To be more precise - vProtect consists of 2 main components:
 * **vProtect Server and Node can be installed together** - this is the most common case and 4 GB of RAM + 2 vCPU should be enough to run both.
 * Server can be installed anywhere \(physical box or VM\) - nodes just need to be able to connect to it.
 * Nodes can be installed also inside a VM or physical box, but keep in mind that some backup strategies require Node to be installed as a VM on a Hypervisor Cluster \(especially when "disk attachment" export mode is mentioned\).
-* Both components assume they are installed on a CentOS 7 minimal.
+* Both components assume they are installed on a CentOS/RHEL 7 minimal
+* VDO \(file system that enables deduplication\) is available in both CentOS and RHEL, but we recommend to install Red Hat Enterprise Linux to have Red Hat support available in case of any issues with VDO.
 
 For detailed deployment scenarios please refer to the following sections:
 
