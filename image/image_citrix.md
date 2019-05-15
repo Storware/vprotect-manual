@@ -35,8 +35,9 @@ Increase disk size, for vprotect staging space.
 Start vProtect virtual machine, login, and incrase disk size \(in that example to 500G\):
 
 ```text
-   vdo growLogical -n vprotect_data --vdoLogicalSize 500G
-   xfs_growfs /dev/mapper/vprotect_data
+   vdo growPhysical -n /dev/mapper/Deduplicated_File_system
+   vdo growLogical -n /dev/mapper/Deduplicated_File_system --vdoLogicalSize 500G
+   xfs_growfs /dev/mapper/Deduplicated_File_system
 ```
 
 After import image to enviroinment set IP addresation, run nmtui &gt; "Edit a connection".  
