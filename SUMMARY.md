@@ -76,4 +76,5 @@
   * [Tasks](admin_cli_overview/admin_cli_task.md)
 * [Troubleshooting](admin_troubleshooting.md)
 * [Disaster recovery](admin_dr.md)
+* [API - Integration Guide](api-integration-guide.md)
 
