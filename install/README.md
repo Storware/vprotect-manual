@@ -6,7 +6,7 @@ We also encourage you to read [Getting started](../getting-started/) section if 
 
 ## Prerequisites
 
-1. Install CentOS/RHEL 7 minimal \(if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available\)
+1. Install CentOS/RHEL 7.5 minimal \(if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available\)
 2. Make sure your OS is up to date:
 
    ```text
