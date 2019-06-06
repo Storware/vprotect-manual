@@ -13,7 +13,9 @@ Default certificate presented by application server uses `localhost.localdomain`
 
 This section presents steps necessary to generate SSL certificate, setup vProtect to use it and how to register remote node.
 
-## vProtect Server \(new certificate\)
+## vProtect Server \(when using own certificate\)
+
+This section describes certificate generation and import on the vProtect Server side. It uses self-signed certificate. If you would like to use CSR and your own CA instead - please check for additional steps described in the next section.
 
 1. SSH to **vProtect Server** host
 2. Generate key and certificate \(remember to provide **valid** vProtect Server DNS hostname - in our example it was `vprotectserver.local`\):
@@ -88,7 +90,17 @@ This section presents steps necessary to generate SSL certificate, setup vProtec
      openssl s_client -connect vprotectserver.local:8181 < /dev/null
      ```
 
-## vProtect Node
+## Notes on using own certificate with CSR and your CA
+
+When using CSR to get a trusted certificate, you need to replace step 2 \(self-signed certificate generation\)  with several steps including CSR generation, and downloading CRT signed by your CA. Steps are as follows
+
+1. Generate CSR - answer same set of questions as above:`openssl req -new -newkey rsa:2048 -nodes -keyout vprotect.key -out vprotect.csr`
+2. Send your CSR and have it signed by your CA
+3. Download your CRT file and save as `vprotect.crt` \(note that you should have your working directory set to `/opt/vprotect`\)
+4. Download your CA certificate chain \(example for a single `ca.crt`\) and import it with `CA_ALIAS` of your choice as follows: `keytool -import -trustcacerts -keystore /usr/lib/jvm/jre/lib/security/cacerts -storepass changeit -noprompt -alias CA_ALIAS -file ca.crt`
+5. Now continue from PKCS12 bundle generation \(step 3 in section above\).
+
+## vProtect Node \(any SSL certificate\)
 
 1. SSH to **vProtect Node** host
 2. Import server certificate using script under `/opt/vprotect/scripts` folder:
@@ -130,4 +142,6 @@ This section presents steps necessary to generate SSL certificate, setup vProtec
      ```text
      vprotect node -r node1 admin https://localhost.localdomain:8181/api
      ```
+
+
 
