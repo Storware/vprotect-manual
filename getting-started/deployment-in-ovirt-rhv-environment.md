@@ -34,5 +34,11 @@ Unfortunately, there are few problems with current architecture of this solution
 
 ![](../.gitbook/assets/rhv-disk_image_transfer.png)
 
-### 
+### Backup strategy 4 - SSH transfer \(coming soon in v3.8 update 1\)
+
+This is an enhancement for disk image transfer API strategy. It allows vProtect to use oVirt/RHV API v4.2+ \(HTTPS connection to RHV/oVirt manager\) only to collect metadata and when **import of the restored VM** takes place. Backup is done over SSH directly from the hypervisor. No need to instal node on the RHV/oVirt environment. Allows to significantly boost backup transfers and supports incremental backups.
+
+![](../.gitbook/assets/rhv-ssh_transfer.png)
+
+
 
