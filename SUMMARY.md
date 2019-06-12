@@ -8,6 +8,7 @@
   * [Deployment in Proxmox VE environment](getting-started/deployment-in-proxmox-ve-environment.md)
   * [Deployment in Citrix XenServer environment](getting-started/deployment-in-citrix-xenserver-environment.md)
   * [Deployment in KVM/Xen environment](getting-started/deployment-in-kvm-xen-environment.md)
+  * [Deployment in OpenStack environment \(coming soon in 3.8 update 1\)](getting-started/deployment-in-openstack-environment-coming-soon-in-3.8-update-1.md)
   * [Deployment in Kubernetes/OpenShift environment](getting-started/deployment-in-kubernetes-openshift-environment.md)
   * [Deployment in AWS EC2 environment](getting-started/deployment-in-aws-ec2-environment.md)
 * [Installation](install/README.md)
