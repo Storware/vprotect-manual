@@ -4,7 +4,7 @@
 
 ![](.gitbook/assets/vprotect_gitbook.png)
 
-## Storware vProtect 3.8 Manual
+## Storware vProtect 3.8 \(Update 1\) Manual
 
 This is the official documentation for Storware vProtect software. Here you'll find all the information needed to setup and configure backup for your virtual infrastructure.
 
@@ -24,7 +24,7 @@ Storware vProtect is a backup and snapshot-management tool for VMs/containers ru
 * Disaster Recovery based on IBM Spectrum Protect \(TSM\), Dell-EMC Networker, Veritas Netbackup, Amazon S3, Google Cloud Storage, Microsoft Azure, OpenStack Swift or any mounted file-system \(local or remote\)
 * Open API for 3rd party software integration \(REST API\)
 * Incremental backups \(CBT\) for Citrix XenServer, oVirt/RHV and Nutanix AHV 5.5+ hypervisors
-* Option to backup only selected VM disks \(KVM, Xen, Citrix XenServer, RHV/oVirt, Proxmox VE, Nutanix AHV, AWS EC2\)
+* Option to backup only selected VM disks
 * Build in data deduplication with VDO
 * Data encryption for Amazon S3/Google Cloud Storage/Microsoft Azure/file system backup providers
 * Prioritized backup

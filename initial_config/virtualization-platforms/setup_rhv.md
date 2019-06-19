@@ -29,17 +29,23 @@ Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node V
 
 ![](../../.gitbook/assets/setup_rhv-vitrio-scsi.png)
 
-During the backup/restore operations, disks are transsferred by attaching them to the proxy VM. This approach does not require export storage domain to be set up.
+During the backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require export storage domain to be set up.
 
 Please make sure to follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](../setup_lvm.md)
 
-### Disk image transfer \(snapshot-chains\) mode - RHV/oVirt 4.2+
+### Disk Image Transfer \(snapshot-chains\) mode - RHV/oVirt 4.2+
 
 Disk image transfer mode exports data directly using RHV/oVirt 4.2+ API. There is no need to setup export storage domain or setup LVM. This mode uses snapshot-chains provided by new RHV/oVirt.
 
-You may need to open communication for additional port **54323** on the RHV/oVirt manager - it needs to be accessible from vProtect Node.
+You may need to open communication for additional port **54323** on the RHV/oVirt manager - it needs to be accessible from vProtect Node. Also make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with oVirt UI\).
 
 Please make sure to follow steps in this section: [Full versions of libvirt/qemu packages installation](../../install/install_libvirt_qemu.md)
+
+### SSH Transfer
+
+this method assumes that all data transfers are directly from hypervisor - over SSH. This means that after adding RHV/oVirt manager and detecting all available hypervisors - **you need also to provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](../../install/ssh-public-key-authentication.md).
+
+Restore process is done via RHV/oVirt manager - like in Disk Image Transfer mode - which means that you also need to open port **54323** and make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with oVirt UI\).
 
 ## RHV/oVirt \(API v3\)
 
