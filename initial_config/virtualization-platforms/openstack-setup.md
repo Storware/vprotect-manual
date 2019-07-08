@@ -10,13 +10,11 @@ You can configure the NFS volume backend here:
 
 Make sure QCOW2 volumes are enabled. For an NFS backend, it's recommended set these values in `/etc/cinder/cinder.conf`:
 
-`default_volume_type=nfs` `nfs_sparsed_volumes = true` `nfs_qcow2_volumes = true` `volume_driver = cinder.volume.drivers.nfs.NfsDriver` `enabled_backends = nfs`
-
-```text
-[nfs]
-volume_backend_name=nfs
-volume_driver = cinder.volume.drivers.nfs.NfsDriver
-```
+`default_volume_type=nfs  
+nfs_sparsed_volumes = true  
+nfs_qcow2_volumes = true  
+volume_driver = cinder.volume.drivers.nfs.NfsDriver  
+enabled_backends = nfs`
 
 ### Adding hypervisor managers
 
