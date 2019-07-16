@@ -110,19 +110,19 @@
    firewall-cmd --get-default-zone
    ```
          
-         ![](../../.gitbook/assets/setup_netbackup_20.png)
+   ![](../../.gitbook/assets/setup_netbackup_20.png)
          
    ```text
    firewall-cmd --get-active-zones
    ```
          
-         ![](../../.gitbook/assets/setup_netbackup_21.png)
+    ![](../../.gitbook/assets/setup_netbackup_21.png)
 
    ```text
    firewall-cmd --list-all
    ```
 
-         ![](../../.gitbook/assets/setup_netbackup_22.png)
+   ![](../../.gitbook/assets/setup_netbackup_22.png)
 
       * Like we see, there is no allowing for those ports. So we need to open them.
       
@@ -130,7 +130,7 @@
    firewall-cmd --zone=public --add-port=13724/udp && firewall-cmd --zone=public --add-port=13724/tcp
    ```
          
-         ![](../../.gitbook/assets/setup_netbackup_23.png)
+   ![](../../.gitbook/assets/setup_netbackup_23.png)
 
       * Finally we have to modify the permanent firewall rules so that those services will still be available after a reboot.
       
@@ -146,7 +146,7 @@
    firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
    ```
          
-         ![](../../.gitbook/assets/setup_netbackup_25.png)
+   ![](../../.gitbook/assets/setup_netbackup_25.png)
 
       * Last action is to bind the port to the netbackup client deamon” bpnd”. To do that type following command in terminal
       
