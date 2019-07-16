@@ -106,52 +106,53 @@
 
       * first we need to know what is our default zone: 
 
-         ```text
+   ```text
    firewall-cmd --get-default-zone
-         ```
+   ```
          
          ![](../../.gitbook/assets/setup_netbackup_20.png)
          
-         ```text
+   ```text
    firewall-cmd --get-active-zones
-         ```
+   ```
          
          ![](../../.gitbook/assets/setup_netbackup_21.png)
 
-         ```text
+   ```text
    firewall-cmd --list-all
-         ```
+   ```
 
          ![](../../.gitbook/assets/setup_netbackup_22.png)
 
       * Like we see, there is no allowing for those ports. So we need to open them.
       
-         ```text
+   ```text
    firewall-cmd --zone=public --add-port=13724/udp && firewall-cmd --zone=public --add-port=13724/tcp
-         ```
+   ```
          
          ![](../../.gitbook/assets/setup_netbackup_23.png)
 
       * Finally we have to modify the permanent firewall rules so that those services will still be available after a reboot.
       
-         ```text
+   ```text
    firewall-cmd --zone=public --permanent --add-port=13724/tcp && firewall-cmd --zone=public --permanent --add-port=13724/udp
-         ```
+   ```
 
          ![](../../.gitbook/assets/setup_netbackup_24.png)
 
       * Now we can check the status of our firewall:
       
-         ```text
+   ```text
    firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
-         ```
+   ```
          
          ![](../../.gitbook/assets/setup_netbackup_25.png)
 
       * Last action is to bind the port to the netbackup client deamon” bpnd”. To do that type following command in terminal
-         ```text
-      /usr/openv/netbackup/bin/bpcd -port 13724
-         ```
+      
+   ```text
+   /usr/openv/netbackup/bin/bpcd -port 13724
+   ```
          
    p\) To add a new client we need to create a policy rule for it where we will configure the type and schedule of this client backup. The client will add automatically after the end of the creator.
 
