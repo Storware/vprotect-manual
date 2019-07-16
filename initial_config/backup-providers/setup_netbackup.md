@@ -104,38 +104,46 @@
 
    o\) Once we have finished the installation of the client software we need to modify the firewall service to allow the double-sided communication between the server and our client. We need to allow input communication on ports 13782/tcp and 13782/udp. To do that enter commands as below:
 
-      * first we need to know what is our default zone: firewall-cmd --get-default-zone
+      * first we need to know what is our default zone: 
+
+         ```text
+   firewall-cmd --get-default-zone
+         ```
+         
          ![](../../.gitbook/assets/setup_netbackup_20.png)
          
          ```text
-         firewall-cmd --get-active-zones
+   firewall-cmd --get-active-zones
          ```
          
          ![](../../.gitbook/assets/setup_netbackup_21.png)
 
          ```text
-    firewall-cmd --list-all
+   firewall-cmd --list-all
          ```
 
          ![](../../.gitbook/assets/setup_netbackup_22.png)
 
       * Like we see, there is no allowing for those ports. So we need to open them.
+      
          ```text
-     firewall-cmd --zone=public --add-port=13724/udp && firewall-cmd --zone=public --add-port=13724/tcp
+   firewall-cmd --zone=public --add-port=13724/udp && firewall-cmd --zone=public --add-port=13724/tcp
          ```
          
          ![](../../.gitbook/assets/setup_netbackup_23.png)
 
       * Finally we have to modify the permanent firewall rules so that those services will still be available after a reboot.
+      
          ```text
-     firewall-cmd --zone=public --permanent --add-port=13724/tcp && firewall-cmd --zone=public --permanent --add-port=13724/udp
+   firewall-cmd --zone=public --permanent --add-port=13724/tcp && firewall-cmd --zone=public --permanent --add-port=13724/udp
          ```
 
          ![](../../.gitbook/assets/setup_netbackup_24.png)
 
       * Now we can check the status of our firewall:
+      
          ```text
-      firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
+   firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
          ```
          
          ![](../../.gitbook/assets/setup_netbackup_25.png)
