@@ -2,37 +2,37 @@
 
 1. Before we start, you have to generate a token for the clients.
 
-To do that please log in to the Netbackup Administration Console:
+   To do that please log in to the Netbackup Administration Console:
 
-![](../../.gitbook/assets/setup_netbackup_1.png)
+   ![](../../.gitbook/assets/setup_netbackup_1.png)
 
-After successful login please click the “Token Management” submenu under the “Certificate Management”. Next, click the right mouse button on empty space and select “New Token…”
+   After successful login please click the “Token Management” submenu under the “Certificate Management”. Next, click the right mouse button on empty space and select “New Token…”
 
-![](../../.gitbook/assets/setup_netbackup_2.png)
+   ![](../../.gitbook/assets/setup_netbackup_2.png)
 
-Next step is to generate token:
+   Next step is to generate token:
 
-![](../../.gitbook/assets/setup_netbackup_3.png)
+   ![](../../.gitbook/assets/setup_netbackup_3.png)
 
-Now we should copy the token to clipboard before start the installation of the client software.
+   Now we should copy the token to clipboard before start the installation of the client software.
 
-![](../../.gitbook/assets/setup_netbackup_4.png)
+   ![](../../.gitbook/assets/setup_netbackup_4.png)
 
-1. To enable Veritas NetBackup support please download and install Veritas NetBackup Client:
+2. To enable Veritas NetBackup support please download and install Veritas NetBackup Client:
 
    a\) Download the CLIENTS1 package for UNIX clients or the CLIENTS2 package for Linux clients to a system with sufficient space.
 
-![](../../.gitbook/assets/setup_netbackup_5.png)
+   ![](../../.gitbook/assets/setup_netbackup_5.png)
 
-b\) Extract the contents of the CLIENTS1 or the CLIENTS2 file.
+   b\) Extract the contents of the CLIENTS1 or the CLIENTS2 file.
 
-```text
+   ```text
    Example:
         AIX         gunzip NetBackup_8.x_CLIENTS1.tar.gz; tar - xvf NetBackup_8.x_CLIENTS1.tar
         HP-UX        gunzip -dc NetBackup_8.x_CLIENTS1.tar.gz | tar -xvf
         Linux        tar -xzvf NetBackup_8.x_CLIENTS2.tar.gz
         Solaris        tar -xzvf NetBackup_8.x_CLIENTS1.tar.gz
-```
+   ```
 
 c\) Change to the directory for your desired operating system.
 
