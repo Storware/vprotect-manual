@@ -147,58 +147,51 @@
          
    p\) To add a new client we need to create a policy rule for it where we will configure the type and schedule of this client backup. The client will add automatically after the end of the creator.
 
-```text
-    Add new Policy:
-```
+   Add new Policy:
 
-![](../../.gitbook/assets/setup_netbackup_26.png)
 
-![](../../.gitbook/assets/setup_netbackup_27.png)
+   ![](../../.gitbook/assets/setup_netbackup_26.png)
 
-![](../../.gitbook/assets/setup_netbackup_28.png)
+   ![](../../.gitbook/assets/setup_netbackup_27.png)
 
-```text
-    Select type of machine to backup:
-```
+   ![](../../.gitbook/assets/setup_netbackup_28.png)
 
-![](../../.gitbook/assets/setup_netbackup_29.png)
+   Select type of machine to backup:
 
-![](../../.gitbook/assets/setup_netbackup_30.png)
+   ![](../../.gitbook/assets/setup_netbackup_29.png)
 
-```text
-    Add client to backup:
-```
+   ![](../../.gitbook/assets/setup_netbackup_30.png)
 
-![](../../.gitbook/assets/setup_netbackup_31.png)
+   Add client to backup:
 
-![](../../.gitbook/assets/setup_netbackup_32.png)
+   ![](../../.gitbook/assets/setup_netbackup_31.png)
 
-![](../../.gitbook/assets/setup_netbackup_33.png)
+   ![](../../.gitbook/assets/setup_netbackup_32.png)
 
-```text
-    Set up configuration details as you want to:
-```
+   ![](../../.gitbook/assets/setup_netbackup_33.png)
 
-![](../../.gitbook/assets/setup_netbackup_34.png) or:
+   Set up configuration details as you want to:
 
-![](../../.gitbook/assets/setup_netbackup_35.png)
+   ![](../../.gitbook/assets/setup_netbackup_34.png) or:
 
-![](../../.gitbook/assets/setup_netbackup_37.png)
+   ![](../../.gitbook/assets/setup_netbackup_35.png)
 
-![](../../.gitbook/assets/setup_netbackup_38.png)
+   ![](../../.gitbook/assets/setup_netbackup_37.png)
 
-![](../../.gitbook/assets/setup_netbackup_39.png)
+   ![](../../.gitbook/assets/setup_netbackup_38.png)
 
-![](../../.gitbook/assets/setup_netbackup_40.png)
+   ![](../../.gitbook/assets/setup_netbackup_39.png)
 
-![](../../.gitbook/assets/setup_netbackup_41.png)
+   ![](../../.gitbook/assets/setup_netbackup_40.png)
 
-Finally, we have the client connected to the server.
+   ![](../../.gitbook/assets/setup_netbackup_41.png)
 
-![](../../.gitbook/assets/setup_netbackup_42.png)
+   Finally, we have the client connected to the server.
 
-1. Allow manual backup for vProtect node client on Netbackup server.
-2. Login to vProtect, and go to "Backup Destinations". Click on "Create Backup Destination", chose "Veritas Netbackup". Type name for new backup destination, client home path, real export path. And set Netbackup parameters:
+   ![](../../.gitbook/assets/setup_netbackup_42.png)
+
+3. Allow manual backup for vProtect node client on Netbackup server.
+4. Login to vProtect, and go to "Backup Destinations". Click on "Create Backup Destination", chose "Veritas Netbackup". Type name for new backup destination, client home path, real export path. And set Netbackup parameters:
 
    Client home path
 
@@ -210,5 +203,5 @@ Finally, we have the client connected to the server.
 
    Client name
 
-![](../../.gitbook/assets/setup_netbackup_01.png)
+   ![](../../.gitbook/assets/setup_netbackup_01.png)
 
