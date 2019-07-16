@@ -6,7 +6,7 @@ We also encourage you to read [Getting started](../getting-started/) section if 
 
 ## Prerequisites
 
-1. Install CentOS/RHEL 7.5 minimal \(if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available\)
+1. Install CentOS/RHEL 7 minimal \(if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available\)
 2. Make sure your OS is up to date:
 
    ```text
@@ -37,11 +37,11 @@ We also encourage you to read [Getting started](../getting-started/) section if 
    * copy and paste generated repo file into `/etc/yum.repos.d/MariaDB.repo`, so it looks similar to this:
 
      ```text
-     # MariaDB 10.2 CentOS repository list - created 2017-10-03 07:45 UTC
+     # MariaDB 10.4 CentOS repository list - created 2019-07-16 09:27 UTC
      # http://downloads.mariadb.org/mariadb/repositories/
      [mariadb]
      name = MariaDB
-     baseurl = http://yum.mariadb.org/10.2/centos7-amd64
+     baseurl = http://yum.mariadb.org/10.4/centos7-amd64
      gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
      gpgcheck=1
      ```
