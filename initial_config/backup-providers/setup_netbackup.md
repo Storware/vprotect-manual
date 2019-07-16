@@ -34,69 +34,75 @@
         Solaris        tar -xzvf NetBackup_8.x_CLIENTS1.tar.gz
    ```
 
-c\) Change to the directory for your desired operating system.
+   c\) Change to the directory for your desired operating system.
 
-```text
+   ```text
     Example:
         AIX, HP-UX, Solaris, Solaris SPARC    cd [path_to_downloaded_tar.gz file]/NetBackup_8.x_CLIENTS1
         Linux, Linux - s390x            cd [path_to_downloaded_tar.gz file]/NetBackup_8.x_CLIENTS2
-```
+   ```
 
-![](../../.gitbook/assets/setup_netbackup_6.png)
+   ![](../../.gitbook/assets/setup_netbackup_6.png)
 
-d\) Type ./install and answer the questions as follows:
+   d\) Type ./install and answer the questions as follows:
 
-![](../../.gitbook/assets/setup_netbackup_7.png)
+   ![](../../.gitbook/assets/setup_netbackup_7.png)
 
-When the following message appears, press Enter to continue: ![](../../.gitbook/assets/setup_netbackup_8.png)
+   When the following message appears, press Enter to continue:
+   ![](../../.gitbook/assets/setup_netbackup_8.png)
 
-The client binaries represent the operating system versions where the binaries were compiled. The binaries typically function perfectly on later versions of the operating system. The installation procedure attempts to load the appropriate binaries for your system. If the script does not recognize the local operating system, it presents choices.
+   The client binaries represent the operating system versions where the binaries were compiled. The binaries typically function perfectly on later versions of the operating system. The installation procedure attempts to load the appropriate binaries for your system. If the script does not recognize the local operating system, it presents choices.
 
-e\) Type y and press Enter to continue with the software installation.
+   e\) Type y and press Enter to continue with the software installation.
 
-![](../../.gitbook/assets/setup_netbackup_9.png)
+   ![](../../.gitbook/assets/setup_netbackup_9.png)
 
-f\) Type the fqdn name of your NetBackup master server \(for examle netbackup.oranization.local for examle netbackup.oranization.local \) and press Enter to continue.
+   f\) Type the fqdn name of your NetBackup master server \(for examle netbackup.oranization.local for examle netbackup.oranization.local \) and press Enter to continue.
 
-![](../../.gitbook/assets/setup_netbackup_10.png)
+   ![](../../.gitbook/assets/setup_netbackup_10.png)
 
-![](../../.gitbook/assets/setup_netbackup_11.png)
+   ![](../../.gitbook/assets/setup_netbackup_11.png)
 
-g\) Confirm the NetBackup client name and press Enter to continue.
+   g\) Confirm the NetBackup client name and press Enter to continue.
 
-![](../../.gitbook/assets/setup_netbackup_12.png)
+   ![](../../.gitbook/assets/setup_netbackup_12.png)
 
-h\) \(Conditional\) Enter one or more media servers if prompted:
+   h\) \(Conditional\) Enter one or more media servers if prompted:
 
-![](../../.gitbook/assets/setup_netbackup_13.png)
+   ![](../../.gitbook/assets/setup_netbackup_13.png)
 
-i\) After you confirm you want to continue, the installer fetches the certificate authority certificate details.
+   i\) After you confirm you want to continue, the installer fetches the certificate authority certificate details.
 
-![](../../.gitbook/assets/setup_netbackup_14.png)
+   ![](../../.gitbook/assets/setup_netbackup_14.png)
 
-Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail.
+   Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail.
 
-j\) When prompted, review the fingerprint information and confirm that it is accurate.
+   j\) When prompted, review the fingerprint information and confirm that it is accurate.
 
-![](../../.gitbook/assets/setup_netbackup_15.png)
+   ![](../../.gitbook/assets/setup_netbackup_15.png)
 
-k\) After you confirm the fingerprint information, the installer stores the certificate authority certificate details.
+   k\) After you confirm the fingerprint information, the installer stores the certificate authority certificate details.
 
-![](../../.gitbook/assets/setup_netbackup_16.png)
+   ![](../../.gitbook/assets/setup_netbackup_16.png)
 
-Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail. l\) After the Certificate Authority certificate is stored, the installer fetches the host certificate.
+   Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail.
+   l\) After the Certificate Authority certificate is stored, the installer fetches the host certificate.
 
-![](../../.gitbook/assets/setup_netbackup_17.png)
+   ![](../../.gitbook/assets/setup_netbackup_17.png)
 
-Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail. m\) \(Conditional\) If prompted for the Authorization Token, please enter it.
+   Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail. 
+   m\) \(Conditional\) If prompted for the Authorization Token, please enter it.
 
-![](../../.gitbook/assets/setup_netbackup_18.png) The token format is 16 upper case letters. Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail. n\) This is the last question. Next the setup will make some operations and after all, it will finish its work and exit.
+   ![](../../.gitbook/assets/setup_netbackup_18.png)
+   The token format is 16 upper case letters. Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail. 
+   n\) This is the last question. Next the setup will make some operations and after all, it will finish its work and exit.
 
-![](../../.gitbook/assets/setup_netbackup_19.png)
+   ![](../../.gitbook/assets/setup_netbackup_19.png)
 
-o\) Once we have finished the installation of the client software we need to modify the firewall service to allow the double-sided communication between the server and our client. We need to allow input communication on ports 13782/tcp and 13782/udp. To do that enter commands as below:
+   o\) Once we have finished the installation of the client software we need to modify the firewall service to allow the double-sided communication between the server and our client. We need to allow input communication on ports 13782/tcp and 13782/udp. To do that enter commands as below:
 
-* first we need to know what is our default zone: firewall-cmd --get-default-zone ![](../../.gitbook/assets/setup_netbackup_20.png)
+* first we need to know what is our default zone: firewall-cmd --get-default-zone
+![](../../.gitbook/assets/setup_netbackup_20.png)
 
   firewall-cmd --get-active-zones
 
