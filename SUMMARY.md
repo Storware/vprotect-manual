@@ -40,6 +40,7 @@
     * [IBM Spectrum Protect setup](initial_config/backup-providers/setup_isp.md)
     * [Dell-EMC NetWorker setup](initial_config/backup-providers/setup_networker.md)
     * [Veritas NetBackup setup](initial_config/backup-providers/setup_netbackup.md)
+    * [AWS S3 or S3-compatible](initial_config/backup-providers/aws-s3-or-s3-compatible.md)
     * [Google Cloud Storage](initial_config/backup-providers/google-cloud-storage.md)
     * [Other backup providers](initial_config/backup-providers/other-backup-providers.md)
 * [Update](update.md)
