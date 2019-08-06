@@ -25,9 +25,13 @@ There are several scenarios for AWS which may suit your case:
 
 ## Setup considerations
 
-It is assumed that you have a working experience with AWS EC2 to be able to deploy vProtect Node instances. You also need to have IAM user with permissions that allow you to deploy instance and generate access/secret keys for vProtect.
+It is assumed that you have a working experience with AWS EC2 to be able to deploy vProtect components. You also need to have IAM user with permissions that allow you to deploy instance and generate access/secret keys for vProtect.
 
-Remember to use **CentOS 7 AMI** as a base image - both for Server and Nodes. After you deploy 
+Remember to use **CentOS 7 AMI** as a base image - both for Server and Nodes. We recommend to have 2 vCPU and 4GB of RAM for typical installation. This means that **t3.medium** or **m5.large** should cover general use cases. For better performance we recommend however to use storage optimized instances such as **i3.large** or bigger, where I/O intensive operations should perform better.
+
+From the networking perspective, vProtect requires to communicate with AWS EC2 API, but still it is recommended to put in a private subnet and allow communication over NAT Gateway.
+
+![](../.gitbook/assets/aws-vprotect-diagram.png)
 
 You add AWS EC2 as Hypervisor Manager. You need to provide account ID and access/secret keys of a user that has permissions to handle snapshot, AMI and EBS volume operations,  EC2 instance creation.
 
@@ -79,4 +83,25 @@ Here are IAM permissions that vProtect needs to have for backup/restore operatio
   ]
 }
 ```
+
+## Costs
+
+From AWS perspective you need to to take several additional costs that may be incurred:
+
+* EC2 instance costs for vProtect Server and Nodes:
+  * depends on number of nodes \(assume at least one node per region\)
+  * to reduce costs we recommend to use reserved instances for production use
+  * [https://aws.amazon.com/ec2/pricing/](https://aws.amazon.com/ec2/pricing/)
+* Backup destination and staging space storage on EBS
+  * staging space is necessary and we recommend it to be at least the size of the biggest VM multiplied by number of export and store threads
+  * if you want to store backups on EBS you also need to have additional storage
+  * you can have both using the same EBS volume
+  * we encourage you to use deduplication, as it may result even over 95% of storage savings
+  * [https://aws.amazon.com/ebs/pricing/](https://aws.amazon.com/ebs/pricing/)
+* Data transfer costs:
+  * if you upload data to external backup providers
+  * or if node needs to transfer a lot of data between AZs - this can be reduced by deploying one node per AZ
+  * [https://aws.amazon.com/ec2/pricing/on-demand/\#Data\_Transfer](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer)
+* S3 backup destination:
+  * if used - check [AWS S3 or S3-compatible](../initial_config/backup-providers/aws-s3-or-s3-compatible.md#costs) backup provider section.
 

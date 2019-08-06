@@ -2,6 +2,8 @@
 
 Before you proceed with installation please take a few minutes to read key concepts and requirements to properly plan installation.
 
+In this guide we assume that you're familiar with basic Linux administration \(especially shell\), your virtualization platform and backup provider that you want to use.
+
 ## Architecture
 
 High level picture: vProtect gets data from your virtualization platform and stores it backup provider of your choice. Notice, that one of the backup providers supported is just file-system \(which can be almost anything including these that support deduplication such as VDO\), which allows to use vProtect as a stand-alone solutions without third-party backup providers.

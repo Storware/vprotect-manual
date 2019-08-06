@@ -45,3 +45,9 @@ Depending on the mode selected you may different set of permissions. For single 
 * `Bucket name prefix (for ONE_BUCKET_PER_VM only)` - prefix for bucket names used in amazon \(must be globally unique\), buckets will have names starting with this prefix - one for each VM 
 * `Encryption` - enables build-in encryption of the data at rest. Once enabled, new data being stored is going to be encrypted. 
 
+## Costs
+
+When storing backups in S3 additional charges will occur for stored backups. Retention setting in vProtect can limit the storage costs of stored backups. Currently vProtect doesn't support Glacier \(but will appear in future releases\).
+
+Please visit [https://aws.amazon.com/s3/pricing/](https://aws.amazon.com/s3/pricing/) to check current AWS S3 pricing.
+
