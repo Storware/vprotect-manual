@@ -29,6 +29,8 @@ It is assumed that you have a working experience with AWS EC2 to be able to depl
 
 Remember to use **CentOS 7 AMI** as a base image - both for Server and Nodes. We recommend to have 2 vCPU and 4GB of RAM for typical installation. This means that **t3.medium** or **m5.large** should cover general use cases. For better performance we recommend however to use storage optimized instances such as **i3.large** or bigger, where I/O intensive operations should perform better.
 
+Both vProtect components are assumed to be deployed without HA \(more precisely, all nodes or server probably will be in separate AZs, and just need to communicate over HTTP\). There is no requirement for multi-AZ deployment for now. While the Node is stateless, and can be lost without data loss, Server needs DB to be protected. vProtect provides build-in automatic DB backup mechanism, which can be used to protect backup metadata. Please refer to: [Disaster recovery](../admin_dr.md) section for more details.
+
 From the networking perspective, vProtect requires to communicate with AWS EC2 API, but still it is recommended to put in a private subnet and allow communication over NAT Gateway.
 
 ![](../.gitbook/assets/aws-vprotect-diagram.png)
