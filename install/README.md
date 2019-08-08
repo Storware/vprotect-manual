@@ -37,11 +37,11 @@ We also encourage you to read [Getting started](../getting-started/) section if 
    * copy and paste generated repo file into `/etc/yum.repos.d/MariaDB.repo`, so it looks similar to this:
 
      ```text
-     # MariaDB 10.4 CentOS repository list - created 2019-07-16 09:27 UTC
+     # MariaDB 10.3 CentOS repository list - created 2019-08-08 10:31 UTC
      # http://downloads.mariadb.org/mariadb/repositories/
      [mariadb]
      name = MariaDB
-     baseurl = http://yum.mariadb.org/10.4/centos7-amd64
+     baseurl = http://yum.mariadb.org/10.3/centos7-amd64
      gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
      gpgcheck=1
      ```
