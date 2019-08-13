@@ -49,7 +49,7 @@ Quite often Storware support will ask for debug logs for more in-depth troublesh
    * **Since 3.8.1-18** - edit `/opt/vprotect/log4j2-server.xml` change `INFO` to `DEBUG` in `<Root level="...">` tag
 3. Start vprotect-server service:
 
-   `systemctl start vprotect-node`
+   `systemctl start vprotect-server`
 
 4. Proceed with operations that need to be logged.
 5. Then collect logs from `/opt/vprotect/logs/api` and `/opt/vprotect/logs/appserver` directories.
