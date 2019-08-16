@@ -10,7 +10,7 @@ High level picture: vProtect gets data from your virtualization platform and sto
 
 
 
-![](../.gitbook/assets/vprotect_arch%20%281%29.jpg)
+![](../.gitbook/assets/vprotect_architektura_2019%20%281%29.png)
 
 
 
