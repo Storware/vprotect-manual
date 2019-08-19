@@ -4,5 +4,7 @@ vProtect supports Nutanix AHV platform by using a VM called “Proxy VM”. Node
 
 This strategy allows you to exclude drives from backup which you don’t need. Remember that, you need to install 1 Proxy VM per cluster, so that drives that Node tries to attach are reachable.
 
+**Notice**: staging space must be on a volume coming from container storage. Otherwise vProtect may select wrong device during backup.
+
 ![](../.gitbook/assets/nutanix.png)
 

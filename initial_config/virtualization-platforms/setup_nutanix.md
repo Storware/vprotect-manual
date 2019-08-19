@@ -14,3 +14,5 @@ Then index your HV manager and verify if hypervisors and VMs are detected.
 
 **Notice**: volume groups attached to the VMs are **not** affected by snapshot, hence neither backup nor snapshot revert on such volumes is going to include them.
 
+**Notice**: staging space must be on a volume coming from container storage. Otherwise vProtect may select wrong device during backup.
+
