@@ -15,18 +15,17 @@ We also encourage you to read [Getting started](../getting-started/) section if 
 
    If kernel is updated, then You need to reboot your operating system.
 
-3. Install EPEL repository
+3. Install vProtect repository
 
-   * RedHat:
-
-   ```text
-   yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm
-   ```
-
-   * CentOS:
+   create file `/etc/yum.repos.d/vProtect.repo`:
 
    ```text
-   yum -y install epel-release
+   # vProtect Enterprise backup solution for virtual environments repository
+   # http://www.vprotect.io/
+   [vprotect]
+   name = vProtect
+   baseurl = ftp://ftp.storware.eu/repo
+   gpgcheck=0
    ```
 
 4. Install MariaDB repository \(vProtect Server host only\)
@@ -50,10 +49,10 @@ We also encourage you to read [Getting started](../getting-started/) section if 
 
 vProtect consists of server \(central management point with WebUI\) and one or multiple nodes \(which can be installed on the same host as server or on other machines\). First step is always to install server.
 
-1. Copy vprotect-server RPM file to your machine and install it using YUM \(where `XXX` is a placeholder for the vProtect version\):
+1. Install vprotect-server using YUM:
 
    ```text
-   yum -y install vprotect-server-*.rpm
+   yum -y install vprotect-server
    ```
 
 2. Setup DB for vProtect:
@@ -94,10 +93,10 @@ vProtect consists of server \(central management point with WebUI\) and one or m
 
 vProtect Node is component that executes all tasks. It can be installed together with Server \(it is common to have 1 server and just 1 node\). More nodes can be always added later.
 
-1. Copy vprotect-node RPM file to your machine and install it using YUM \(where `XXX` is a placeholder for the vProtect version\):
+1. Install vprotect-node using YUM:
 
    ```text
-   yum -y install vprotect-node-*.rpm
+   yum -y install vprotect-node
    ```
 
 2. Prepare your staging space \(on vProtect Node host only\):
