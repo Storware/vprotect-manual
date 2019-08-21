@@ -24,7 +24,7 @@ We also encourage you to read [Getting started](../getting-started/) section if 
    # http://www.vprotect.io/
    [vprotect]
    name = vProtect
-   baseurl = ftp://ftp.storware.eu/repo
+   baseurl = ftp://vprotect-repo.storware.eu/repo
    gpgcheck=0
    ```
 
