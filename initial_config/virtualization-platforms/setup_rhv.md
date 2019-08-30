@@ -21,6 +21,8 @@ When adding oVirt/RHV 4.0+ HV managers make sure to have URL like the following:
 https://RHV_MGR_HOST/ovirt-engine/api
 ```
 
+**Notice:** username for RHV/oVirt environments needs to be provided in **user@domain** format - i.e. **admin@internal**. This user is expected to have all permissions related to manage snapshots, create/remove VMs, operate disks and export data.
+
 ### Disk attachment mode
 
 **Note**: RHV/oVirt API v4 environments require vProtect Node to be installed in one of the VMs residing on the RHV/oVirt cluster. vProtect should detect automatically the VM with vProtect during index operation.
