@@ -9,7 +9,7 @@ You have the installation options:
 * [All-in-one quick installation](all-in-one-quick-installation.md)
 * [Installation using Ansible playbooks](installation-using-ansible.md)
 * [Installation with RPMs](installation-using-rpms.md)
-* [vProtect Virtual Appliance deployment](../image/)
+* [vProtect Virtual Appliance deployment](../image/) - requires FTP
 
 Then please continue with [Initial configuration](../initial_config/) steps. Remember to make sure you have your staging space configured \([Staging space configuration](staging-space-configuration.md)\).
 
