@@ -4,6 +4,8 @@
 
 We also encourage you to read [Getting started](../getting-started/) section if you haven't done that yet.
 
+Please remember that you also can to the following steps with Ansible using instructions in [Installation using Ansible](installation-using-ansible.md) or even quicker with [All-in-one quick installation](all-in-one-quick-installation.md) steps.
+
 ## Prerequisites
 
 1. Install CentOS/RHEL 7 minimal \(if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available\)
