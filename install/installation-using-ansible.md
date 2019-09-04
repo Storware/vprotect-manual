@@ -27,8 +27,8 @@ Run these on the system from which you run Ansible playbooks:
 
 * Install Ansible roles:
 
-  `ansible-galaxy install xe0nic.ansible-vprotect-server  
-  ansible-galaxy install xe0nic.ansible-vprotect-node`
+  `ansible-galaxy install xe0nic.ansible_vprotect_server  
+  ansible-galaxy install xe0nic.ansible_vprotect_node`
 
 * Create playbook directory and change it working directory, i.e: `mkdir vprotect && cd vprotect`
 * Create inventory file - i.e. `hosts`:
