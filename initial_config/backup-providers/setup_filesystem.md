@@ -1,6 +1,6 @@
 # File system setup
 
-1. Prepare vProtect node: Log in to vProtect node, and create mount directory in example `/backupdestination`
+1. Log in to vProtect Node, and create mount directory in example `/backupdestination`
 
    ```text
       mkdir /backupdestination

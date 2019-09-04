@@ -7,11 +7,12 @@ Staging space size depends on the number and size of simultaneous backups - as a
 **Note**: If you rather want to use vProtect with single **deduplicated space for both staging and backup destination:**
 
 * skip this section **-** so ****leave `/vprotect_data` folder empty
-* create File System Backup destination with deduplication enabled \([File system setup](../initial_config/backup-providers/setup_filesystem.md)\) - VDO will initialize block device for you.
+* create File System Backup destination with deduplication enabled \([File system setup](../initial_config/backup-providers/setup_filesystem.md)\) 
+  * vProtect will initialize block device for you.
 
 Otherwise - to have your spare disk to be used as a staging space:
 
-List all existing disk's, and found your new disk \(let's say - **/dev/sdc**\):
+List all existing disks, and find your new disk \(let's say - **/dev/sdc**\):
 
 ```text
    [root@vProtect01 ~]# fdisk -l | grep dev
@@ -48,5 +49,5 @@ Add a line to `/etc/fstab` file, to automatically mount new filesystem after reb
 /dev/sdc    /vprotect_data    xfs    defaults 0 0
 ```
 
-Remember to **restart vprotect-node service** to discover staging space properly
+Remember to **restart vprotect-node service** to have your staging space discovered properly.
 
