@@ -67,7 +67,7 @@ ansible_user = root
 {% endcode-tabs %}
 
 * Run playbook: `ansible-playbook -i hosts site.yml`
-* After installation you should be able to login to your vProtect Server: `https://vprotect_server_address`
+* After installation you should be able to login to your vProtect Server: `https://vprotect_server_address` and your nodes should be registered and running.
 
 ## Variables
 
