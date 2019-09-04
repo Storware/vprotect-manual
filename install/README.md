@@ -7,7 +7,7 @@ We also encourage you to read [Getting started](../getting-started/) section if 
 You have the installation options:
 
 * [All-in-one quick installation](all-in-one-quick-installation.md)
-* [Installation using Ansible playbooks](installation-using-ansible.md)
+* [Installation using Ansible playbook](installation-using-ansible.md)
 * [Installation with RPMs](installation-using-rpms.md)
 * [vProtect Virtual Appliance deployment](../image/) - requires FTP
 

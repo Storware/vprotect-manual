@@ -1,4 +1,4 @@
-# Installation using Ansible playbooks
+# Installation using Ansible playbook
 
 You can install complete vProtect solution using the following 2 roles, available on Ansible Galaxy:
 

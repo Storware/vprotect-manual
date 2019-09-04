@@ -58,7 +58,7 @@ Other platforms require preparation of CentOS 7 VM or physical installation and 
 
 1. Choose your installation path. You have the following options:
    * [All-in-one quick installation](../install/all-in-one-quick-installation.md)
-   * [Installation using Ansible playbooks](../install/installation-using-ansible.md)
+   * [Installation using Ansible playbook](../install/installation-using-ansible.md)
    * [Installation with RPMs](../install/installation-using-rpms.md)
    * [vProtect Virtual Appliance deployment](../image/)
 2. Regardless of the installation option you choose:
