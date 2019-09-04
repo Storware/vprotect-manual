@@ -13,7 +13,7 @@
   * [Deployment in Kubernetes/OpenShift environment](getting-started/deployment-in-kubernetes-openshift-environment.md)
   * [Deployment in AWS EC2 environment](getting-started/deployment-in-aws-ec2-environment.md)
 * [Installation](install/README.md)
-  * [All-in-one easy installation](install/all-in-one-easy-installation.md)
+  * [All-in-one quick installation](install/all-in-one-easy-installation.md)
   * [Installation using Ansible](install/installation-using-ansible.md)
   * [Enabling HTTPS connectivity for remote nodes](install/install_https.md)
   * [Full versions of libvirt/qemu packages installation](install/install_libvirt_qemu.md)

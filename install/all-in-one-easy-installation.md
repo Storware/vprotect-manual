@@ -1,4 +1,4 @@
-# All-in-one easy installation
+# All-in-one quick installation
 
 vProtect can be easily installed on a single box quickly. You just need few steps:
 
