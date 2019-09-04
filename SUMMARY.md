@@ -15,6 +15,7 @@
 * [Installation](install/README.md)
   * [All-in-one quick installation](install/all-in-one-quick-installation.md)
   * [Installation using Ansible](install/installation-using-ansible.md)
+  * [Staging space configuration](install/staging-space-configuration.md)
   * [Enabling HTTPS connectivity for remote nodes](install/install_https.md)
   * [Full versions of libvirt/qemu packages installation](install/install_libvirt_qemu.md)
   * [SSH public key authentication](install/ssh-public-key-authentication.md)

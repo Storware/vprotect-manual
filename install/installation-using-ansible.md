@@ -68,6 +68,8 @@ ansible_user = root
 
 * Run playbook: `ansible-playbook -i hosts site.yml`
 * After installation you should be able to login to your vProtect Server: `https://vprotect_server_address` and your nodes should be registered and running.
+* Remember to prepare your staging space as described in [Staging space configuration](staging-space-configuration.md).
+* Now please proceed with [Initial configuration](../initial_config/) instructions, as you need to configure access to the hypervisors and backup destinations.
 
 ## Variables
 

@@ -102,20 +102,15 @@ vProtect Node is component that executes all tasks. It can be installed together
    ```
 
 2. Prepare your staging space \(on vProtect Node host only\):
-   * size depends on the number and size of simultaneous backups - as a rule of a thumb make it aproximately equal to the number of expected simultaneous backup threads multiplied by the size of your biggest VM
-   * it is also recommended to create a symlink `/vprotect_data` pointing to the mount point of the staging space, e.g.:
+   * Please follow steps described in [Staging space configuration](staging-space-configuration.md)
+   * **if your path is different than** `/vprotect_data` ****it is recommended to create a symlink `/vprotect_data` pointing to your mount point of the staging space, e.g.:
 
      ```text
      ln -s /mnt/staging /vprotect_data
      ```
 
-   * make also sure that staging directory and symlink belong to user and group called `vprotect`:
-
-     ```text
-     chown -R vprotect:vprotect /vprotect_data
-     ```
-3. Register node with `NODE_NAME` of your choice `ADMIN_USER` user name which you would like to use and URL to vProtect API and provide password when prompted:
-   * Syntax:
+   * Register node with `NODE_NAME` of your choice `ADMIN_USER` user name which you would like to use and URL to vProtect API and provide password when prompted:
+3. * Syntax:
 
      ```text
      vprotect node -r NODE_NAME ADMIN_USER http(s)://VPROTECT_SERVER:PORT/api

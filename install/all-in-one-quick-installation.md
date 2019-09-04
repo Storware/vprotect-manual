@@ -10,5 +10,7 @@ vProtect can be easily installed on a single box quickly. You just need few step
 
 Now you should be able to log in to vProtect Server using `https://IP_OF_YOUR_MACHINE` with local node registered and running.
 
+Remember to prepare your staging space as described in [Staging space configuration](staging-space-configuration.md).
+
 Now please proceed with [Initial configuration](../initial_config/) instructions, as you need to configure access to the hypervisors and backup destinations. 
 
