@@ -6,6 +6,8 @@ RHV, Ovirt, or ESXi host to deploy vProtect image.
 
 2 CPU core 4GB RAM
 
+**FTP access to download image - requires credentials - provided in the e-mail with license**
+
 ### Default login, and password 
 
 * Operating system / SSH: login: **root** password: **vPr0tect**
