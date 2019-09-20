@@ -19,7 +19,9 @@ Additionally it is recommend to also keep a copy of backup provider specific fil
 In case of a complete loss of the vProtect Server:
 
 1. Reinstall vProtect Server
-2. **Before** starting vProtect Server - restore the database
+   * if you lost your license file please contact support
+2. Before starting vProtect Server - restore the database
+   * you can also restore it later \(i.e. if you want to reinstall it with Ansible or all-in-one option\), but remember to shutdown server first, then restore DB and start server again 
 3. Replace all backup provider specific files \(install any binaries specific for required backup destinations\)
 4. Start vProtect Server service
 5. Install vProtect Nodes
