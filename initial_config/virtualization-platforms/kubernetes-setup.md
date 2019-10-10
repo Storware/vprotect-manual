@@ -22,9 +22,9 @@ Example:
        client-key-data: <REDACTED>
 ```
 
-1. Copy configs to vProtect Node. \(**Skip this and point 3, 4 if you don't use Minikube**\)
+2. Copy configs to vProtect Node. \(**Skip this and point 3, 4 if you don't use Minikube**\)
    * If you use Minikube, you can copy the following files to vProtect: `sudo cp /home/user/.kube/config /opt/vprotect/.kube/config sudo cp  /home/user/.minikube/{ca.crt,client.crt,client.key} /opt/vprotect/.kube`
-2. Modify the paths in `config` so they point to `/opt/vprotect/.kube` instead of `/home/user/.minikube`. Example:
+3. Modify the paths in `config` so they point to `/opt/vprotect/.kube` instead of `/home/user/.minikube`. Example:
 
 ```yaml
 - name: minikube
@@ -33,7 +33,7 @@ Example:
     client-key: /opt/vprotect/.kube/client.key
 ```
 
-1. Afterwards, give permissions to the `vprotect` user: `chown -R vprotect:vprotect /opt/vprotect/.kube`
+4. Afterwards, give permissions to the `vprotect` user: `chown -R vprotect:vprotect /opt/vprotect/.kube`
 
 ![Example how input credentials in vProtect UI for Kubernetes/OpenShift](../../.gitbook/assets/image.png)
 
