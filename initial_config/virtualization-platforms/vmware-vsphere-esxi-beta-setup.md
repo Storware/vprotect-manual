@@ -8,7 +8,7 @@
    ```
 
    ```text
-   ./vmware_setup.sh
+   ./setup_vmware.sh
    ```
 
 3. Backup user must have following privileges for backup/restore procedure:
