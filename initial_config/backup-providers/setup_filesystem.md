@@ -1,5 +1,14 @@
 # File system setup
 
+The following example assumes that you have a dedicated disk which you're going to use for backup destination. 
+
+* Below you can find example with local XFS, where you need to prepare it manually
+* Deduplication with VDO should be automatically initialized for you for storage smaller than 5 TB, for bigger volumes - let know support to help you.
+* Any remote FS like **NFS, SMB, CephFS, etc.** - needs to be mounted by the user and vprotect user/group must own the directories within backup destination. vProtect expects just already mounted file system and mount point in the backup destination.
+* Consider using same file system for staging and backup destination \(it boosts store tasks, as no data needs to be copied again\)
+
+## Backup destination preparation
+
 1. Log in to vProtect Node, and create mount directory in example `/backupdestination`
 
    ```text
@@ -19,7 +28,7 @@
       Disk /dev/mapper/centos-swap: 3221 MB, 3221225472 bytes, 6291456 sectors
    ```
 
-   * Next steps only if you don't wan't use deduplication:
+   * These steps apply only **if you don't wan't use deduplication:**
 
      If you have new clean disk prepare filesystem on it:
 
@@ -57,11 +66,11 @@
 
 ![](../../.gitbook/assets/setup_filessytem.png)
 
-b\) With deduplication example:
+b\) With deduplication on backup destination only example:
 
 ![](../../.gitbook/assets/setup_filessytem_dedup.png)
 
-c\) With deduplication example, and deduplicated storage is staging directory:
+c\) With deduplication and deduplicated staging space example:
 
 In "Storage paths" type `/vprotect_data/backupdestination`. In "Mount deduplicated file system to a different directory than backup destination path" type `/vprotect_data`.
 
