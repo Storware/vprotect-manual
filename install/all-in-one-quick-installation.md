@@ -13,7 +13,7 @@ vProtect can be easily installed on a single box quickly. You just need few step
   bash < <(curl -s ftp://ftp.storware.eu/vprotect-local-install.sh)
   ```
 
-Now you should be able to log in to vProtect Server using `https://IP_OF_YOUR_MACHINE` with local node registered and running.
+Now you should be able to log in to vProtect Server using `https://IP_OF_YOUR_MACHINE` with local node registered and running. By default vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\).
 
 Remember to prepare your staging space as described in [Staging space configuration](staging-space-configuration.md).
 
