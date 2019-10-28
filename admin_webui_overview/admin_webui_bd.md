@@ -51,7 +51,12 @@ Each backup destination needs also a unique `Name` for easier identification in 
 * `Schedule name` - name of the schedule assigned in NetBackup to the client used by vProtect; backup schedules are controlled by vProtect, so no specific values should be configured in NetBackup
 * `Client name` - optional field when multiple nodes need to access same NetBackup Server - each node is supposed to backup to seprate backup destination \(each pointing to the same NetBackup Server, but which different client name\)
 
-### Dell-EMC NetWorker
+### Dell EMC Avamar
+
+* `MCCLI binary path` - path to your MCCLI client binary - i.e. `/usr/local/avamar/7.5.1-101/bin/mccli` 
+* `Account` - account used by backup client - i.e. `/usr/local/avamar/7.5.1-101/bin/mccli`
+
+### Dell EMC NetWorker
 
 * `Server address` – address of your Networker server
 
@@ -61,15 +66,17 @@ Each backup destination needs also a unique `Name` for easier identification in 
 * `Access key` - your S3 access key
 * `Secret key` - your S3 secret key
 * `Backup mode` - mode that specifies if backups should be stored in one bucket or in separate buckets for each VM
-
   * Single bucket for all VMs - stores all backups in a single bucket \(default for Amazon S3\)
   * Single bucket \(without versioning support\) for all VMs - same as above, but 3rd-party solutions may not support object versioning - choose that to store object versions as separate objects
   * One bucket per VM - stores all backups in separate buckets \(note Amazon S3 may have limits on the number of buckets\)
-
+* `Move old versions to other storage class` - instead of removing expired items vProtect will move S3 backup objects to a cheeper storage tiers \(Glacier/Deep Archive\) - when you enable this option you need to provide extended retention settings \(number of additional versions and time\)
 * `Record backup time after store` - some 3rd party solutions record object version after data transfer, enable this options only if you experience `Backup not found` issues.
 * `Bucket name (for SINGLE_BUCKET only)` - single bucket name to be used for backups
 * `Bucket name prefix (for ONE_BUCKET_PER_VM only)` - prefix for bucket names used in amazon \(must be globally unique\), buckets will have names starting with this prefix - one for each VM 
 * `Encryption` - enables build-in encryption of the data at rest. Once enabled, new data being stored is going to be encrypted. 
+* `Resolve hostname to IP before connecting` - this forces vProtect to resolve IP if you're using on-prem S3-compatible storage with multiple nodes - DNS is supposed to point to a different host each time for load balancing
+* `Path style access enabled` - some 3rd party S3 implementations need to use path-style access to objects - notice that AWS is going to deprecate it in the future
+* `Region (optional)` - if you specify region, vProtect will search for the bucket in a particular region, otherwise vProtect uses global bucket access option and default region to access buckets in other regions
 
 ### Google Cloud Storage
 

@@ -31,12 +31,15 @@ To be more precise - vProtect consists of 2 main components:
 
 For detailed deployment scenarios please refer to the following sections:
 
+* [Deployment in VMware vSphere/ESXi environment](deployment-in-vmware-vsphere-esxi-environment-beta.md)
+* [Deployment in Hyper-V environment](deploymnt-in-hyper-v-environment.md)
 * [Deployment in oVirt/RHV environment](deployment-in-ovirt-rhv-environment.md)
 * [Deployment in Nutanix AHV environment](deployment-in-nutanix-ahv-environment.md)
 * [Deployment in Oracle VM environment](deployment-in-oracle-vm-environment.md)
 * [Deployment in Proxmox VE environment](deployment-in-proxmox-ve-environment.md)
 * [Deployment in Citrix XenServer environment](deployment-in-citrix-xenserver-environment.md)
 * [Deployment in KVM/Xen environment](deployment-in-kvm-xen-environment.md)
+* [Deployment in Kubernetes/OpenShift environment](deployment-in-kubernetes-openshift-environment.md)
 * [Deployment in AWS EC2 environment](deployment-in-aws-ec2-environment.md)
 
 ## Network considerations

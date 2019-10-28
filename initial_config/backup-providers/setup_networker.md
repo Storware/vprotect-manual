@@ -1,4 +1,4 @@
-# Dell-EMC NetWorker setup
+# Dell EMC NetWorker setup
 
 1. To enable Dell-EMC Networker support please install NetWorker Client as follows:
 

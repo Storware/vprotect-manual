@@ -1,4 +1,4 @@
-# VMware vSphere/ESXi \(BETA\) setup
+# VMware vSphere/ESXi setup
 
 1. For obtaining license for VMware vSphere/ESXi BETA backup feature contact us at [info@storware.eu](mailto:info@storware.eu)
 2. VMware environments require setup system libraries provided by VMware on each node. In order to setup libs run the following script:

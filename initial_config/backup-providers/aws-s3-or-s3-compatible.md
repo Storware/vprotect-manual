@@ -53,23 +53,17 @@ Depending on the mode selected you may different set of permissions. For single 
 
 ## Parameters
 
-* `API URL (optional)` - optional if Amazon S3 is used, otherwise provide API URL for your S3-compatible backup provider
-* `Access key` - your S3 access key
-* `Secret key` - your S3 secret key
-* `Backup mode` - mode that specifies if backups should be stored in one bucket or in separate buckets for each VM
-
-  * Single bucket for all VMs - stores all backups in a single bucket \(default for Amazon S3\)
-  * Single bucket \(without versioning support\) for all VMs - same as above, but 3rd-party solutions may not support object versioning - choose that to store object versions as separate objects
-  * One bucket per VM \(**deprecated**\) - stores all backups in separate buckets \(note Amazon S3 may have limits on the number of buckets\)
-
-* `Record backup time after store` - some 3rd party solutions record object version after data transfer, enable this options only if you experience `Backup not found` issues.
-* `Bucket name (for SINGLE_BUCKET only)` - single bucket name to be used for backups
-* `Bucket name prefix (for ONE_BUCKET_PER_VM only)` - prefix for bucket names used in amazon \(must be globally unique\), buckets will have names starting with this prefix - one for each VM 
-* `Encryption` - enables build-in encryption of the data at rest. Once enabled, new data being stored is going to be encrypted. 
+See S3 section in [Backup destinations](../../admin_webui_overview/admin_webui_bd.md#s3)
 
 ## Bucket replication
 
 Even though S3 is a highly available service, you may want to be prepared in case of a region failure. We recommend to follow this guide[ https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html](%20https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) to setup bucket replication, so that your data is replicated to the other region in the worst case. Remember to point vProtect to the replicated bucket in case of a disaster.
+
+## Glacier/Deep Archive support
+
+Starting from version 3.9, vProtect is able move older backups to Glacier/Deep Archive storage tier. In S3 backup provider settings you need to enable `Move old versions to other storage class` toggle and provide extended retention settings.
+
+Keep in mind that vProtect will try to restore it to S3 with expiration set to 2 days. You'll notice that altough task is running, no progress taks place as it is waiting for the object to be restored from Glacier to S3. This **may take several hours** as Glacier doesn't provide instant access for archival data. Once this part is completed, vProtect is going to proceed with regular restore from temporary S3 object.
 
 ## Costs
 

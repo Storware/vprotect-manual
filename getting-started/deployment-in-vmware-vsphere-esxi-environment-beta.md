@@ -1,4 +1,4 @@
-# Deployment in VMware vSphere/ESXi environment \(BETA\)
+# Deployment in VMware vSphere/ESXi environment
 
 vProtect supports VMware vCenter Server and VMware ESXi standalone hosts. **Backup Server** in this case is **vProtect Server. Data mover** is **vProtect Node.** Node can be installed on the separate machine or inside Proxy VM.
 
