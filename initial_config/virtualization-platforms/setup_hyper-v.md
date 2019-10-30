@@ -37,6 +37,7 @@
 ![](../../.gitbook/assets/08.png)
 
 11. Go to **vProtect WebUI** &gt; **HYPERVISORS** &gt; **Hypervisors** click on button **+Add Hypervisor**.
+
 12. In "Add New Hypervisor" window fill all fields: URL for https have port 50882, for http use port 50881. password - use the same what you set in installation agent process.
 
 ![](../../.gitbook/assets/09.png)
