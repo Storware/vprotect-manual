@@ -30,6 +30,7 @@
   * [LVM setup on vProtect Node for disk attachment backup mode](initial_config/setup_lvm.md)
   * [Virtualization platforms](initial_config/virtualization-platforms/README.md)
     * [VMware vSphere/ESXi setup](initial_config/virtualization-platforms/vmware-vsphere-esxi-beta-setup.md)
+    * [Microsoft Hyper-v setup](initial_config/virtualization-platforms/setup_hyper-v.md)
     * [RHV/oVirt setup](initial_config/virtualization-platforms/setup_rhv.md)
     * [Nutanix AHV setup](initial_config/virtualization-platforms/setup_nutanix.md)
     * [Oracle VM setup](initial_config/virtualization-platforms/setup_ovm.md)
