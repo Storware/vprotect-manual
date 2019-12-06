@@ -33,8 +33,7 @@ Run these on the system from which you run Ansible playbooks:
 * Create playbook directory and change it working directory, i.e: `mkdir vprotect && cd vprotect`
 * Create inventory file - i.e. `hosts`:
 
-{% code-tabs %}
-{% code-tabs-item title="hosts" %}
+{% code title="hosts" %}
 ```text
 [all:vars] 
 ansible_user = root
@@ -45,13 +44,11 @@ ansible_user = root
 [nodes]
 192.168.1.2 node_name=node1
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 * Create playbook file - `site.yml`:
 
-{% code-tabs %}
-{% code-tabs-item title="site.yml" %}
+{% code title="site.yml" %}
 ```yaml
 ---
 
@@ -63,8 +60,7 @@ ansible_user = root
   roles:
   - xe0nic.ansible_vprotect_node
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 * Run playbook: `ansible-playbook -i hosts site.yml`
 * After installation you should be able to login to your vProtect Server: `https://vprotect_server_address` and your nodes should be registered and running. By default vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\).
