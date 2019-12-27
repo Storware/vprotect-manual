@@ -4,7 +4,11 @@ vProtect supports OpenStack environments that use KVM hypervisors and VMs runnin
 
 ![](../.gitbook/assets/openstack.png)
 
+### OpenStack with Ceph RBD storage backend
 
+vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD-NBD for both full and incremental backups.
+
+![](../.gitbook/assets/openstack-ceph.png)
 
 
 
