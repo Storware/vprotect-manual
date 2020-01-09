@@ -32,12 +32,12 @@ Increase disk size, for vprotect staging space.
 
 ![](../.gitbook/assets/images_citrix_08%20%281%29.png)
 
-Start vProtect virtual machine, login, and incrase disk size \(in that example to 500G\):
+Start vProtect virtual machine, login, and increase disk size \(in that example to 500G\):
 
 ```text
-   vdo growPhysical -n /dev/mapper/Deduplicated_File_system
-   vdo growLogical -n /dev/mapper/Deduplicated_File_system --vdoLogicalSize 500G
-   xfs_growfs /dev/mapper/Deduplicated_File_system
+   vdo growPhysical -n /dev/mapper/FileSystem
+   vdo growLogical -n /dev/mapper/FileSystem --vdoLogicalSize 500G
+   xfs_growfs /dev/mapper/FileSystem
 ```
 
 After import image to enviroinment set IP addresation, run nmtui &gt; "Edit a connection".  
