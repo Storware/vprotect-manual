@@ -1,6 +1,5 @@
 # Microsoft Hyper-v setup
 
-## RHV/oVirt \(API v4\)
 
 1. From our FTP server ftp://ftp.storware.eu/Add-ons/ download **HyperV-Agent-Installer.msi**, and **setup.exe**.
 2. Put installation files to Hyper-v host.
