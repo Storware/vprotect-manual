@@ -18,7 +18,7 @@ To verify if services are running you can use:
 
 ## Typical issues
 
-Typical issues can be found in the Knowledge Base: [https://storware.atlassian.net/wiki/spaces/VP/pages](https://storware.atlassian.net/wiki/spaces/VP/pages)
+Typical issues can be found in the [Knowledge Base](https://storware.atlassian.net/wiki/spaces/vprotect)
 
 ## Collecting debug logs
 
