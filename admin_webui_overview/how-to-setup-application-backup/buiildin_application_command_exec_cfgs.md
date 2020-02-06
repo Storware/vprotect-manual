@@ -1,10 +1,19 @@
 # Build-in application command execution configurations 
 
-vProtect providez set of predefined application command execution configuration. All of them require SSH connection to the server on which the instance being backed up is located. Here is the list of the parameters used in these templates.
+vProtect provides set of predefined application command execution configurations for commonly used applications. You can select them when you define new application from the list. None of them can be deleted or modified, but if you want to customize them, you always can clone them.
+
+All of them require the following:
+
+* SSH connection to the server on which the instance being backed up is located (you set credentials in each application
+* scripts must be present on target server
+* scripts must be executable for the user specified in credentials
+* provided SSH user must have permissions to execute backup commands
+
+Below you can find the list of the parameters used in these templates.
 
 ## MySQL/MariaDB
 
-- **VP\_MYSQL\_SCRIPTPATH** - Path on MySQL/MariaDB server, where vProtect can place, and execute backup script.
+- **VP\_MYSQL\_SCRIPTPATH** - Path to the script on MySQL/MariaDB server, where vProtect can place, and execute backup script.
 
 - **VP\_MYSQL\_COMPRESS** - If backup should be compressed on MySQL/MariaDB server, then please type \"Yes\".
 
@@ -18,8 +27,6 @@ vProtect providez set of predefined application command execution configuration.
 
 - **VP\_MYSQL\_DBLIST** - Comma separated list of database names to backup.
 
-
-
 ## Oracle DB
 
 - **VP\_ORACLE\_SCRIPTPATH** - Path on Oracle server, where vProtect can place, and execute backup script.
@@ -31,7 +38,6 @@ vProtect providez set of predefined application command execution configuration.
 - **VP\_ORACLE\_RETENTION** - How long RMAN should keeps backup. Allowed "RECOVERY\_WINDOW\_OF\_14\_DAYS\" to set number of days, \"REDUNDANCY\_14\" to set number of backups.
 - **VP\_ORACLE\_DBORARCH** - Type of backup, allowed is \"db\" to backup database, \"arch\" to backup database logs.
 - **VP\_ORACLE\_STOREPATH** - Path on Oracle server, where vProtect can place backup file.
-
 
 
 ## DB2
@@ -59,11 +65,9 @@ vProtect providez set of predefined application command execution configuration.
 
 - **VP\_OVIRT\_LOGFILE** - Path on oVirt/RHV server, where vProtect can place the log file from backup job.
 
-
-
 ## etcd
 
-- **ETCDCTL\_API** - Etcd API version.
+- **ETCDCTL\_API** - etcd API version.
 - **VP\_ETCD\_ADDRESS** - Address of etcd instance.
 - **VP\_ETCD\_CA\_CERT** - CA cert path.
 - **VP\_ETCD\_CERT** - Client cert path.
