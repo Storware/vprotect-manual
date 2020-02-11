@@ -1,6 +1,16 @@
 # OpenStack setup
 
-vProtect supports backup for KVM hypervisors with VMs using QCOW2 volumes or Ceph-based storage.
+vProtect supports two backup solutions for OpenStack:
+1. #### Disk image transfer - for KVM hypervisors with VMs using QCOW2 volumes or Ceph-based storage.
+- supports incremental backup
+- disk images are transferred directly from API (no Proxy VM required)
+2. #### Disk attachment through Cinder
+- supports all hypervisors and storages
+- no incremental backup
+- proxy VM is required - used for disk attachment process.
+
+## Disk attachment
+This backup mode requires vProtect Node to be installed in one of the VMs residing on your OpenStack installation. vProtect should detect automatically the VM with vProtect during index operation.
 
 ## QCOW2 files on NFS storage 
 
