@@ -1,6 +1,16 @@
 # OpenStack setup
 
-vProtect supports backup for KVM hypervisors with VMs using QCOW2 volumes or Ceph-based storage.
+vProtect supports two backup solutions for OpenStack:
+1. #### Disk image transfer - for KVM hypervisors with VMs using QCOW2 volumes or Ceph-based storage.
+- supports incremental backup
+- disk images are transferred directly from API (no Proxy VM required)
+2. #### Disk attachment through Cinder
+- supports all hypervisors and storages
+- no incremental backup
+- proxy VM is required - used for disk attachment process.
+
+## Disk attachment
+This backup mode requires vProtect Node to be installed in one of the VMs residing on your OpenStack installation. vProtect should detect automatically the VM with vProtect during index operation.
 
 ## QCOW2 files on NFS storage 
 
@@ -22,10 +32,11 @@ enabled_backends = nfs`
 
 ## Ceph RBD storage
 
-vProtect supports OpenStack with Ceph RBD volumes. Here is an example of a typical \(expected\) `cinder.conf` for Ceph in OpenStack environment:
+vProtect supports OpenStack with Ceph RBD volumes. Here is an example of a typical \(expected\) section that needs to be added in `cinder.conf` for Ceph in OpenStack environment:
 
 ```text
 [rbd]
+volume_backend_name = rbd
 volume_driver = cinder.volume.drivers.rbd.RBDDriver
 rbd_pool = volumes
 rbd_ceph_conf = /etc/ceph/ceph.conf
