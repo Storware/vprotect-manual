@@ -84,3 +84,35 @@ RHV/oVirt 3.5.1+ environments \(using API v3\) require export storage domain to 
    https://RHV_MGR_HOST/ovirt-engine/api/v3
    ```
 
+##  RHV/oVirt UI integration
+
+### Installation
+
+Download add-on from our FTP. Exctract the provided archive on your oVirt engine host and copy files to directory `/usr/share/ovirt-engine/ui-plugins/`
+
+
+
+#### Configuration
+
+In file vprotect.json edit lines in config part.
+
+vProtectURL - URL to vProtect API
+
+username - name of administrator in vProtect
+
+password - administrator password in vProtect
+
+```json
+{
+  "name": "vprotect",
+  "url": "plugin/vprotect/plugin.html",
+  "resourcePath": "vprotect-resources",
+  "lazyLoad": false,
+
+  "config": {
+    "vProtectURL": "http://10.40.0.55:8080/api",
+    "username": "admin",
+    "password": "vPr0tect"
+  }
+}
+``
