@@ -73,10 +73,10 @@ RHV/oVirt 3.5.1+ environments \(using API v3\) require export storage domain to 
      [root@vProtect3 ~]# id vprotect
      uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
      ```
-2. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import backup into RHEV/oVirt \(shown below\)
+1. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import backup into RHEV/oVirt \(shown below\)
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by RHV/oVirt manager.
 
-![](../../.gitbook/assets/setup_rhv-storagedomain%20%281%29.png)
+  ![](../../.gitbook/assets/setup_rhv-storagedomain%20%281%29.png)
 
 1. When adding oVirt/RHV 4.0+ HV managers make sure to have URL like the following:
 
@@ -86,33 +86,27 @@ RHV/oVirt 3.5.1+ environments \(using API v3\) require export storage domain to 
 
 ##  RHV/oVirt UI integration
 
-### Installation
+1. Download add-on from our FTP. Extract the provided archive on your oVirt/RHV manager.
+1. In file `vprotect.json` edit lines in config part:
+  * `vProtectURL` - URL to vProtect API
+  * `username` - name of administrator in vProtect
+  * `password` - administrator password in vProtect
 
-Download add-on from our FTP. Extract the provided archive on your oVirt engine host and copy files to directory `/usr/share/ovirt-engine/ui-plugins/`
+  **Example**:
 
-
-
-#### Configuration
-
-In file vprotect.json edit lines in config part.
-
-vProtectURL - URL to vProtect API
-
-username - name of administrator in vProtect
-
-password - administrator password in vProtect
-
-     ```text
-     {
-       "name": "vprotect",
-       "url": "plugin/vprotect/plugin.html",
-       "resourcePath": "vprotect-resources",
-       "lazyLoad": false,
-     
-       "config": {
-         "vProtectURL": "http://10.40.0.55:8080/api",
-         "username": "admin",
-         "password": "vPr0tect"
+  ```text
+  {
+      "name": "vprotect",
+      "url": "plugin/vprotect/plugin.html",
+      "resourcePath": "vprotect-resources",
+      "lazyLoad": false,
+         
+      "config": {
+          "vProtectURL": "http://10.40.0.55:8080/api",
+          "username": "admin",
+          "password": "vPr0tect"
        }
-     }
-     ```
+  }
+  ```
+
+1. Put `vprotect.json` file and `vprotect-resources` directory in the `/usr/share/ovirt-engine/ui-plugins` directory in the RHV/oVirt Engine.
