@@ -88,7 +88,7 @@ RHV/oVirt 3.5.1+ environments \(using API v3\) require export storage domain to 
 
 ### Installation
 
-Download add-on from our FTP. Exctract the provided archive on your oVirt engine host and copy files to directory `/usr/share/ovirt-engine/ui-plugins/`
+Download add-on from our FTP. Extract the provided archive on your oVirt engine host and copy files to directory `/usr/share/ovirt-engine/ui-plugins/`
 
 
 
