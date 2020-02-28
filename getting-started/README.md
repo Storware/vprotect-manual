@@ -9,7 +9,6 @@ In this guide we assume that you're familiar with basic Linux administration \(e
 High level picture: vProtect gets data from your virtualization platform and stores it backup provider of your choice. Notice, that one of the backup providers supported is just file-system \(which can be almost anything including these that support deduplication such as VDO\), which allows to use vProtect as a stand-alone solutions without third-party backup providers.
 
 
-
 ![](../.gitbook/assets/general.png)
 
 To be more precise - vProtect consists of 2 main components:
@@ -53,7 +52,10 @@ For detailed deployment scenarios please refer to the following sections:
 
 For some platforms \(Citrix XenServer, oVirt/RHV, VMware\) you may use ready pre-configured Virtual Appliance downloadable from FTP. You should check corresponding sections here: [vProtect Virtual Machine deployment](../image/).
 
-Other platforms require preparation of CentOS 7 VM or physical installation and following regular [Installation](../install/) steps.
+Other platforms require preparation of CentOS 7 VM or physical installation - there are several options vailable:
+   * [All-in-one quick installation](../install/all-in-one-quick-installation.md)
+   * [Installation using Ansible playbook](../install/installation-using-ansible.md)
+   * [Installation with RPMs](../install/installation-using-rpms.md)
 
 ## OK, let's do it!
 
