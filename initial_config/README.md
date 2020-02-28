@@ -3,7 +3,7 @@
 ## Server
 
 1. Upload your license key:
-   * if you don't have it you can request it here: [https://licenses.storware.eu/vprotect/wizard](https://licenses.storware.eu/vprotect/wizard)
+   * if you don't have it you can request it [here](https://storware.eu/licenses/vprotect)
    * log in to the web UI and go to the `Settings -> License` and upload your `license.key` file
 2. It is **highly recommended** to setup [vProtect DB backup](vprotect-db-backup.md) - database is key to restore your vProtect environment and later all of the backups that you need.
 3. Admin account setup:
