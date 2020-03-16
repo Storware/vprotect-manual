@@ -10,7 +10,8 @@ Oracle VM environments require storage repositories to be defined for each serve
    * Example export configuration in `/etc/exports` to the selected hypervisor in RHV cluster:
 
      ```text
-     /vprotect_data    10.50.1.101(fsid=6,rw,sync,insecure,all_squash,anonuid=993,anongid=990)
+     /vprotect_data/pool01    10.50.1.101(fsid=6,rw,sync,insecure,all_squash,anonuid=993,anongid=990)
+     /vprotect_data/pool02    10.50.1.102(fsid=7,rw,sync,insecure,all_squash,anonuid=993,anongid=990)
      ```
 
      where `anonuid=993` and `anongid=990` should have correct UID and GID returned by command:
