@@ -4,19 +4,20 @@ In this scenario we are going to set up two vProtect servers in High Availabilit
 
 
 
-As shown on the image 1.1 in our setup we have
+Our enviroment is built of the following elements:
 
 1. vprotect1 - first vProtect server + vProtect node, IP: 10.40.1.50
 2. vprotect2 - second vProtect server + vProtect node, IP: 10.40.1.52
 3. Cluster IP: 10.40.1.100 - We will use this IP to connect to our **active** vProtect service. This IP will float between our servers and will point to an active instance.
+4. DRBD (optionally with VDO) for data replication and deduplicatoin between nodes
+5. MariaDB master <-> master replication
+
+
 
 
 
 ![](.gitbook/assets/vProtect_HA.png)
 
-
-
-Underneath this configuration we also need to configure DRBD replication of mariaDB's data volume as all configuration is stored in DB.
 
 
 
