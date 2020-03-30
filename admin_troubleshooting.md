@@ -30,7 +30,7 @@ Quite often Storware support will ask for debug logs for more in-depth troublesh
 
    `systemctl stop vprotect-node`
 
-2.  * **Before 3.8.1-18** - edit `/usr/bin/vprotect` file - there is a `LOG_LEVEL=...` variable and it should look like this `LOG_LEVEL=DEBUG` and save the file.
+2. * **Before 3.8.1-18** - edit `/usr/bin/vprotect` file - there is a `LOG_LEVEL=...` variable and it should look like this `LOG_LEVEL=DEBUG` and save the file.
    * **Since 3.8.1-18** - edit `/opt/vprotect/log4j2-node.xml` change `INFO` to `DEBUG` in `<Property name="logLevel">...</Property>`  tag
 3. Start vprotect-node service:
 
@@ -45,7 +45,7 @@ Quite often Storware support will ask for debug logs for more in-depth troublesh
 
    `systemctl stop vprotect-server`
 
-2.  * **Before 3.8.1-18** - rename `/opt/vprotect/log4j2.xml.sample` file to `/opt/vprotect/log4j2.xml`  - it is a logger config for vProtect Server and it already has debug enabled.
+2. * **Before 3.8.1-18** - rename `/opt/vprotect/log4j2.xml.sample` file to `/opt/vprotect/log4j2.xml`  - it is a logger config for vProtect Server and it already has debug enabled.
    * **Since 3.8.1-18** - edit `/opt/vprotect/log4j2-server.xml` change `INFO` to `DEBUG` in `<Root level="...">` tag
 3. Start vprotect-server service:
 

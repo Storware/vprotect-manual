@@ -1,7 +1,5 @@
 # Introduction
 
-##   
-
 ![](.gitbook/assets/vprotect_gitbook.png)
 
 ## Storware vProtect 3.9 Update 1 Documentation
@@ -16,7 +14,9 @@ Storware vProtect is a backup and snapshot-management tool for VMs/containers ru
 
 * VM-level backup and protection
 * Support for VMware vSphere, Microsoft Hyper-V, libvirt hypervisors \(KVM, PowerKVM, KVM for IBM z, Xen\),
-Citrix XenServer/XCP-ng, Proxmox VE, RHV/oVirt/OLVM, Oracle VM and AWS EC2 environments
+
+  Citrix XenServer/XCP-ng, Proxmox VE, RHV/oVirt/OLVM, Oracle VM and AWS EC2 environments
+
 * Snapshot management \(Copy Data Management\) for VMware vSphere, Microsoft Hyper-V, Citrix XenServer, Proxmox VE, RHV/oVirt, Nutanix AHV and Amazon EC2
 * Generic application backup with your custom scripts with ready templates for commonly used databases
 * Deployment protection \(PVs and deployment metadata\) for Kubernetes and OpenShift environments
