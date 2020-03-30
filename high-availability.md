@@ -50,7 +50,7 @@ success
 success
 ```
 
-<div style="line-height: 1.8;color:black;background:#FBAEAE; font-family:"Lucida Console"; justify-content: center;"> While testing, depending on your environment, you may encounter problems related to network traffic, permissions, etc. While it might be a good idea to temporarily disable firewall and SELinux we do not recommend disabling those mechanism in the production environment as it creates significant security issues. <br/><b> If you choose disable firewalld bear in mind that vProtect won't be available on ports 80/443 anymore. Instead connect to ports 8080/8181 respectively.</b></div>
+<div style="line-height: 1.8;color:black;background:#FBAEAE; font-family:"Lucida Console"; justify-content: center;"> While testing, depending on your environment, you may encounter problems related to network traffic, permissions, etc. While it might be a good idea to temporarily disable firewall and SELinux, we do not recommend disabling those mechanisms in the production environment.Doing so imposes significant security issues. <br/><b> If you choose to disable firewalld, bear in mind that vProtect won't be available on ports 80/443 anymore. Instead connect to ports 8080/8181 respectively.</div>
 
 ``` 
 # setenforce 0
