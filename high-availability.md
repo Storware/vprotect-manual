@@ -12,7 +12,7 @@ As shown on the image 1.1 in our setup we have
 
 
 
-![](./gitbook/assets/vProtect_HA.png)
+![](.gitbook/assets/vProtect_HA.png)
 
 
 
@@ -204,7 +204,7 @@ As you can see, our floating IP 10.40.1.100 has been successfully assigned as a 
 
 We should also check if vProtect web interface is up and running, we can do this by opening web browser and typing in https://10.40.1.100. At this point we should see:
 
-![](./gitbook/assets/login_screen_HA.png)
+![](.gitbook/assets/login_screen_HA.png)
 
 As a next step  
 
