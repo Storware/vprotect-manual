@@ -134,3 +134,6 @@ Above-mentioned script will copy plug-in files to the following folders:
 
 In order to **uninstall** it remove `vprotect` subfolder and `enabled/_50_vprotect.py` file and restart your Horizon HTTP server.
 
+## Limitations
+vProtect does not backup and restore keypairs that were created by other OpenStack user than the one used in vProtect. Restored instance will have no keypairs assigned.
+In such case, the keypairs have to be backed up and restored manually under the same name before restoring the instance. 
