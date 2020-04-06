@@ -16,7 +16,7 @@ sudo -u vprotect ssh -o HostKeyAlgorithms=ssh-rsa root@HYPERVISOR
 
 ## KVM - VG scanning
 
-**Used with LVM-based VMs only.** In order to allow VG scanning please make sure to have your LVM packages up to date **on hypervisor**. LVM reporting was one of the features added in RHEL/CentOS 7.3 and is used by vProtect to collect information about VGs. Note that VGs can only be used in restore dialog box when VM was originally deployed with LVM volumes \(not QCOW2\).
+**Used with LVM-based VMs only.** In order to allow VG scanning please make sure to have your LVM packages up to date **on hypervisor**. LVM reporting was one of the features added in RHEL/CentOS 7.3 and is used by vProtect to collect information about VGs.
 
 ## KVM - full libvirt installation
 
