@@ -228,7 +228,7 @@ Note that you need to use **your gateway IP** in ***host_list*** parameter
 
 Finally we have to define a set of cluster resources responsible for other services crucial for vProtect operations such as mariaDB, vProtect Node and vProtect server itself. We will logically link those services with our floating IP. Whenever floating IP dissapears from our server, those services will be stopped. We also have to define the proper order for services to start and stop, as for example starting vProtect-server before the database makes no sense.
 
-- [x] **Resource creation**
+- [ ] **Resource creation**
 
 ```
 [root@vprotect1 ~]# pcs resource create "mariaDB" systemd:mariadb op monitor timeout=300s on-fail="stop" --group mariaDB-group
@@ -238,7 +238,7 @@ Finally we have to define a set of cluster resources responsible for other servi
 
 It is OK for those commands to not return any output.
 
-- [x] **Resource colocation**
+- [ ] **Resource colocation**
 
 ```
 [root@vprotect1 ~]# pcs constraint colocation add mariaDB-group with Failover_IP INFINITY
