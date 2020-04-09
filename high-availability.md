@@ -1,6 +1,3 @@
-# vProtect High Availability
-
-
 In this scenario we are going to set up two vProtect servers in High Availability, Active/Passive mode. This is possible with using techniques such as pacemaker, corosync and DRBD. At least basic understanding of these is highly desirable. This how to is intended for RPM based systems such ash Red Hat / CentOS. If you run vProtect on different OS you may need to refer to your distribution docs.
 
 
@@ -40,6 +37,20 @@ systemctl disable vprotect-server vprotect-node mariadb
 ```
 # yum update
 ```
+
+
+
+- [ ] It is a good idea to check ***/etc/hosts***
+
+  Especially if you have installed **vProtect** using ***All in one quick installation*** method, you might find entry such as 
+
+  ``` 
+  127.0.0.1 <your_hostname_here>
+  ```
+
+  **delete it** as this prevents cluster from proper functioning (your nodes will not "see" each other).
+
+
 
 Now we can proceed with installation of required packages. 
 
@@ -209,6 +220,7 @@ Immediately we shoud see our IP up and running on one of nodes (most likely on t
 </pre>
 
 
+
 As you can see, our floating IP 10.40.1.100 has been successfully assigned as a second IP of interface ens160. This is what we wanted!
 
 We should also check if vProtect web interface is up and running, we can do this by opening web browser and typing in https://10.40.1.100. At this point we should see:
@@ -226,12 +238,11 @@ As a next step
 
 Note that you need to use **your gateway IP** in ***host_list*** parameter
 
-Finally we have to define a set of cluster resources responsible for other services crucial for vProtect operations such as mariaDB, vProtect Node and vProtect server itself. We will logically link those services with our floating IP. Whenever floating IP dissapears from our server, those services will be stopped. We also have to define the proper order for services to start and stop, as for example starting vProtect-server before the database makes no sense.
+Finally we have to define a set of cluster resources responsible for other services crucial for vProtect operations such as vProtect Node and vProtect server itself. We will logically link those services with our floating IP. Whenever floating IP dissapears from our server, those services will be stopped. We also have to define the proper order for services to start and stop, as for example starting vProtect-server without the running database makes little sense.
 
 - [ ] **Resource creation**
 
 ```
-[root@vprotect1 ~]# pcs resource create "mariaDB" systemd:mariadb op monitor timeout=300s on-fail="stop" --group mariaDB-group
 [root@vprotect1 ~]#  pcs resource create "vProtect-node" systemd:vprotect-node op monitor timeout=300s on-fail="stop" --group vProtect-group
 [root@vprotect1 ~]# pcs resource create "vProtect-server" service:vprotect-server op start on-fail="stop" timeout="300s" op stop timeout="300s" on-fail="stop" op monitor timeout="300s" on-fail="stop" --group vProtect-group
 ```
@@ -241,12 +252,7 @@ It is OK for those commands to not return any output.
 - [ ] **Resource colocation**
 
 ```
-[root@vprotect1 ~]# pcs constraint colocation add mariaDB-group with Failover_IP INFINITY
-[root@vprotect1 ~]# pcs constraint colocation add vProtect-group with mariaDB-group INFINITY
-[root@vprotect1 ~]# pcs constraint order start mariaDB-group then start vProtect-group
-Adding mariaDB-group vProtect-group (kind: Mandatory) (Options: first-action=start then-action=start)
-[root@vprotect1 ~]# pcs constraint order stop vProtect-group then stop mariaDB-group
-Adding vProtect-group mariaDB-group (kind: Mandatory) (Options: first-action=stop then-action=stop)
+[root@vprotect1 ~]# pcs constraint colocation add Failover_IP with vProtect-group 
 ```
 
 At the end we can set determine which server is more preferred to run our services
@@ -254,7 +260,7 @@ At the end we can set determine which server is more preferred to run our servic
 - [ ] **Set node preference**
 
 ``` 
-[root@vprotect1 ~]# pcs constraint location mariaDB-group prefers vprotect1=INFINITY
+[root@vprotect1 ~]# pcs constraint location Failover_IP prefers vprotect1=INFINITY
 [root@vprotect1 ~]# pcs constraint location vProtect-group prefers vprotect1=INFINITY
 ```
 
@@ -482,6 +488,13 @@ Afterwards we have the definition of vdo_resource and fs_resource in one fs_grou
 
 As a second step we have put in place several resource colocation and constraints which allowed us to control the order and existence of newly create resources.
 
+Do copy our license and node information from first node to the second one:
+
+```
+[root@vprotect1 ~]# scp -pr /opt/vprotect/.session.properties 
+[root@vprotect1 ~]# scp -pr /opt/vprotect/license.key 
+```
+
 
 
 
@@ -577,7 +590,7 @@ replicate-do-db=vprotect
 - [ ] **Load dump of the database** copied from vprotect1
 
 ``` 
-[root@vprotect2 ~]# mysql -u root -p vprotect < /tmp/vprotect_rep.sql
+[root@vprotect2 ~]# mysql -u root -p vprotect < /tmp/vprotect.sql
 ```
 
 At this point we have two exactly the same databases on our two servers.
@@ -606,7 +619,7 @@ MariaDB [(none)]> SHOW MASTER STATUS;
 1 row in set (0.000 sec)
 ```
 
-### Go back to first server (vprotect1)
+### Go back to the first server (vprotect1)
 
 - [ ] On **vprotect1** stop slave then change master host, use parameters noted in previous step. Also change master host IP to match your network configuration.
 
