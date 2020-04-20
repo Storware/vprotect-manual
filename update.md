@@ -5,7 +5,7 @@
 1. Make sure you have vProtect database backup - instructions how to set it up can be found [here](initial_config/vprotect-db-backup.md)
    * manually you can use this command to backup it on demand on the vProtect Server:`/opt/vprotect/scripts/backup_db.sh /path/to/backup/file.tgz`
 2. Make sure you have MariaDB up-to-date - currently vProtect by default uses version **10.4**, while 10.2.31 is the minimum version supported
-   * if you need to migrate between versions \(i.e. 10.3 to 10.4\) - we recommend to update it as described [here](https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104) but make when you uninstall MariaDB packages it **SHOULD** **NOT** remove vProtect Server package \(as a dependency\) i.e.: `yum remove --noautoremove MariaDB-server MariaDB-client MariaDB-common`
+   * if you need to migrate between versions \(i.e. 10.3 to 10.4\) - we recommend to update it as described [here](https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104) but when you uninstall MariaDB packages you **SHOULD** **NOT** remove vProtect Server package \(as a dependency\) i.e. try `--noautoremove` option: `yum remove --noautoremove MariaDB-server MariaDB-client MariaDB-common`
    * otherwise, minor MariaDB versions should be updated with `yum update`
 3. Download new RPM packages `vprotect-server-XXX.rpm` and `vprotect-node-XXX.rpm`
 4. Copy Server RPM to host with vProtect Server installed
