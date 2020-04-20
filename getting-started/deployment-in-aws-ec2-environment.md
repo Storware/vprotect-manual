@@ -35,9 +35,9 @@ From the networking perspective, vProtect requires to communicate with AWS EC2 A
 
 ![](../.gitbook/assets/aws-vprotect-diagram.png)
 
-You add AWS EC2 as Hypervisor Manager. You need to provide account ID and access/secret keys of a user that has permissions to handle snapshot, AMI and EBS volume operations,  EC2 instance creation.
+You add AWS EC2 as Hypervisor Manager. You need to provide account ID and access/secret keys of a user that has permissions to handle snapshot, AMI and EBS volume operations, EC2 instance creation.
 
-In the same screen you also specify if AMIs of root volumes should be created during backup process. For Windows instances we recommend to keep also AMI image with each backup to have option to restore original root volume as well. You also can skip AMI creation, but this means that during restore you need to specify appropriate AMI ID that you want to boot from. 
+In the same screen you also specify if AMIs of root volumes should be created during backup process. For Windows instances we recommend to keep also AMI image with each backup to have option to restore original root volume as well. You also can skip AMI creation, but this means that during restore you need to specify appropriate AMI ID that you want to boot from.
 
 ## Permissions
 

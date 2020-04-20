@@ -4,7 +4,7 @@ oVirt/RHV environments can be protected in several ways. Notice, that different 
 
 **Backup Server** in this case is **vProtect Server. Data mover** is **vProtect Node.** In some cases, as you'll notice, vProtect Node needs to be installed inside **Proxy VM**.
 
-### Backup strategy 1 – export storage domain \(over API v3\)
+## Backup strategy 1 – export storage domain \(over API v3\)
 
 This setup requires you to create storage domain used for VM export. Export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from external source. The only requirement is to have it visible from both RHV/oVirt host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and RHV/oVirt to read and write files. Please refer to [RHV/oVirt setup](../initial_config/virtualization-platforms/setup_rhv.md) for details.
 
@@ -14,7 +14,7 @@ In general, this strategy is going to be deprecated, as Red Hat may no longer su
 
 ![](../.gitbook/assets/rhv-export_storage_domain.png)
 
-### Backup strategy 2 – disk attachment with Proxy VM
+## Backup strategy 2 – disk attachment with Proxy VM
 
 In this strategy you have a VM called “Proxy VM” that invokes commands on your hypervisor manager to snapshot and attach drives of a specific VM to itself \(Proxy VM\). Proxy VM is able to read the data from the attached disk snapshots and forward them to backup provider.
 
@@ -24,7 +24,7 @@ Drawback - no incremental backup for now, but it is most common scenario.
 
 ![](../.gitbook/assets/rhv-disk_attachment.png)
 
-### Backup strategy 3 – disk image transfer API
+## Backup strategy 3 – disk image transfer API
 
 This API appeared in oVirt/RHV 4.2 and allowed export of individual snapshots directly from the RHV manager. So now, instead of having to install multiple Proxy VMs, you can have single external Node installation, which just invokes APIs via RHV manager.
 
@@ -34,11 +34,9 @@ Unfortunately, there are few problems with current architecture of this solution
 
 ![](../.gitbook/assets/rhv-disk_image_transfer.png)
 
-### Backup strategy 4 - SSH transfer
+## Backup strategy 4 - SSH transfer
 
 This is an enhancement for disk image transfer API strategy. It allows vProtect to use oVirt/RHV API v4.2+ \(HTTPS connection to RHV/oVirt manager\) only to collect metadata and when **import of the restored VM** takes place. Backup is done over SSH directly from the hypervisor. No need to instal node on the RHV/oVirt environment. Allows to significantly boost backup transfers and supports incremental backups.
 
 ![](../.gitbook/assets/rhv-ssh_transfer.png)
-
-
 

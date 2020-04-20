@@ -18,9 +18,9 @@ In order to enable snapshot management for VM you need to do the following steps
    * apart from regular schedule settings - for snapshot management purposes it may be useful to use Interval based scheduling - to define schedules such as every 2h between 1 p.m. and 5 p.m.
    * optionally assign schedule to your policy - in most cases you want to be done automatically
 
-Now snapshots will be done automatically according to the schedule. 
+Now snapshots will be done automatically according to the schedule.
 
-### Manual snapshot operations
+## Manual snapshot operations
 
-Manual snapshot are not available until VM has snapshot management policy assigned. Once it is assigned, you'll have new buttons in VM details page \(top-right corner, the one with photo camera\), and option to revert snapshots - button on the right site of each of the snapshots on the list \(also in VM details\).. 
+Manual snapshot are not available until VM has snapshot management policy assigned. Once it is assigned, you'll have new buttons in VM details page \(top-right corner, the one with photo camera\), and option to revert snapshots - button on the right site of each of the snapshots on the list \(also in VM details\)..
 

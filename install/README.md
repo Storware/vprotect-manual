@@ -13,5 +13,3 @@ You have the installation options:
 
 Then please continue with [Initial configuration](../initial_config/) steps. Remember to make sure you have your staging space configured \([Staging space configuration](staging-space-configuration.md)\).
 
-## 
-

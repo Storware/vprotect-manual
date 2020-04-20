@@ -1,4 +1,2 @@
 # Virtualization platforms
 
-
-

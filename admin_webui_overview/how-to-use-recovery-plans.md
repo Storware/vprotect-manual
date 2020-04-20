@@ -21,7 +21,7 @@ Recovery plan rule specifies which backup is going to be restored:
    * in the **Virtual Environments** tab you need to select **Hypervisor type** for this rule and corresponding **virtual environments** of this type
    * if you previously defined any schedules for recovery plans you can select them in **Schedules** tab
    * in **Restore Parameters** tab you specify where VMs are going to be restored - compared to regular restore parameters provided in manual restore window, notice that:
-     * you need to choose ****which backup to restore - **last \(regardless of status\)** or **last successful**
+     * you need to choose **\*\*which backup to restore -** last \(regardless of status\) **or** last successful\*\*
      * you may want to use **Delete if Virtual Environment already exists** - which allows vProtect to remove VM with the same name as the one being restored
 6. Now you can execute recovery plan on demand from the **Recovery Plan** tab in **Policies** section - this should generate restore tasks according to your settings, 
    * if you want to invoke recovery plan according to your schedules - create them in **Schedules** section \(type must be **Recovery Plan**\) and assign the **rules** in your recovery plans

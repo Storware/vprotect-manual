@@ -2,9 +2,9 @@
 
 vProtect supports VMware vCenter Server and VMware ESXi standalone hosts. **Backup Server** in this case is **vProtect Server. Data mover** is **vProtect Node.** Node can be installed on the separate machine or inside Proxy VM.
 
-#### Backup strategy
+## Backup strategy
 
-In the variant where node was installed on the Proxy VM, staging space must be located on a virtual disk attached to Proxy VM or using RDM. 
+In the variant where node was installed on the Proxy VM, staging space must be located on a virtual disk attached to Proxy VM or using RDM.
 
 This strategy uses NBD transport mode and supports incremental backups. Each disk of VM can be easily excluded from backup. Snapshot management is also available for VMware environment.
 

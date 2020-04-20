@@ -2,7 +2,7 @@
 
 ## Build-in vProtect DB automatic backup
 
-It is **highly recommended** to setup periodic **DB backup** on vProtect Server. vProtect provides automatic backups with build-in Application backup. This means that node can create a periodic backups of the database. In order to make your backups being done automatically you need to do the following: 
+It is **highly recommended** to setup periodic **DB backup** on vProtect Server. vProtect provides automatic backups with build-in Application backup. This means that node can create a periodic backups of the database. In order to make your backups being done automatically you need to do the following:
 
 1. you need to have **node registered** and **at least 1 backup destination configured** 
 2. go to **Applications** -&gt; **vProtect DB** application definition

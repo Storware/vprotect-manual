@@ -2,25 +2,25 @@
 
 ## Manual Backup
 
-Open "VIRTUAL MACHINES" tab, and click on ![](../.gitbook/assets/admin_webui_how_backup_icon_backup.png) to backup one VM. 
+Open "VIRTUAL MACHINES" tab, and click on ![](../.gitbook/assets/admin_webui_how_backup_icon_backup.png) to backup one VM.
 
 ![](../.gitbook/assets/admin_webui_how_backup_select_one.png)
 
-Or select multiple VM's, and click on ![](../.gitbook/assets/admin_webui_how_backup_icon_backup_selected%20%281%29.png) to backup multiple VM's. 
+Or select multiple VM's, and click on ![](../.gitbook/assets/admin_webui_how_backup_icon_backup_selected%20%281%29.png) to backup multiple VM's.
 
 ![](../.gitbook/assets/admin_webui_how_backup_select_multi.png)
 
-Next choose backup type, destination, start time, priority, and click ![](../.gitbook/assets/admin_webui_how_backup_icon_blue_backup%20%281%29.png). 
+Next choose backup type, destination, start time, priority, and click ![](../.gitbook/assets/admin_webui_how_backup_icon_blue_backup%20%281%29.png).
 
 ![](../.gitbook/assets/admin_webui_how_backup_chose_type_destination%20%281%29.png)
 
-On admin task console you can see backup progress. 
+On admin task console you can see backup progress.
 
 ![](../.gitbook/assets/admin_webui_how_backup_task_console%20%281%29.png)
 
 ## Scheduled Backup
 
-Open "Policies" tab, and go to ![](https://github.com/Storware/vprotect-manual/tree/cfa9bb2cf117ac097f14edc5da966ec14b20b951/images/admin_webui_how_backup_icon_virtual_machines_groups.png). Next create new Policy, click ![](../.gitbook/assets/create_policy.png) . 
+Open "Policies" tab, and go to ![](https://github.com/Storware/vprotect-manual/tree/cfa9bb2cf117ac097f14edc5da966ec14b20b951/images/admin_webui_how_backup_icon_virtual_machines_groups.png). Next create new Policy, click ![](../.gitbook/assets/create_policy.png) .
 
 ![](../.gitbook/assets/admin_webui_how_backup_virtual_machines_groups%20%281%29.png)
 

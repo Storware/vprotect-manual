@@ -17,5 +17,5 @@ Now you should be able to log in to vProtect Server using `https://IP_OF_YOUR_MA
 
 Remember to prepare your staging space as described in [Staging space configuration](staging-space-configuration.md).
 
-Now please proceed with [Initial configuration](../initial_config/) instructions, as you need to configure access to the hypervisors and backup destinations. 
+Now please proceed with [Initial configuration](../initial_config/) instructions, as you need to configure access to the hypervisors and backup destinations.
 

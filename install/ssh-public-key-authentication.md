@@ -1,6 +1,6 @@
 # SSH public key authentication
 
-Instead of using password authentication - anywhere where your'e able to provide SSH credentials \(hypervisors, VMs applications etc\) you also have public key alternative. By default vProtect will use `/opt/vprotect/.ssh/id_rsa` path however you also can override it with your own path \(needs to be owned by `vprotect` user and make sure it has `0400` permission set. 
+Instead of using password authentication - anywhere where your'e able to provide SSH credentials \(hypervisors, VMs applications etc\) you also have public key alternative. By default vProtect will use `/opt/vprotect/.ssh/id_rsa` path however you also can override it with your own path \(needs to be owned by `vprotect` user and make sure it has `0400` permission set.
 
 **Example:**
 
@@ -47,6 +47,4 @@ Instead of using password authentication - anywhere where your'e able to provide
    ```
 
 4. Now you should be able to index VMs regardless of the password set for hypervisor \(key should be used instead\).
-
-## 
 

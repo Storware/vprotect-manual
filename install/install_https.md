@@ -9,8 +9,6 @@ Default certificate presented by application server uses `localhost.localdomain`
 * for default certificate - jump to the Node configuration and use `localhost.localdomain` instead of `vprotectserver.local` example
 * When registering locally node over HTTPS please note that URL you should use`localhost.localdomain` - **NOT** `localhost`
 
-
-
 This section presents steps necessary to generate SSL certificate, setup vProtect to use it and how to register remote node.
 
 ## vProtect Server \(when using own certificate\)
@@ -69,7 +67,7 @@ This section describes certificate generation and import on the vProtect Server 
    chown vprotect:vprotect /opt/vprotect/keystore.jks
    ```
 
-6. Edit `/opt/vprotect/payara.properties` and and change path to the keystore:  `javax.net.ssl.keyStore=/opt/vprotect/keystore.jks`
+6. Edit `/opt/vprotect/payara.properties` and and change path to the keystore: `javax.net.ssl.keyStore=/opt/vprotect/keystore.jks`
 7. Restart vProtect Server:
 
    ```text
@@ -92,7 +90,7 @@ This section describes certificate generation and import on the vProtect Server 
 
 ## Notes on using own certificate with CSR and your CA
 
-When using CSR to get a trusted certificate, you need to replace step 2 \(self-signed certificate generation\)  with several steps including CSR generation, and downloading CRT signed by your CA. Steps are as follows
+When using CSR to get a trusted certificate, you need to replace step 2 \(self-signed certificate generation\) with several steps including CSR generation, and downloading CRT signed by your CA. Steps are as follows
 
 1. Generate CSR - answer same set of questions as above:`openssl req -new -newkey rsa:2048 -nodes -keyout vprotect.key -out vprotect.csr`
 2. Send your CSR and have it signed by your CA
@@ -142,6 +140,4 @@ When using CSR to get a trusted certificate, you need to replace step 2 \(self-s
      ```text
      vprotect node -r node1 admin https://localhost.localdomain:8181/api
      ```
-
-
 

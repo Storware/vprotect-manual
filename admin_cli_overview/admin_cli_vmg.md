@@ -81,5 +81,3 @@ VM backup policy management
   vprotect vmpolicy -b 3afcd507-a4f5-484d-8d34-53c73d7a5809 ISP
   ```
 
-
-

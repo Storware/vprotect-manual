@@ -50,41 +50,37 @@ Application backup policy management
 
 * To set new backup destination \(you can use name or GUID\) for a policy \(first GUID\) you need to remove old rule and assign a new one \(last command requires GUIDs of policy, schedule and new backup destination\):
 
+  \`\`\`text \[root@localhost ~\]\# vprotect apppolicy -r e99f1379-ce84-4127-af98-81f35c457dff b48ca199-a1ad-43b0-b085-368d25d63bd6
+
   ```text
-  [root@localhost ~]# vprotect apppolicy -r e99f1379-ce84-4127-af98-81f35c457dff b48ca199-a1ad-43b0-b085-368d25d63bd6
-
-                  GUID                   Name    No. of schedules  Backup destinations  
-  ------------------------------------  -------  ----------------  -------------------  
-  b48ca199-a1ad-43b0-b085-368d25d63bd6  Default  1                 -                    
-
-
-  [root@localhost ~]# vprotect apppolicy -rR e99f1379-ce84-4127-af98-81f35c457dff b48ca199-a1ad-43b0-b085-368d25d63bd6
-
-  Property      Value                                 
-  ------------  ------------------------------------  
-  GUID          e99f1379-ce84-4127-af98-81f35c457dff  
-  Name          vProtect DB Backup Policy  
-  Priority      50  
-  Applications  []  
-  Backup rules  0  
-
-  [root@localhost ~]# vprotect apppolicy -r e99f1379-ce84-4127-af98-81f35c457dff b48ca199-a1ad-43b0-b085-368d25d63bd6
-
-  <EMPTY>
-
-  [root@localhost ~]# vprotect apppolicy -aR Default e99f1379-ce84-4127-af98-81f35c457dff f733ad53-0b4e-4152-bff8-c7508e5720f8 59160f5e-ba56-4db7-8489-2a5a632f7ba2
-
-  Property      Value                                 
-  ------------  ------------------------------------  
-  GUID          e99f1379-ce84-4127-af98-81f35c457dff  
-  Name          vProtect DB Backup Policy  
-  Priority      50  
-  Applications  []  
-  Backup rules  1  
-
+              GUID                   Name    No. of schedules  Backup destinations  
   ```
 
+  b48ca199-a1ad-43b0-b085-368d25d63bd6 Default 1 -
+
+\[root@localhost ~\]\# vprotect apppolicy -rR e99f1379-ce84-4127-af98-81f35c457dff b48ca199-a1ad-43b0-b085-368d25d63bd6
+
+Property Value
+
+GUID e99f1379-ce84-4127-af98-81f35c457dff  
+Name vProtect DB Backup Policy  
+Priority 50  
+Applications \[\]  
+Backup rules 0
+
+\[root@localhost ~\]\# vprotect apppolicy -r e99f1379-ce84-4127-af98-81f35c457dff b48ca199-a1ad-43b0-b085-368d25d63bd6
+
+\[root@localhost ~\]\# vprotect apppolicy -aR Default e99f1379-ce84-4127-af98-81f35c457dff f733ad53-0b4e-4152-bff8-c7508e5720f8 59160f5e-ba56-4db7-8489-2a5a632f7ba2
+
+Property Value
+
+GUID e99f1379-ce84-4127-af98-81f35c457dff  
+Name vProtect DB Backup Policy  
+Priority 50  
+Applications \[\]  
+Backup rules 1
+
+\`\`\`
+
 \`\`
-
-
 

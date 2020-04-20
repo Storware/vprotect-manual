@@ -1,6 +1,6 @@
 # Deployment in Microsoft Hyper-V environment
 
-vProtect supports Hyper-V 2016+ environments. All backups are done via dedicated Hyper-V agent that needs to be installed on each Hyper-V host. 
+vProtect supports Hyper-V 2016+ environments. All backups are done via dedicated Hyper-V agent that needs to be installed on each Hyper-V host.
 
 ![](../.gitbook/assets/hyper-v.png)
 

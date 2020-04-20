@@ -11,7 +11,7 @@
 
 ![](../../.gitbook/assets/setup_networker_01.png)
 
-4. Add vProtect user to group "Application Administrators" to enable delete backups by vProtect from Networker server.
+1. Add vProtect user to group "Application Administrators" to enable delete backups by vProtect from Networker server.
 
 ![](../../.gitbook/assets/image%20%281%29.png)
 

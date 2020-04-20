@@ -1,6 +1,6 @@
 # File system setup
 
-The following example assumes that you have a dedicated disk which you're going to use for backup destination. 
+The following example assumes that you have a dedicated disk which you're going to use for backup destination.
 
 * Below you can find example with local XFS, where you need to prepare it manually
 * Deduplication with VDO should be automatically initialized for you for storage smaller than 5 TB, for bigger volumes - let know support to help you.

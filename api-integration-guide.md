@@ -12,7 +12,7 @@ These include:
 * monitor progress of each operation
 * manage policies and schedules
 
-### Architecture
+## Architecture
 
 The architecture below shows key components, communication and data flows. All communication between 3rd party system goes via RESTful API exposed by vProtect Server. Tasks are being performed by the Node behind the scenes. End-user is going to use only 3rd party system to invoke and monitor status of the tasks.
 
@@ -22,9 +22,9 @@ Multi-tenancy and permission handling is on the 3rd-party system side. There is 
 
 ![Detailed architecture](.gitbook/assets/detailed-architecture.png)
 
-### Integration steps
+## Integration steps
 
-#### Setup
+### Setup
 
 First step is to setup vProtect solution. You need to follow official guide \(found [here](https://storware.gitbook.io/storware-vprotect/getting-started)\), so that you're able to perform basic operations from vProtect Web UI.
 
@@ -44,7 +44,7 @@ Similar concept applies to enum types - vProtect uses `EnumNameAndDescription` w
 
 **Notice:** `tenantId` field or query parameter mentioned later is going to appear in upcoming 3.8 Update 1.
 
-#### Login
+### Login
 
 When you want to invoke APIs, you need to be authenticated first. vProtect API exposes endpoint that you need to send login and password first to the `POST /session/login` endpoint. Save cookie so that you'll be able to invoke next calls.
 
@@ -52,17 +52,17 @@ If you ever call any end-point without having a valid session, you'll receive 40
 
 In the rest of this guide we assume that you have a valid session before you call any end-point mentioned.
 
-#### Listing VMs in inventory \(including already non-existing\)
+### Listing VMs in inventory \(including already non-existing\)
 
 If you have dedicated view of the VMs that are available for restore you need call: `/virtual-machines`. This will retrieve all VMs visible by vProtect. `GUID` is the ID that you should refer to when invoking any operation on the VM. `UUID` is the ID that your infrastructure uses to identify objects.
 
 For multi-tenant environment make sure to filter out VMs on your side according to your ACLs or ownership of the VMs. For OpenStack vProtect records project ID and allows to use it to filter VMs like this: `/virtual-machines?tenantid={PROJECTID}`
 
-#### Getting VM details
+### Getting VM details
 
 You may want to show VM details to the end-user. Call `GET /virtual-machines/{guid}`. Some useful information includes assigned policies, protection status or last backup sizes and timestamps.
 
-#### Performing backup of a VM on the list
+### Performing backup of a VM on the list
 
 Backup consists of 2 phases in vProtect - export and store. End-user will initiate "backup", but your system should create an "export" task. Store task will be created automatically once export succeeds. To create export task you need to provide the following information by the `POST /tasks/export` endpoint:
 
@@ -74,7 +74,7 @@ Backup consists of 2 phases in vProtect - export and store. End-user will initia
 
 In the response you'll receive task details, and you may want to record `GUID` to monitor later it's progress or status. A new `backup` entry is going to be created automatically - you may also want to record this number if you want to present its details.
 
-#### Progress monitoring of each operation
+### Progress monitoring of each operation
 
 You can show status and progress of each operation by calling `GET /tasks` \(retrieves all tasks\) and filtering the results or monitoring particular task by calling `GET /tasks/{guid}`. There are also several useful query parameters that you can use to retrieve filtered list:
 
@@ -85,11 +85,11 @@ You can show status and progress of each operation by calling `GET /tasks` \(ret
 * `type` - task type as `EnumNameAndDescription`: `INDEX`, `EXPORT`, `STORE`, `RESTORE`, `OLD_BACKUPS_REMOVAL`, `OLD_SNAPSHOTS_REMOVAL`, `IMPORT`, `MOUNT`, `UNMOUNT`, `DELETE`, `SNAPSHOT`, `SNAPSHOT_REVERSION`
 * `tenantId` - to filter out tasks only belonging to VMs owned by a particular tenantID \(currently OpenStack only\)
 
-#### Browsing backup history
+### Browsing backup history
 
 You can retrieve backup history including statuses, sizes and time stats for each backup by calling `GET /backups/?protected-entity={guid}`, where you provide `guid` of your VM.
 
-#### Restoring specified VM
+### Restoring specified VM
 
 Similar to backup, restore typically consists of several tasks. If you restore VM to the file system on the node, then it is just one task: `restore`. Usually however, you want user to restore and import VM automatically to the virtualization platform or mount it for file-level restore.
 
@@ -105,7 +105,7 @@ Let's focus on the restore with import case. You need to submit a task to `POST 
 
 Once restore task completes, import task will be created. Monitor tasks to show user current progress.
 
-#### VM backup policy and schedule management
+### VM backup policy and schedule management
 
 In order to allow user to have automatic, scheduled backup you need to create schedule and policy and make sure that both VMs and schedule are assigned to the policy. Policy can have multiple schedules. VM can have exactly one backup policy assigned. Schedules are not assigned directly to the schedules - they are actually a part of a Policy Rule. And can be assigned to multiple rules, however in external system this may be not convenient and we recommend to use dedicated schedules for each policy. Currently vProtect supports one rule per policy, but in from API perspective - there is a collection of rules in the policy.
 

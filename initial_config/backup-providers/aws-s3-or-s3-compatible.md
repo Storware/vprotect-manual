@@ -57,7 +57,7 @@ See S3 section in [Backup destinations](../../admin_webui_overview/admin_webui_b
 
 ## Bucket replication
 
-Even though S3 is a highly available service, you may want to be prepared in case of a region failure. We recommend to follow this guide[ https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html](%20https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) to setup bucket replication, so that your data is replicated to the other region in the worst case. Remember to point vProtect to the replicated bucket in case of a disaster.
+Even though S3 is a highly available service, you may want to be prepared in case of a region failure. We recommend to follow this guide[ https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html](https://github.com/Storware/vprotect-manual/tree/e7b7039b975e5a518e099f05a9079b281ece5f7c/AmazonS3/latest/dev/replication.html) to setup bucket replication, so that your data is replicated to the other region in the worst case. Remember to point vProtect to the replicated bucket in case of a disaster.
 
 ## Glacier/Deep Archive support
 

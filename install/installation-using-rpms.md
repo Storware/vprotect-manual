@@ -32,11 +32,11 @@
    * copy and paste generated repo file into `/etc/yum.repos.d/MariaDB.repo`, so it looks similar to this:
 
      ```text
-     # MariaDB 10.3 CentOS repository list - created 2019-08-08 10:31 UTC
+     # MariaDB 10.4 CentOS repository list - created 2019-08-08 10:31 UTC
      # http://downloads.mariadb.org/mariadb/repositories/
      [mariadb]
      name = MariaDB
-     baseurl = http://yum.mariadb.org/10.3/centos7-amd64
+     baseurl = http://yum.mariadb.org/10.4/centos7-amd64
      gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
      gpgcheck=1
      ```
@@ -97,7 +97,7 @@ vProtect Node is component that executes all tasks. It can be installed together
 
 2. Prepare your staging space \(on vProtect Node host only\):
    * Please follow steps described in [Staging space configuration](staging-space-configuration.md)
-   * **if your path is different than** `/vprotect_data` ****it is recommended to create a symlink `/vprotect_data` pointing to your mount point of the staging space, e.g.:
+   * **if your path is different than** `/vprotect_data` _\*\*_it is recommended to create a symlink `/vprotect_data` pointing to your mount point of the staging space, e.g.:
 
      ```text
      ln -s /mnt/staging /vprotect_data

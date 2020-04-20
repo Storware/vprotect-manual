@@ -1,6 +1,6 @@
 # Disaster recovery
 
-Storware vProtect stores all of the metadata in the local database. It is **highly recommended** to setup periodic DB backup on vProtect Server. Check [Initial configuration](initial_config/#server) for more informations. 
+Storware vProtect stores all of the metadata in the local database. It is **highly recommended** to setup periodic DB backup on vProtect Server. Check [Initial configuration](initial_config/#server) for more informations.
 
 In case you need to restore vProtect DB:
 

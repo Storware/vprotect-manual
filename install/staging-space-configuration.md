@@ -6,7 +6,7 @@ Staging space size depends on the number and size of simultaneous backups - as a
 
 **Note**: If you rather want to use vProtect with single **deduplicated space for both staging and backup destination:**
 
-* skip this section **-** so ****leave `/vprotect_data` folder empty
+* skip this section **-** so _\*\*_leave `/vprotect_data` folder empty
 * create File System Backup destination with deduplication enabled \([File system setup](../initial_config/backup-providers/setup_filesystem.md)\) 
   * vProtect will initialize block device for you.
 

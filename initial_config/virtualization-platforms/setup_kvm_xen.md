@@ -26,5 +26,3 @@ Please make sure to follow steps in this section: [Full versions of libvirt/qemu
 
 Details described in [SSH public key authentication](../../install/ssh-public-key-authentication.md) section.
 
-## 
-

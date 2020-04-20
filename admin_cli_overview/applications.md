@@ -24,8 +24,6 @@ Application backup management
  -xC,--set-app-cmd-exec-config <GUID> <APP_CMD_EXEC_CONFIG_GUID>   Set application CMD exec configuration
 ```
 
-
-
 ## Examples
 
 * To list all Applications

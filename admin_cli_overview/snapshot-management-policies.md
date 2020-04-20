@@ -35,8 +35,6 @@ Snapshot policy management
  -V,--assign-vms <GUID> <VM_GUID,...,VM_GUID>                                        Assign VMs to the policy
 ```
 
-
-
 ## Examples
 
 * To list all snapshot policies

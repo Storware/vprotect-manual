@@ -17,7 +17,7 @@ generate key:
 and copy it to your CentOS box:  
 `ssh-copy-id -i ~/.ssh/id_rsa.pub root@YOUR_HOST`
 
-Nodes will communicate with vProtect Server on port 8181, so they need to be able to access it using the servers FQDN \(needs to be resolvable\). 
+Nodes will communicate with vProtect Server on port 8181, so they need to be able to access it using the servers FQDN \(needs to be resolvable\).
 
 ## Installation
 
@@ -27,7 +27,7 @@ Run these on the system from which you run Ansible playbooks:
 
 * Install Ansible roles:
 
-  `ansible-galaxy install xe0nic.ansible_vprotect_server  
+  `ansible-galaxy install xe0nic.ansible_vprotect_server    
   ansible-galaxy install xe0nic.ansible_vprotect_node`
 
 * Create playbook directory and change it working directory, i.e: `mkdir vprotect && cd vprotect`
@@ -69,7 +69,7 @@ ansible_user = root
 
 ## Variables
 
-These 2 roles use just a few variables. Both plays use `server_fqdn` variable. If not defined, server play sets variable `server_fqdn` to the hostname reported by the OS on which it is installed. Server play will generate SSL certificate for this FQDN, and node play automatically will use this value if defined. You can also provide this variable manually \(either in `hosts` file or with extra vars switch in `ansible-playbook` command, i.e.  `-e "server_fqdn=vprotect.server.local"` 
+These 2 roles use just a few variables. Both plays use `server_fqdn` variable. If not defined, server play sets variable `server_fqdn` to the hostname reported by the OS on which it is installed. Server play will generate SSL certificate for this FQDN, and node play automatically will use this value if defined. You can also provide this variable manually \(either in `hosts` file or with extra vars switch in `ansible-playbook` command, i.e. `-e "server_fqdn=vprotect.server.local"`
 
 Node play needs `node_name` for registration process. If not provided it will just use hostname reported by OS, however keep in mind that it needs to be **unique** for each node. We recommend to set them in host inventory file.
 

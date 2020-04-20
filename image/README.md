@@ -8,7 +8,7 @@ RHV/oVirt/Oracle Linux VM, Citrix XenServer/xcp-ng, or ESXi host to deploy vProt
 
 **FTP access \(to download image\) requires credentials which are provided in the e-mail with license**
 
-### Default login, and password 
+### Default login, and password
 
 * Operating system / SSH: login: **root** password: **vPr0tect**
 * WebUI: login: **admin** password: **vPr0tect**
