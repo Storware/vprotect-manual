@@ -2,34 +2,44 @@
 
 **Note** that this process only applies for updates from version 3.x. Version 2.x requires a fresh 3.1 installation and database migration.
 
-1. Download new RPM packages `vprotect-server-XXX.rpm` and `vprotect-node-XXX.rpm`
-2. Copy Server RPM to host with vProtect Server installed
-3. Update Server \(it may take a while, service is being restarted\):
+1. Make sure you have your DB backup - instructions how to set it up can be found [here](initial_config/vprotect-db-backup.md)
+   * manually you can use this command to backup it on demand on the vProtect Server:`/opt/vprotect/scripts/backup_db.sh /path/to/backup/file.tgz`
+2. Make sure you have YUM MariaDB repository up-to-date - currently vProtect uses version **10.4**
+
+   * if not - please update it as described [here](https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104) but make when you uninstall MariaDB packages it **SHOULD** **NOT** remove vProtect Server package \(as a dependency\) i.e.:
+
+   ```text
+   sudo yum remove --noautoremove MariaDB-server MariaDB-client MariaDB-common
+   ```
+
+3. Download new RPM packages `vprotect-server-XXX.rpm` and `vprotect-node-XXX.rpm`
+4. Copy Server RPM to host with vProtect Server installed
+5. Update Server \(it may take a while, service is being restarted\):
 
    ```text
    yum -y update vprotect-server-XXX.rpm
    ```
 
-4. If the node service was not running before update you may need to execute also:
+6. If the node service was not running before update you may need to execute also:
 
    ```text
    systemctl start vprotect-server
    ```
 
-5. Copy Node RPM to all hosts with vProtect Node installed
-6. Update each Node:
+7. Copy Node RPM to all hosts with vProtect Node installed
+8. Update each Node:
 
    ```text
    systemctl stop vprotect-node
    yum -y update vprotect-node-XXX.rpm
    ```
 
-7. If the node service was not running before update you may need to execute also:
+9. If the node service was not running before update you may need to execute also:
 
    ```text
    systemctl start vprotect-node
    ```
 
-8. Log into the web UI and check if nodes are running.
-   * **Note** you may need to refresh your browser cache after update - for Chrome use `CTRL+SHIFT+R` \(Windows/Linux\) / `CMD+SHIFT+R` \(MacOS\)
+10. Log into the web UI and check if nodes are running.
+    * **Note** you may need to refresh your browser cache after update - for Chrome use `CTRL+SHIFT+R` \(Windows/Linux\) / `CMD+SHIFT+R` \(MacOS\)
 
