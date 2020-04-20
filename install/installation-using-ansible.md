@@ -75,3 +75,10 @@ Node play needs `node_name` for registration process. If not provided it will ju
 
 Optionally, you may want to set `db_password` for root DB access which is set during server installation. Note, that Server service uses its own account with auto-generated password.
 
+By default vProtect uses MariaDB 10.4 for CentOS - you can control source and version of your MariaDB with the following variables \(with their respective default values\):
+
+* `mariadb_version: "10.4"` 
+* `mariadb_distro: "centos7-amd64"` 
+* `mariadb_repo_url: "http://yum.mariadb.org/{{ mariadb_version }}/{{ mariadb_distro }}"`
+* `mariadb_repo_gpg_key: "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"`
+
