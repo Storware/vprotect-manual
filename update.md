@@ -15,11 +15,14 @@
    yum -y update vprotect-server-XXX.rpm
    ```
 
-6. Make sure you have updated also the vProtect database \(not just DBMS\), like this \(otherwise vProtect Server may not start\):
+6. Make sure you have updated also the vProtect database \(not just DBMS\), like this:
 
    ```text
    mysql_upgrade
    ```
+
+   * otherwise vProtect Server may not start
+   * and restart `vprotect-server` service if you had to update DB
 
 7. If the server service was not running before update you may need to execute also:
 
