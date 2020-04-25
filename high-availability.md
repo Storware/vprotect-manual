@@ -500,7 +500,7 @@ We need still to
 
 - [ ] Make sure that our node is pointed to a localhost address. Check the ***Nodes*** UI section. 
 
-![](./nodes_config.png)
+![](.gitbook/assets/nodes_config.png)
 
 If node's IP is different than 127.0.0.1 delete the node and re-register using
 
