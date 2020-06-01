@@ -36,14 +36,15 @@
 
      ![](../.gitbook/assets/install_prereq-mariadb%20%281%29.png)
 
-   * copy and paste generated repo file into `/etc/yum.repos.d/MariaDB.repo`, so it looks similar to this:
+   * copy and paste generated repo file into `/etc/yum.repos.d/MariaDB.repo`, so it looks similar to this \(this one for CentOS/RHEL 8\):
 
      ```text
-     # MariaDB 10.4 CentOS repository list - created 2019-08-08 10:31 UTC
+     # MariaDB 10.4 CentOS repository list - created 2020-06-01 16:14 UTC
      # http://downloads.mariadb.org/mariadb/repositories/
      [mariadb]
      name = MariaDB
-     baseurl = http://yum.mariadb.org/10.4/centos7-amd64
+     baseurl = http://yum.mariadb.org/10.4/centos8-amd64
+     module_hotfixes=1
      gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
      gpgcheck=1
      ```
