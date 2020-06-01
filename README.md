@@ -2,7 +2,7 @@
 
 ![](.gitbook/assets/vprotect_gitbook.png)
 
-## Storware vProtect 3.9 Update 1 Documentation
+## Storware vProtect 3.9 Update 2 Documentation
 
 This is the official documentation for Storware vProtect software. Here you'll find all the information needed to setup and configure backup for your virtual infrastructure.
 

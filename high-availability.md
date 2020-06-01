@@ -10,7 +10,7 @@ Our enviroment is built of the following elements:
 4. DRBD \(optionally with VDO\) for data replication and deduplicatoin between nodes
 5. MariaDB master &lt;-&gt; master replication
 
-![](.gitbook/assets/vprotect_ha.png)
+![](.gitbook/assets/vProtect_HA.png)
 
 ### HA cluster setup
 
@@ -208,7 +208,7 @@ As you can see, our floating IP 10.40.1.100 has been successfully assigned as a 
 
 We should also check if vProtect web interface is up and running, we can do this by opening web browser and typing in [https://10.40.1.100](https://10.40.1.100). At this point we should see:
 
-![](.gitbook/assets/login_screen_ha.png)
+![](.gitbook/assets/login_screen_HA.png)
 
 As a next step
 

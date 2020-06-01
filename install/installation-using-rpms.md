@@ -2,7 +2,9 @@
 
 ## Prerequisites
 
-1. Install CentOS/RHEL 7 minimal \(if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available\)
+1. Install CentOS/RHEL 8 minimal
+   * if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available
+   * you also can use version 7
 2. Make sure your OS is up to date:
 
    ```text
@@ -13,16 +15,21 @@
 
 3. Install vProtect repository
 
-   create file `/etc/yum.repos.d/vProtect.repo`:
+   * create file `/etc/yum.repos.d/vProtect.repo`:
 
    ```text
    # vProtect Enterprise backup solution for virtual environments repository
    # http://www.vprotect.io/
    [vprotect]
    name = vProtect
-   baseurl = ftp://vprotect-repo.storware.eu/repo
+   baseurl = http://repo.storware.eu/vprotect/current/el8
    gpgcheck=0
    ```
+
+   * optionally change `el8` to `el7` for older CentOS/RHEL and `current` can also be pointed to the specific version, i.e. `3.9.2` \(not the one that is always up to date\)
+   * so here are effective URLs as the examples: 
+     * `http://repo.storware.eu/vprotect/current/el7`
+     * `http://repo.storware.eu/vprotect/3.9.2/el8`
 
 4. Install MariaDB repository \(vProtect Server host only\)
    * generate .repo file at [MariaDB download](https://downloads.mariadb.org/mariadb/repositories) site\)

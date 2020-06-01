@@ -7,7 +7,7 @@ You can install complete vProtect solution using the following 2 roles, availabl
 
 ## Prerequisites
 
-You need to prepare CentOS 7 minimal for vProtect \(both roles can be installed on the same or different hosts\).
+You need to prepare CentOS 8 minimal for vProtect \(both roles can be installed on the same or different hosts\).
 
 It is assumed that you have `root` access to this host and you have configured your Ansible to connect with SSH public-keys to your host. For example:
 
@@ -78,7 +78,7 @@ Optionally, you may want to set `db_password` for root DB access which is set du
 By default vProtect uses MariaDB 10.4 for CentOS - you can control source, distribution and version of your MariaDB with the following variables \(with their respective default values\):
 
 * `mariadb_version: "10.4"` 
-* `mariadb_distro: "centos7-amd64"` 
+* `mariadb_distro: "centos8-amd64"` 
 * `mariadb_repo_url: "http://yum.mariadb.org/{{ mariadb_version }}/{{ mariadb_distro }}"`
 * `mariadb_repo_gpg_key: "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"`
 
