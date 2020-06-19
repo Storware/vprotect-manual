@@ -1,6 +1,6 @@
-# API - Integration Guide
+# Integration
 
-In this guide we're going to highlight key aspects necessary to integrate 3rd party solutions with vProtect. We assume a typical scenario, where you want to invoke vProtect operations on behalf of a user of a self-service portal. We assume that end-user uses above-mentioned portal for subset of administrative actions, and we want to give user ability to perform basic backup related operations.
+In this section we're going to highlight key aspects necessary to integrate 3rd party solutions with vProtect. We assume a typical scenario, where you want to invoke vProtect operations on behalf of a user of a self-service portal. We assume that end-user uses above-mentioned portal for subset of administrative actions, and we want to give user ability to perform basic backup related operations.
 
 These include:
 
@@ -20,15 +20,13 @@ Multi-tenancy and permission handling is on the 3rd-party system side. There is 
 
 3rd-party system must use a dedicated vProtect account to perform operations.
 
-![Detailed architecture](.gitbook/assets/detailed-architecture.png)
+![](.gitbook/assets/vprotect-detailed-architecture%20%281%29.png)
 
 ## Integration steps
 
 ### Setup
 
-First step is to setup vProtect solution. You need to follow official guide \(found [here](https://storware.gitbook.io/storware-vprotect/getting-started)\), so that you're able to perform basic operations from vProtect Web UI.
-
-Your system is going to communicate over HTTPS which by default runs on port 8181, but during the setup can optionally be exposed on 443 as well. You need to generate an SSL certificate as described [here](https://storware.gitbook.io/storware-vprotect/install/install_https).
+Your system is going to communicate over HTTPS which by default runs on port 8181, but during the setup can optionally be exposed on 443 as well. You need to generate an SSL certificate as described [here](deployment/common-tasks/enabling-https-connectivity-for-remote-nodes.md).
 
 vProtect can invoke operations only on VMs that exist in its inventory. It is being synced periodically, so that it reflects changes in virtualization platform.
 
@@ -41,8 +39,6 @@ Quite often in requests or responses vProtect requires `NameAndGuid` to refer to
 When you need to provide `NameAndGuid` in requests, you actually need to pass the object that has just `GUID` provided.
 
 Similar concept applies to enum types - vProtect uses `EnumNameAndDescription` with `name` as enum name and `description` to show it to end-user in more user-friendly way. Anywhere when you are required to use enums such as type, state, days of week etc. you need to use `EnumNameAndDescription` object. In requests you need to provide just `name`.
-
-**Notice:** `tenantId` field or query parameter mentioned later is going to appear in upcoming 3.8 Update 1.
 
 ### Login
 
