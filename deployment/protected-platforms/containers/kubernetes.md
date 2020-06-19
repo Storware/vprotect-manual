@@ -2,7 +2,7 @@
 
 ## vProtect Node preparation
 
-vProtect Node requires `kubectl` installed \(you have to add kubernetes repository to install `kubectl`\) and `kubeconfig` with a valid token \(placed in `/opt/vprotect/.kube`\) to connect to the Kubernetes cluster. 
+vProtect Node requires `kubectl` installed \(you have to add kubernetes repository to install `kubectl`\) and `kubeconfig` with a valid token \(placed in `/opt/vprotect/.kube`\) to connect to the Kubernetes cluster.
 
 If your Kubernetes cluster doesn't use tokens yet - you can use the following resource to discover how to obtain the bearer token: [https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md) and see if your kubeconfig looks the same as in point 1.
 

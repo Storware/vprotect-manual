@@ -45,5 +45,3 @@ Select network interface, and edit it network settings.
 
 You can find login credentials [here](./).
 
-
-

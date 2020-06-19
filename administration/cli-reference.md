@@ -149,7 +149,7 @@ All of the commands require GUID of the object that you want to refer to in comm
    Pre-snapshot ignored exit codes               -  
    Pre-snapshot standard error output handling   DONT_IGNORE  
    Post-snapshot ignored exit codes              -  
-   Post-snapshot standard error output handling  DONT_IGNORE 
+   Post-snapshot standard error output handling  DONT_IGNORE
    ```
 
 **Note**: that UUID is the ID used by hypervisor or HV manager, while GUID is the ID used by vProtect to uniquely identify objects.
@@ -273,7 +273,6 @@ Backup destination management
  -l,--list                                                   List backup destinations
  -r,--reinit <[GUID]>                                        Reinitialize backup destination
  -s,--set <GUID | NAME> <PROPERTY_NO.> <VALUE>               Modify backup destination
-
 ```
 
 ### Setting up parameters for backup destinations
@@ -333,7 +332,7 @@ There are however some mode/type fields which require string to be typed in corr
   18. Encryption enabled                         true  
   19. Resolve host name to IP before connection  false  
   20. Path style access                          false  
-  21. Region             
+  21. Region
   ```
 
 * Remember that to use a BD you need to create a new entry of a given typ and then configure its properties \(example for IBM Spectrum Protect \[ISP\], assume that GUID returned by first command was `bb74ef6c-f6de-4783-bfa7-70fc2376fb08` \):
@@ -364,7 +363,7 @@ There are however some mode/type fields which require string to be typed in corr
   13. Node password                          ***  
   14. Time zone                              Europe/Sarajevo  
   15. Backup progress refresh rate           20  
-  16. Restore progress refresh rate          20 
+  16. Restore progress refresh rate          20
   ```
 
   Now set the properties:
@@ -1462,7 +1461,7 @@ Recovery plan policies
 
                 GUID                         Name          Priority  Rules  
 ------------------------------------  -------------------  --------  -----  
-d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        0    
+d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        0
 ```
 
 * To add new rule to selected policy:
@@ -1475,7 +1474,7 @@ Property      Value
 GUID          d76bb990-817d-47ca-ba04-1dbdeffacf2a  
 Name          New Recovery Policy  
 Priority      50  
-No. of rules  1 
+No. of rules  1
 ```
 
 * To list policies:
@@ -1485,7 +1484,7 @@ No. of rules  1
 
                 GUID                         Name          Priority  Rules  
 ------------------------------------  -------------------  --------  -----  
-d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        1    
+d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        1
 ```
 
 * To list rules assigned to policy:
@@ -1495,8 +1494,7 @@ d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        1
 
                 GUID                  Name   VMs  Hypervisor Type  Hypervisor Manager Type  Hypervisor  Hypervisor Manager  Node  Backup Selection  Active  Restore Storage Id  Restore Cluster Id  Target VM Name  Target Project  Restore Path  Overwrite  Base Image  Data Center  Disk Allocation Format  Use auto generated name  
 ------------------------------------  -----  ---  ---------------  -----------------------  ----------  ------------------  ----  ----------------  ------  ------------------  ------------------  --------------  --------------  ------------  ---------  ----------  -----------  ----------------------  -----------------------  
-6f0cc9ae-5842-4339-aee1-c8d21904317b  Rule1  []   -                -                        -           -                   -     Last successful   true    null  null  null  null  null  true       -           -            -                       false                    
-
+6f0cc9ae-5842-4339-aee1-c8d21904317b  Rule1  []   -                -                        -           -                   -     Last successful   true    null  null  null  null  null  true       -           -            -                       false
 ```
 
 * To select the virtual machine you want to restore using a rule :
@@ -1508,6 +1506,6 @@ d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        1
 
                 GUID                         Name          Priority  Rules  
 ------------------------------------  -------------------  --------  -----  
-d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        1    
+d76bb990-817d-47ca-ba04-1dbdeffacf2a  New Recovery Policy  50        1
 ```
 

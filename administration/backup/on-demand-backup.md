@@ -29,7 +29,7 @@ vProtect allows you to setup periodic backup with your own scripts or applicatio
 In order to setup Application backup you need to do the following steps:
 
 1. Prepare script or commands and \(if remote SSH execution is required\) put them on the remote machine with your application
-2. In Applications section create new **Command Execution Configuration**  ![](../../.gitbook/assets/on-demand-backup-applications-commands-execution-config.jpg)  **** this is a description of how your script is going to be invoked - you need to specify:
+2. In Applications section create new **Command Execution Configuration**  ![](../../.gitbook/assets/on-demand-backup-applications-commands-execution-config.jpg)  _\*\*_ this is a description of how your script is going to be invoked - you need to specify:
    * **Command arguments** \(first one is the actual executable\) - all arguments should be provided separately - vProtect assumes that they can contain spaces
    * **CMD execution method** - either on the Node or a command to be executed remotely
    * select existing **Applications** \(or skip that for now - it can be assigned later\)

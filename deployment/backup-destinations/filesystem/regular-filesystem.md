@@ -8,7 +8,7 @@ In this section we'll show you how to setup file system \(it can be local or rem
 * you should add this file system to your `/etc/fstab` file on the node, so it gets mounted automatically if OS is rebooted
 * Consider using same file system for staging and backup destination \(it boosts store tasks, as no data needs to be copied again\) - in such scenario the only difference would be that presented `/backupdestination`mount point becomes subdirectory of the staging space \(usually `/vprotect_data/backups`\) 
 
-### Preparation
+## Preparation
 
 1. Log in to vProtect Node, and create mount directory in example `/backupdestination`
 

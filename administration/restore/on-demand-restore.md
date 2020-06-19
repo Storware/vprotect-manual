@@ -41,7 +41,7 @@ Click Run to start the restore process.
 ## Applications
 
 To perform on-demand application restore, please go to application tab on the left side menu.  
-You will find restore button ![](../../.gitbook/assets/icon-restore%20%281%29.jpg) next to application definition 
+You will find restore button ![](../../.gitbook/assets/icon-restore%20%281%29.jpg) next to application definition
 
 ![](../../.gitbook/assets/on-demand-restore-applications.jpg)
 

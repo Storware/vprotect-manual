@@ -57,7 +57,7 @@ mysql -u root -p -e "Select * FROM vprotect.task;"
   * Start MariaDB engine `systemctl enable mariadb --now`
   * Run mysql\_upgrade to update vProtect Database `mysql_upgrade --user=root --password`
 * If the database update is successful, now we can start with vProtect Update. Make sure you configure our new repository for vProtect - new base url:  
-  http://repo.storware.eu/vprotect/current/el8 or http://repo.storware.eu/vprotect/current/el7
+  [http://repo.storware.eu/vprotect/current/el8](http://repo.storware.eu/vprotect/current/el8) or [http://repo.storware.eu/vprotect/current/el7](http://repo.storware.eu/vprotect/current/el7)
 
   `vi /etc/yum.repos.d/vProtect.repo`
 

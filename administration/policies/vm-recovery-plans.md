@@ -31,5 +31,5 @@ In **Restore Parameters** tab you specify where VMs are going to be restored - c
 
 ![](../../.gitbook/assets/restore-scheduled-recovery-plans-policy-rules-restore-parameters%20%281%29.jpg)
 
-### You can also perform the same action thanks to the CLI interface: [CLI Reference](../cli-reference.md#recovery-plans-policies)
+## You can also perform the same action thanks to the CLI interface: [CLI Reference](../cli-reference.md#recovery-plans-policies)
 

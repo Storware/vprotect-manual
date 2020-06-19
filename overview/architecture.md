@@ -2,7 +2,7 @@
 
 ## High-level Architecture
 
-Use vProtect to back up data from your virtualization platforms. You can back up data to and recover data from local filesystem or a NFS/CIFS share, object storage \(cloud providers\) or enterprise backup providers like Dell EMC, IBM, Veritas. 
+Use vProtect to back up data from your virtualization platforms. You can back up data to and recover data from local filesystem or a NFS/CIFS share, object storage \(cloud providers\) or enterprise backup providers like Dell EMC, IBM, Veritas.
 
 ![](../.gitbook/assets/vprotect-architecture.png)
 
@@ -61,7 +61,7 @@ For detailed deployment scenarios refer to the following sections:
 * [Deployment on Citrix Hypervisor \(XenServer\)](../deployment/protected-platforms/virtual-machines/citrix-hypervisor-xenserver.md)
 * [Deployment on XCP-ng](../deployment/protected-platforms/virtual-machines/xcp-ng.md)
 
-### Containers 
+### Containers
 
 * [Deployment on Kubernetes](../deployment/protected-platforms/containers/kubernetes.md)
 * [Deployment on Red Hat OpenShift ](../deployment/protected-platforms/containers/red-hat-openshift.md)

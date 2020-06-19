@@ -14,5 +14,5 @@ From here, you can set a date range or go to a detailed summary of each of the f
 
 ![](../.gitbook/assets/reporting-backup-statistics-details.jpg)
 
-Or you can also send this report by email thanks to this button ![](../.gitbook/assets/icon-get-report.jpg) 
+Or you can also send this report by email thanks to this button ![](../.gitbook/assets/icon-get-report.jpg)
 

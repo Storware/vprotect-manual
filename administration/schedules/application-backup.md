@@ -1,14 +1,12 @@
 # Application Backup
 
-Schedule defines when and on which days application backups should be created. To define new schedule use the ![](../../.gitbook/assets/icon-createschedule%20%282%29.jpg)
+Schedule defines when and on which days application backups should be created. To define new schedule use the ![](../../.gitbook/assets/icon-createschedule%20%282%29%20%281%29.jpg)
 
 ![](../../.gitbook/assets/schedules-application-backups.jpg)
 
 Now provide properties:
 
 ![](../../.gitbook/assets/schedules-application-backups-parameters.jpg)
-
-
 
 * `Schedule Active` - enable or disable executing schedule
 * `Name` - schedule name

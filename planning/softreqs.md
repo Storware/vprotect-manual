@@ -6,10 +6,10 @@
 
 #### RedHat Enterprise Linux / CentOS
 
-Minimum version 
+Minimum version
 
-*  **7.6+**
-*  **8.1.1911+**
+* **7.6+**
+* **8.1.1911+**
 
 Minimal install \(Basic functionality\)
 

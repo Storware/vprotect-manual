@@ -4,7 +4,7 @@ This section describes vProtect's **generic mechanism** for multiple scenarios w
 
 With vProtect you can prepare custom script or invoke any backup command that produces backup artifacts \(or just initiates external backup proces\) on a remote host and store backups to your backup provider.
 
-With Application  backup you can extend your protection capabilities to:
+With Application backup you can extend your protection capabilities to:
 
 * any remote  applications with  their own mechanisms
 * hypervisor configuration
