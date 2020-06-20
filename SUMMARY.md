@@ -56,7 +56,7 @@
       * [Neverfail HybriStor](deployment/backup-destinations/deduplication-appliances/neverfail-hybristor.md)
       * [Catalogic Software vStor](deployment/backup-destinations/deduplication-appliances/catalogic-software-vstor.md)
     * [Object Storage](deployment/backup-destinations/object-storage/README.md)
-      * [AWS S3](deployment/backup-destinations/object-storage/aws-s3.md)
+      * [AWS S3 or S3-compatible](deployment/backup-destinations/object-storage/aws-s3-or-s3-compatible.md)
       * [Google Cloud Storage](deployment/backup-destinations/object-storage/google-cloud-storage.md)
       * [Microsoft Azure Blob Storage](deployment/backup-destinations/object-storage/microsoft-azure-blob-storage.md)
       * [OpenStack SWIFT](deployment/backup-destinations/object-storage/openstack-swift.md)

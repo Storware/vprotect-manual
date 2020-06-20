@@ -12,7 +12,7 @@ Backup destination is a storage location where vProtect keeps VMs, Containers, C
   * [Neverfail HybriStor](deduplication-appliances/neverfail-hybristor.md)
   * [Catalogic Software vStor](deduplication-appliances/catalogic-software-vstor.md)
 * [Object Storage](object-storage/)
-  * [AWS S3](object-storage/aws-s3.md)
+  * [AWS S3](object-storage/aws-s3-or-s3-compatible.md)
   * [Google Cloud Storage](object-storage/google-cloud-storage.md)
   * [Microsoft Azure Blob Storage](object-storage/microsoft-azure-blob-storage.md)
   * [OpenStack SWIFT](object-storage/openstack-swift.md)
