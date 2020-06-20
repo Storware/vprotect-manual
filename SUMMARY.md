@@ -9,7 +9,7 @@
   * [Typical Scenarios](overview/typical-scenarios.md)
 * [Planning](planning/README.md)
   * [vProtect Support Matrix](planning/vprotect-support-matrix.md)
-  * [Platform Requirements](planning/softreqs.md)
+  * [Platform Requirements](planning/platform-requirements.md)
   * [Sizing](planning/sizing/README.md)
     * [Small](planning/sizing/small-environment.md)
     * [Medium](planning/sizing/medium.md)

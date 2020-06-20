@@ -1,6 +1,5 @@
 # Table of Contents
 
-* [Table of Contents](./)
 * [About Storware vProtect](about.md)
 * [Overview](overview/)
   * [Architecture](overview/architecture.md)
@@ -9,7 +8,7 @@
   * [Typical Scenarios](overview/typical-scenarios.md)
 * [Planning](planning/)
   * [vProtect Support Matrix](planning/vprotect-support-matrix.md)
-  * [Platform Requirements](planning/softreqs.md)
+  * [Platform Requirements](planning/platform-requirements.md)
   * [Sizing](planning/sizing/)
     * [Small](planning/sizing/small-environment.md)
     * [Medium](planning/sizing/medium.md)
