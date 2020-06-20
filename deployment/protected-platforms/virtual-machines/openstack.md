@@ -17,13 +17,13 @@ vProtect supports backup for OpenStack:
 
 vProtect supports OpenStack environments that use KVM hypervisors and VMs running on QCOW2 or RAW files. vProtect communicates with OpenStack APIs such as Nova and Glance to collect metadata and for import of the restored process. However the actual backup is done over SSH directly from the hypervisor. Process is exactly the same as in [Deployment in KVM/Xen environment](kvm-xen.md). vProtect Node can be installed anywhere - it just needs to reach OpenStack APIs and hypervisors SSH via network. Both full and incremental backups are supported.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_openstack-libvirt.png)
+![](../../../.gitbook/assets/deployment-vprotect-openstack-libvirt.png)
 
 ### OpenStack with Ceph RBD storage backend
 
 vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD-NBD \(**note:** if NBD is not available, you need to use disk attachment method\) for both full and incremental backups.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_openstack-ceph.png)
+![](../../../.gitbook/assets/deployment-vprotect-openstack-ceph.png)
 
 vProtect supports OpenStack with Ceph RBD volumes. Here is an example of a typical \(expected\) section that needs to be added in `cinder.conf` for Ceph in OpenStack environment:
 
@@ -101,7 +101,7 @@ vProtect Node supports Ceph RBD and you only need to install rbd-nbd package:
 
 vProtect supports also disk-attachment method using cinder. This should allow you to use cinder-compatible storage and still allow vProtect to create backups. Currently only full backup is supported. vProtect needs to communicate OpenStack service's API to attach drives to the proxy VM with the vProtect Node installed.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_openstack-disk-attachment.png)
+![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment.png)
 
 ### Disk attachment
 

@@ -57,9 +57,16 @@ This section enables you to setup LDAP authentication for administrative account
 * `Enable LDAP subtree search` - when disabled, only 1 level below base DN is being searched
 * `Use SSL` - enables SSL for LDAP connection
 * `Use TLS` - enables TLS for LDAP connection
-* `Anonymous access allowed` - if users are not allowed to anonymously browse LDAP directory you need to provide account which has that privilege:
+* `Anonymous access allowed` - if users are not allowed to anonymously browse LDAP directory you need to provide an account which has that privilege:
 * `Service account DN` - DN of the user
 * `Service account password` - password of that user 
+
+## Storware Insight
+
+Storware Insight reporting is a mechanism that allows vProtect Server to sent periodic status reports. This will help support team to see status and basic information of your environment and provide better support in the future.
+
+* `Enable status reporting` - enables daily reporting
+* `Show report contents` button - allows you would to preview contents of the report being sent
 
 ## Internal DB backup
 

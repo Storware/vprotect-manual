@@ -4,17 +4,17 @@
 
 ### XVA-based
 
-In this strategy VM is exported as a single XVA bundle containing all of the data. Incremental backup is also supported. Data is transferred directly from XenServer API without the need to setup anything on the hosts.
+In this strategy, VM is exported as a single XVA bundle containing all of the data. Incremental backup is also supported. Data is transferred directly from XenServer API without the need to setup anything on the hosts.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_citrix-hv-xva.png)
+![](../../../.gitbook/assets/deployment-vprotect-citrix-hypervisor-xva.png)
 
 ### Changed-Block Tracking
 
-In this strategy VM is exported using XenServer API \(full backup\) and Network Block Device service \(NBD, incremental backups\) on the XenServer hosts. CBT feature in Citrix XenServer 7.3+ may require additional license. Result backup has separate files for each disk + metadata, so you have option to exclude specific drives as well.
+In this strategy, VM is exported using XenServer API \(full backup\) and Network Block Device service \(NBD, incremental backups\) on the XenServer hosts. CBT feature in Citrix XenServer 7.3+ may require an additional license. Result backup has separate files for each disk + metadata, so you have the option to exclude specific drives as well.
 
-**Note:** For full backups only you can still used this strategy without CBT enabled on the hypervisor.
+**Note:** For full backups only you can still use this strategy without CBT enabled on the hypervisor.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_xenserver-cbt%20%281%29.png)
+![](../../../.gitbook/assets/deployment-vprotect-citrix-hypervisor-cbt.png)
 
 ## Change Block Tracking setup
 
@@ -26,14 +26,14 @@ Citrix introduced CBT mechanism in XenServer 7.3. In order to enable CBT backups
 
 ### Notes on restore
 
-1. When image based backups \(XVA\) are used - vProtect restores VMs as templates and renames them appropriately after restore
+1. When image-based backups \(XVA\) are used - vProtect restores VMs as templates and renames them appropriately after restore
 2. When separate disk backups are used:
-   * if there is already a VM in the infrastructure with UUID of the VM being restored \(check `present` flag in VM list\) - vProtect restores as a new VM \(MAC adresses will be generated\)
-   * otherwise vProtect attempts to restore original configuration including MAC adresses
+   * if there is already a VM in the infrastructure with UUID of the VM being restored \(check `present` flag in VM list\) - vProtect restores as a new VM \(MAC addresses will be generated\)
+   * otherwise vProtect attempts to restore original configuration including MAC addresses
 
 ### NBD Server setup \(on XenServer\)
 
-1. Get Network UUID that you intent to use for communication with vProtect - run on XenServer shell:
+1. Get Network UUID that you intend to use for communication with vProtect - run on XenServer shell:
 
    ```text
    [root@xenserver-cbt ~]# xe network-list 

@@ -16,14 +16,15 @@
 | Oracle VM | 3.4+ |
 | Citrix Hypervisor \(XenServer\) | 6.5+ |
 | XCP-ng | 6.5+ |
+| HPE SimpliVity | Gen9+ |
 
 ## Container Platform Support
 
 | Conta Platform | Supported Version |
 | :--- | :--- |
-| Kubernetes \(K8s\) |  |
-| Red Hat OpenShift |  |
-| Proxmox VE |  |
+| Kubernetes \(K8s\) | 1.10+ |
+| Red Hat OpenShift | 3.11+ |
+| Proxmox VE | 5+ |
 
 ## Cloud Platform Support
 
@@ -42,19 +43,20 @@
 
 | Backup  Provider | Supported version | Random Access | Deduplication | Encryption | pre/post   access command execution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Amazon S3 | N/A | Yes | No | Yes | Yes |
-| S3 compatible |  |  |  |  |  |
-| MS Azure Blob Storage |  |  |  |  |  |
-| OpenStack SWIFT |  |  |  |  |  |
+| Amazon S3 | Current | No | N/A | Yes | Yes |
+| S3 compatible | Current | No | N/A | Yes | Yes |
+| MS Azure Blob Storage | Current | No | N/A | Yes | Yes |
+| OpenStack SWIFT | API v2 | No | N/A | No | Yes |
+| Scality RING | 6.4+ | No | N/A | Provider-dependent | Yes |
 
 ## Backup Destination \(Enterprise backup providers\) Support
 
 | Backup  Provider | Supported version | Random Access | Deduplication | Encryption | pre/post   access command execution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Dell EMC Avamar | N/A | No | No | Yes | Yes |
-| Dell EMC Networker |  |  |  |  |  |
-| IBM Spectrum Protect |  |  |  |  |  |
-| Veritas Netbackup |  |  |  |  |  |
+| Dell EMC Avamar | 7.5+ | No | Yes | Provider-dependent | Yes |
+| Dell EMC Networker | 9+ | No | Yes | Provider-dependent | Yes |
+| IBM Spectrum Protect | 7.1.5+ | No | Yes | Provider-dependent | Yes |
+| Veritas Netbackup | 7.6+ | No | Yes | Provider-dependent | Yes |
 
 ## Feature support table
 
@@ -72,9 +74,6 @@
 | Citrix Hypervisor \(XenServer\) | yes | yes \(CBT mode\) | yes \(CBT mode\) | yes | yes | yes |
 | XCP-ng | yes | yes \(CBT mode\) | yes \(CBT mode\) | yes | yes | yes |
 | AWS EC2 | no | yes | yes | yes | no | yes |
-| Kubernetes | yes \(Ceph\) |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-| Red Hat OpenShift | yes \(Ceph\) |  |  |  |  |  |
+| Kubernetes | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
+| Red Hat OpenShift | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
 
