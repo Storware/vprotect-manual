@@ -47,7 +47,7 @@ In this section you can find information, how to enable deduplication using basi
 
   ![](../../../.gitbook/assets/virtual-data-optimizer-vdo-staging-shared-with-bd.png)
 
-* **Notice**: **only one file system backup destination with deduplication using VDO pointing to specific directory can be used**
+* **Note**: O**nly one file system backup destination with deduplication using VDO pointing to the specific directory can be used**
   * if you want to add another backup  destination using same VDO device, but just different subdirectory
   * create it without deduplication enabled
   * Save configuration.

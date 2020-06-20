@@ -16,7 +16,7 @@
       "lazyLoad": false,
 
       "config": {
-          "vProtectURL": "http://10.40.0.55:8080/api",
+          "vProtectURL": "http://IP_address:8080/api",
           "username": "admin",
           "password": "vPr0tect"
        }

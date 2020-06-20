@@ -38,6 +38,7 @@
       * [Oracle VM](deployment/protected-platforms/virtual-machines/oracle-vm.md)
       * [Citrix Hypervisor \(XenServer\)](deployment/protected-platforms/virtual-machines/citrix-hypervisor-xenserver.md)
       * [XCP-ng](deployment/protected-platforms/virtual-machines/xcp-ng.md)
+      * [HPE SimpliVity](deployment/protected-platforms/virtual-machines/hpe-simplivity.md)
     * [Containers](deployment/protected-platforms/containers/README.md)
       * [Kubernetes](deployment/protected-platforms/containers/kubernetes.md)
       * [Red Hat OpenShift](deployment/protected-platforms/containers/red-hat-openshift.md)

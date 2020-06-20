@@ -1,12 +1,12 @@
 # Regular filesystem
 
-In this section we'll show you how to setup file system \(it can be local or remote file system, but this example assumes that you have a dedicated disk which you're going to use as a backup destination with local XFS file system\)
+In this section, we'll show you how to set up file system \(it can be a local or remote file system, but this example assumes that you have a dedicated disk which you're going to use as a backup destination with local XFS file system\)
 
 **Note:**
 
 * Any remote FS like **NFS, SMB, etc.** - needs to be mounted by the user and `vprotect` user/group must own the directories within backup destination. vProtect expects already mounted file system and mount point in the backup destination
 * you should add this file system to your `/etc/fstab` file on the node, so it gets mounted automatically if OS is rebooted
-* Consider using same file system for staging and backup destination \(it boosts store tasks, as no data needs to be copied again\) - in such scenario the only difference would be that presented `/backupdestination`mount point becomes subdirectory of the staging space \(usually `/vprotect_data/backups`\) 
+* Consider using the same file system for staging and backup destination \(it boosts store tasks, as no data needs to be copied again\) - in such scenario the only difference would be that presented `/backupdestination`mount point becomes subdirectory of the staging space \(usually `/vprotect_data/backups`\) 
 
 ## Preparation
 

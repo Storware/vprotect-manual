@@ -1,6 +1,6 @@
 # Virtual Machines
 
-vProtect supports multiple on premise virtualization platforms. In this section you will find what backup methods are supported and specific steps that are needed for each one of them to be integrated with vProtect.
+vProtect supports multiple on-premise virtualization platforms. In this section, you will find what backup methods are supported and specific steps that are needed for each one of them to be integrated with vProtect.
 
 * [VMware vSphere/ESXi](vmware-vsphere.md)
 * [Microsoft Hyper-V](microsoft-hyper-v.md)
@@ -14,4 +14,5 @@ vProtect supports multiple on premise virtualization platforms. In this section 
 * [Oracle VM ](oracle-vm.md)
 * [Citrix Hypervisor \(Xen Server\)](citrix-hypervisor-xenserver.md)
 * [XCP-ng](xcp-ng.md)
+* [HPE SimpliVity](hpe-simplivity.md)
 
