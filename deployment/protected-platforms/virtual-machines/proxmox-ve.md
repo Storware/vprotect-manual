@@ -1,6 +1,6 @@
 # Proxmox VE
 
-Proxmox virtual environment requires you to create storage used for VM export. Export storage should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from external source. The only requirement is to have it visible from both Proxmox VE hosts and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and Proxmox VE to read and write files. Please refer to [Proxmox setup](proxmox-ve.md) for details.
+Proxmox virtual environment requires you to create storage used for VM export. Export storage should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both Proxmox VE hosts and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and Proxmox VE to read and write files. Please refer to [Proxmox setup](proxmox-ve.md) for details.
 
 ![](https://github.com/backupmonster/storware-vprotect-manual/tree/c9a6294d49d3ab81c8d75f5a4754c24e70af398a/.gitbook/assets/dell-emc-vprotect_proxmox-export-storage.png)
 

@@ -12,6 +12,7 @@
   * oVirt 
   * Oracle Linux Virtualization Manager
   * Nutanix Acropolis Hypervisor \(AHV\)
+  * HPE SimpliVity
   * Citrix Hypervisor \(XenServer\) 
   * XCP-ng
   * Proxmox VE
@@ -48,7 +49,7 @@
   * Dell EMC Networker
   * Dell EMC Avamar
   * Veritas Netbackup
-* Build in data deduplication with Virtual Data Optimizer \(VDO\)
+* Build-in data deduplication with Virtual Data Optimizer \(VDO\)
 * Easy to use and modern management \(HTML5 web UI and CLI\)
 * Open API for 3rd party software integration \(REST API\)
 

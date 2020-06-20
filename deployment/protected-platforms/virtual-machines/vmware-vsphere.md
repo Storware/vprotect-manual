@@ -1,6 +1,6 @@
 # VMware vSphere/ESXi
 
-vProtect supports one backup solution for vSphere / ESXi. We use the API to communicate with VMware and we can add a single ESXi or vCenter host as a hypervisor manager.
+vProtect supports one backup solution for VMware vSphere / ESXi. We use the API to communicate with VMware and we can add a single ESXi or vCenter host as a hypervisor manager.
 
 1. Backup user must have following privileges for backup/restore procedure:
    * VirtualMachine &gt; Change Configuration
@@ -10,7 +10,7 @@ vProtect supports one backup solution for vSphere / ESXi. We use the API to comm
    * Datastore &gt; Browse datastore
    * Datastore &gt; Update virtual machine files
    * Datastore &gt; Update virtual machine metadata
-   * Resource &gt; Assign virtual machine to resource pool
+   * Resource &gt; Assign virtual machine to the resource pool
    * Tasks &gt; Create task
 2. You must have open ports 443/TCP 902/TCP from ESX/vCenter to vProtect node to run backup.
 3. Add your vCenter as Hypervisor Manager in Web UI - `https://vcenter.hostname.or.ip`

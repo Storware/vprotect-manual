@@ -36,7 +36,7 @@ This strategy allows you to exclude drives from backup that you do not need. Rem
 
 Drawback - no incremental backup for now.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_ovirt-disk-attachment.png)
+![](../../../.gitbook/assets/deployment-vprotect-ovirt-disk-attachment.png)
 
 **Note**: oVirt API v4 environments require vProtect Node to be installed in one of the VMs residing on the oVirt cluster. vProtect should detect automatically the VM with vProtect during index operation.
 
@@ -54,7 +54,7 @@ This strategy supports incremental backups. Assuming you have oVirt 4.2 or newer
 
 Unfortunately, there are a few problems with the current architecture of this solution. The biggest issue is that all traffic passes via oVirt manager, which may impact transfer rates that you can achieve during the backup process. To put that into perspective – in disk attachment you can basically read data as if it is a local drive, where it could potentially be deduplicated even before transferring it to the backup destination.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_ovirt-disk-image-transfer.png)
+![](../../../.gitbook/assets/deployment-vprotect-ovirt-disk-image-transfer.png)
 
 Disk image transfer mode exports data directly using oVirt 4.2+ API. There is no need to setup export storage domain or setup LVM. This mode uses snapshot-chains provided by new oVirt.
 
@@ -66,7 +66,7 @@ Follow the steps in this section: [Full versions of libvirt/qemu packages instal
 
 This is an enhancement for disk image transfer API strategy. It allows vProtect to use oVirt API v4.2+ \(HTTPS connection to oVirt manager\) only to collect metadata. Backup is done over SSH directly from the hypervisor \(optionally using netcat for transfer\), import is also using SSH \(without netcat option\). No need to instal a node on the oVirt environment. This method can significantly boost backup transfers and supports incremental backups.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_ovirt-ssh-transfer.png)
+![](../../../.gitbook/assets/deployment-vprotect-ovirt-ssh-transfer.png)
 
 This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding oVirt manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
 
@@ -76,11 +76,11 @@ The restore process is done via oVirt manager - like in Disk Image Transfer mode
 
 This setup requires you to create storage domain used for VM export. Export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from external source. The only requirement is to have it visible from both oVirt host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and oVirt to read and write files.
 
-Backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\).The reason for additional cloning is that oVirt doesn’t allow you to export snapshot directly. Node can be outside of the environment that you backup.
+Backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\). The reason for additional cloning is that oVirt doesn’t allow you to export snapshot directly. Node can be outside of the environment that you backup.
 
 This strategy is going to be deprecated, as Red Hat may no longer support it in the future releases.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_ovirt-export-storage-domain%20%281%29.png)
+![](../../../.gitbook/assets/deployment-vprotect-ovirt-export-storage-domain.png)
 
 oVirt 3.5.1+ environments \(using API v3\) require export storage domain to be set up.
 

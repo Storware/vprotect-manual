@@ -21,15 +21,15 @@ There are several standard workflows in vProtect and they result in a set of tas
   * **Export** - task that creates snapshot and exports data to the staging space
   * **Store** - task that moves data to the backup destination
 * **Restore to filesystem**
-  * **Restore** - task that gets data from backup provider and puts data in the staging space
+  * **Restore** - task that gets data from a backup provider and puts data in the staging space
 * **Restore to virtualization platform**
-  * **Restore** - task that gets data from backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for import task\)
+  * **Restore** - task that gets data from a backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for import task\)
   * **Import** - task that imports data to the virtualization platform and recreates VM
 * **Restore for mount \(file-level restore\)**
   * **Restore** - task that gets data from backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for mount task\)
   * **Mount** - mounts backup on the vProtect Node and either allows user to browse files or exposes backup over iSCSI, so that remote iSCSI initiator can access it\)
 * **Snapshot**
-  * **Snapshot** - task that creates snapshot on the VM according to policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
+  * **Snapshot** - task that creates a snapshot on the VM according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
 
 ## Detailed Architecture
 
@@ -38,7 +38,7 @@ There are several standard workflows in vProtect and they result in a set of tas
 ## Component placement
 
 * **vProtect Server and Node can be installed in the same system** 
-* Server can be installed on physical machine or VM - nodes just need to be able to connect to it.
+* Server can be installed on a physical machine or VM - nodes just need to be able to connect to it.
 * Nodes can be installed also inside a VM or physical machine, but keep in mind that some backup strategies require Node to be installed as a VM on a Hypervisor Cluster \(especially when "disk attachment" export mode is mentioned\).
 * Both components are installed on a CentOS/RHEL 8 minimal.
 
@@ -60,6 +60,7 @@ For detailed deployment scenarios refer to the following sections:
 * [Deployment on Oracle VM ](../deployment/protected-platforms/virtual-machines/oracle-vm.md)
 * [Deployment on Citrix Hypervisor \(XenServer\)](../deployment/protected-platforms/virtual-machines/citrix-hypervisor-xenserver.md)
 * [Deployment on XCP-ng](../deployment/protected-platforms/virtual-machines/xcp-ng.md)
+* [Deployment on HPE SimpliVity](../deployment/protected-platforms/virtual-machines/hpe-simplivity.md)
 
 ### Containers
 

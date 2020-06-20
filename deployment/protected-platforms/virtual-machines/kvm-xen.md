@@ -4,14 +4,14 @@
 | :--- |
 
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_kvm-xen-ssh.png)
+![](../../../.gitbook/assets/deployment-vprotect-kvm-ssh-transfer.png)
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_xen-ssh.png)
+![](../../../.gitbook/assets/deployment-vprotect-xen-ssh-transfer.png)
 
 KVM/Xen \(libvirt\) environments require to have correct entry in known\_hosts on the **node**:
 
 * it must be `known_hosts` file that belongs to `vprotect` user
-* algorithm must be set to `ssh-rsa`
+* the algorithm must be set to `ssh-rsa`
 * make sure to have in your Node Configuration `known_hosts` file path set to the location that is accessible for `vprotect` user - default `/opt/vprotect/.ssh/known_hosts`
 * if your user/group used on KVM host is other than `qemu:qemu` then please provide them in hypervisor details form when you add/update hypervisor
 

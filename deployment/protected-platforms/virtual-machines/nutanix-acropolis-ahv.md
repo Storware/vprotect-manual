@@ -6,7 +6,7 @@ This strategy allows you to exclude drives from backup that you do not need. Rem
 
 **Note**: staging space must be on a volume coming from container storage. Otherwise vProtect may select the wrong device during backup.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell-emc-vprotect_nutanix-disk-attachment.png)
+![](../../../.gitbook/assets/deployment-vprotect-nutanix-disk-attachment.png)
 
 **Note**: Nutanix environments require the vProtect node to be installed in one of the VMs residing on the Nutanix cluster. vProtect should automatically detected the VM with vProtect during the index operation.
 

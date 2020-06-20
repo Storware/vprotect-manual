@@ -14,7 +14,7 @@ vProtect Node has access to instances only in the **region where it is hosted**.
 
 vProtect Node requires **account ID,** **access key** and **secret** **key** to connect to AWS account.
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/31778b5e60e67956cc3fb965d118537bb2d2be7e/.gitbook/assets/dell_emc_vprotect_aws.png)
+![](../../../.gitbook/assets/deployment-vprotect-aws.png)
 
 ## Typical use cases <a id="typical-use-cases"></a>
 
@@ -94,7 +94,7 @@ Here are IAM permissions that vProtect needs to have for backup/restore operatio
 
 To properly configure your AWS account, go to vProtect -&gt; Hypervisors -&gt; add hypervisor manager
 
-Provide a parameters such as:
+Provide parameters such as:
 
 * Account ID 
 
