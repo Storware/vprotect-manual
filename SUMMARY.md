@@ -1,6 +1,6 @@
 # Table of contents
 
-* [About Storware vProtect](README.md)
+* [Storware vProtect documentation](README.md)
 * [Table of Contents](table-of-contents.md)
 * [Overview](overview/README.md)
   * [Architecture](overview/architecture.md)

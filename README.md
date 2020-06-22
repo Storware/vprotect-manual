@@ -1,4 +1,4 @@
-# About Storware vProtect
+# Storware vProtect documentation
 
 ![](.gitbook/assets/vprotect_introduction.png)
 
