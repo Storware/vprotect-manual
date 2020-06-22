@@ -1,10 +1,10 @@
 # Virtual Data Optimizer \(VDO\)
 
-In this section you can find information, how to enable deduplication using basically any block storage available. We assume that you have prepared your storage provider and have exposed block device to the system where vProtect Node is installed.
+In this section. you can find information, how to enable deduplication using basically any block storage available. We assume that you have prepared your storage provider and have exposed block device to the system where vProtect Node is installed.
 
 ## Preparation
 
-1. Log in to vProtect Node, and create mount directory in example `/backupdestination`
+1. Log in to vProtect Node, and create mount directory in the example `/backupdestination`
 
    ```text
    mkdir /backupdestination
@@ -39,13 +39,12 @@ In this section you can find information, how to enable deduplication using basi
 ```
 
 * if **staging space needs to be the same as your backup destination** storage
-
   * in **Storage paths** type `/vprotect_data/backups` - this path assumes that `/vprotect_data` is your staging space path and `backups`is a subdirectory of the staging space
   * check **Enable deduplication**
   * provide your block device \(i.e. `/dev/sdc`\)  as your **Deduplication device**
   * enable **Mount deduplicated file system to a different directory than backup destination path** and provide mount point - your staging space path, i.e. `/vprotect_data` - this will force vProtect to mount XFS on top of VDO in the staging space directory rather than in backups subdirectory
 
-  ![](../../../.gitbook/assets/virtual-data-optimizer-vdo-staging-shared-with-bd.png)
+![](../../../.gitbook/assets/backup-destination-filesystem-virtual-data-optimizer-vdo.png)
 
 * **Note**: O**nly one file system backup destination with deduplication using VDO pointing to the specific directory can be used**
   * if you want to add another backup  destination using same VDO device, but just different subdirectory
