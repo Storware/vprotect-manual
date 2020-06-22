@@ -1,6 +1,6 @@
 # AWS S3 or S3-compatible
 
-## 
+### Overview 
 
 vProtect can store backups in AWS S3 or S3-compatible backup provider. In most cases, you just need to prepare a bucket \(with versioning enabled if possible\) and generate access/secret key for vProtect. vProtect can be installed in AWS \(if EC2 backup is used\), but in most cases, S3 is going to be used just as a cloud backup provider for on-prem environments.
 
