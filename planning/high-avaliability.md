@@ -517,9 +517,9 @@ replicate-do-db=vprotect
 [root@vprotect1 ~]# systemctl start mariadb
 ```
 
-*  Now **log in into your MariaDB**, create a user used for replication and assign appropriate rights to it.
+*  Now **login into your MariaDB**, create a user used for replication and assign appropriate rights to it.
 
-  For the purpose of this task we will set the username to 'replicator' and password to 'R3pLic4ti0N'
+  For the purpose of this task, we will set the username to 'replicator' and password to 'R3pLic4ti0N'
 
 ```text
 [root@vprotect1 ~]# mysql -u root -p
@@ -548,7 +548,7 @@ MariaDB [(none)]> show master status;
 +----------------------+----------+--------------+------------------+
 ```
 
-*  Dump vprotect database and copy it onto second server \(vprotect2\)
+*  Dump vprotect database and copy it onto the second server \(vprotect2\)
 
 ```text
  [root@vprotect1 ~]# mysqldump -u root -p vprotect > /tmp/vprotect.sql
@@ -557,7 +557,7 @@ MariaDB [(none)]> show master status;
 
 **Steps to run on 2nd server, vprotect2: 10.40.1.52**
 
-For readers convienience I only highlighted differences in configuration between vprotect1 and vprotect2 and omitted the output of some commands if they were the same as on previous node.
+For the reader's convenience, I only highlighted differences in configuration between vprotect1 and vprotect2 and omitted the output of some commands if they were the same as on the previous node.
 
 *  **Stop vprotect server, node and database**
 *  Edit MariaDB config file. **Assign different server id**, for example: 2. Then start MariaDB
@@ -604,7 +604,7 @@ MariaDB [(none)]> SHOW MASTER STATUS;
 
 **Go back to the first server \(vprotect1\)**
 
-*  On **vprotect1** stop slave then change master host, use parameters noted in the previous step. Also, change master host IP to match your network configuration.
+*  On **vprotect1** stop slave then change master host, use parameters noted in the previous step. Also, change  master host IP to match your network configuration.
 
 ```text
 MariaDB [(none)]> stop slave;
