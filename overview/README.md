@@ -12,11 +12,11 @@ In [Typical Scenarios ](typical-scenarios.md)you can find good starting point fo
 
 Enjoy!
 
-_---_
+---
 
 _What next:_
 
-[_Architecture_](architecture.md)\_\_
+\_\_[_Architecture_](architecture.md)\_\_
 
 \_\_[_Licensing_](licensing.md)\_\_
 
@@ -24,7 +24,6 @@ _What next:_
 
 \_\_[_Typical Scenarios_](typical-scenarios.md)\_\_
 
-\_\_
 
 
 
