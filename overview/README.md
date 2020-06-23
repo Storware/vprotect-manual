@@ -12,18 +12,15 @@ In [Typical Scenarios ](typical-scenarios.md)you can find good starting point fo
 
 Enjoy!
 
----
+
 
 _What next:_
 
-\_\_[_Architecture_](architecture.md)\_\_
+  [_Architecture_](architecture.md)
 
-\_\_[_Licensing_](licensing.md)\_\_
+  [_Licensing_](licensing.md)
 
-\_\_[_Main Features_](main-features.md)\_\_
+  [_Main Features_](main-features.md)
 
-\_\_[_Typical Scenarios_](typical-scenarios.md)\_\_
-
-
-
+  [_Typical Scenarios_](typical-scenarios.md)
 
