@@ -1,11 +1,11 @@
 # How to enable vProtect DEBUG mode
 
-Quite often Dell EMC support will ask for debug logs for more in-depth troubleshooting. In order to do that please follow steps below.
+Quite often support will ask for debug logs for more in-depth troubleshooting. In order to do that please follow the steps below.
 
 ## vProtect Node
 
 1. Edit `/opt/vprotect/log4j2-node.xml` change `INFO` to `DEBUG` in `<Property name="logLevel">...</Property>`  tag
-2. Restart vprotect-node service:
+2. Restart vProtect-node service:
 
    `systemctl restart vprotect-node`
 
@@ -15,7 +15,7 @@ Quite often Dell EMC support will ask for debug logs for more in-depth troublesh
 ## **vProtect Server**
 
 1. Edit `/opt/vprotect/log4j2-server.xml` change `INFO` to `DEBUG` in `<Root level="...">` tag
-2. Restart vprotect-server service:
+2. Restart vProtect-server service:
 
    `systemctl restart vprotect-server`
 
