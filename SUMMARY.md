@@ -19,7 +19,7 @@
   * [Installation Overview](deployment/installation-overview.md)
   * [Quick Install \(All-In-One\)](deployment/quick-install-all-in-one.md)
   * [Installation using Ansible playbook](deployment/installation-using-ansible-playbook.md)
-  * [Installation with RPMs](deployment/installation-with-rpms.md)
+  * [Installation using RPMs](deployment/installation-with-rpms.md)
   * [Virtual Appliance](deployment/virtual-appliance/README.md)
     * [RHV/oVirt/OLVM Virtual Appliance](deployment/virtual-appliance/rhv-ovirt-olvm-virtual-appliance.md)
     * [Citrix Hypervisor \| XCP-ng Virtual Appliance](deployment/virtual-appliance/citrix-hypervisor-or-xcp-ng-virtual-appliance.md)
