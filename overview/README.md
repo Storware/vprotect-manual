@@ -1,6 +1,6 @@
 # Overview
 
-In this chapter, we'll briefly discuss architecture and main features of vProtect as well as some typical use case scenarios.
+In this section, we'll briefly discuss architecture and main features of vProtect as well as some typical use case scenarios.
 
 In [Architecture](architecture.md) section, you will also what are the main components of vProtect solution and find how to place them in your deployment.
 

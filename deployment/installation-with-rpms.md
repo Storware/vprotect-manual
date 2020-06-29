@@ -1,4 +1,4 @@
-# Installation using RPMs
+# Installation with RPMs
 
 ## Prerequisites
 
