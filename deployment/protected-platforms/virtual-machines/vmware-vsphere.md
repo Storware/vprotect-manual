@@ -21,5 +21,3 @@ If you have stand-alone ESXi hosts - add all hypervisors separately in Hyperviso
 
 ![](../../../.gitbook/assets/virtual-machines-vmware-vsphere-esxi-hv.jpg)
 
-\* vProtect node must be installed on CentOS/RHEL 7.x to backup VMware virtual machines
-
