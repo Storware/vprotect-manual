@@ -24,12 +24,14 @@ Log files are stored in this folder: `/opt/vprotect/logs/<node_name>`:
 * `vprotect_client.log` - stores CLI-related messages
 * `vprotect_daemon.log` - stores vProtect Node's engine-related message
 
-For Hyper-v agent, logs are stored in this folder: `c:\Program Files\HyperVAgent\Hyper-v Agent\bin\Logs`
-
 ### vProtect Server
 
 Log files are stored in:
 
 * `/opt/vprotect/logs/appserver` - application server \(hosting vProtect Server\) messages
 * `/opt/vprotect/logs/api` - vProtect Server application logs 
+
+### Hyper-v Agent
+
+For Hyper-v agent, logs are stored in this folder: `c:\Program Files\HyperVAgent\Hyper-v Agent\bin\Logs`
 
