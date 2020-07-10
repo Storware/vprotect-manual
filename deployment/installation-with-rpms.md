@@ -19,7 +19,6 @@
 
    ```text
    # vProtect Enterprise backup solution for virtual environments repository
-   # http://www.vprotect.io/
    [vprotect]
    name = vProtect
    baseurl = http://repo.storware.eu/vprotect/current/el8
@@ -48,8 +47,6 @@
      gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
      gpgcheck=1
      ```
-
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/c9a6294d49d3ab81c8d75f5a4754c24e70af398a/.gitbook/assets/mariadb-repo.jpg)
 
 ## vProtect Server installation
 
