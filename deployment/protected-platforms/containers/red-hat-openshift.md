@@ -4,11 +4,11 @@ Login to Web UI and add new Hypervisor Manager of type OpenShift:
 
 ## vProtect Node preparation
 
-![Example how input credentials in vProtect UI for Kubernetes/OpenShift](../../../.gitbook/assets/containers-kubernetes-add-new-hypervisor-manager.jpg)
+![Example how input credentials in vProtect UI for Kubernetes/OpenShift](../../../.gitbook/assets/containers-openshift-add-new-hypervisor-manager.jpg)
 
-Kubernetes Nodes should appear in vProtect after indexing the cluster.
+Openshift Nodes should appear in vProtect after indexing the cluster.
 
-**Notice 1**: Please provide the URL to the web console and SSH credentials to master node when creating the OpenShift hypervisor manager in vProtect UI. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md). This is needed for vProtect to have access to your cluster deployments. **Notice 2:** Valid SSH admin credentials should be provided **for every Kubernetes node** by the user \(called _Hypervisor_ in the vProtect UI\). if vProtect is unable to execute docker commands on Kubernetes/Openshift node, it means that it logged as an user lacking admin privileges. Make sure you added your user to sudo/wheel group \( so it can execute commands with `sudo`\).
+**Notice 1**: Please provide the URL to the web console and SSH credentials to master node when creating the OpenShift hypervisor manager in vProtect UI. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md). This is needed for vProtect to have access to your cluster deployments. **Notice 2:** Valid SSH admin credentials should be provided **for every Openshift node** by the user \(called _Hypervisor_ in the vProtect UI\). if vProtect is unable to execute docker commands on Openshift node, it means that it logged as an user lacking admin privileges. Make sure you added your user to sudo/wheel group \( so it can execute commands with `sudo`\).
 
 **Persistent volumes restore/backup**
 
