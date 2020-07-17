@@ -37,8 +37,8 @@
 * Build-in vProtect DB backup
 * Data encryption for file system backup destination
 * Users LDAP authentication 
-* Integration with different backup destinations such as:
-  * Any mounted file-system \(local or remote, especially GlusterFS for replication, CephFS, NFS, SMB and many more\) 
+* Integration with different backup destinations such as: 
+* * Any mounted file-system \(local or remote, especially GlusterFS for replication, CephFS, NFS, SMB and many more\) 
   * Dell EMC Data Domain \(BoostFS integration\)
   * Amazon S3 \(with Amazon Glacier as a 2nd tier archive storage\), 
   * S3-compliant storage \(IBM Cloud, Oracle Cloud, Scality RING\)
@@ -49,7 +49,7 @@
   * Dell EMC Networker
   * Dell EMC Avamar
   * Veritas Netbackup
-* Built-in data deduplication with Virtual Data Optimizer \(VDO\)
+* Build-in data deduplication with Virtual Data Optimizer \(VDO\)
 * Easy to use and modern management \(HTML5 web UI and CLI\)
 * Open API for 3rd party software integration \(REST API\)
 
