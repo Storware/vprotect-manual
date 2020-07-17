@@ -31,10 +31,7 @@
      * `http://repo.storware.eu/vprotect/3.9.2/el8`
 
 4. Install MariaDB repository \(vProtect Server host only\)
-   * generate .repo file at [MariaDB download](https://downloads.mariadb.org/mariadb/repositories) site\)
-
-     ![](https://github.com/backupmonster/storware-vprotect-manual/tree/c9a6294d49d3ab81c8d75f5a4754c24e70af398a/.gitbook/assets/install_prereq-mariadb%20%281%29.png)
-
+   * generate .repo file at [MariaDB download](https://downloads.mariadb.org/mariadb/repositories) site
    * copy and paste generated repo file into `/etc/yum.repos.d/MariaDB.repo`, so it looks similar to this \(this one for CentOS/RHEL 8\):
 
      ```text
@@ -50,7 +47,7 @@
 
 ## vProtect Server installation
 
-vProtect consists of server \(central management point with WebUI\) and one or multiple nodes \(which can be installed on the same host as server or on other machines\). The first step is always to install server.
+vProtect consists of a server \(central management point with WebUI\) and one or multiple nodes \(which can be installed on the same host as server or on other machines\). The first step is always to install a server.
 
 1. Install vprotect-server using YUM:
 
@@ -66,15 +63,13 @@ vProtect consists of server \(central management point with WebUI\) and one or m
    vprotect-server-configure
    ```
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/c9a6294d49d3ab81c8d75f5a4754c24e70af398a/.gitbook/assets/install_server-configure%20%281%29.png)
-
-1. Start vProtect Server \(it can take around a minute for server to be started\):
+3. Start vProtect Server \(it can take around a minute for server to be started\):
 
    ```text
    systemctl start vprotect-server
    ```
 
-2. You may need to open 8181 port on your firewall. Here is example:
+4. You may need to open 8181 port on your firewall. Here is example:
 
    ```text
    firewall-cmd --add-port=8181/tcp --permanent
@@ -88,11 +83,9 @@ vProtect consists of server \(central management point with WebUI\) and one or m
    ./ssl_port_forwarding_firewall-cmd.sh
    ```
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/c9a6294d49d3ab81c8d75f5a4754c24e70af398a/.gitbook/assets/install_server-firewall%20%281%29.png)
-
-1. Now you should be able to log into the web console using URL: `https://VPROTECT_HOST:8181`, where `VPROTECT_HOST` is hostname or IP of your vProtect Server
+5. Now you should be able to log into the web console using URL: `https://VPROTECT_HOST:8181`, where `VPROTECT_HOST` is hostname or IP of your vProtect Server
    * by default vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\)
-2. Optionally, if you are going to connect nodes running on remote hosts, proceed with the steps related to the vProtect Server described in section: [Enabling HTTPS connectivity for remote nodes](common-tasks/enabling-https-connectivity-for-remote-nodes.md)
+6. Optionally, if you are going to connect nodes running on remote hosts, proceed with the steps related to the vProtect Server described in section: [Enabling HTTPS connectivity for remote nodes](common-tasks/enabling-https-connectivity-for-remote-nodes.md)
 
 ## vProtect Node installation
 
@@ -112,7 +105,7 @@ vProtect Node is component that executes all tasks. It can be installed together
      ln -s /mnt/staging /vprotect_data
      ```
 
-   * Register node with `NODE_NAME` of your choice `ADMIN_USER` user name which you would like to use and URL to vProtect API and provide password when prompted:
+   * Register node with `NODE_NAME` of your choice `ADMIN_USER` user name which you would like to use and URL to vProtect API and provide the password when prompted:
 3. * Syntax:
 
      ```text
@@ -139,9 +132,7 @@ vProtect Node is component that executes all tasks. It can be installed together
    vprotect-node-configure
    ```
 
-![](https://github.com/backupmonster/storware-vprotect-manual/tree/c9a6294d49d3ab81c8d75f5a4754c24e70af398a/.gitbook/assets/install_node-configure%20%281%29.png)
-
-1. Reboot vProtect VM to apply OS-specific settings:
+6. Reboot vProtect VM to apply OS-specific settings:
 
    ```text
    reboot

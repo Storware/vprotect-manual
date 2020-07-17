@@ -17,5 +17,5 @@
 6. Test basic operations to verify that integration is completed:
    * [How to backup](installation-overview.md)
    * [How to restore](installation-overview.md)
-   * [How to mount](../administration/file-level-restore-mounted-backup.md)
+   * [How to mount](installation-overview.md)
 
