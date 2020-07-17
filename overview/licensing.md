@@ -16,7 +16,7 @@ This license type covers the exact number of virtual machines that you want to p
 
 ### Per TB
 
-Here we would like to meet requirements to align with front-end TB licensing. By 1TB steps, the only size of your storage being backed up matters. You can have as many hosts or VMs as you want. At some cases, this is the most effective licensing especially for smaller numbers of TBs.
+Here we would like to meet requirements to align with front-end TB licensing. By 1TB steps, the only size of your storage being backed up matters. You can have as many hosts or VMs as you want. In some cases, this is the most effective licensing especially for smaller numbers of TBs.
 
 ### Per Compute Node
 
