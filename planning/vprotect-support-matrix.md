@@ -60,7 +60,7 @@
 
 ## Feature support table
 
-| Virtualization Platform | Incremental backup | File-Level-Restore | VM disk exclusion | Snapshot Management | Pre/Post Snapshot command execution | VM Tags |
+| Virtualization Platform | Incremental backup | File-Level-Restore\* | VM disk exclusion | Snapshot Management | Pre/Post Snapshot command execution | VM Tags |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | VMware vSphere/ESXi | 5.5+ | yes | yes | yes | yes | yes |
 | Microsoft Hyper-V | 2016+ | yes | yes | yes | yes | yes |
@@ -76,4 +76,9 @@
 | AWS EC2 | no | yes | yes | yes | no | yes |
 | Kubernetes | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
 | Red Hat OpenShift | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
+
+### Conditions / Exclusion
+
+**File-level-restore**:  
+_When backing up CentOS 8 with a disk with a GPT partition scheme, you can use file-level restore only on vProtect node, which also runs on CentOS 8 operating system._
 
