@@ -4,7 +4,7 @@
 
 | Virtualization Platform | Supported Version |
 | :--- | :--- |
-| VMware vSphere/ESXi | 5.5+, 6.x+, 7.0 |
+| VMware vSphere/ESXi\* | 5.5+, 6.x+, 7.0 |
 | Microsoft Hyper-V | 2016, 2019 |
 | Nutanix Acropolis \(AHV\) | 5.5+ \(Intel-only\) |
 | Red Hat Virtualization | 3.5.1+ \(RHEL 7.1+\) |
@@ -77,8 +77,11 @@
 | Kubernetes | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
 | Red Hat OpenShift | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
 
-### Conditions / Exclusion
+## Conditions / Exclusion
 
 **File-level-restore**:  
 _When backing up CentOS 8 with a disk with a GPT partition scheme, you can use file-level restore only on vProtect node, which also runs on CentOS 8 operating system._
+
+**VMware vSphere/ESXi backup:**  
+_We can only back up VMware products from a vProtect node that runs on CentOS 7._
 
