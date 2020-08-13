@@ -15,7 +15,7 @@ If the host computer has an Internet connection, use the yum command, you'll als
 **Note** that this process only applies for updates from version 3.x. Version 2.x requires a fresh 3.1 installation and database migration.
 
 * Make sure you have vProtect database backup.
-  * manually you can use this command to backup it on demand on the vProtect Server:`/opt/vprotect/scripts/backup_db.sh /path/to/backup/file.tgz`
+  * manually you can use this command to backup it on demand on the vProtect Server:`/opt/vprotect/scripts/backup_db.sh /path/to/backup/file.sql.gz`
 * If vProtect was installed on a virtual machine \(not a physical one\), it would be a good move to take a snapshot
 * After backing up the database, we should gently stop the vProtect service to make sure that we don't have any tasks running \(running task may cause problems updating the database\)
   * View all tasks, if you see at least one on the list, clear it \(wait for the ongoing tasks to finish\)
