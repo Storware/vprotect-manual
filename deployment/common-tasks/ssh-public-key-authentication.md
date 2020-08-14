@@ -8,7 +8,7 @@ Instead of using password authentication - anywhere where your'e able to provide
    * example key generation:
 
      ```text
-     [root@vProtect3 vprotect]# sudo -u vprotect ssh-keygen
+     [root@vProtect3 vprotect]# sudo -u vprotect ssh-keygen -t rsa -m PEM
      Generating public/private rsa key pair.
      Enter file in which to save the key (/opt/vprotect/.ssh/id_rsa): 
      Enter passphrase (empty for no passphrase): 
