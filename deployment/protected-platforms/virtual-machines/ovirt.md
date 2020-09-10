@@ -70,8 +70,6 @@ This is an enhancement for disk image transfer API strategy. It allows vProtect 
 
 This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding oVirt manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
 
-The restore process is done via oVirt manager - like in Disk Image Transfer mode - which means that you also need to open port **54323** and make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with oVirt UI\).
-
 ### Export storage domain \(API v3\)
 
 This setup requires you to create storage domain used for VM export. Export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from external source. The only requirement is to have it visible from both oVirt host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and oVirt to read and write files.

@@ -70,5 +70,3 @@ This is an enhancement for disk image transfer API strategy. It allows vProtect 
 
 This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding OLVM manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
 
-The restore process is done via OLVM manager - like in Disk Image Transfer mode - which means that you also need to open port **54323** and make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with OLVM UI\).
-
