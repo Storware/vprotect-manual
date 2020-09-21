@@ -14,13 +14,15 @@ vProtect requires that there be a user with "cluster admin" privileges on Prism,
 
 Follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](../../common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md)
 
-When adding Nutanix hypervisor managers \(Prism Elements\) use a URL similar to the following:
+When adding Nutanix hypervisor managers use a URL similar to the following:
 
 ```text
 https://PRISM_HOST:9440/api/nutanix/v3
 ```
 
 Then index your HV manager and verify if hypervisors and VMs are detected.
+
+**Note**: you can specify either a Prism Element or a Prism Central as hypervisor manager. If Prism Central is specified credentials for Prism Central and each Prism Element must be the same.
 
 **Note**: volume groups attached to the VMs are **not** affected by snapshot, hence neither backup nor snapshot revert on such volumes is going to include them.
 
