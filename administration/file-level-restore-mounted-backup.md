@@ -7,6 +7,7 @@ To mount backup go to the virtual environment on the left side menu, then click 
 ![](../.gitbook/assets/file-level-restore.jpg)
 
 On popup window you can select which backup you want to mount and on which node. You can also change the mount method, but we recommend leaving the default setting "Mount filesystem automatically".
+If you choose to mount BTRFS filesystem automatically vProtect will mount last available snapshot.
 
 ![](../.gitbook/assets/file-level-restore-popup.jpg)
 
