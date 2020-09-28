@@ -13,6 +13,10 @@ Import/export mode defines the way the backups and restores are done. oVirt \(wi
    * supports incremental backup
    * disk images are transferred directly from API \(no Proxy VM required\)
 3. **SSH Transfer,** this method assumes that all data transfers are directly from hypervisor - over SSH
+4. **Change Block Tracking,** this method backup only blocks with changes and skips zeroed sectors.
+   * supports oVirt 4.4+ (with Libvirt 6+, qemu-kvm 4.2+ and vdsm 4.40+)
+   * supports incremental backup
+   * only disks with marked "enable incremental backup" in ovirt will be backuped
 
 When adding oVirt 4.0+ hypervisor managers use a URL similar to the following:
 
@@ -109,4 +113,13 @@ oVirt 3.5.1+ environments \(using API v3\) require export storage domain to be s
    ```text
    https://oVirt_MGR_HOST/ovirt-engine/api/v3
    ```
+   
+### Change Block Tracking
 
+This is a new method which is possible thanks to changes in oVirt 4.4. It uses informations about zeroed and changed blocks to reduce data size and make process faster. 
+
+This strategy supports incremental backups. 
+Assuming you have oVirt 4.4 or newer – just mark "enable incremental backup" for disks in ovirt and setup is done. 
+Qcow2 format is required for incremental backups so disks enabled for incremental backup will use qcow2 format instead of raw format.
+
+Also this strategy doesn't need snapshots in backup process. Instead of it every incremental backup uses checkpoint that is a point in time that was created after previous backup. 
