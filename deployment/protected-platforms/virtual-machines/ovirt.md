@@ -118,8 +118,6 @@ oVirt 3.5.1+ environments \(using API v3\) require export storage domain to be s
 
 This is a new method which is possible thanks to changes in oVirt 4.4. It uses informations about zeroed and changed blocks to reduce data size and make process faster. 
 
-This strategy supports incremental backups. 
-Assuming you have oVirt 4.4 or newer – just mark "enable incremental backup" for disks in ovirt and setup is done. 
-Qcow2 format is required for incremental backups so disks enabled for incremental backup will use qcow2 format instead of raw format.
+This strategy supports incremental backups. Assuming you have oVirt 4.4 or newer – disks will have field "enable incremental backup" checked automatically after starting export. Qcow2 format is required for incremental backups so disks enabled for incremental backup will use qcow2 format instead of raw format.
 
 Also this strategy doesn't need snapshots in backup process. Instead of it every incremental backup uses checkpoint that is a point in time that was created after previous backup. 
