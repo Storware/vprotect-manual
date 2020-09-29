@@ -38,7 +38,7 @@ Minimal requirements:
 * Node needs access to the Server \(ports **443** and/or **8181** depending on the setup\).
 * Node needs connectivity with backup providers \(if they are external, such as Power Protect DD\).
 * Node needs connectivity with the Hypervisor or Hypervisor Manager.
-* If netcat transfer is used for Red Hat Virtualization/oVirt/Oracle Linux VM environments - **16000-16999** ports must be reachable from the hypervisors to the node which is responsible for those hypervisors.
+* If netcat transfer is used for Red Hat Virtualization/oVirt/Oracle Linux VM/Proxmox/KVM Standalone environments - **16000-16999** ports must be reachable from the hypervisors to the node which is responsible for those hypervisors.
 
 ## Security Requirements
 
