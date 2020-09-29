@@ -24,6 +24,8 @@ Then index your HV manager and verify if hypervisors and VMs are detected.
 
 **Note**: you can specify either a Prism Element or a Prism Central as hypervisor manager. If Prism Central is specified credentials for Prism Central and each Prism Element must be the same.
 
+**Note**: hypervisor tags are supported only with Prism Central
+
 **Note**: volume groups attached to the VMs are **not** affected by snapshot, hence neither backup nor snapshot revert on such volumes is going to include them.
 
 **Note**: staging space must be on a volume coming from container storage. Otherwise vProtect may select the wrong device during backup.
