@@ -44,25 +44,38 @@ rbd_secret_uuid = ce6d1549-4d63-476b-afb6-88f0b196414f
 
 A good article how to setup Ceph with OpenStack you can find [here](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/).
 
-vProtect Node supports Ceph RBD and you only need to install rbd-nbd package:
+vProtect Node supports Ceph RBD and for that you will need to install ceph libraries:
 
-1. On **vProtect Node** - add Ceph RPM repository \(like [here](https://docs.ceph.com/docs/master/install/install-storage-cluster/)\) - example `/etc/yum.repos.d/ceph.repo`
+1. On **vProtect Node** enable required repositories:
 
-   \(for nautilus release\):
+1.1 For vProtect node installed on RHEL7:
+```text
+   sudo subscription-manager repo --enable=rhel-7-server-rhceph-4-tools-rpms
+```
 
-   ```text
-   [ceph]
-   name=Ceph packages for $basearch
-   baseurl=https://download.ceph.com/rpm-nautilus/el7/$basearch
-   enabled=1
-   priority=2
-   gpgcheck=1
-   gpgkey=https://download.ceph.com/keys/release.asc
-   ```
+1.2 For vProtect node installed on RHEL8:
+```text
+   sudo subscription-manager repo --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
+```
 
-2. Install `rbd-nbd` package:
+1.3 For vProtect node installed on CentOS7:
+```text
+   sudo yum install epel-release
+   sudo rpm --import 'https://download.ceph.com/keys/release.asc'
+   sudo yum install https://download.ceph.com/rpm-octopus/el7/noarch/ceph-release-1-1.el7.noarch.rpm
+```
 
-   `yum install rbd-nbd`
+1.4 For vProtect node installed on CentOS8:
+```text
+   sudo yum install epel-release
+   sudo rpm --import 'https://download.ceph.com/keys/release.asc'
+   sudo yum install https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm
+```
+
+2. Install rbd-nbd and ceph-common package, with all dependencies:
+```text
+   yum install rbd-nbd ceph-common
+```
 
 3. Add hypervisor manager as described [here](openstack.md) and while you add them:
 4. switch `Enable Ceph` toggle to on
