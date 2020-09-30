@@ -67,7 +67,7 @@
 | Red Hat Virtualization | 4.2+ | yes | yes \(APIv4\) | yes | yes | yes |
 | oVirt | 4.2+ | yes | yes \(APIv4\) | yes | yes | yes |
 | Oracle Linux Virtualization Manager | 4.3+ | yes | yes \(APIv4\) | yes | yes | yes |
-| Proxmox VE | no | yes | yes | yes | yes | no |
+| Proxmox VE | yes \(for SSH Transfer, only QCOW2 disk images\) | yes | yes | yes | yes | no |
 | KVM/Xen | yes | yes | yes | no | yes | no |
 | OpenStack | yes | yes | yes | no | yes | yes |
 | Oracle VM | no | yes | yes | no | no | no |
@@ -76,6 +76,7 @@
 | AWS EC2 | no | yes | yes | yes | no | yes |
 | Kubernetes | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
 | Red Hat OpenShift | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
+| Nutanix AHV| yes (+CBT) | yes | yes | yes | yes | no |
 
 ## Conditions / Exclusion
 
