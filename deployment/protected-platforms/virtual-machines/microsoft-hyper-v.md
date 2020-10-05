@@ -2,7 +2,7 @@
 
 Microsoft Hyper-v is the only hypervisor that requires the installation of an agent. The process is very simple, the rest of the configuration is similar to other suppliers.
 
-**Note** Instalation requires .NET Framework 4.7.2 or higher
+**Note** Installation requires .NET Framework 4.7.2 or higher
 
 1. From our repository [http://repo.storware.eu/vprotect/addons/hyperv/](http://repo.storware.eu/vprotect/addons/hyperv/) download:
    1. **HyperV-Agent-Installer.msi**
