@@ -13,15 +13,13 @@ You can obtain the above by browsing the downloads section of your Avamar server
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-avamar-download-2.png)
 
-
-
-2. Import GPG key by invoking script:
+1. Import GPG key by invoking script:
 
 ```text
 sh import_avpkgkey.sh
 ```
 
-3. Run avregister, fill in the required info
+1. Run avregister, fill in the required info
 
 ```text
 # /usr/local/avamar/bin/avregister
@@ -45,7 +43,7 @@ avagent.d Info: Client Agent stopped.                      [  OK  ]
 Registration Complete.
 ```
 
-4. Install _**Management Console Command Line Interface**_ \(mccli\)
+1. Install _**Management Console Command Line Interface**_ \(mccli\)
 
 ```text
 # rpm -Uvh --force dpnmccli-19.2.0-155.rhel_64.x86_64.rpm
@@ -56,9 +54,9 @@ Updating / installing...
 
 **Note:** please change RPM name to match the file downloaded from you Avamar installation
 
-5. Run _**avsetup\_mccli**_ to configure management console
+1. Run _**avsetup\_mccli**_ to configure management console
 
-You need to point mccli to your JRE installation, fill in connection details, plus provide admin username and password 
+You need to point mccli to your JRE installation, fill in connection details, plus provide admin username and password
 
 ```text
 # /usr/local/avamar/19.2.0-155/bin/avsetup_mccli
@@ -87,21 +85,20 @@ Quickly test the correctness of this config by typing in:
 
 If the output shows the latest activity on Avamar, everything seems to be ok.
 
-In the other case check your config and/or Avamar documentation, 
+In the other case check your config and/or Avamar documentation,
 
 1. Install **avtar** - [https://www.dellemc.com/en-us/collaterals/unauth/technical-guides-support-information/products/data-protection/docu91839.pdf](https://www.dellemc.com/en-us/collaterals/unauth/technical-guides-support-information/products/data-protection/docu91839.pdf) - page 16
 2. Use `avregister` command to register backup client
 3. Install **mccli** - [https://www.dellemc.com/en-us/collaterals/unauth/quick-reference-guides/products/data-protection/docu91838.pdf](https://www.dellemc.com/en-us/collaterals/unauth/quick-reference-guides/products/data-protection/docu91838.pdf) - page 18
 4. Use `avsetup_mccli` to setup client
    * **When choosing JRE - do NOT use** `/usr/java/latest` but `/usr/java/jre1.8...`
+5. Proceed with configuration and add a _**backup destination**_
 
-6. Proceed with configuration and add a _**backup destination**_
+On the left side menu click _**Backup Destinations**_ then change to _**enterprise**_ sub-tab, click the _**Create Backup Destination**_ button and choose
 
-On the left side menu click _**Backup Destinations**_ then click _**Create Backup Destination**_ button and choose
-
-![](../../../.gitbook/assets/enterprise-backup-providers-avamar-add-destination-1.png)
+![](../../../.gitbook/assets/backup-destinations-enterprise.jpg)
 
 Fill in the required info. itt may look similar to the example below:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-avamar-add-destination-2.png)
+![](../../../.gitbook/assets/backup-destinations-enterprise-avamar.jpg)
 

@@ -1,14 +1,14 @@
-# Installation using RPMs
+# Installation with RPMs
 
 ## Prerequisites
 
 1. Install CentOS/RHEL 8 minimal
    * if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available
-   * you also can use version 7
+   * you also can use version CentOS/RHEL 7
 2. Make sure your OS is up to date:
 
    ```text
-   yum -y update
+   dnf -y update
    ```
 
    If kernel is updated, then You need to reboot your operating system.
@@ -25,8 +25,8 @@
    gpgcheck=0
    ```
 
-   * optionally change `el8` to `el7` for older CentOS/RHEL and `current` can also be pointed to the specific version, i.e. `3.9.2` \(not the one that is always up to date\)
-   * so here are effective URLs as the examples: 
+   * optionally change `el8` to `el7` for older CentOS/RHEL and `current` can also be pointed to the specific version of vProtect, i.e. `3.9.2` \(not the one that is always up to date\)
+   * so here are effective URLs as examples: 
      * `http://repo.storware.eu/vprotect/current/el7`
      * `http://repo.storware.eu/vprotect/3.9.2/el8`
 
@@ -47,12 +47,12 @@
 
 ## vProtect Server installation
 
-vProtect consists of a server \(central management point with WebUI\) and one or multiple nodes \(which can be installed on the same host as server or on other machines\). The first step is always to install a server.
+vProtect consists of a server \(central management point with WebUI\) and one or multiple nodes \(which can be installed on the same host as a server or on other machines\). The first step is always to install a server.
 
-1. Install vprotect-server using YUM:
+1. Install vprotect-server using DNF package manager:
 
    ```text
-   yum -y install vprotect-server
+   dnf -y install vprotect-server
    ```
 
 2. Setup DB for vProtect:
@@ -63,13 +63,13 @@ vProtect consists of a server \(central management point with WebUI\) and one or
    vprotect-server-configure
    ```
 
-3. Start vProtect Server \(it can take around a minute for server to be started\):
+3. Start vProtect Server \(it can take around a minute for the server to be started\):
 
    ```text
    systemctl start vprotect-server
    ```
 
-4. You may need to open 8181 port on your firewall. Here is example:
+4. You may need to open 8181 port on your firewall. Here is an example:
 
    ```text
    firewall-cmd --add-port=8181/tcp --permanent
@@ -89,16 +89,16 @@ vProtect consists of a server \(central management point with WebUI\) and one or
 
 ## vProtect Node installation
 
-vProtect Node is component that executes all tasks. It can be installed together with Server \(it is common to have 1 server and just 1 node\). More nodes can be always added later.
+vProtect Node is a component that executes all tasks. It can be installed together with a Server \(it is common to have 1 server and just 1 node\). More nodes can be always added later.
 
-1. Install vprotect-node using YUM:
+1. Install vprotect-node using DNF:
 
    ```text
-   yum -y install vprotect-node
+   dnf -y install vprotect-node
    ```
 
 2. Prepare your staging space \(on vProtect Node host only\):
-   * Please follow steps described in [Staging space configuration](common-tasks/staging-space-configuration.md)
+   * Please follow the steps described in [Staging space configuration](common-tasks/staging-space-configuration.md)
    * **if your path is different than** `/vprotect_data` \_\*\*\_it is recommended to create a symlink `/vprotect_data` pointing to your mount point of the staging space, e.g.:
 
      ```text
@@ -124,9 +124,9 @@ vProtect Node is component that executes all tasks. It can be installed together
    systemctl start vprotect-node
    ```
 
-   Now you should be able to see new entry in `Node` section of web UI with your node in RUNNING state.
+   Now you should be able to see a new entry in `Node` section of web UI with your node in RUNNING state.
 
-5. Run script to configure OS for Node:
+5. Run script to configure OS for Node, which includes QEMU user/group changed to `vprotect`, disabling SELinux, adding vprotect the disk group and sudoers to allow it to run privileged commands:
 
    ```text
    vprotect-node-configure

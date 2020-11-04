@@ -1,6 +1,6 @@
 # AWS S3 or S3-compatible
 
-## Overview 
+## Overview
 
 vProtect can store backups in AWS S3 or S3-compatible backup provider. In most cases, you just need to prepare a bucket \(with versioning enabled if possible\) and generate access/secret key for vProtect. vProtect can be installed in AWS \(if EC2 backup is used\), but in most cases, S3 is going to be used just as a cloud backup provider for on-prem environments.
 
@@ -110,7 +110,7 @@ Remember to download .csv or copy key credentials manually:
 
 ![](../../../.gitbook/assets/object-storage-aws-iam-user-4.jpg)
 
-Now go to the Backup destination tab on the vProtect dashboard. Provide the bucket name and key credentials, configure the remaining options according to your requirements:
+Now go to the Backup destination tab on the vProtect dashboard and then change the sub-tab to object storage. Provide the bucket name and key credentials, configure the remaining options according to your requirements:
 
-![](../../../.gitbook/assets/object-storage-aws-backup-destination.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage-aws.jpg)
 

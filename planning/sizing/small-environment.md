@@ -13,5 +13,5 @@ As mentioned above, network speed is a very important factor. When you have 1Gb/
 
 In this scenario **vProtect** \(server and node\) can be for example deployed as a VM using any of the installation methods.
 
-![](../../.gitbook/assets/sizing_small.png)
+![](../../.gitbook/assets/smallv2.jpg)
 

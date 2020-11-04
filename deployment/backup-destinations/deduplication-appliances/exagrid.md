@@ -85,9 +85,9 @@ Now we can create a backup destination for our backups.
 Please login to the vProtect dashboard and go to the "Backup Destination" tab from the left side menu.  
 Then choose the "File system" from the list of backup destinations you can create.
 
-![](../../../.gitbook/assets/deduplication-appliances-storeonce-vprotect-backup-destination%20%281%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-file-system.jpg)
 
 You only need to enter the unique name of the backup destination and mount point as the storage path.
 
-![](../../../.gitbook/assets/deduplication-appliances-exagrid-backup-destination.jpg)
+![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount.jpg)
 

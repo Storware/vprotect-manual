@@ -10,5 +10,5 @@
 * staging space: your\_largest\_VM \* backup threads - per  node
 * Number of parallel backup threads: depending on number of virtual machines \(maximum 10 per node\)
 
-![](../../.gitbook/assets/sizing_medium.png)
+![](../../.gitbook/assets/mediumv2.jpg)
 

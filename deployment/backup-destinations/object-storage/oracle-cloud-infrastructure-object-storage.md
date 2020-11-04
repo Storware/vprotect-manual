@@ -18,8 +18,6 @@ We do not require specific bucket settings for vProtect. The bucket name will be
 
 ![](../../../.gitbook/assets/object-storage-oracle-cloud-object-storage-bucket2.jpg)
 
-
-
 After creating, you'll see a list of buckets, click the name to view the details of the object. Remember the "namespace", we also need it when creating a backup destination.
 
 ![](../../../.gitbook/assets/object-storage-oracle-cloud-object-storage-bucket3.jpg)
@@ -68,9 +66,9 @@ After generating the secret key you can view access key, just move the mouse ove
 
 ![](../../../.gitbook/assets/object-storage-oracle-cloud-user-secrets5.jpg)
 
-Now we can go to the vProtect Dashboard. Open "Backup Destination" tab from the left side menu and choose "Amazon S3 / S3-compatible" as a new type of backup destination
+Now we can go to the vProtect Dashboard. Open "Backup Destination" tab from the left side menu, then sub-tab "Object Storage" and choose "Amazon S3 / S3-compatible" as a new type of backup destination
 
-![](../../../.gitbook/assets/object-storage-oracle-cloud-backup-destination.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage.jpg)
 
 At the beginning let's focus on the "S3-Compatible" section.  
 To generate API URL you will need this site: [https://docs.cloud.oracle.com/en-us/iaas/api/\#/en/s3objectstorage/20160918/](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/s3objectstorage/20160918/)  
@@ -78,5 +76,5 @@ As I mentioned earlier you will need object storage namespace \(choose API URL f
 Then provide your bucket name and region, at the end switch on "Record time after backup" and "Path style access enabled".  
 Configure the rest of the settings as desired.
 
-![](../../../.gitbook/assets/object-storage-oracle-cloud-backup-destination2.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage-oracle.jpg)
 

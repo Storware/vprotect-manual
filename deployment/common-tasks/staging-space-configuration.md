@@ -1,10 +1,15 @@
 # Staging space configuration
 
-vProtect node needs staging space available in `/vprotect_data` by default. It is common to just attach empty drive and mount it.
+## General
 
-Staging space size depends on the number and size of simultaneous backups - as a rule of a thumb make it approximately equal to the number of expected simultaneous backup threads multiplied by the size of your biggest VM
+vProtect node needs staging space available in `/vprotect_data` by default. It is common to use a backup destination storage for both staging and backup destination. This will result in instant "store" processing, without the need to copy data from staging space to backup destinations.  
+It is common to just attach an empty drive and mount it.
 
-## Local filesystem
+When using separate storage \(usually local disks\) for staging space, please consider its requirements. Staging space size depends on the number and size of simultaneous backups - as a rule of thumb make it approximately equal to the number of expected simultaneous backup threads multiplied by the size of your biggest VM.
+
+In any case - make sure staging space always is mounted in `/vprotect_data` folder and that vprotect user is able to have full permissions to this file system.
+
+### Example - Local filesystem
 
 You also can use a plain file system for staging space \(and optionally for backup destination\). Here are steps assuming you have a local \(physical or virtual\) disk.
 
@@ -21,13 +26,13 @@ You also can use a plain file system for staging space \(and optionally for back
      Disk /dev/mapper/centos-swap: 3221 MB, 3221225472 bytes, 6291456 sectors
   ```
 
-* If you have new clean disk prepare a filesystem on it:
+* If you have a new clean disk prepare a filesystem on it:
 
   ```text
   mkfs.xfs -K /dev/sdc
   ```
 
-* Test mount your existing filesystem in created directory:
+* Test mount your existing filesystem in the created directory:
 
   ```text
   mount /dev/sdc /vprotect_data

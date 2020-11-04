@@ -6,7 +6,7 @@ This is the official documentation for Storware vProtect software. Here you will
 
 ## About vProtect
 
-Storware vProtect is the backup and snapshot-management solution suite for virtual environments and cloud. With the "freedom of choice" philosophy, vProtect provides robust data protection and disaster recovery capabilities. In this documentation you will learn how to use, install and deploy vProtect.
+Storware vProtect is the backup and snapshot-management solution suite for multiple virtual environments and cloud. With the "freedom of choice" philosophy, vProtect provides robust data protection and disaster recovery capabilities. This document provides installation, configuration, and operational instructions for vProtect.
 
 ## Contact
 

@@ -1,13 +1,15 @@
 # Installation using Ansible playbook
 
-You can install complete vProtect solution using the following 2 roles, available on Ansible Galaxy:
+You can install a complete vProtect solution using the following 2 roles, available on Ansible Galaxy:
 
 * vProtect Server: [https://galaxy.ansible.com/xe0nic/ansible\_vprotect\_server](https://galaxy.ansible.com/xe0nic/ansible_vprotect_server)
 * vProtect Node: [https://galaxy.ansible.com/xe0nic/ansible\_vprotect\_node](https://galaxy.ansible.com/xe0nic/ansible_vprotect_node)
 
+This approach installs a server and one or more nodes on remote hosts and generates SSL certificate based on the server hostname. The end result should be the same as RPM-based installation without a staging setup. Configuration \(such as backup destination definition or hypervisor connectivity\) still needs to be done after installation. You also can add more nodes in the future if necessary.
+
 ## Prerequisites
 
-You need to prepare CentOS/RHEL 8 minimal for vProtect \(both roles can be installed on the same or different hosts\).
+You need to prepare CentOS/RHEL 8 minimal for vProtect \(both roles can be installed on the same or different hosts\). Ansible control host should have Ansible installed, so that it uses Python 3.x.
 
 This example assumes that you have `root` access to this host and you have configured your Ansible to connect with SSH public-keys to your host. For example:
 
@@ -30,7 +32,7 @@ Run these on the system from which you run Ansible playbooks:
   `ansible-galaxy install xe0nic.ansible_vprotect_server    
   ansible-galaxy install xe0nic.ansible_vprotect_node`
 
-* Create playbook directory and change it working directory, i.e: `mkdir vprotect && cd vprotect`
+* Create a playbook directory and change its working directory, i.e: `mkdir vprotect && cd vprotect`
 * Create inventory file - i.e. `hosts`:
 
 {% code title="hosts" %}
@@ -71,7 +73,7 @@ ansible_user = root
 
 These two roles use just a few variables. Both plays use `server_fqdn` variable. If not defined, server play sets variable `server_fqdn` to the hostname reported by the OS on which it is installed. Server play will generate SSL certificate for this FQDN, and node play automatically will use this value if defined. You can also provide this variable manually \(either in `hosts` file or with extra vars switch in `ansible-playbook` command, i.e. `-e "server_fqdn=vprotect.server.local"`
 
-Node play needs `node_name` for registration process. If not provided it will just use hostname reported by OS, however keep in mind that it needs to be **unique** for each node. We recommend that you set them in the host inventory file.
+Node play needs `node_name` for the registration process. If not provided it will just use hostname reported by OS, however keep in mind that it needs to be **unique** for each node. We recommend that you set them in the host inventory file.
 
 Optionally, you may want to set `db_password` for root DB access which is set during server installation. Note, that Server service uses its own account with auto-generated password.
 

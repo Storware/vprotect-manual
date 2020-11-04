@@ -50,23 +50,35 @@ Please make sure to follow these steps: [LVM setup on vProtect Node for disk att
 
 This API appeared in OLVM 4.2 and allowed export of individual snapshots directly from the OLVM manager. So , instead of having to install multiple Proxy VMs, you can have a single external Node installation, which just invokes APIs via OLVM manager.
 
-This strategy supports incremental backups. Assuming you have OLVM 4.2 or newer – just add your manager to vProtect and setup is done. From a network perspective - it requires two additional ports to opened 54322 and 54323 and your data to be pulled from hypervisor manager.
+This strategy supports incremental backups. Assuming you have OLVM 4.2 or newer – just add your manager to vProtect and setup is done. From a network perspective - it requires two additional ports to open 54322 and 54323 and your data to be pulled from the hypervisor manager.
 
 Unfortunately, there are a few problems with the current architecture of this solution. The biggest issue is that all traffic passes via OLVM manager, which may impact transfer rates that you can achieve during the backup process. To put that into perspective – in disk attachment you can basically read data as if it is a local drive, where it could potentially be deduplicated even before transferring it to the backup destination.
 
 ![](../../../.gitbook/assets/deployment-vprotect-olvm-disk-image-transfer.png)
 
-Disk image transfer mode exports data directly using OLVM 4.2+ API. There is no need to setup export storage domain or setup LVM. This mode uses snapshot-chains provided by new OLVM.
+Disk image transfer mode exports data directly using OLVM 4.2+ API. There is no need to setup export storage domain or setup LVM. This mode uses snapshot-chains provided by OLVM.
 
-You may need to open communication for additional port **54323** on the OLVM manager - it needs to be accessible from vProtect Node. Also make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with OLVM UI\).
+You may need to open communication for additional port **54323** on the OLVM manager - it needs to be accessible from vProtect Node. Also, make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with OLVM UI\).
 
 Follow the steps in this section: [Full versions of libvirt/qemu packages installation](../../common-tasks/full-versions-of-libvirt-qemu-packages-installation.md).
 
 ### SSH transfer
 
-This is an enhancement for disk image transfer API strategy. It allows vProtect to use OLVM API v4.2+ \(HTTPS connection to OLVM manager\) only to collect metadata. Backup is done over SSH directly from the hypervisor \(optionally using netcat for transfer\), import is also using SSH \(without netcat option\). No need to instal a node on the OLVM environment. This method can significantly boost backup transfers and supports incremental backups.
+This is an enhancement for the disk image transfer API strategy. It allows vProtect to use OLVM API v4.2+ \(HTTPS connection to OLVM manager\) only to collect metadata. Backup is done over SSH directly from the hypervisor \(optionally using netcat for transfer\), import is also using SSH \(without netcat option\). No need to install a node on the OLVM environment. This method can significantly boost backup transfers and supports incremental backups.
 
 ![](../../../.gitbook/assets/deployment-vprotect-olvm-ssh-transfer.png)
 
 This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding OLVM manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
+
+### Change Block Tracking
+
+This is a new method which is possible thanks to changes in OLVM 4.4. It uses information about zeroed and changed blocks to reduce data size and make the process faster.
+
+![](../../../.gitbook/assets/vprotect_olvm-cbt.jpg)
+
+This strategy supports incremental backups.
+
+QCOW2 format is required for incremental backups so disks enabled for the incremental backup will use QCOW2 format instead of raw format.
+
+Also, this strategy doesn't need snapshots in the backup process. Instead of it, every incremental backup uses a checkpoint that is a point in time that was created after the previous backup.
 

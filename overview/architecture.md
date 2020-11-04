@@ -6,34 +6,20 @@ Use vProtect to back up data from your virtualization platforms. You can back up
 
 ![](../.gitbook/assets/vprotect-architecture.png)
 
-vProtect consists of 2 main components:
 
-* **vProtect Server** - central point of vProtect management, provides administrative Web UI, APIs and  is a central repository of metadata.
-* **vProtect Node** - data mover that performs backups, restores and mounts:
-  * you can have multiple nodes,
-  * all nodes are managed by the server and need to be registered to the server.
-
-## Typical workflows
-
-There are several standard workflows in vProtect and they result in a set of tasks:
-
-* **Backup**
-  * **Export** - task that creates snapshot and exports data to the staging space
-  * **Store** - task that moves data to the backup destination
-* **Restore to filesystem**
-  * **Restore** - task that gets data from a backup provider and puts data in the staging space
-* **Restore to virtualization platform**
-  * **Restore** - task that gets data from a backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for import task\)
-  * **Import** - task that imports data to the virtualization platform and recreates VM
-* **Restore for mount \(file-level restore\)**
-  * **Restore** - task that gets data from backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for mount task\)
-  * **Mount** - mounts backup on the vProtect Node and either allows user to browse files or exposes backup over iSCSI, so that remote iSCSI initiator can access it\)
-* **Snapshot**
-  * **Snapshot** - task that creates a snapshot on the VM according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
 
 ## Detailed Architecture
 
 ![](../.gitbook/assets/vprotect-detailed-architecture.png)
+
+
+
+vProtect consists of 2 main components:
+
+* **vProtect Server** - central point of vProtect management, provides administrative Web UI, APIs and is a central repository of metadata.
+* **vProtect Node** - data mover that performs backups, restores and mounts:
+  * you can have multiple nodes,
+  * all nodes are managed by the server and need to be registered to the server.
 
 ## Component placement
 
@@ -41,8 +27,6 @@ There are several standard workflows in vProtect and they result in a set of tas
 * Server can be installed on a physical machine or VM - nodes just need to be able to connect to it.
 * Nodes can be installed also inside a VM or physical machine, but keep in mind that some backup strategies require Node to be installed as a VM on a Hypervisor Cluster \(especially when "disk attachment" export mode is mentioned\).
 * Both components are installed on a CentOS/RHEL 8 minimal.
-
-For more information about architecture go to [detailed architecture](architecture.md#detailed-architecture).
 
 For detailed deployment scenarios refer to the following sections:
 
@@ -71,4 +55,22 @@ For detailed deployment scenarios refer to the following sections:
 ### Cloud
 
 * [Deployment on AWS EC2](../deployment/protected-platforms/cloud/aws-ec2.md)
+
+## Typical workflows
+
+There are several standard workflows in vProtect and they result in a set of tasks:
+
+* **Backup**
+  * **Export** - task that creates snapshot and exports data to the staging space
+  * **Store** - task that moves data to the backup destination
+* **Restore to filesystem**
+  * **Restore** - task that gets data from a backup provider and puts data in the staging space
+* **Restore to virtualization platform**
+  * **Restore** - task that gets data from a backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for import task\)
+  * **Import** - task that imports data to the virtualization platform and recreates VM
+* **Restore for mount \(file-level restore\)**
+  * **Restore** - task that gets data from backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for mount task\)
+  * **Mount** - mounts backup on the vProtect Node and either allows user to browse files or exposes backup over iSCSI, so that remote iSCSI initiator can access it\)
+* **Snapshot**
+  * **Snapshot** - task that creates a snapshot on the VM according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
 

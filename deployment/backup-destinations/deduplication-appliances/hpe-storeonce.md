@@ -19,13 +19,19 @@ After creating, you'll see a summary window. \(remember "Network Path"\)
 
 ![](../../../.gitbook/assets/deduplication-appliances-storeonce-nfs-share-3.jpg)
 
-Now connect to the vProtect node host:  
-- Create NFS directory mount point  
-`mkdir /directorypath`  
-- Mount NFS Share  
-`mount -t nfs Storeonce_IP:/nas/sharename /mountdirectory`  
-- Check if you are connected with NFS Share  
-`df -kh`
+Now connect to the vProtect node host:
+
+* Create NFS directory mount point  
+
+  `mkdir /directorypath`  
+
+* Mount NFS Share  
+
+  `mount -t nfs Storeonce_IP:/nas/sharename /mountdirectory`  
+
+* Check if you are connected with NFS Share  
+
+  `df -kh`
 
 ![](../../../.gitbook/assets/deduplication-appliances-storeonce-vprotect-nfs.jpg)
 
@@ -38,9 +44,9 @@ Now we can create a backup destination for our backups.
 Please login to the vProtect dashboard and go to the "Backup Destination" tab from the left side menu.  
 Then choose the "File system" from the list of backup destinations you can create.
 
-![](../../../.gitbook/assets/deduplication-appliances-storeonce-vprotect-backup-destination.jpg)
+![](../../../.gitbook/assets/backup-destinations-file-system%20%281%29.jpg)
 
 You only need to enter the unique name of the backup destination and mount point as the storage path.
 
-![](../../../.gitbook/assets/deduplication-appliances-storeonce-vprotect-backup-destination2.jpg)
+![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount%20%281%29.jpg)
 

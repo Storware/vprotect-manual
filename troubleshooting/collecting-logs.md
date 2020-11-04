@@ -6,13 +6,13 @@
 
 1. Go to the `Logs` section \(top bar\)
 2. You'll see directories for `api`, `appserver` and one directory for each node \(same as their names\)
-3. To download all logs - click button `Download all logs` which will generate archive containing all logs\)
-4. To download specific file - browse to the directory and click name of the log
+3. To download all logs - click the button `Download all logs` which will generate an archive containing all logs
+4. To download a specific file - browse to the directory and click the name of the log
 
 ### Backup-related logs
 
 1. Go to the VM details and `backup history` tab
-2. Click second icon on the right of the backup you want to collect logs for
+2. Click the second icon on the right of the backup you want to collect logs for
 3. Downloaded file is `vprotect_daemon.log` file filtered, so it should contain only entries related to the tasks of backup/restore operations related to this backup 
 
 ## Directly from the operating system

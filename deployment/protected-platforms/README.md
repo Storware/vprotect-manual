@@ -23,3 +23,8 @@ vProtect supports multiple virtualization, container and cloud platforms. In thi
   * [AWS EC2](cloud/aws-ec2.md)
 * [Applications](applications.md)
 
+In all methods described in this section it is always assumed that vProtect Node communicates with the protected platform and server only is responsible for configuration and metadata management. This means that:
+
+* it is always Node that requires access to the infrastructure \(protected platforms APIs, storage etc., guest VMs for iSCSI shares, etc.\)
+* server only needs to be accessible by the Nodes and admin browser over HTTP/HTTPS \(which means that it can reside usually anywhere in the infrastructure\)
+
