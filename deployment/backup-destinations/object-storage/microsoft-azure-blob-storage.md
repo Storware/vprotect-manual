@@ -4,19 +4,20 @@ vProtect support integration with MS Azure Blob Storage. An Azure storage accoun
 
 ![](../../../.gitbook/assets/object-storage-azure-storage-accounts.jpg)
 
-To configure Azure as a backup destination for vProtect, we just need:  
-- Storage account name  
-- One of the account keys
+To configure Azure as a backup destination for vProtect, we just need:
+
+* Storage account name  
+* One of the account keys
 
 ![](../../../.gitbook/assets/object-storage-azure-keys.jpg)
 
 Now you can go to the backup destinations tab in vProtect and create a new Microsoft Azure backup destination.
 
-![](../../../.gitbook/assets/object-storage-azure-create-backup-destination.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage%20%281%29.jpg)
 
 You just need to customize retention and provide an account name and key.
 
-![](../../../.gitbook/assets/object-storage-azure-backup-destination.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage-azure.jpg)
 
 And that's all, as you see in a few minutes you can integrate vProtect with Azure Blob storage to securely store your backups
 

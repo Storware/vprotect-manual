@@ -70,7 +70,7 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
 5. Create new Catalogic vStor Server Backup Destination \(choose from the right-top drop-down menu\)
 6. Fill in the template with your information
 
-![](../../../.gitbook/assets/deduplication-appliances-vstor-setup-defaults.png)
+![](../../../.gitbook/assets/backup-destinations-file-system-pre-post.jpg)
 
 * `FIRST_VS_HOST` - your primary vStor Server IP/hostname
 * `SECOND_VS_HOST` - optional, secondary vStor Server IP/hostname, where data is going to be replicated to
@@ -84,7 +84,7 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
 
 * if secondary server is not provided - vProtect will assume that no replication is needed
 
-![Catalogic vStor - setup example](../../../.gitbook/assets/deduplication-appliances-vstor-setup-example.png)
+![](../../../.gitbook/assets/backup-destinations-file-system-pre-post-example.jpg)
 
 1. Initiate backup to test it the scripts have been executed correctly - in the `vprotect_daemon.log` files you should be able to see messages like this:
 

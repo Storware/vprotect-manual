@@ -7,5 +7,3 @@ vProtect can also be managed by using external plugins. Currently several of the
 * [Oracle Linux Virtualization Manager](oracle-linux-virtualization-manager-plugin.md) 
 * [OpenStack Horizon](openstack-plugin.md)
 
-
-

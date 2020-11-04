@@ -76,12 +76,12 @@
 | AWS EC2 | no | yes | yes | yes | no | yes |
 | Kubernetes | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
 | Red Hat OpenShift | Yes \(for Ceph RBD based storage\) | no | yes | no | Yes \(post-export cmd. exec.\) | planned |
-| Nutanix AHV| yes (+CBT) | yes | yes | yes | yes | no |
+| Nutanix AHV | yes \(+CBT\) | yes | yes | yes | yes | no |
 
 ## Conditions / Exclusion
 
 **File-level-restore**:  
-_When backing up CentOS 8 with a disk with a GPT partition scheme, you can use file-level restore only on vProtect node, which also runs on CentOS 8 operating system._
+_When backing up CentOS 8 with a disk with the GPT partition scheme, you can use file-level restore only on vProtect node, which also runs on CentOS 8 operating system._
 
 **VMware vSphere/ESXi backup:**  
 _We can only back up VMware products from a vProtect node that runs on CentOS 7._

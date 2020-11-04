@@ -108,5 +108,5 @@ There are a few parameters for application definition in several sections:
 
 ## Scheduled backups
 
-Please check section [Scheduled Backup](../../administration/backup/scheduled-backup.md#applications) for the details.
+Please check section [Scheduled Backup]() for the details.
 

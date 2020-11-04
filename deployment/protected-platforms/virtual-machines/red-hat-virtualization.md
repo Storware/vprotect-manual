@@ -32,7 +32,7 @@ Red Hat Virtualization environments can be protected in several ways.
 
 In this strategy you have a VM called “Proxy VM” that invokes commands on your hypervisor manager to snapshot and attach drives of a specific VM to itself \(Proxy VM\). Proxy VM is able to read the data from the attached disk snapshots and forward them to the backup provider.
 
-This strategy allows you to exclude drives from backup that you do not need. Remember that, you need to install 1 Proxy VM per cluster so that drives that the node tries to attach to are reachable.
+This strategy allows you to exclude disks that you don't need from your backup. Remember that, you need to install 1 Proxy VM per cluster so that drives that the node tries to attach to are reachable.
 
 Drawback - no incremental backup for now.
 
@@ -42,7 +42,7 @@ Drawback - no incremental backup for now.
 
 Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node VM:
 
-During the backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require export storage domain to be set up.
+During the backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require an export storage domain to be set up.
 
 Please make sure to follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](../../common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md).
 
@@ -64,11 +64,23 @@ Follow the steps in this section: [Full versions of libvirt/qemu packages instal
 
 ### SSH transfer
 
-This is an enhancement for disk image transfer API strategy. It allows vProtect to use RHV API v4.2+ \(HTTPS connection to RHV manager\) only to collect metadata. Backup is done over SSH directly from the hypervisor \(optionally using netcat for transfer\), import is also using SSH \(without netcat option\). No need to instal a node on the RHV environment. This method can boost backup transfers and supports incremental backups.
+This is an enhancement for the disk image transfer API strategy. It allows vProtect to use RHV API v4.2+ \(HTTPS connection to RHV manager\) only to collect metadata. Backup is done over SSH directly from the hypervisor \(optionally using netcat for transfer\), import is also using SSH \(without netcat option\). No need to install a node on the RHV environment. This method can boost backup transfers and supports incremental backups.
 
 ![](../../../.gitbook/assets/deployment-vprotect-rhv-ssh-transfer.png)
 
 This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding RHV manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
+
+### Change Block Tracking
+
+This is a new method which is possible thanks to changes in RHV 4.4. It uses information about zeroed and changed blocks to reduce data size and make the process faster.
+
+![](../../../.gitbook/assets/vprotect_rhv-cbt%20%281%29.jpg)
+
+This strategy supports incremental backups.
+
+QCOW2 format is required for incremental backups so disks enabled for the incremental backup will use QCOW2 format instead of raw format.
+
+Also, this strategy doesn't need snapshots in the backup process. Instead of it, every incremental backup uses a checkpoint that is a point in time that was created after the previous backup.
 
 ### Export storage domain \(API v3\)
 
@@ -76,7 +88,7 @@ This setup requires you to create a storage domain used for VM export. The expor
 
 The backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\). The reason for additional cloning is that RHV doesn’t allow you to export a snapshot directly. The Node can be outside of the environment that you backup.
 
-This strategy is going to be deprecated, as Red Hat may no longer support it in the future releases.
+This strategy is going to be deprecated, as Red Hat may no longer support it in future releases.
 
 ![](../../../.gitbook/assets/deployment-vprotect-rhv-export-storage-domain.png)
 

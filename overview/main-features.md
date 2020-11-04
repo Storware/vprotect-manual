@@ -25,20 +25,20 @@
 * Pre/post snapshot remote command execution on VM to enable operations such as DB quiesce
 * Pre/post backup destination access command execution to allow mount/unmount operations on external storage providers
 * Prioritized backup policies 
-* VM auto-grouping based on regular expressions and tags
+* VM automatic policy assignment based on regular expressions and tags
 * Snapshot Management \(Copy Data Management\) 
 * Snapshot consistent technology \(quiesced snapshots\)
 * File-level restore using mountable backups 
 * Mounted backups - RAW disks shareable over iSCSI \(for direct block-access to your backup data\)
 * Recovery plans for automated DR - on-demand restore of multiple VMs when needed, or on a scheduled basis for testing
 * Generic application backup with your custom scripts with ready templates for commonly used databases
-* OpenStack and KVM stand-alone with Ceph storage support
+* OpenStack and KVM stand-alone with Ceph RBD storage support
 * Multi-node support for better scalability or geographically dispersed environments
 * Build-in vProtect DB backup
 * Data encryption for file system backup destination
-* Users LDAP authentication 
+* LDAP authentication 
 * Integration with different backup destinations such as: 
-* * Any mounted file-system \(local or remote, especially GlusterFS for replication, CephFS, NFS, SMB and many more\) 
+  * Any mounted file-system \(local or remote, especially GlusterFS for replication, CephFS, NFS, SMB and many more\) 
   * Dell EMC Data Domain \(BoostFS integration\)
   * Amazon S3 \(with Amazon Glacier as a 2nd tier archive storage\), 
   * S3-compliant storage \(IBM Cloud, Oracle Cloud, Scality RING\)
@@ -49,7 +49,7 @@
   * Dell EMC Networker
   * Dell EMC Avamar
   * Veritas Netbackup
-* Build-in data deduplication with Virtual Data Optimizer \(VDO\)
+* Built-in data deduplication with Virtual Data Optimizer \(VDO\)
 * Easy to use and modern management \(HTML5 web UI and CLI\)
 * Open API for 3rd party software integration \(REST API\)
 

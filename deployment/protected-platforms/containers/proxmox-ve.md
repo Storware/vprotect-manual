@@ -2,7 +2,7 @@
 
 Proxmox environments require backup storage to be defined on each server. This storage must be location accessible from vProtect Node \(the simplest setup, when you use only 1 node, is to create NFS share for staging path on vProtect Node\)
 
-1. Create storage from NFS share \(Content type: VZDump\)
+1. Create storage from NFS share \(Content-type: VZDump\)
 
 ![](../../../.gitbook/assets/containers-proxmox-ve-nfs-share.jpg)
 
@@ -20,7 +20,7 @@ Proxmox environments require backup storage to be defined on each server. This s
   uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
   ```
 
-* Both import and export operations will be done using this NFS shares – restore will be done directly to this storage domain, so you can easily import backup into Proxmox environment
+* Both import and export operations will be done using these NFS shares – restore will be done directly to this storage domain, so you can easily import backup into the Proxmox environment
   * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by Proxmox.
 * Name for storage must be later provided in node configuration \(`Hypervisor -> Proxmox` section\)
 

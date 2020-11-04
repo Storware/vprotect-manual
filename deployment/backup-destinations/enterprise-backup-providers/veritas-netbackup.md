@@ -92,7 +92,7 @@ The client binaries represent the operating system versions where the binaries w
 
 **Note:** Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail.
 
-*  \(Conditional\) If prompted for the Authorization Token, please enter it.
+* \(Conditional\) If prompted for the Authorization Token, please enter it.
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-18.png)
 
@@ -196,7 +196,7 @@ Add new Policy:
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-41.png)
 
 * Allow manual backup for vProtect node client on Netbackup server.
-* Login to vProtect, and go to "Backup Destinations". Click on "Create Backup Destination", choose "Veritas Netbackup". Type name for a new backup destination, client home path, real export path. And set Netbackup parameters:
+* Login to vProtect, and go to "Backup Destinations" then select the "enterprise" sub-tab. Click on "Create Backup Destination", choose "Veritas Netbackup". Type name for a new backup destination, client home path, real export path. And set Netbackup parameters:
 
 Client home path  
 Real export path  
@@ -204,5 +204,5 @@ Policy Name
 Schedule name  
 Client name
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-42.png)
+![](../../../.gitbook/assets/backup-destinations-enterprise-netbackup.jpg)
 

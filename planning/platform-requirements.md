@@ -35,7 +35,7 @@ Minimal requirements:
 
 * Critical for data transfer, understand which paths are used for backups as in many cases you are going to use LAN. Depending on where the node is located you need to verify if data is not going to pass via low-bandwidth links.
 * Internet generally not required, but during the installation `yum` needs to fetch packages from the repositories, so you need at least access to your internal repositories.
-* Node needs access to the Server \(ports **443** and/or **8181** depending on the setup\).
+* Node needs access to the Server \(ports **443** or **8181** depending on the setup\).
 * Node needs connectivity with backup providers \(if they are external, such as Power Protect DD\).
 * Node needs connectivity with the Hypervisor or Hypervisor Manager.
 * If netcat transfer is used for Red Hat Virtualization/oVirt/Oracle Linux VM/Proxmox VE/KVM stand-alone environments - **16000-16999** ports must be reachable from the hypervisors to the node which is responsible for those hypervisors.
@@ -46,7 +46,7 @@ Minimal requirements:
 
 User `vprotect` must be a member of group "disk".
 
-Sudo privileges are required for a following commands:
+Sudo privileges are required for the following commands:
 
 **vProtect Node:**
 
@@ -86,5 +86,5 @@ Sudo privileges are required for a following commands:
 
 ## SELinux
 
-DISABLED
+DISABLED - currently it interferes with mountable backups \(file-level restore\) mechanism. Optionally can be changed to PERMISSIVE, or if file-level restore is not required to ENFORCING.
 

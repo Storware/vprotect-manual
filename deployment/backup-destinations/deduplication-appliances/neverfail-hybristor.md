@@ -32,7 +32,5 @@ mount -a
 
 Now go to the dashboard and create new File System Backup Destination
 
-![](../../../.gitbook/assets/deduplication-appliances-hybristor-backup-destination.jpg)
-
-
+![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount%20%282%29.jpg)
 

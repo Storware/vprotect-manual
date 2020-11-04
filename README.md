@@ -16,5 +16,3 @@ support: [https://storware.atlassian.net/servicedesk/customer/portal/10](https:/
 
 e-mail: [info@storware.eu](mailto:info@storware.eu)
 
-
-

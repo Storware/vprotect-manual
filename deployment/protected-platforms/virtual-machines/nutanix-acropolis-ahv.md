@@ -2,13 +2,20 @@
 
 vProtect supports Nutanix AHV platform by using a VM called “Proxy VM”. The node invokes commands on your hypervisor manager to snapshot and attach drives of a specific VM to itself \(Proxy VM\). The proxy VM is able to read the data from the attached disk snapshots and forward them to the backup provider.
 
-This strategy allows you to exclude drives from backup that you do not need. Remember that, you need to install 1 Proxy VM per cluster, so that the drives that the node tries to attach are reachable.
+This strategy allows you to exclude disks that you don't need from your backup. Remember that, you need to install at least 1 Proxy VM per cluster, so that the drives that the node tries to attach are reachable.
 
 **Note**: staging space must be on a volume coming from container storage. Otherwise vProtect may select the wrong device during backup.
 
+**Note**: you can deploy more nodes in each cluster and map individual hypervisors to them:
+
+* this should statically load balance jobs based on hypervisor
+* each node will handle VMs that reside on the particular hypervisor \(which because of data locality may be faster than backup of VMs from other hosts
+* VMs that don't have hypervisor assigned are handled by the node from the hypervisor manager
+* each node needs to run inventory synchronization to record its Proxy VM UUID on which it is installed
+
 ![](../../../.gitbook/assets/deployment-vprotect-nutanix-disk-attachment.png)
 
-**Note**: Nutanix environments require the vProtect node to be installed in one of the VMs residing on the Nutanix cluster. vProtect should automatically detected the VM with vProtect during the index operation.
+**Note**: Nutanix environments require the vProtect node to be installed in one of the VMs residing on the Nutanix cluster. vProtect should automatically detect the VM with vProtect node during the index operation.
 
 vProtect requires that there be a user with "cluster admin" privileges on Prism, to process the backup/restore job.
 
