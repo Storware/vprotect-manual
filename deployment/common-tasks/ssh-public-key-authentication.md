@@ -1,8 +1,13 @@
 # SSH public key authentication
 
-Instead of using password authentication - anywhere where your'e able to provide SSH credentials \(hypervisors, VMs applications etc\) you also have public key alternative. By default vProtect will use `/opt/vprotect/.ssh/id_rsa` path however you also can override it with your own path \(needs to be owned by `vprotect` user and make sure it has `0400` permission set.
+## General
 
-**Example:**
+Instead of using password authentication - anywhere where you're able to provide SSH credentials \(hypervisors, VMs applications etc\) you also have a public key alternative\*\*.  
+By default, vProtect will use `/opt/vprotect/.ssh/id_rsa` path however you also can override it with your own path\*.  
+_**\*\(needs to be owned by `vprotect` user and make sure it has `0400` permission set.  
+\*\*You don't have to pass a passphrase, you can leave this parameter blank.**_
+
+### **Example:**
 
 1. Generate key or use yours and store it as `/opt/vprotect/.ssh/id_rsa` \(make sure that `vprotect` user and group own the file\)
    * example key generation:
@@ -39,7 +44,7 @@ Instead of using password authentication - anywhere where your'e able to provide
 3. Check if you're able to log into the hypervisor using local `vprotect` user without being asked for password:
 
    ```text
-   [root@vProtect3 vprotect]# sudo -u vprotect ssh root@dkvm
+   [root@vProtect3 vprotect]# sudo -u vprotect ssh -i /opt/vprotect/.ssh/id_rsa root@dkvm
    Last failed login: Mon Jan 29 17:53:01 CET 2018 from 10.50.1.107 on ssh:notty
    There was 1 failed login attempt since the last successful login.
    Last login: Mon Jan 29 17:52:39 2018 from 10.50.1.107
