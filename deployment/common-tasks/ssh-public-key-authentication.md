@@ -44,7 +44,7 @@ _**\*\(needs to be owned by `vprotect` user and make sure it has `0400` permissi
 3. Check if you're able to log into the hypervisor using local `vprotect` user without being asked for password:
 
    ```text
-   [root@vProtect3 vprotect]# sudo -u vprotect ssh -i /opt/vprotect/.ssh/id_rsa root@dkvm
+   [root@vProtect3 vprotect]# sudo -u vprotect ssh root@dkvm
    Last failed login: Mon Jan 29 17:53:01 CET 2018 from 10.50.1.107 on ssh:notty
    There was 1 failed login attempt since the last successful login.
    Last login: Mon Jan 29 17:52:39 2018 from 10.50.1.107
