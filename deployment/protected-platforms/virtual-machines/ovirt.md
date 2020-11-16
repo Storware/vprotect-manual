@@ -1,5 +1,7 @@
 # oVirt
 
+## General
+
 For oVirt 4+ environments you can use API v4 for invoking all backup related tasks.
 
 Import/export mode defines the way the backups and restores are done. oVirt \(with API v4\) supports 3 modes:
@@ -16,7 +18,6 @@ Import/export mode defines the way the backups and restores are done. oVirt \(wi
 4. **Change Block Tracking,** this method backup only blocks with changes and skips zeroed sectors.
    * supports oVirt 4.4+ \(with Libvirt 6+, qemu-kvm 4.2+ and vdsm 4.40+\)
    * supports incremental backup
-   * only disks with marked "enable incremental backup" in ovirt will be backuped
 
 When adding oVirt 4.0+ hypervisor managers use a URL similar to the following:
 

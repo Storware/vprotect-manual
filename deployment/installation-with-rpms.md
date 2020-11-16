@@ -74,6 +74,8 @@ vProtect consists of a server \(central management point with WebUI\) and one or
    ```text
    firewall-cmd --add-port=8181/tcp --permanent
    firewall-cmd --complete-reload
+   # To check open ports:
+   firewall-cmd --list-all
    ```
 
    **or** if you prefer to have vProtect console running on default HTTPS port \(443\), there is a script in `/opt/vprotect/scripts` directory to setup forwarding from port 443 to 8181 for you:

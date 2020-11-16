@@ -18,9 +18,9 @@ In this strategy, VM is exported using XenServer API \(full backup\) and Network
 
 ## Change Block Tracking setup
 
-Citrix introduced CBT mechanism in XenServer 7.3. In order to enable CBT backups the following requirements must be met:
+Citrix Hypervisor/XCP-ng introduced CBT mechanism in XenServer 7.3. In order to enable CBT backups the following requirements must be met:
 
-1. Citrix XenServer 7.3 or above must be used - note that CBT is a licensed feature
+1. Citrix Hypervisor 7.3 (XCP-ng 7.4) or above must be used - note that CBT is a licensed feature
 2. NBD server must be enabled on the hypervisor
 3. NBD client and NBD module must be installed on vProtect Node
 
@@ -29,7 +29,7 @@ Citrix introduced CBT mechanism in XenServer 7.3. In order to enable CBT backups
 1. When image-based backups \(XVA\) are used - vProtect restores VMs as templates and renames them appropriately after restore
 2. When separate disk backups are used:
    * if there is already a VM in the infrastructure with UUID of the VM being restored \(check `present` flag in VM list\) - vProtect restores as a new VM \(MAC addresses will be generated\)
-   * otherwise vProtect attempts to restore original configuration including MAC addresses
+   * otherwise vProtect attempts to restore the original configuration including MAC addresses
 
 ### NBD Server setup \(on XenServer\)
 
@@ -73,14 +73,14 @@ vProtect comes with pre-build RPM and modules for CentOS 7 distribution.
    yum -y install nbd-3.16.1-1.el7.centos.x86_64.rpm
    ```
 
-3. If your Linux does not have NBD module installed you may try to build one for you \(there is a script for Red Hat based distributions which downloads kernel, enables NBD module and builds it\) or using already provided module:
-   * you can compile module by running:
+3. If your Linux does not have NBD module installed you may try to build one for you \(there is a script for Red Hat based distributions which downloads kernel, enables NBD module and builds it\) or using the already provided module:
+   * you can compile the module by running:
 
      ```text
      ./compile_nbd_module.sh
      ```
 
-   * if you have Centos 7, you also may use pre-build module \(for CentOS 7.4.1708 with kernel 3.10.0-693.5.2\) - which is `nbd.ko`
+   * if you have Centos 7, you also may use the pre-build module \(for CentOS 7.4.1708 with kernel 3.10.0-693.5.2\) - which is `nbd.ko`
 4. Enable the module by invoking the script \(the following command will either use a module in your kernel or copy provided `nbd.ko`\):
 
    ```text
