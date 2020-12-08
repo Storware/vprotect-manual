@@ -4,7 +4,7 @@
 
 | Virtualization Platform | Supported Version |
 | :--- | :--- |
-| VMware vSphere/ESXi\* | 5.5+, 6.x+, 7.0 |
+| VMware vSphere/ESXi\* | 6.x+, 7.0 |
 | Microsoft Hyper-V | 2016, 2019 |
 | Nutanix Acropolis \(AHV\) | 5.5+ \(Intel-only\) |
 | Red Hat Virtualization | 3.5.1+ \(RHEL 7.1+\) |
@@ -62,7 +62,7 @@
 
 | Virtualization Platform | Incremental backup | File-Level-Restore\* | VM disk exclusion | Snapshot Management | Pre/Post Snapshot command execution | VM Tags |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| VMware vSphere/ESXi | 5.5+ | yes | yes | yes | yes | yes |
+| VMware vSphere/ESXi | 6.x+ | yes | yes | yes | yes | yes |
 | Microsoft Hyper-V | 2016+ | yes | yes | yes | yes | yes |
 | Red Hat Virtualization | 4.2+ | yes | yes \(APIv4\) | yes | yes | yes |
 | oVirt | 4.2+ | yes | yes \(APIv4\) | yes | yes | yes |
