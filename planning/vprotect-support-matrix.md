@@ -4,7 +4,7 @@
 
 | Virtualization Platform | Supported Version |
 | :--- | :--- |
-| VMware vSphere/ESXi\* | 5.5+, 6.x+, 7.0 |
+| VMware vSphere/ESXi\* | 6.x+, 7.0 |
 | Microsoft Hyper-V | 2016, 2019 |
 | Nutanix Acropolis \(AHV\) | 5.5+ \(Intel-only\) |
 | Red Hat Virtualization | 3.5.1+ \(RHEL 7.1+\) |
