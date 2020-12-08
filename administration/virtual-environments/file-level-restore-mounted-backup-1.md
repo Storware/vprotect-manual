@@ -1,6 +1,6 @@
 # File-level Restore \(Mounted Backup\)
 
-**Note:** To see which hypervisor support this feature please go to [vProtect Support Matrix]().
+**Note:** To see which hypervisor support this feature please go to [vProtect Support Matrix](https://storware.gitbook.io/storware-vprotect/planning/vprotect-support-matrix).
 
 To mount backup go to the Instances tab under Virtual Environment section on the left side menu, then click on the mount icon next to a chosen virtual machine ![](../../.gitbook/assets/icon-mount.jpg)
 
