@@ -62,7 +62,7 @@
 
 | Virtualization Platform | Incremental backup | File-Level-Restore\* | VM disk exclusion | Snapshot Management | Pre/Post Snapshot command execution | VM Tags |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| VMware vSphere/ESXi | 5.5+ | yes | yes | yes | yes | yes |
+| VMware vSphere/ESXi | 6.x+ | yes | yes | yes | yes | yes |
 | Microsoft Hyper-V | 2016+ | yes | yes | yes | yes | yes |
 | Red Hat Virtualization | 4.2+ | yes | yes \(APIv4\) | yes | yes | yes |
 | oVirt | 4.2+ | yes | yes \(APIv4\) | yes | yes | yes |
