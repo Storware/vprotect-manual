@@ -2,7 +2,9 @@
 
 Microsoft Hyper-v is the only hypervisor that requires the installation of an agent. The process is very simple, the rest of the configuration is similar to other suppliers.
 
-**Note** Installation requires .NET Framework 4.7.2 or higher
+**Note** Installation requires .NET Framework 4.7.2 or higher <br/>
+**Note** WMI Framework version 14393.* (available on Windows Server 2016 Long-Term Servicing Channel) does not support the disk exclusion feature during export operation.
+Therefore, the disk of the virtual machine will be cloned to the export directory and deleted later in the execution.
 
 1. From our repository [http://repo.storware.eu/vprotect/addons/hyperv/](http://repo.storware.eu/vprotect/addons/hyperv/) download:
    1. **HyperV-Agent-Installer.msi**
