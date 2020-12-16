@@ -79,7 +79,7 @@
     * [OpenStack UI Plugin](deployment/integrations-plugins/openstack-plugin.md)
   * [Common Tasks](deployment/common-tasks/README.md)
     * [Staging space configuration](deployment/common-tasks/staging-space-configuration.md)
-    * [Enabling HTTPS connectivity for remote nodes](deployment/common-tasks/enabling-https-connectivity-for-remote-nodes.md)
+    * [Enabling HTTPS connectivity for nodes](deployment/common-tasks/enabling-https-connectivity-for-nodes.md)
     * [LVM setup on vProtect Node for disk attachment backup mode](deployment/common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md)
     * [Full versions of libvirt/qemu packages installation](deployment/common-tasks/full-versions-of-libvirt-qemu-packages-installation.md)
     * [SSH public key authentication](deployment/common-tasks/ssh-public-key-authentication.md)
