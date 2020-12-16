@@ -87,7 +87,7 @@ vProtect consists of a server \(central management point with WebUI\) and one or
 
 5. Now you should be able to log into the web console using URL: `https://VPROTECT_HOST:8181`, where `VPROTECT_HOST` is hostname or IP of your vProtect Server
    * by default vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\)
-6. Optionally, if you are going to connect nodes running on remote hosts, proceed with the steps related to the vProtect Server described in section: [Enabling HTTPS connectivity for remote nodes](common-tasks/enabling-https-connectivity-for-remote-nodes.md)
+6. Optionally, if you are going to connect nodes by https, proceed with the steps related to the vProtect Server described in section: [Enabling HTTPS connectivity for nodes](common-tasks/enabling-https-connectivity-for-nodes.md)
 
 ## vProtect Node installation
 
