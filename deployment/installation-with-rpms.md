@@ -69,7 +69,7 @@ vProtect consists of a server \(central management point with WebUI\) and one or
    systemctl start vprotect-server
    ```
 
-4. You may need to open 8181 port on your firewall. Here is an example:
+4. You may need to open 8181 port (for HTTPS, HTTP requires port 8080) on your firewall. Here is an example:
 
    ```text
    firewall-cmd --add-port=8181/tcp --permanent
@@ -78,7 +78,7 @@ vProtect consists of a server \(central management point with WebUI\) and one or
    firewall-cmd --list-all
    ```
 
-   **or** if you prefer to have vProtect console running on default HTTPS port \(443\), there is a script in `/opt/vprotect/scripts` directory to setup forwarding from port 443 to 8181 for you:
+   **or** if you prefer to have vProtect web console running on default HTTPS port \(443\), there is a script in `/opt/vprotect/scripts` directory to setup forwarding from port 443 to 8181 for you:
 
    ```text
    cd /opt/vprotect/scripts
