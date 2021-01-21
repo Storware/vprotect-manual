@@ -58,5 +58,5 @@ Two examples when using switches is useful It is very likely that if 30% of the 
 
 At the end save settings.
 
-### You can also perform the same action thanks to the CLI interface: [CLI Reference]()
+### You can also perform the same action thanks to the CLI interface: [CLI Reference](policies.md)
 

@@ -2,7 +2,7 @@
 
 In order to enable snapshot management for VM you need to do the following steps:
 
-Go to Snapshot SLAs under the Virtual Environment section and create a new Snapshot Management policy ![](../../../.gitbook/assets/create-policy.jpg)
+Go to Snapshot SLAs under the Virtual Environment section and create a new Snapshot Management policy ![](../../../.gitbook/assets/create-policy%20%281%29.jpg)
 
 ![](../../../.gitbook/assets/snapshot-sla-policies.jpg)
 
@@ -47,5 +47,5 @@ In this place, you can select virtual machines manually in a simple way.
 
 Provide retention settings - how many snapshots \(created by this policy\) will be kept and for how long. If you have already created a schedule, you can also select it.
 
-### You can also perform the same action thanks to the CLI interface: [CLI Reference]()
+### You can also perform the same action thanks to the CLI interface: [CLI Reference](policies.md)
 

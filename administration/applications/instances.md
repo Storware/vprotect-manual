@@ -2,11 +2,12 @@
 
 ## General
 
-This tab allows you to create an "Application definition" and execute on-demand actions like:  
-- Clone  
-- Backup  
-- Restore  
-- Delete
+This tab allows you to create an "Application definition" and execute on-demand actions like:
+
+* Clone  
+* Backup  
+* Restore  
+* Delete
 
 ### Example - How to create an application definition
 

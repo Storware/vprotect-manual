@@ -2,11 +2,11 @@
 
 * Log in to Citrix XenServer, and import downloaded xva image:
 
-![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-01.png)
+![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-01%20%281%29.png)
 
 * Select vProtect.xva file:
 
-![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-02.png)
+![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-02%20%282%29.png)
 
 * Select pool, or XenServer host:
 
@@ -14,7 +14,7 @@
 
 * Select storage:
 
-![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-04.png)
+![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-04%20%281%29.png)
 
 * Select network:
 
@@ -26,11 +26,11 @@
 
 * When virtual appliance with vProtect was imported select second disk "vProtect-storage", and go to "Properties".
 
-![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-07.png)
+![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-07%20%282%29.png)
 
 * Increase disk size for vProtect staging space.
 
-![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-08.png)
+![](../../.gitbook/assets/virtual-appliance-citrix-xcp_ng-08%20%282%29.png)
 
 * Start vProtect virtual machine, login, and increase disk size \(in that example to 500G\):
 

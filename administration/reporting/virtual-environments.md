@@ -20,3 +20,5 @@ You can also send this report by email thanks to this button ![](../../.gitbook/
 
 ![](../../.gitbook/assets/reporting-summary-e-mail-report.jpg)
 
+**Note: export to PDF, XLS, HTML is expected to be available in June**
+

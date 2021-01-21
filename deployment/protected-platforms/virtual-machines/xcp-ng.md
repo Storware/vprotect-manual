@@ -20,7 +20,7 @@ In this strategy, VM is exported using XenServer API \(full backup\) and Network
 
 Citrix Hypervisor/XCP-ng introduced CBT mechanism in XenServer 7.3. In order to enable CBT backups the following requirements must be met:
 
-1. Citrix Hypervisor 7.3 (XCP-ng 7.4) or above must be used - note that CBT is a licensed feature
+1. Citrix Hypervisor 7.3 \(XCP-ng 7.4\) or above must be used - note that CBT is a licensed feature
 2. NBD server must be enabled on the hypervisor
 3. NBD client and NBD module must be installed on vProtect Node
 
