@@ -15,9 +15,8 @@ Import/export mode defines the way the backups and restores are done. OLVM \(wit
    * supports incremental backup
    * disk images are transferred directly from API \(no Proxy VM required\)
 3. **SSH Transfer,** this method assumes that all data transfers are directly from hypervisor - over SSH
-4. **Change Block Tracking,** this method backup only blocks with changes and skips zeroed sectors.
-   * supports oVirt 4.4+ \(with Libvirt 6+, qemu-kvm 4.2+ and vdsm 4.40+\)
-   * supports incremental backup
+
+\*\*\*\*
 
 When adding OLVM hypervisor managers use a URL similar to the following:
 
@@ -74,16 +73,4 @@ This is an enhancement for the disk image transfer API strategy. It allows vProt
 ![](../../../.gitbook/assets/deployment-vprotect-olvm-ssh-transfer.png)
 
 This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding OLVM manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
-
-### Change Block Tracking
-
-This is a new method which is possible thanks to changes in OLVM 4.4. It uses information about zeroed and changed blocks to reduce data size and make the process faster.
-
-![](../../../.gitbook/assets/vprotect_olvm-cbt.jpg)
-
-This strategy supports incremental backups.
-
-QCOW2 format is required for incremental backups so disks enabled for the incremental backup will use QCOW2 format instead of raw format.
-
-Also, this strategy doesn't need snapshots in the backup process. Instead of it, every incremental backup uses a checkpoint that is a point in time that was created after the previous backup.
 
