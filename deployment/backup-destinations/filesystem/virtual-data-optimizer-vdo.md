@@ -33,12 +33,11 @@ In this section. you can find information, how to enable deduplication using bas
      * in **Storage paths** type `/backupdestination` - this path will be used to mount the prepared file system \(XFS\) on top of the VDO volume
      * check **Enable deduplication**
      * provide your block device \(i.e. `/dev/sdc`\)  as your Deduplication device
-
-* if **staging space needs to be the same as your backup destination** storage
-  * in **Storage paths** type `/vprotect_data/backups` - this path assumes that `/vprotect_data` is your staging space path and `backups`is a subdirectory of the staging space
-  * check **Enable deduplication**
-  * provide your block device \(i.e. `/dev/sdc`\)  as your **Deduplication device**
-  * enable **Mount deduplicated file system to a different directory than backup destination path** and provide mount point - your staging space path, i.e. `/vprotect_data` - this will force vProtect to mount XFS on top of VDO in the staging space directory rather than in the backups subdirectory
+9. if **staging space needs to be the same as your backup destination** storage
+   * in **Storage paths** type `/vprotect_data/backups` - this path assumes that `/vprotect_data` is your staging space path and `backups`is a subdirectory of the staging space
+   * check **Enable deduplication**
+   * provide your block device \(i.e. `/dev/sdc`\)  as your **Deduplication device**
+   * enable **Mount deduplicated file system to a different directory than backup destination path** and provide mount point - your staging space path, i.e. `/vprotect_data` - this will force vProtect to mount XFS on top of VDO in the staging space directory rather than in the backups subdirectory
 
 ![](../../../.gitbook/assets/backup-destinations-file-system-vdo.jpg)
 

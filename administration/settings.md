@@ -61,6 +61,9 @@ This section enables you to setup LDAP authentication for administrative account
 * `Service account DN` - DN of the user
 * `Service account password` - password of that user 
 
+  
+**Note: user groups and role assignment based on LDAP is expected to be available in June**
+
 ## Storware Insight
 
 Storware Insight reporting is a mechanism that allows the vProtect Server to sent periodic status reports. This will help the support team to see the status and basic information of your environment and provide better support in the future.

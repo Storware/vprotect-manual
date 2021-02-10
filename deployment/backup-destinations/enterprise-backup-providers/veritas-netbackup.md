@@ -11,11 +11,11 @@
 
 * Next step is to generate token:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-03.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-03%20%281%29.png)
 
 * Now we should copy the token to clipboard before start the installation of the client software.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-04.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-04%20%281%29.png)
 
 * To enable Veritas NetBackup support please download and install Veritas NetBackup Client:
 * Download the CLIENTS1 package for UNIX clients or the CLIENTS2 package for Linux clients to a system with sufficient space.
@@ -40,7 +40,7 @@ Example:
      Linux, Linux - s390x            cd [path_to_downloaded_tar.gz file]/NetBackup_8.x_CLIENTS2
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-06%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-06%20%281%29%20%282%29.png)
 
 * Type ./install and answer the questions as follows:
 
@@ -48,23 +48,23 @@ Example:
 
 * When the following message appears, press Enter to continue:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-08.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-08%20%281%29.png)
 
 The client binaries represent the operating system versions where the binaries were compiled. The binaries typically function perfectly on later versions of the operating system. The installation procedure attempts to load the appropriate binaries for your system. If the script does not recognize the local operating system, it presents choices.
 
 * Type y and press Enter to continue with the software installation.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-09.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-09%20%281%29.png)
 
 * Type the fqdn name of your NetBackup master server \(for example netbackup.oranization.local for example netbackup.oranization.local \) and press Enter to continue.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-10.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-10%20%281%29.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-11.png)
 
 * Confirm the NetBackup client name and press Enter to continue.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-12.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-12%20%281%29.png)
 
 * \(Conditional\) Enter one or more media servers if prompted:
 
@@ -82,7 +82,7 @@ The client binaries represent the operating system versions where the binaries w
 
 * After you confirm the fingerprint information, the installer stores the certificate authority certificate details.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-16.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-16%20%281%29.png)
 
 **Note:** Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail.
 
@@ -94,7 +94,7 @@ The client binaries represent the operating system versions where the binaries w
 
 * \(Conditional\) If prompted for the Authorization Token, please enter it.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-18.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-18%20%281%29.png)
 
 The token format is 16 upper case letters. Be aware if you press Ctrl+C, this action requires you to rerun the installation or continue with the installation without the required security components. If these security components are absent, backups and restores fail.
 
@@ -109,7 +109,7 @@ The token format is 16 upper case letters. Be aware if you press Ctrl+C, this ac
 firewall-cmd --get-default-zone
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-20.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-20%20%281%29.png)
 
 ```text
 firewall-cmd --get-active-zones
@@ -129,7 +129,7 @@ firewall-cmd --list-all
 firewall-cmd --zone=public --add-port=13724/udp && firewall-cmd --zone=public --add-port=13724/tcp
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-23.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-23%20%281%29.png)
 
 * Finally, we have to modify the permanent firewall rules so that those services will still be available after a reboot.
 
@@ -143,7 +143,7 @@ firewall-cmd --zone=public --permanent --add-port=13724/tcp && firewall-cmd --zo
 firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-25.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-25%20%281%29.png)
 
 * The Last action is to bind the port to the netbackup client deamon” bpnd”. To do that type following command in terminal
 
@@ -159,11 +159,11 @@ Add new Policy:
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-27.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-28.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-28%20%281%29.png)
 
 * Select machine type to backup:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-29%20%281%29.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-30.png)
 
@@ -181,19 +181,19 @@ Add new Policy:
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-35.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-36.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-36%20%281%29.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-37.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-37%20%281%29.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-38.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-38%20%281%29.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-39.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-40.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-40%20%281%29.png)
 
 * Finally, we have the client connected to the server.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-41.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-41%20%281%29.png)
 
 * Allow manual backup for vProtect node client on Netbackup server.
 * Login to vProtect, and go to "Backup Destinations" then select the "enterprise" sub-tab. Click on "Create Backup Destination", choose "Veritas Netbackup". Type name for a new backup destination, client home path, real export path. And set Netbackup parameters:

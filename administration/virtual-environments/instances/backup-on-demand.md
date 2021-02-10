@@ -6,7 +6,7 @@ To perform on-demand backup go to the instances tab under the Virtual Environmen
 
 You can click on ![](../../../.gitbook/assets/admin_webui_how_backup_icon_backup.png) icon to backup one VM
 
-![](../../../.gitbook/assets/instances.jpg)
+![](../../../.gitbook/assets/instances%20%282%29%20%282%29.jpg)
 
 Or select multiple virtual machines and click on ![](../../../.gitbook/assets/backup.jpg) icon to backup it.
 
@@ -20,5 +20,5 @@ On the Tasks Console, you can see the progress of the backup task.
 
 ![](../../../.gitbook/assets/instances-backup-on-demand-tasks-console.jpg)
 
-### You can also perform the same action thanks to the CLI interface: [CLI Reference]()
+### You can also perform the same action thanks to the CLI interface: [CLI Reference](backup-on-demand.md)
 

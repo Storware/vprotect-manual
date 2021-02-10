@@ -4,15 +4,11 @@
 
 Use vProtect to back up data from your virtualization platforms. You can back up data to and recover data from local filesystem or a NFS/CIFS share, object storage \(cloud providers\) or enterprise backup providers like Dell EMC, IBM, Veritas.
 
-![](../.gitbook/assets/vprotect-architecture.png)
-
-
+![](../.gitbook/assets/vprotect-architecture%20%281%29.png)
 
 ## Detailed Architecture
 
-![](../.gitbook/assets/vprotect-detailed-architecture.png)
-
-
+![](../.gitbook/assets/vprotect-detailed-architecture%20%281%29.png)
 
 vProtect consists of 2 main components:
 

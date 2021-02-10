@@ -10,7 +10,7 @@ Our environment is built of the following elements:
 4. DRBD \(optionally with VDO\) for data replication and deduplication between nodes
 5. MariaDB master &lt;-&gt; master replication
 
-![](../.gitbook/assets/vprotect_high-avaliability.png)
+![](../.gitbook/assets/vprotect_high-avaliability%20%281%29.png)
 
 ## HA cluster setup
 
@@ -468,7 +468,7 @@ We need still to
 
 * Make sure that our node is pointed to a localhost address. Check the _**Nodes**_ UI section.
 
-![](../.gitbook/assets/vprotect-high-avaliability-nodes-config.png)
+![](../.gitbook/assets/vprotect-high-avaliability-nodes-config%20%281%29.png)
 
 If node's IP is different than 127.0.0.1 delete the node and re-register using
 

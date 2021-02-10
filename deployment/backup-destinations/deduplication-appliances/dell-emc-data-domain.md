@@ -74,17 +74,15 @@ Prepare your PowerProtect DD as a backup destination:
   ```
 
 * Confirm with `df -h` that your `/vprotect_data` is mounted  
-**Note:**
-Remember to specify the backup destination path to be a subdirectory of /vprotect_data if you would like to use the same storage unit as a staging space and backup destination - for example: /vprotect_data/my-backups
+  **Note:** Remember to specify the backup destination path to be a subdirectory of /vprotect\_data if you would like to use the same storage unit as a staging space and backup destination - for example: /vprotect\_data/my-backups
 
   ```text
   mkdir /vprotect_data/my-backups
   ```
 
-* Set ownership to vprotect user on directory /vprotect_data
+* Set ownership to vprotect user on directory /vprotect\_data
 
   ```text
   chown vprotect:vprotect -R /vprotect_data
   ```
-
 
