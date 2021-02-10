@@ -1,4 +1,4 @@
-# Enabling HTTPS connectivity for remote nodes
+# Enabling HTTPS connectivity for nodes
 
 Default certificate presented by application server uses `localhost.localdomain`. This works only for local node installations \(server and node on a single host\).
 
