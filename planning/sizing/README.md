@@ -1,4 +1,4 @@
-# Sizing Guide
+# Sizing
 
 There are two types of people: those who are doing backups, and those who will be doing them. But just **doing** backups is not everything. To avoid unnecessary surprises the best strategy is to **plan** your backup environment/procedure **before implementing** it. In this chapter we have collected generic hints and guides which you might find useful while thinking about your **vProtect** implementation.
 
@@ -84,3 +84,4 @@ There are two types of people: those who are doing backups, and those who will b
 * if you plan to use common storage for staging space and backup destination your reads from the source will be limited by the write speed of your backup destination 
 * make sure to have appropriate bandwidth between nodes and backup destination
 * verify if the backup destination is able to process IOPS coming from multiple sources - it is common to assume export rate as a minimum required store rate
+

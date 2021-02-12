@@ -50,6 +50,7 @@
     * [Storage providers](deployment/protected-platforms/storage-providers/README.md)
       * [File system](deployment/protected-platforms/storage-providers/file-system.md)
       * [Ceph RBD](deployment/protected-platforms/storage-providers/ceph-rbd.md)
+      * [Nutanix Files](deployment/protected-platforms/storage-providers/nutanix-files.md)
     * [Applications](deployment/protected-platforms/applications.md)
   * [Backup Destinations](deployment/backup-destinations/README.md)
     * [Filesystem](deployment/backup-destinations/filesystem/README.md)

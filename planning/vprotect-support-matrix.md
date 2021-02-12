@@ -40,7 +40,7 @@
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | yes |
 | Hypervisor OS access needed | No |
-| Proxy VM needed | no (optional for HotAdd backup) |
+| Proxy VM needed | no \(optional for HotAdd backup\) |
 | Key Caveats | vProtect node must be installed on CentOS/RHEL 7.x to backup VMware virtual machines |
 
 | Feature | NBD & HotAdd |
@@ -542,7 +542,7 @@
 
 | Feature | Name? |
 | :--- | :--- |
-| Incremental backup | ✅ (ceph RBD) |
+| Incremental backup | ✅ \(ceph RBD\) |
 | File-level restore | ❌ |
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
@@ -566,7 +566,7 @@
 
 | Feature | Name? |
 | :--- | :--- |
-| Incremental backup | ✅ (ceph RBD) |
+| Incremental backup | ✅ \(ceph RBD\) |
 | File-level restore | ❌ |
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
@@ -590,7 +590,7 @@
 
 | Feature | Name? |
 | :--- | :--- |
-| Incremental backup | ✅ (ceph RBD) |
+| Incremental backup | ✅ \(ceph RBD\) |
 | File-level restore | ❌ |
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
@@ -636,3 +636,4 @@ _When backing up CentOS 8 with a disk with the GPT partition scheme, you can use
 
 **VMware vSphere/ESXi backup:**  
 _We can only back up VMware products from a vProtect node that runs on CentOS 7._
+

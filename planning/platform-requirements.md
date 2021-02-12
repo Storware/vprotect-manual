@@ -29,7 +29,7 @@ Minimal requirements:
 
 **HDD:** 20GB for OS, and vProtect installation
 
-**HDD:** `X` GB for staging, where **`X`** = `size_of_biggest_VM` \* `number_of_parallel_backups` - optionally can be skipped, when staging space is configured to be directly on external backup destination (eg. NFS-shared file system)
+**HDD:** `X` GB for staging, where **`X`** = `size_of_biggest_VM` \* `number_of_parallel_backups` - optionally can be skipped, when staging space is configured to be directly on external backup destination \(eg. NFS-shared file system\)
 
 ## Network Requirements
 
