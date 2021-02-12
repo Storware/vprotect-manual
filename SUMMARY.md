@@ -121,6 +121,7 @@
   * [Reporting](administration/reporting/README.md)
     * [Virtual Environments](administration/reporting/virtual-environments.md)
     * [Applications](administration/reporting/applications.md)
+    * [Storage Providers](administration/reporting/storage-providers.md)
     * [Audit Log](administration/reporting/audit-log.md)
   * [User Management](administration/users.md)
   * [Settings](administration/settings.md)
