@@ -25,7 +25,7 @@ Minimal requirements:
 
 **CPU:** 2 cores
 
-**RAM:** 4GB
+**RAM:** 6GB
 
 **HDD:** 20GB for OS, and vProtect installation
 
@@ -53,7 +53,7 @@ Minimal requirements:
 
 **Connection URL:** `https://PRISM_HOST:9440/api/nutanix/v3` \(Prism Central or Prism Elements\)
 
-**Note:** when connecting via Prism Central, the same credenials will be used to access all Prism Elements
+**Note:** when connecting via Prism Central, the same credentials will be used to access all Prism Elements
 
 | Source | Destination | Ports | Description |
 | :--- | :--- | :--- | :--- |
@@ -91,8 +91,8 @@ Minimal requirements:
 | Source | Destination | Ports | Description |
 | :--- | :--- | :--- | :--- |
 | Node | oVirt/RHV/OLVM manager | 443/tcp | oVirt/RHV/OLVM API access |
-| oVirt/RHV/OLVM host selected in export storage domain configuration | Node | If Node is hosting staging space: 111/tcp, 111/UDP, 2049/tcp, 2049/UDP, ports specified in `/etc/sysconfig/nfs` - variables `MOUNTD_PORT` \(TCP and UDP\), `STATD_PORT` \(TCP and UDP\), `LOCKD_TCPPORT` \(TCP\), `LOCKD_UDPPORT` \(UDP\), otherrwise please check documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the Node - NFS access |
-| Node and oVirt/RHV/OLVM host selected in export storage domain configuration | shared NFS storage | please check documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the shared storage - NFS access |
+| oVirt/RHV/OLVM host selected in export storage domain configuration | Node | If Node is hosting staging space: 111/tcp, 111/UDP, 2049/tcp, 2049/UDP, ports specified in `/etc/sysconfig/nfs` - variables `MOUNTD_PORT` \(TCP and UDP\), `STATD_PORT` \(TCP and UDP\), `LOCKD_TCPPORT` \(TCP\), `LOCKD_UDPPORT` \(UDP\), otherwise please check the documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the Node - NFS access |
+| Node and oVirt/RHV/OLVM host selected in export storage domain configuration | shared NFS storage | please check the documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the shared storage - NFS access |
 
 #### Disk attachment
 
@@ -142,8 +142,8 @@ Minimal requirements:
 | Source | Destination | Ports | Description |
 | :--- | :--- | :--- | :--- |
 | Node | OVM manager | 7002/tcp | OVM API access |
-| Hypervisor | Node | If Node is hosting staging space: 111/tcp, 111/UDP, 2049/tcp, 2049/UDP, ports specified in `/etc/sysconfig/nfs` - variables `MOUNTD_PORT` \(TCP and UDP\), `STATD_PORT` \(TCP and UDP\), `LOCKD_TCPPORT` \(TCP\), `LOCKD_UDPPORT` \(UDP\), otherrwise please check documentation of your NFS storage provider | if staging space \(export storage repository\) is hosted on the Node - NFS access |
-| Node and hypervisor | shared NFS storage | please check documentation of your NFS storage provider | if staging space \(export storage repository\) is hosted on the shared storage - NFS access |
+| Hypervisor | Node | If Node is hosting staging space: 111/tcp, 111/UDP, 2049/tcp, 2049/UDP, ports specified in `/etc/sysconfig/nfs` - variables `MOUNTD_PORT` \(TCP and UDP\), `STATD_PORT` \(TCP and UDP\), `LOCKD_TCPPORT` \(TCP\), `LOCKD_UDPPORT` \(UDP\), otherwise please check the documentation of your NFS storage provider | if staging space \(export storage repository\) is hosted on the Node - NFS access |
+| Node and hypervisor | shared NFS storage | please check the documentation of your NFS storage provider | if staging space \(export storage repository\) is hosted on the shared storage - NFS access |
 
 ### Citrix XenServer/xcp-ng
 
@@ -179,8 +179,8 @@ Minimal requirements:
 | Source | Destination | Ports | Description |
 | :--- | :--- | :--- | :--- |
 | Node | Hypervisor | 22/tcp | SSH access |
-| Hypervisor | Node | If Node is hosting staging space: 111/tcp, 111/UDP, 2049/tcp, 2049/UDP, ports specified in `/etc/sysconfig/nfs` - variables `MOUNTD_PORT` \(TCP and UDP\), `STATD_PORT` \(TCP and UDP\), `LOCKD_TCPPORT` \(TCP\), `LOCKD_UDPPORT` \(UDP\), otherrwise please check documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the Node - NFS access |
-| Node and hypervisor | shared NFS storage | please check documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the shared storage - NFS access |
+| Hypervisor | Node | If Node is hosting staging space: 111/tcp, 111/UDP, 2049/tcp, 2049/UDP, ports specified in `/etc/sysconfig/nfs` - variables `MOUNTD_PORT` \(TCP and UDP\), `STATD_PORT` \(TCP and UDP\), `LOCKD_TCPPORT` \(TCP\), `LOCKD_UDPPORT` \(UDP\), otherwise please check the documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the Node - NFS access |
+| Node and hypervisor | shared NFS storage | please check the documentation of your NFS storage provider | if staging space \(export storage domain\) is hosted on the shared storage - NFS access |
 
 #### SSH transfer
 
@@ -235,5 +235,5 @@ Sudo privileges are required for the following commands:
 
 ## SELinux
 
-DISABLED - currently it interferes with mountable backups \(file-level restore\) mechanism. Optionally can be changed to PERMISSIVE, or if file-level restore is not required to ENFORCING.
+PERMISSIVE - currently it interferes with mountable backups \(file-level restore\) mechanism. Optionally can be changed to ENFORCING if file-level restore is not required.
 

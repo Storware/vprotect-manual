@@ -6,7 +6,7 @@
 
 | Backup Provider | Supported version | Random Access | Deduplication | Encryption | Pre/post access command execution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Filesystem | N/A | ✅ | ❌ | ✅ | ✅ |
+| Filesystem | N/A | ✅ | ✅ \(built-in VDO\) | ✅ | ✅ |
 | PowerProtect DD | DD OS 7.x | ✅ | ✅ | ✅ | ✅ |
 
 ### Object storage

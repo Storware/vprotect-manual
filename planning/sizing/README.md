@@ -1,6 +1,6 @@
 # Sizing
 
-There are two types of people: those who are doing backups, and those who will be doing them. But just **doing** backups is not everything. To avoid unnecessary surprises the best strategy is to **plan** your backup environment/procedure **before implementing** it. In this chapter we have collected generic hints and guides which you might find useful while thinking about your **vProtect** implementation.
+There are two types of people: those who are doing backups, and those who will be doing them. But just **doing** backups is not everything. To avoid unnecessary surprises the best strategy is to **plan** your backup environment/procedure **before implementing** it. In this chapter, we have collected generic hints and guides which you might find useful while thinking about your **vProtect** implementation.
 
 1. Collect information about the _\*\*_$$TotalSizeOfData$$ to be protected in your environment
    * this is the size of your VMs/Storages that will be transferred within a backup window
