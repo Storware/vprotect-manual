@@ -20,7 +20,7 @@ With mounted backups - you also can **restore individual files** from your backu
 
 A real disaster can sometimes happen - with vProtect you can configure your backups to be performed in one datacenter and - if necessary - restore them in the second one.
 
-vProtect can use replicated file systems or other build-in mechanisms of backup providers to allow you keep copy in the secondary datacenter.
+vProtect can use replicated file systems or other build-in mechanisms of backup providers to allow you to keep a copy in the secondary datacenter.
 
 During DR, you can use Recovery Plans to restore multiple VMs to the predefined location.
 
@@ -32,11 +32,11 @@ When you need to restore a VM to the most recent saved state, you can quickly re
 
 ## Application Backup & Recovery
 
-There are many cases where VM-level backup may not be enough. Applications, such as databases usually have their own mechanisms that guarantee consistent backups. As we are aware that in many situations you need to have option to customize backup proces - vProtect provides a **generic mechanism** for multiple scenarios.
+There are many cases where VM-level backup may not be enough. Applications, such as databases usually have their own mechanisms that guarantee consistent backups. As we are aware that in many situations you need to have the option to customize the backup process - vProtect provides a **generic mechanism** for multiple scenarios.
 
-With vProtect you can prepare custom script or invoke any backup command that produces backup artifacts \(or just initiates external backup proces\) on a remote host and store backups to your backup provider.
+With vProtect, you can prepare a custom script or invoke any backup command that produces backup artefacts \(or just initiates external backup process\) on a remote host and store backups to your backup provider.
 
-With Application backup you can extend your protection capabilities to:
+With Application backup, you can extend your protection capabilities to:
 
 * any remote  applications with  their own mechanisms
 * hypervisor configuration

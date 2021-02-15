@@ -1,5 +1,7 @@
 # What's new in this release
 
+## vProtect 4.0 -&gt; 4.1
+
 * New: Storage Provider - Ceph RBD - support for backup/restore/mount of RBD volumes
 * New: Storage Provider - File system - support for backup/restore/mount of plain file systems mounted on the nodes
 * New: Storage Provider - Nutanix Files \(AFS\) - a technical preview of support for backup/restore/mount of Nutanix Files

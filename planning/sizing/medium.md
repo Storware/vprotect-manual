@@ -8,7 +8,7 @@
 * Backup window: 8 hours
 * Data to back up: up to 25 TB
 * staging space: your\_largest\_VM \* backup threads - per  node
-* Number of parallel backup threads: depending on number of virtual machines \(maximum 10 per node\)
+* Number of parallel backup threads: depending on the number of virtual machines \(maximum 10 per node\)
 
 ![](../../.gitbook/assets/mediumv2.jpg)
 
