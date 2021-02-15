@@ -12,7 +12,7 @@
   * [vProtect Support Matrix](planning/vprotect-support-matrix.md)
   * [Platform Requirements](planning/platform-requirements.md)
   * [High Availability](planning/high-availability.md)
-  * [Sizing](planning/sizing/README.md)
+  * [Sizing Guide](planning/sizing/README.md)
     * [Small](planning/sizing/small-environment.md)
     * [Medium](planning/sizing/medium.md)
     * [Large](planning/sizing/large-environment.md)

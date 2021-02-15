@@ -45,7 +45,7 @@ Drawback - no incremental backup for now.
 
 **Note**: RHV API v4 environments require vProtect Node to be installed in one of the VMs residing on the RHV cluster. vProtect should detect automatically the VM with vProtect during index operation.
 
-Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node VM:
+Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node VM \(which can be enabled in VM settings -&gt; `Resource Allocation` -&gt; `VirtIO-SCSI Enabled` at the bottom\).
 
 During the backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require an export storage domain to be set up.
 

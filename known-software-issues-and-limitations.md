@@ -315,6 +315,16 @@
       <td style="text-align:left">At the moment we do not support the &quot;Dirty Bitmaps&quot; function,
         therefore we require the last snapshot to be left for incremental backups.</td>
     </tr>
+    <tr>
+      <td style="text-align:left">0032</td>
+      <td style="text-align:left">Storage Providers and node assignment</td>
+      <td style="text-align:left">vProtect supports only one node assigned to Storage Provider, which means
+        that backup of significantly big volumes from bigger storage providers,
+        i.e. Ceph RBD etc. will require high performing node and cannot be scaled
+        out by adding nodes</td>
+      <td style="text-align:left">Install multiple vProtect Server+Node environments and protect the non-overlapping
+        set of volumes with each vProtect instance.</td>
+    </tr>
   </tbody>
 </table>
 

@@ -1,4 +1,4 @@
-# Sizing
+# Sizing Guide
 
 There are two types of people: those who are doing backups, and those who will be doing them. But just **doing** backups is not everything. To avoid unnecessary surprises the best strategy is to **plan** your backup environment/procedure **before implementing** it. In this chapter, we have collected generic hints and guides which you might find useful while thinking about your **vProtect** implementation.
 
