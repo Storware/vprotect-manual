@@ -16,5 +16,5 @@ Finally select a backup type, backup destination, when a task should start, prio
 
 ![](../../../.gitbook/assets/storage-instances-backup-on-demand.jpg)
 
-### You can also perform the same action thanks to the CLI interface: [CLI Reference]()
+### You can also perform the same action thanks to the CLI interface: [CLI Reference](../../cli-reference.md#storage-backup-management)
 

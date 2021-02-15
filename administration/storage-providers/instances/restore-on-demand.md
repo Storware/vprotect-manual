@@ -21,5 +21,5 @@ Finally, after customizing the restore, click the restore button.
 
 **Note:** every platform has some restrictions imposed on the storage instance name, such as length or characters that can be used. Please verify check these limits before restoring with a custom name.
 
-### You can also perform the same action thanks to the CLI interface: [CLI Reference]()
+### You can also perform the same action thanks to the CLI interface: [CLI Reference](../../cli-reference.md#storage-backup-management)
 
