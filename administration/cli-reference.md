@@ -676,6 +676,140 @@ Virtual machine management
   vprotect vm -cS 0f36f40c-6427-4035-9f2b-1ead6aca3597
   ```
 
+## Storage backup management
+
+This module is responsible for managing storage instances and actions related to backups/schedules/policies etc.
+
+```text
+[root@localhost ~]# vprotect st
+Incorrect syntax: Missing required option: 
+[-A Assign Storage to the policy, -a Assign Storage to the snapshot policy,
+ -d Delete Storage, -g Show Storage details, -wb Acknowledge warnings related
+ to the backup, -xC Set pre-snapshot CMD as semi-colon-separated string,
+ i.e. "cmd;-a;-b", -XC Set post-snapshot CMD as semi-colon-separated string,
+ i.e. "cmd;-a;-b", -l List Storages, -L List backups of the Storage,
+ -sC Set SSH access credentials, -se Set handling for pre-snap standard error.
+ Values: DONT_IGNORE, IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING,
+ -sE Set handling for post-snap standard error. Values: DONT_IGNORE,
+ IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING, -s Modify Storage configuration,
+ -T List tasks related to the Storage, -w Acknowledge all backup warnings
+ related to the Storage, -gb Show backup details]
+
+usage: st -A <GUID> <STORAGE_POLICY_GUID> | -a <GUID> <SNAPSHOT_POLICY_GUID> |
+  -d <GUID> | -g <GUID> | -gb <BACKUP_GUID> | -l | -L <GUID> |
+  -s <GUID> <PROPERTY_NO.> <VALUE> | -sC <GUID> <SSH_USER> <SSH_PASS> |
+  -se <GUID> <HANDLING> | -sE <GUID> <HANDLING> |-T <GUID> | -w <GUID> |
+  -wb <BACKUP_GUID> | -xC <GUID> <CMD_STRING> | -XC <GUID> <CMD_STRING>
+Storage management
+ -A,--assign-storage-policy <GUID> <STORAGE_POLICY_GUID>
+    #Assign Storage to the policy
+ -a,--assign-snapshot-policy <GUID> <SNAPSHOT_POLICY_GUID>
+    #Assign Storage to the snapshot policy
+ -d,--delete <GUID>
+    #Delete Storage
+ -g,--details <GUID>
+    #Show Storage details
+ -gb,--show-backup-details <BACKUP_GUID>
+    #Show backup details
+ -l,--list
+    #List Storages
+ -L,--list-backups <GUID>
+    #List backups of the Storage
+ -s,--configuration <GUID> <PROPERTY_NO.> <VALUE>
+    #Modify Storage configuration
+ -sC,--set-ssh-credentials <GUID> <SSH_USER> <SSH_PASS>
+    #Set SSH access credentials
+ -se,--set-pre-std-error-out <GUID> <HANDLING>
+    #Set handling for pre-snap standard error. Values: DONT_IGNORE,
+    #IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING
+ -sE,--set-post-std-error-out <GUID> <HANDLING>
+    #Set handling for post-snap standard error. Values: DONT_IGNORE,
+    #IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING
+ -T,--list-tasks <GUID>
+    #List tasks related to the Storage
+ -w,--ack-all-backup-warnings <GUID>
+    #Acknowledge all backup warnings related to the Storage
+ -wb,--ack-backup-warnings <BACKUP_GUID>
+    #Acknowledge warnings related to the backup
+ -xC,--set-pre-snap-cmd <GUID> <CMD_STRING>
+    #Set pre-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b"
+ -XC,--set-post-snap-cmd <GUID> <CMD_STRING>
+    #Set post-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b"
+```
+
+### Examples
+
+## Storage pool management
+
+This small module allows us to list and deleting inventoried storage pools.
+
+```text
+[root@localhost ~]# vprotect stpool
+Incorrect syntax: Missing required option: [-d Delete Storage Pool,
+-l List Storage Pools]
+
+usage: stpool -d <GUID> | -l
+Storage pool management
+ -d,--delete <GUID>        Delete Storage Pool
+ -l,--list                 List Storage Pools
+```
+
+### Examples
+
+To list storage pools
+
+```text
+[root@localhost ~]# vprotect stpool -l
+
+                GUID                   Name                     UUID                   Storage Provider  
+------------------------------------  -------  --------------------------------------  ----------------  
+b1171aba-aeb3-4e10-84dd-f3e3c0dc3235  backups  537e00c8-620d-4256-8d6c-e5e031327caa_1  last-ceph         
+86f41229-6f13-41b3-b1ce-c5841df7b4c7  images   537e00c8-620d-4256-8d6c-e5e031327caa_4  last-ceph         
+55832390-1779-483b-8023-88bb9a79b6ed  vms      537e00c8-620d-4256-8d6c-e5e031327caa_3  last-ceph         
+ff3a9f65-0b5f-4a78-8b97-b883cb971f81  volumes  537e00c8-620d-4256-8d6c-e5e031327caa_2  last-ceph
+```
+
+## Storage providers management
+
+This module is responsible for managing the storage provider's infrastructure. So performing tasks such as adding/removing / inventorying, etc.
+
+```text
+[root@localhost ~]# vprotect stprovider
+Incorrect syntax: Missing required option: [-sC Modify Storage Provider
+configuration, -c Create Storage Provider, -s Synchronize inventory with
+Storage Provider, -d Delete Storage Provider, -u Set user/password,
+-g Show Storage Providers details, -h Set host for Storage Provider,
+-l List Storage Providers, -L List Storages for Storage Provider,
+-n Set node for Storage Provider]
+
+usage: stprovider -c <HOST> <TYPE> | -d <GUID> | -g <GUID> |
+   -h <GUID> <HOST> | -l | -L <GUID> | -n <GUID> <NODE_GUID> | -s <GUID> |
+   -sC <GUID> <PROPERTY_NO.> <VALUE> | -u <GUID> <USER> <PASSWORD>
+Storage management
+ -c,--create <HOST> <TYPE>
+       #Create Storage Provider
+ -d,--delete <GUID>
+       #Delete Storage Provider
+ -g,--details <GUID>
+       #Show Storage Providers details
+ -h,--set-host <GUID> <HOST>
+       #Set host for Storage Provider
+ -l,--list
+       #List Storage Providers
+ -L,--list-storages <GUID>
+       #List Storages for Storage Provider
+ -n,--set-node <GUID> <NODE_GUID>
+       #Set node for Storage Provider
+ -s,--sync <GUID>
+       #Synchronize inventory with Storage Provider
+ -sC,--configuration <GUID> <PROPERTY_NO.> <VALUE>
+       #Modify Storage Provider configuration
+ -u,--credentials <GUID> <USER> <PASSWORD>
+       #Set user/password
+```
+
+### Examples
+
 ## VM backup policies
 
 Virtual machine backup policies management module is used to define backup policies of VMs. You can assign different backup priority for a policy when the scheduler invokes backup task. You need first to define a VM policy and then add VMs to it. VM can belong only to a single backup policy.
