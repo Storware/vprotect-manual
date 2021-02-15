@@ -4,7 +4,7 @@ vProtect supports Nutanix AHV platform by using a VM called “Proxy VM”. The 
 
 This strategy allows you to exclude disks that you don't need from your backup. Remember that, you need to install at least 1 Proxy VM per cluster, so that the drives that the node tries to attach are reachable.
 
-**Note**: staging space must be on a volume coming from container storage. Otherwise vProtect may select the wrong device during backup.
+**Note**: staging space must be on a volume coming from container storage. Otherwise, vProtect may select the wrong device during backup.
 
 **Note**: you can deploy more nodes in each cluster and map individual hypervisors to them:
 
@@ -35,5 +35,5 @@ Then index your HV manager and verify if hypervisors and VMs are detected.
 
 **Note**: volume groups attached to the VMs are **not** affected by snapshot, hence neither backup nor snapshot revert on such volumes is going to include them.
 
-**Note**: staging space must be on a volume coming from container storage. Otherwise vProtect may select the wrong device during backup.
+**Note**: staging space must be on a volume coming from container storage. Otherwise, vProtect may select the wrong device during backup.
 

@@ -65,13 +65,13 @@ ansible_user = root
 {% endcode %}
 
 * Run playbook: `ansible-playbook -i hosts site.yml`
-* After installation you should be able to login to your vProtect Server: `https://vprotect_server_address` and your nodes should be registered and running. By default vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\).
+* After installation you should be able to login to your vProtect Server: `https://vprotect_server_address` and your nodes should be registered and running. By default, vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\).
 * Remember to prepare your staging space as described in [Staging space configuration](common-tasks/staging-space-configuration.md).
 * Now please proceed with [Initial configuration](initial-configuration.md) instructions, as you need to configure access to the hypervisors and backup destinations.
 
 ## Variables
 
-These two roles use just a few variables. Both plays use `server_fqdn` variable. If not defined, server play sets variable `server_fqdn` to the hostname reported by the OS on which it is installed. Server play will generate SSL certificate for this FQDN, and node play automatically will use this value if defined. You can also provide this variable manually \(either in `hosts` file or with extra vars switch in `ansible-playbook` command, i.e. `-e "server_fqdn=vprotect.server.local"`
+These two roles use just a few variables. Both plays use `server_fqdn` variable. If not defined, server play sets variable `server_fqdn` to the hostname reported by the OS on which it is installed. Server play will generate an SSL certificate for this FQDN, and node play automatically will use this value if defined. You can also provide this variable manually \(either in `hosts` file or with extra vars switch in `ansible-playbook` command, i.e. `-e "server_fqdn=vprotect.server.local"`
 
 Node play needs `node_name` for the registration process. If not provided it will just use hostname reported by OS, however keep in mind that it needs to be **unique** for each node. We recommend that you set them in the host inventory file.
 

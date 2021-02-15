@@ -140,5 +140,5 @@ vProtect Node is a component that executes all tasks. It can be installed togeth
    reboot
    ```
 
-vProtect is installed - you can now proceed with the steps described in [initial configuration](initial-configuration.md).
+vProtect is installed - you can now proceed with the steps described in the [initial configuration](initial-configuration.md).
 
