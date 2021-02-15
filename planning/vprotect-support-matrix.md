@@ -30,7 +30,7 @@
 
 ## Backup strategies - features and requirements
 
-### Virtual Machines
+## Virtual Machines
 
 ### VMware vSphere/ESXi
 
@@ -61,7 +61,7 @@
 
 |  | 2016 & 2019 |
 | :--- | :--- |
-| Minimum version | Windows Server or Core Hyper-V 2016+ |
+| Minimum version | Windows Server 2016+ |
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | yes |
 | Hypervisor OS access needed | No |
@@ -528,7 +528,7 @@
 | Available space for snapshot check | ✅ | ✅ |
 | Power-on VM after restore | ✅ | ✅ |
 
-### Containers
+## Containers
 
 ### Kubernetes
 
@@ -547,7 +547,7 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
 | Quiesced snapshot | ❌ |
-| Pre/post snasphot command execution | ❌ |
+| Pre/post snapshot command execution | ❌ |
 | Backup disks sharable over iSCSI | ❌ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ |
@@ -558,7 +558,7 @@
 
 |  | Name? |
 | :--- | :--- |
-| Minimum version | 1.10+ |
+| Minimum version | 3.11+ |
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | Yes |
 | Hypervisor OS access needed | no |
@@ -571,7 +571,7 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
 | Quiesced snapshot | ❌ |
-| Pre/post snasphot command execution | ❌ |
+| Pre/post snapshot command execution | ❌ |
 | Backup disks sharable over iSCSI | ❌ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ |
@@ -582,7 +582,7 @@
 
 |  | Name? |
 | :--- | :--- |
-| Minimum version | 1.10+ |
+| Minimum version | 5+ |
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | Yes |
 | Hypervisor OS access needed | no |
@@ -595,14 +595,14 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
 | Quiesced snapshot | ❌ |
-| Pre/post snasphot command execution | ❌ |
+| Pre/post snapshot command execution | ❌ |
 | Backup disks sharable over iSCSI | ❌ |
 | Name-based policy assignment | ✅ |
-| Tag-based policy assignment | ✅ |
-| Available space for snapshot check | N/A |
+| Tag-based policy assignment | ❌ |
+| Available space for snapshot check | ❌ \(hypervisor-dependent\) |
 | Power-on VM after restore | ✅ |
 
-### Cloud
+## Cloud
 
 ### AWS EC2
 
@@ -622,7 +622,7 @@
 | VM disk exclusion | ❌ | ✅ |
 | Snapshot management | ✅ | ✅ |
 | Quiesced snapshot | ✅ | ✅ |
-| Pre/post snasphot command execution | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ❌ | ✅ |
 | Name-based policy assignment | ✅ | ✅ |
 | Tag-based policy assignment | ✅ | ✅ |
