@@ -26,7 +26,7 @@ Multi-tenancy and permission handling is on the 3rd-party system side. There is 
 
 ### Setup
 
-Your system is going to communicate over HTTPS which by default runs on port 8181, but during the setup can optionally be exposed on 443 as well. You need to generate an SSL certificate as described [here](deployment/common-tasks/enabling-https-connectivity-for-remote-nodes.md).
+Your system is going to communicate over HTTPS which by default runs on port 8181, but during the setup can optionally be exposed on 443 as well. You need to generate an SSL certificate as described [here](https://github.com/mskajba/vprotect-manual/tree/187bb7f133424d681a0af760f77a07635a4da61e/deployment/common-tasks/enabling-https-connectivity-for-remote-nodes.md).
 
 vProtect can invoke operations only on VMs that exist in its inventory. It is being synced periodically so that it reflects changes in the virtualization platform.
 

@@ -1,6 +1,7 @@
 # Main Features
 
 * VM-level, Container-level backup and recovery
+* Storage Provider \(file system & Ceph RBD\) backup & recovery
 * Full and Incremental backups \(with native CBT, CRT where available\) 
 * VM data is exported in native \(hypervisor-specific\) format
 * Backup only selected VM disk option

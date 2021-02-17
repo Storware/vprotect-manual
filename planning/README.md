@@ -12,11 +12,11 @@ In [Sizing](sizing/) section we present key information that you need to collect
 
 _What's next:_
 
-\_\_[_vProtect Support Matrix_](vprotect-support-matrix.md)\_\_
+[_vProtect Support Matrix_](vprotect-support-matrix.md)
 
-\_\_[_Platform Requirements_](platform-requirements.md)\_\_
+[_Platform Requirements_](platform-requirements.md)
 
-\_\_[_High Availability_](high-availability.md)\_\_
+[_High Availability_](high-availability.md)
 
-\_\_[_Sizing_](sizing/)\_\_
+[_Sizing_](sizing/)
 

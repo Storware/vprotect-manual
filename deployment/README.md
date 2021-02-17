@@ -1,6 +1,6 @@
 # Deployment
 
-In this section you will find information about installing and configuring vProtect.
+In this section, you will find information about installing and configuring vProtect.
 
 We recommend that you start with the [Installation Overview](installation-overview.md) to see what are general steps required to install vProtect.
 
@@ -10,11 +10,11 @@ Take a look and choose the method that best suits your needs and experiences.
 
 _What's next_
 
-\_\_[_Installation Overview_](installation-overview.md)\_\_
+[_Installation Overview_](installation-overview.md)
 
-\_\_[_Quick Install_](quick-install-all-in-one.md)\_\_
+[_Quick Install_](quick-install-all-in-one.md)
 
-\_\_[_Installation using Ansible playbook_](installation-using-ansible-playbook.md)\_\_
+[_Installation using Ansible playbook_](installation-using-ansible-playbook.md)
 
-\_\_[_Installation with RPMs_](installation-with-rpms.md)\_\_
+[_Installation with RPMs_](installation-with-rpms.md)
 

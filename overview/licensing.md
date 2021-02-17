@@ -8,7 +8,7 @@ We offer several licensing options, which allows you to choose the best fit for 
 
 ### Per Host
 
-This license type covers the number of physical hosts under the virtualization technology. With per host licensing you can have an unlimited number of VMs or TBs. In case you have machines with more sockets than 2, then you need one host license per every two sockets. This is the most commonly chosen option, as future host growth is more predictable, and you do not need to take care of dynamically changing number of VMs or used TBs.
+This license type covers the number of physical hosts under the virtualization technology. With per-host licensing you can have an unlimited number of VMs or TBs. In case you have machines with more sockets than 2, then you need one host license per every two sockets. This is the most commonly chosen option, as future host growth is more predictable, and you do not need to take care of dynamically changing number of VMs or used TBs.
 
 ### Per VM
 

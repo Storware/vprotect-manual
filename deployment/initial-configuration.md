@@ -25,13 +25,13 @@
 
 ### Welcome page - nodes
 
-* At the welcome page you should see vProtect nodes summary. You need at least one fully running node to continue. If you meet this requirement, please click on next button.
+* On the welcome page, you should see vProtect nodes summary. You need at least one fully running node to continue. If you meet this requirement, please click on the next button.
 
 ![](../.gitbook/assets/initial-configuration-wizard.jpg)
 
 ### Add hypervisor
 
-* In the Hypervisor section you will start by selecting hypervisor manager or hypervisor that you want to add. You can repeat this step if you have many types of virtualization providers.
+* In the Hypervisor section, you will start by selecting a hypervisor manager or hypervisor that you want to add. You can repeat this step if you have many types of virtualization providers.
 
 ![](../.gitbook/assets/initial-configuration-wizard-hypervisor.jpg)
 
@@ -57,7 +57,7 @@ Select a backup strategy for your hypervisor
 
 ### Add backup destination
 
-* In the next section you can add a backup destination. In this case you can also repeat the whole process, so you can add multiple providers by the wizard.
+* In the next section, you can add a backup destination. In this case, you can also repeat the whole process, so you can add multiple providers by the wizard.
 * Choose a backup destination \(we use filesystem as an example\)
 
 ![](../.gitbook/assets/initial-configuration-wizard-backup-destination.jpg)

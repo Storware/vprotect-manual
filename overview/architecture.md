@@ -2,13 +2,13 @@
 
 ## High-level Architecture
 
-Use vProtect to back up data from your virtualization platforms. You can back up data to and recover data from local filesystem or a NFS/CIFS share, object storage \(cloud providers\) or enterprise backup providers like Dell EMC, IBM, Veritas.
+Use vProtect to back up data from your virtualization platforms. You can back up data to and recover data from local filesystem or an NFS/CIFS share, object storage \(cloud providers\) or enterprise backup providers like Dell EMC, IBM, Veritas.
 
-![](../.gitbook/assets/vprotect-architecture%20%281%29.png)
+![](../.gitbook/assets/vprotect_architecture_4_1_january_2021.png)
 
 ## Detailed Architecture
 
-![](../.gitbook/assets/vprotect-detailed-architecture%20%281%29.png)
+![](../.gitbook/assets/vprotect_4_1_detailed_architecture.png)
 
 vProtect consists of 2 main components:
 
@@ -52,6 +52,12 @@ For detailed deployment scenarios refer to the following sections:
 
 * [Deployment on AWS EC2](../deployment/protected-platforms/cloud/aws-ec2.md)
 
+### Storage Providers
+
+* [File System](../deployment/protected-platforms/storage-providers/file-system.md)
+* [Ceph RBD](../deployment/protected-platforms/storage-providers/ceph-rbd.md)
+* [Nutanix Files](../deployment/protected-platforms/storage-providers/nutanix-files.md)
+
 ## Typical workflows
 
 There are several standard workflows in vProtect and they result in a set of tasks:
@@ -60,13 +66,13 @@ There are several standard workflows in vProtect and they result in a set of tas
   * **Export** - task that creates snapshot and exports data to the staging space
   * **Store** - task that moves data to the backup destination
 * **Restore to filesystem**
-  * **Restore** - task that gets data from a backup provider and puts data in the staging space
+  * **Restore** - a task that gets data from a backup provider and puts data in the staging space
 * **Restore to virtualization platform**
-  * **Restore** - task that gets data from a backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for import task\)
+  * **Restore** - a task that gets data from a backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for import task\)
   * **Import** - task that imports data to the virtualization platform and recreates VM
 * **Restore for mount \(file-level restore\)**
-  * **Restore** - task that gets data from backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for mount task\)
+  * **Restore** - a task that gets data from a backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for mount task\)
   * **Mount** - mounts backup on the vProtect Node and either allows user to browse files or exposes backup over iSCSI, so that remote iSCSI initiator can access it\)
 * **Snapshot**
-  * **Snapshot** - task that creates a snapshot on the VM according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
+  * **Snapshot** - a task that creates a snapshot on the VM according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
 

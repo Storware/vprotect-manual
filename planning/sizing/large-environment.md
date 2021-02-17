@@ -10,7 +10,7 @@ Environments of this size are the most difficult to describe because they introd
 * Backup window: 12 hours
 * Data to back up: 25 TB+
 * staging space:  your\_largest\_VM \* backup threads - per node
-* Number of parallel backup threads: depending on number of virtual machines \(maximum 10 per node\)
+* Number of parallel backup threads: depending on the number of virtual machines \(maximum 10 per node\)
 
 ![](../../.gitbook/assets/largev2.jpg)
 

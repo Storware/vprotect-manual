@@ -1,6 +1,6 @@
 # High Availability
 
-In this scenario, we are going to set up two vProtect servers in High Availability, Active/Passive mode. This is possible with using techniques such as pacemaker, corosync and DRBD. At least basic understanding of these is highly desirable. This how to is intended for RPM based systems such as Red Hat / CentOS. If you run vProtect on different OS you may need to refer to your distribution docs.
+In this scenario, we are going to set up two vProtect servers in High Availability, Active/Passive mode. This is possible by using techniques such as pacemaker, corosync and DRBD. At least basic understanding of these is highly desirable. This how-to is intended for RPM-based systems such as Red Hat / CentOS. If you run vProtect on different OS you may need to refer to your distribution docs.
 
 Our environment is built of the following elements:
 
