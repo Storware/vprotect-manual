@@ -114,7 +114,7 @@ vProtect Node is a component that executes all tasks. It can be installed togeth
      vprotect node -r NODE_NAME ADMIN_USER http(s)://VPROTECT_SERVER:PORT/api
      ```
 
-   * If you are going to connect nodes running on remote hosts, please proceed with the steps related to the vProtect Node described in section: [Enabling HTTPS connectivity for remote nodes](https://github.com/mskajba/vprotect-manual/tree/187bb7f133424d681a0af760f77a07635a4da61e/deployment/common-tasks/enabling-https-connectivity-for-remote-nodes.md)
+   * If you are going to connect nodes running on remote hosts, please proceed with the steps related to the vProtect Node described in section: [Enabling HTTPS connectivity for remote nodes](common-tasks/enabling-https-connectivity-for-nodes.md)
    * Example for default local installation - over HTTP \(port 8080\):
 
      ```text

@@ -76,3 +76,5 @@ There are several standard workflows in vProtect and they result in a set of tas
 * **Snapshot**
   * **Snapshot** - a task that creates a snapshot on the VM according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
 
+![](../.gitbook/assets/workflows.png)
+
