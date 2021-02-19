@@ -2,12 +2,12 @@
 
 ## General
 
-In order to connect to Ceph RBD you need to provide keyring and configuration files. Ceph RBD storage provider should detect volumes and pools in the environment and allow you to assign backup policies. vProtect uses RBD-NBD approach to mount remote RBD snapshot over NBD and read data.
+In order to connect to Ceph RBD you need to provide keyring and configuration files. Ceph RBD storage provider should detect volumes and pools in the environment and allow you to assign backup policies. vProtect uses the RBD-NBD approach to mount remote RBD snapshot over NBD and read data.
 
 **Note:**
 
 * vProtect needs access to the monitors specified in the Ceph configuration file.
-* When creating Ceph RBD storage provider for OpenStack environment only the credentials specified in the storage provider form are used by OpenStack backup process - actual technique \(RBD-NBD mount or cinder in disk-attachment strategy\) and **node** to connect and backup volumes depends on the OpenStack hypervisor manager settings, not in the storage provider's
+* When creating Ceph RBD storage provider for OpenStack environment only the credentials specified in the storage provider form are used by the OpenStack backup process - actual technique \(RBD-NBD mount or cinder in disk-attachment strategy\) and **node** to connect and backup volumes depends on the OpenStack hypervisor manager settings, not in the storage provider's
 
 ## Example
 

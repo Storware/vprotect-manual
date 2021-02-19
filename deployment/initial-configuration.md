@@ -10,12 +10,12 @@
 ## Server
 
 1. Upload your license key:
-   * if you don't have it you can request to Storware team.
+   * if you don't have one, you can contact the Storware team.
    * log in to the web UI and go to the `Settings -> License` and upload your `license.key` file.
-2. It is **highly recommended** to setup vProtect DB backup - the database is key to restore your vProtect environment and later all of the backups that you need.
+2. It is **highly recommended** to setup a vProtect DB backup - the database is key to restore your vProtect environment and later all of the backups that you need.
 3. Admin account setup:
    * for audit purposes, it is recommended to add individual admin accounts using `Users` section \(accessible through `Users` menu item\).
-   * **Note:** make sure to set the correct **time zone** for each user - default admin account has **UTC** by default.
+   * **Note:** make sure to set the correct **time zone** for each user - the default admin account has **UTC** by default.
 
 ## Configuration Wizard
 
@@ -25,7 +25,7 @@
 
 ### Welcome page - nodes
 
-* On the welcome page, you should see vProtect nodes summary. You need at least one fully running node to continue. If you meet this requirement, please click on the next button.
+* On the welcome page, you should see the vProtect nodes summary. You need at least one fully running node to continue. If you meet this requirement, please click on the next button.
 
 ![](../.gitbook/assets/initial-configuration-wizard.jpg)
 
@@ -66,7 +66,7 @@ Select a backup strategy for your hypervisor
 
 ![](../.gitbook/assets/initial-configuration-wizard-backup-destination-example.jpg)
 
-* You can now customize retention. Each backup destination has its own retention settings. Whichever condition is met first \(either number of versions has been reached or backup is older than given limit\), it is removed from the backup destination.
+* You can now customize retention. Each backup destination has its own retention settings. Whichever condition is met first \(either number of versions has been reached or the backup is older than the given limit\), it is removed from the backup destination.
 
 ![](../.gitbook/assets/initial-configuration-wizard-backup-destination-example2.jpg)
 

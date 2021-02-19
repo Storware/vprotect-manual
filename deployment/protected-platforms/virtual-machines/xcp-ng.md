@@ -10,9 +10,9 @@ In this strategy, VM is exported as a single XVA bundle containing all of the da
 
 ### Changed-Block Tracking
 
-In this strategy, VM is exported using XenServer API \(full backup\) and Network Block Device service \(NBD, incremental backups\) on the XenServer hosts. CBT feature in Citrix XenServer 7.3+ may require an additional license. Result backup has separate files for each disk + metadata, so you have the option to exclude specific drives as well.
+In this strategy, VM is exported using API \(full backup\) and Network Block Device service \(NBD, incremental backups\) on the hypervisor hosts. The CBT feature in Citrix XenServer 7.3+ may require an additional license \(for XCP-NG, CBT should be free\). Result backup has separate files for each disk + metadata, so you have the option to exclude specific drives as well.
 
-**Note:** For full backups only you can still use this strategy without CBT enabled on the hypervisor.
+**Note:** For full backups only, you can still use this strategy without CBT enabled on the hypervisor.
 
 ![](../../../.gitbook/assets/deployment-vprotect-xcp-ng-cbt.png)
 
@@ -22,13 +22,13 @@ Citrix Hypervisor/XCP-ng introduced CBT mechanism in XenServer 7.3. In order to 
 
 1. Citrix Hypervisor 7.3 \(XCP-ng 7.4\) or above must be used - note that CBT is a licensed feature
 2. NBD server must be enabled on the hypervisor
-3. NBD client and NBD module must be installed on vProtect Node
+3. NBD client and NBD module must be installed on vProtect Node \(vprotect should take care of this automatically during installation\)  
 
 ### Notes on restore
 
-1. When image-based backups \(XVA\) are used - vProtect restores VMs as templates and renames them appropriately after restore
+1. When image-based backups \(XVA\) are used - vProtect restores VMs as templates and renames them appropriately after the restore
 2. When separate disk backups are used:
-   * if there is already a VM in the infrastructure with UUID of the VM being restored \(check `present` flag in VM list\) - vProtect restores as a new VM \(MAC addresses will be generated\)
+   * if there is already a VM in the infrastructure with the UUID of the VM being restored \(check `present` flag in VM list\) - vProtect restores as a new VM \(MAC addresses will be generated\)
    * otherwise vProtect attempts to restore the original configuration including MAC addresses
 
 ### NBD Server setup \(on XenServer\)
@@ -59,6 +59,8 @@ Citrix Hypervisor/XCP-ng introduced CBT mechanism in XenServer 7.3. In order to 
 
 ### NBD Client setup \(on vProtect Node\)
 
+**Note:** _This part is done by vProtect automatically during installation. The article may be helpful in case of problems with the NBD module._
+
 vProtect comes with pre-build RPM and modules for CentOS 7 distribution.
 
 1. Go to the NBD directory:
@@ -73,7 +75,7 @@ vProtect comes with pre-build RPM and modules for CentOS 7 distribution.
    yum -y install nbd-3.16.1-1.el7.centos.x86_64.rpm
    ```
 
-3. If your Linux does not have NBD module installed you may try to build one for you \(there is a script for Red Hat based distributions which downloads kernel, enables NBD module and builds it\) or using the already provided module:
+3. If your Linux does not have an NBD module installed, you may try to build one for you \(there is a script for Red-Hat based distributions that downloads kernel, enables NBD module and builds it\) or using the already provided module:
    * you can compile the module by running:
 
      ```text
