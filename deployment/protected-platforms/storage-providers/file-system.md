@@ -1,5 +1,7 @@
 # File system
 
+## General
+
 vProtect is able to protect file systems mounted on its nodes. Both full and incremental backups are supported.
 
 **Note:**

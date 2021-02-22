@@ -2,7 +2,7 @@
 
 ## General
 
-In order to connect to Ceph RBD you need to provide keyring and configuration files. Ceph RBD storage provider should detect volumes and pools in the environment and allow you to assign backup policies. vProtect uses the RBD-NBD approach to mount remote RBD snapshot over NBD and read data.
+In order to connect to Ceph RBD, you need to provide keyring and configuration files. Ceph RBD storage provider should detect volumes and pools in the environment and allow you to assign backup policies. vProtect uses the RBD-NBD approach to mount remote RBD snapshot over NBD and read data.
 
 **Note:**
 
