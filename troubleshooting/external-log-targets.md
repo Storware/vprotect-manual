@@ -90,7 +90,7 @@ Example of log4j2-server.xml after modifications:
         </Socket>
     </Appenders>
     <Loggers>
-	<Root level="DEBUG">
+    <Root level="DEBUG">
             <AppenderRef ref="RollingFile" />
             <AppenderRef ref="Syslog" />
         </Root>
@@ -98,7 +98,7 @@ Example of log4j2-server.xml after modifications:
 </Configuration>
 ```
 
-7. To use Syslog's with vProtect Node add in `log4j2-node.xml` file:
+1. To use Syslog's with vProtect Node add in `log4j2-node.xml` file:
    * in `Appenders` section add Syslog appender:
 
      ```text
@@ -113,7 +113,7 @@ Example of log4j2-server.xml after modifications:
      ```text
      <AppenderRef ref="Syslog"/>
      ```
-8. Restart vProtect Node service:
+2. Restart vProtect Node service:
 
    ```text
    systemctl restart vprotect-node
@@ -207,3 +207,4 @@ Example of log4j2-node.xml after modifications:
 ```
 
 **Notice**: If you want to use Syslogs in both vProtect Server and Node you need to use two different udp ports and specify them in `/etc/rsyslog.conf`
+

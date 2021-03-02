@@ -4,7 +4,7 @@
 
 To restore a single virtual machine on-demand, go to the instances tab under the Virtual Environment section. Click on the restore icon next to the virtual machine ![](../../../.gitbook/assets/icon-restore%20%281%29.jpg)
 
-![](../../../.gitbook/assets/instances%20%282%29%20%282%29.jpg)
+![](../../../.gitbook/assets/instances%20%282%29%20%282%29%20%281%29.jpg)
 
 Now you should see a popup window where you might customize restore settings.
 

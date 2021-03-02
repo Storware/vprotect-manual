@@ -1,8 +1,8 @@
 # Applications
 
-vProtect allows a reporting feature to get information about historical activities. You can reach them from the main dashboard under the section "Activity" through ![](../../.gitbook/assets/reporting%20%282%29.jpg) button.
+vProtect allows a reporting feature to get information about historical activities. You can reach them from the main dashboard under the section "Activity" through ![](../../.gitbook/assets/reporting%20%282%29%20%281%29.jpg) button.
 
-![](../../.gitbook/assets/reporting-dashboard%20%281%29.jpg)
+![](../../.gitbook/assets/reporting-dashboard%20%281%29%20%281%29.jpg)
 
 Or by left side menu - Reporting -&gt; Applications
 

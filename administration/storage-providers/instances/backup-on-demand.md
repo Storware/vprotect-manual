@@ -8,7 +8,7 @@ You can click on ![](../../../.gitbook/assets/icon-backup.jpg) icon to backup a 
 
 ![](../../../.gitbook/assets/storage-providers-instances%20%281%29.jpg)
 
-Or select multiple instances and click on  icon to backup them.
+Or select multiple instances and click on icon to backup them.
 
 ![](../../../.gitbook/assets/storage-providers-general.jpg)
 

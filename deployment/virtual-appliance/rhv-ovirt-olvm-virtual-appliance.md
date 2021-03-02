@@ -30,15 +30,29 @@ Copy pack to your export domain:
    cp -rf temp/vProtect-RHV/* 6abe3ee7-b174-4cc3-953a-af89c6e8b82c/
 ```
 
-Log in to RHV/oVirt, go to "Storage", and export domain, tab VM Import. Select vProtect image and import it.
+Log in to RHV/oVirt, go to "Compute", and "Virtual Machines" - Click the three dots icon on the right, then select import.
 
-![](../../.gitbook/assets/virtual-appliance-ovirt-rhv-olvm-01%20%281%29.png)
+![](../../.gitbook/assets/1.png)
 
-Choose Cluster, and deploy it.
+Now you see Import wizard. Select the source of import - "Virtual appliance \(OVA\)".
 
-![](../../.gitbook/assets/virtual-appliance-ovirt-rhv-olvm-02%20%281%29.png)
+![](../../.gitbook/assets/2.png)
 
-After import image to environment set IP address, run nmtui &gt; "Edit a connection". Select network interface, and edit it network settings.
+Enter a path where you place OVA files and click on the load button.
+
+![](../../.gitbook/assets/3.png)
+
+Now select Virtual Machine to import.
+
+![](../../.gitbook/assets/4.png)
+
+The last window with a summary of the virtual machine to be imported
+
+![](../../.gitbook/assets/6.png)
+
+After the image is imported into the environment, select network interface.
+
+Then connect to VM \(console or ssh\), run nmtui &gt; "Edit a connection" and check network adapter settings.
 
 You can find login credentials [here](./).
 

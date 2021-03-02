@@ -46,7 +46,7 @@ License details:
 
 ## Authentication
 
-This section enables you to setup LDAP authentication for administrative accounts in vProtect:
+This section enables you to set up LDAP authentication for administrative accounts in vProtect:
 
 ![](../.gitbook/assets/settings-authentication%20%281%29.jpg)
 
@@ -57,11 +57,16 @@ This section enables you to setup LDAP authentication for administrative account
 * `Enable LDAP subtree search` - when disabled, only 1 level below base DN is being searched
 * `Use SSL` - enables SSL for LDAP connection
 * `Use TLS` - enables TLS for LDAP connection
-* `Anonymous access allowed` - if users are not allowed to anonymously browse the LDAP directory you need to provide an account which has that privilege:
+* `Anonymous access allowed` - if users are not allowed to anonymously browse the LDAP directory you need to provide an account that has that privilege:
 * `Service account DN` - DN of the user
 * `Service account password` - password of that user 
 
-**Note: user groups and role assignment based on LDAP is expected to be available in June**
+**Note:  
+- user groups and role assignment based on LDAP is expected to be available in June  
+- By default vProtect checks SSL for LDAP hosts. If you want to disable it, please uncomment the following line in payara.properties file and change "true" to "false":  
+\(**_**after the changes, restart the vProtect server process**_**\)**
+
+![](../.gitbook/assets/settings-authentication.jpg)
 
 ## Storware Insight
 

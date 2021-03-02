@@ -11,7 +11,7 @@
    dnf -y update
    ```
 
-   If kernel is updated, then You need to reboot your operating system.
+   If the kernel is updated, then You need to reboot your operating system.
 
 3. Install vProtect repository
 
@@ -58,6 +58,7 @@ vProtect consists of a server \(central management point with WebUI\) and one or
 2. Setup DB for vProtect:
 
    * Please provide a MariaDB password
+   * Please remember to not re-run this command on running/production vProtect instance. This can cause problems with the vProtect database.
 
    ```text
    vprotect-server-configure
@@ -69,7 +70,7 @@ vProtect consists of a server \(central management point with WebUI\) and one or
    systemctl start vprotect-server
    ```
 
-4. You may need to open 8181 port \(for HTTPS, HTTP requires port 8080\) on your firewall. Here is an example:
+4. You may need to open the 8181 port \(for HTTPS, HTTP requires port 8080\) on your firewall. Here is an example:
 
    ```text
    firewall-cmd --add-port=8181/tcp --permanent
@@ -86,7 +87,7 @@ vProtect consists of a server \(central management point with WebUI\) and one or
    ```
 
 5. Now you should be able to log into the web console using URL: `https://VPROTECT_HOST:8181`, where `VPROTECT_HOST` is hostname or IP of your vProtect Server
-   * by default vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\)
+   * by default, vProtect has one admin account - `admin` with password `vPr0tect` \(with zero\)
 6. Optionally, if you are going to connect nodes by https, proceed with the steps related to the vProtect Server described in section: [Enabling HTTPS connectivity for nodes](common-tasks/enabling-https-connectivity-for-nodes.md)
 
 ## vProtect Node installation
@@ -100,7 +101,7 @@ vProtect Node is a component that executes all tasks. It can be installed togeth
    ```
 
 2. Prepare your staging space \(on vProtect Node host only\):
-   * Please follow the steps described in [Staging space configuration](common-tasks/staging-space-configuration.md)
+   * Please follow the steps described in the [Staging space configuration](common-tasks/staging-space-configuration.md)
    * **if your path is different than** `/vprotect_data` \_\*\*\_it is recommended to create a symlink `/vprotect_data` pointing to your mount point of the staging space, e.g.:
 
      ```text
@@ -114,7 +115,7 @@ vProtect Node is a component that executes all tasks. It can be installed togeth
      vprotect node -r NODE_NAME ADMIN_USER http(s)://VPROTECT_SERVER:PORT/api
      ```
 
-   * If you are going to connect nodes running on remote hosts, please proceed with the steps related to the vProtect Node described in section: [Enabling HTTPS connectivity for remote nodes](https://github.com/mskajba/vprotect-manual/tree/187bb7f133424d681a0af760f77a07635a4da61e/deployment/common-tasks/enabling-https-connectivity-for-remote-nodes.md)
+   * If you are going to connect nodes running on remote hosts, please proceed with the steps related to the vProtect Node described in section: [Enabling HTTPS connectivity for remote nodes](common-tasks/enabling-https-connectivity-for-nodes.md)
    * Example for default local installation - over HTTP \(port 8080\):
 
      ```text

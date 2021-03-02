@@ -21,15 +21,33 @@ MariaDB 10.4
 
 ## Hardware Requirements
 
-Minimal requirements:
+#### Minimum requirements for all-in-one installation \(vProtect server and node on the same machine\):
+
+**CPU:** 4 cores
+
+**RAM:** 8 GB
+
+**HDD1:** 20 GB for OS, and vProtect installation
+
+**HDD2:** `X` GB for staging, where **`X`** = `size_of_biggest_VM` \* `number_of_parallel_backups` - optionally can be skipped, when staging space is configured to be directly on external backup destination \(eg. NFS-shared file system\)
+
+#### Minimum requirements for installation in the separated model - vProtect Server:
 
 **CPU:** 2 cores
 
-**RAM:** 6GB
+**RAM:** 6 GB
 
-**HDD:** 20GB for OS, and vProtect installation
+**HDD1:** 20 GB for OS, and vProtect installation
 
-**HDD:** `X` GB for staging, where **`X`** = `size_of_biggest_VM` \* `number_of_parallel_backups` - optionally can be skipped, when staging space is configured to be directly on external backup destination \(eg. NFS-shared file system\)
+#### Minimum requirements for installation in the separated model - vProtect Node:
+
+**CPU:** 2 cores
+
+**RAM:** 4 GB
+
+**HDD1:** 20 GB for OS, and vProtect installation
+
+**HDD2:** `X` GB for staging, where **`X`** = `size_of_biggest_VM` \* `number_of_parallel_backups` - optionally can be skipped, when staging space is configured to be directly on external backup destination \(eg. NFS-shared file system\)
 
 ## Network Requirements
 
@@ -235,5 +253,5 @@ Sudo privileges are required for the following commands:
 
 ## SELinux
 
-PERMISSIVE - currently it interferes with mountable backups \(file-level restore\) mechanism. Optionally can be changed to ENFORCING if file-level restore is not required.
+PERMISSIVE - currently it interferes with the mountable backups \(file-level restore\) mechanism. Optionally can be changed to ENFORCING if file-level restore is not required.
 
