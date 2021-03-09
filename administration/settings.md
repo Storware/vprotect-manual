@@ -61,10 +61,12 @@ This section enables you to set up LDAP authentication for administrative accoun
 * `Service account DN` - DN of the user
 * `Service account password` - password of that user 
 
-**Note:  
-- user groups and role assignment based on LDAP is expected to be available in June  
-- By default vProtect checks SSL for LDAP hosts. If you want to disable it, please uncomment the following line in payara.properties file and change "true" to "false":  
-\(**_**after the changes, restart the vProtect server process**_**\)**
+\*\*Note:
+
+* user groups and role assignment based on LDAP is expected to be available in June  
+* By default vProtect checks SSL for LDAP hosts. If you want to disable it, please uncomment the following line in payara.properties file and change "true" to "false":  
+
+  \(**\_**after the changes, restart the vProtect server process**\_**\)\*\*
 
 ![](../.gitbook/assets/settings-authentication.jpg)
 

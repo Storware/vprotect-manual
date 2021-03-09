@@ -23,7 +23,7 @@ Proxmox virtual environments require backup storage to be defined on each server
 
 1. Create storage from NFS share \(Content-type: **only VZDump**\)
 
-![](../../../.gitbook/assets/deployment-vprotect-proxmox-ve-storage-configuration%20%282%29.png)
+![](../../../.gitbook/assets/deployment-vprotect-proxmox-ve-storage-configuration%20%282%29%20%282%29.png)
 
 * Export share must be set to use UID and GID of `vprotect` user
 * Example export configuration in `/etc/exports` to the selected hypervisor in cluster:
@@ -44,7 +44,7 @@ Proxmox virtual environments require backup storage to be defined on each server
   * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by Proxmox VE.
 * Name for storage must be later provided in node configuration \(`Hypervisor -> Proxmox` section\)
 
-![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29.jpg)
+![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29%20%283%29.jpg)
 
 ## File-level restore support for VMA images
 

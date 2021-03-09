@@ -39,7 +39,7 @@ The access key and secret key will be needed to create a backup destination on v
 
 Now we can go to the vProtect Dashboard. Open "Backup Destination" tab from the left side menu and choose "Amazon S3 / S3-compatible" as a new type of backup destination
 
-![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%282%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29.jpg)
 
 By default, Ceph provides S3 under port 8000. Also remember to enable the "record backup time after store" option
 

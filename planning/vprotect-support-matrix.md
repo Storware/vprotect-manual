@@ -50,7 +50,7 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ✅ |
 | Quiesced snapshot | ❌ \(hypervisor-dependent\) |
-| Pre/post snasphot command execution | ✅ |
+| Pre/post snapshot command execution | ✅ |
 | Backup disks sharable over iSCSI | ✅ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ |
@@ -74,7 +74,7 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ✅ |
 | Quiesced snapshot | ❌ \(hypervisor-dependent\) |
-| Pre/post snasphot command execution | ✅ |
+| Pre/post snapshot command execution | ✅ |
 | Backup disks sharable over iSCSI | ✅ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ❌ |
@@ -98,7 +98,7 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ✅ |
 | Quiesced snapshot | ✅ |
-| Pre/post snasphot command execution | ✅ |
+| Pre/post snapshot command execution | ✅ |
 | Backup disks sharable over iSCSI | ✅ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ \(when using Prism Central\) |
@@ -123,8 +123,8 @@
       <td style="text-align:left">Minimum version</td>
       <td style="text-align:left">3.5.1+</td>
       <td style="text-align:left">4.0+</td>
-      <td style="text-align:left">4.2+</td>
-      <td style="text-align:left">4.2+</td>
+      <td style="text-align:left">4.3+</td>
+      <td style="text-align:left">4.3+</td>
       <td style="text-align:left">4.4+</td>
     </tr>
     <tr>
@@ -163,14 +163,14 @@
       <td style="text-align:left">Key caveats</td>
       <td style="text-align:left">
         <p>using old API v3</p>
-        <p>addittional snapshot-cloning required</p>
+        <p>additional snapshot-cloning required</p>
       </td>
       <td style="text-align:left">
         <p>full backup only</p>
         <p>disk attachment process may be slow</p>
       </td>
       <td style="text-align:left">data transfer via Manager</td>
-      <td style="text-align:left">access to he hypervisor needed</td>
+      <td style="text-align:left">access to the hypervisor needed</td>
       <td style="text-align:left">using technical preview APIs</td>
     </tr>
   </tbody>
@@ -183,7 +183,7 @@
 | VM disk exclusion | ❌ | ✅ | ✅ | ✅ | ✅ |
 | Snapshot management | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Quiesced snapshot | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Pre/post snasphot command execution | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ✅ | ✅ | ✅ \(RAW-only\) | ✅ \(RAW-only\) | ✅ |
 | Name-based policy assignment | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Tag-based policy assignment | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -208,8 +208,8 @@
       <td style="text-align:left">Minimum version</td>
       <td style="text-align:left">3.5.1+</td>
       <td style="text-align:left">4.0+</td>
-      <td style="text-align:left">4.2+</td>
-      <td style="text-align:left">4.2+</td>
+      <td style="text-align:left">4.3+</td>
+      <td style="text-align:left">4.3+</td>
       <td style="text-align:left">4.4+</td>
     </tr>
     <tr>
@@ -248,14 +248,14 @@
       <td style="text-align:left">Key Caveats</td>
       <td style="text-align:left">
         <p>using old API v3</p>
-        <p>addittional snapshot-cloning required</p>
+        <p>additional snapshot-cloning required</p>
       </td>
       <td style="text-align:left">
         <p>full backup only</p>
         <p>disk attachment process may be slow</p>
       </td>
       <td style="text-align:left">data transfer via Manager</td>
-      <td style="text-align:left">access to he hypervisor needed</td>
+      <td style="text-align:left">access to the hypervisor needed</td>
       <td style="text-align:left">using technical preview APIs</td>
     </tr>
   </tbody>
@@ -268,7 +268,7 @@
 | VM disk exclusion | ❌ | ✅ | ✅ | ✅ | ✅ |
 | Snapshot management | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Quiesced snapshot | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Pre/post snasphot command execution | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ✅ | ✅ | ✅ \(RAW-only\) | ✅ \(RAW-only\) | ✅ |
 | Name-based policy assignment | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Tag-based policy assignment | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -336,7 +336,7 @@
 | VM disk exclusion | ✅ | ✅ | ✅ |
 | Snapshot management | ✅ | ✅ | ✅ |
 | Quiesced snapshot | ✅ | ✅ | ✅ |
-| Pre/post snasphot command execution | ✅ | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ✅ | ✅ \(RAW-only\) | ✅ \(RAW-only\) |
 | Name-based policy assignment | ✅ | ✅ | ✅ |
 | Tag-based policy assignment | ✅ | ✅ | ✅ |
@@ -397,7 +397,7 @@
 | VM disk exclusion | ✅ | ✅ |
 | Snapshot management | ✅ | ✅ |
 | Quiesced snapshot | ✅ | ✅ |
-| Pre/post snasphot command execution | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ❌ | ✅ |
 | Name-based policy assignment | ✅ | ✅ |
 | Tag-based policy assignment | ❌ | ❌ |
@@ -408,7 +408,7 @@
 
 |  | SSH Transfer |
 | :--- | :--- |
-| Minimum version | QEMU 2.1+ \(qcow2-based VMs need libvirt with blockcommit feature\), libvirt |
+| Minimum version | QEMU 2.1+ \(qcow2-based VMs need libvirt with block commit feature\), libvirt |
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | yes |
 | Hypervisor OS access needed | yes |
@@ -422,7 +422,7 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
 | Quiesced snapshot | ❌ \(hypervisor-dependent\) |
-| Pre/post snasphot command execution | ✅ |
+| Pre/post snapshot command execution | ✅ |
 | Backup disks sharable over iSCSI | ✅ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ❌ |
@@ -447,7 +447,7 @@
 | VM disk exclusion | ✅ | ✅ |
 | Snapshot management | ❌ | ❌ |
 | Quiesced snapshot | ❌ \(hypervisor-dependent\) | ❌ \(hypervisor-dependent\) |
-| Pre/post snasphot command execution | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ✅ | ✅ \(RAW file/LVM only\) |
 | Name-based policy assignment | ✅ | ✅ |
 | Tag-based policy assignment | ❌ | ❌ |
@@ -471,7 +471,7 @@
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
 | Quiesced snapshot | ❌ |
-| Pre/post snasphot command execution | ❌ |
+| Pre/post snapshot command execution | ❌ |
 | Backup disks sharable over iSCSI | ✅ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ❌ |
@@ -496,7 +496,7 @@
 | VM disk exclusion | ❌ | ✅ |
 | Snapshot management | ✅ | ✅ |
 | Quiesced snapshot | ✅ | ✅ |
-| Pre/post snasphot command execution | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ❌ | ✅ |
 | Name-based policy assignment | ✅ | ✅ |
 | Tag-based policy assignment | ✅ | ✅ |
@@ -521,7 +521,7 @@
 | VM disk exclusion | ❌ | ✅ |
 | Snapshot management | ✅ | ✅ |
 | Quiesced snapshot | ✅ | ✅ |
-| Pre/post snasphot command execution | ✅ | ✅ |
+| Pre/post snapshot command execution | ✅ | ✅ |
 | Backup disks sharable over iSCSI | ❌ | ✅ |
 | Name-based policy assignment | ✅ | ✅ |
 | Tag-based policy assignment | ✅ | ✅ |
@@ -632,7 +632,7 @@
 ## Conditions / Exclusion
 
 **File-level-restore**:  
-_When backing up CentOS 8 with a disk with the GPT partition scheme, you can use file-level restore only on vProtect node, which also runs on CentOS 8 operating system._
+_When backing up CentOS 8 with a disk with the GPT partition scheme, you can use file-level restore only on the vProtect node, which also runs on CentOS 8 operating system._
 
 **VMware vSphere/ESXi backup:**  
 _We can only back up VMware products from a vProtect node that runs on CentOS 7._

@@ -6,7 +6,7 @@ Go to the Recovery Plans from the left menu under the Virtual Environments secti
 
 ![](../../../.gitbook/assets/virtual-environments-recovery-plans-policies.jpg)
 
-After clicking on ![](../../../.gitbook/assets/create-policy.jpg) provide the name of the policy and set priority. After saving you will be able to add rules using the new button on the right.
+After clicking on ![](../../../.gitbook/assets/create-policy%20%281%29.jpg) provide the name of the policy and set priority. After saving you will be able to add rules using the new button on the right.
 
 ![](../../../.gitbook/assets/virtual-environments-recovery-plans-policies-create.jpg)
 
