@@ -9,21 +9,32 @@ vProtect supports backup for OpenStack:
 * Disk attachment through Cinder:
   * supports all hypervisors and storages
   * no incremental backup
-  * proxy VM is required - used for the disk attachment process.
+  * proxy VM is required - used for disk attachment process.
 
 ## Backup Strategies
 
 ### Libvirt strategy
 
-vProtect supports OpenStack environments that use KVM hypervisors and VMs running on QCOW2 or RAW files. vProtect communicates with OpenStack APIs such as Nova and Glance to collect metadata and for import of the restored process. However, actual backup is done over SSH directly from the hypervisor. Process is exactly the same as in [Deployment in KVM/Xen environment](kvm-xen.md). vProtect Node can be installed anywhere - it just needs to reach OpenStack APIs and hypervisors SSH via network. Both full and incremental backups are supported.
+vProtect supports OpenStack environments that use KVM hypervisors and VMs running on QCOW2 or RAW files. vProtect communicates with OpenStack APIs such as Nova and Glance to collect metadata and for import of the restored process. However, the actual backup is done over SSH directly from the hypervisor. Process is exactly the same as in [Deployment in KVM/Xen environment](kvm-xen.md). vProtect Node can be installed anywhere - it just needs to reach OpenStack APIs and hypervisors SSH via network. Both full and incremental backups are supported.
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-libvirt.png)
 
-### OpenStack with Ceph RBD storage backend
+### Disk attachment
 
-vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD-NBD \(**note:** if NBD is not available, you need to use disk attachment method\) for both full and incremental backups.
+vProtect supports also disk-attachment method using cinder. This should allow you to use cinder-compatible storage and still allow vProtect to create backups. Currently only full backup is supported. vProtect needs to communicate OpenStack service's API to attach drives to the proxy VM with the vProtect Node installed.
+
+![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment.png)
+
+### Ceph RBD storage backend
+
+vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD export/RBD-NBD when used with Libvirt strategy or - when used with Disk-attachment method - only during incremental backups (snapshot difference).
+
+#### Libvirt straegy
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-ceph.png)
+
+#### Disk attachment strategy
+![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment-ceph.png)
 
 vProtect supports OpenStack with Ceph RBD volumes. Here is an example of a typical \(expected\) section that needs to be added in `cinder.conf` for Ceph in the OpenStack environment:
 
@@ -42,9 +53,9 @@ rbd_user = volumes
 rbd_secret_uuid = ce6d1549-4d63-476b-afb6-88f0b196414f
 ```
 
-A good article how to setup Ceph with OpenStack you can find [here](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/).
+A good article on how to set up Ceph with OpenStack you can find [here](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/).
 
-vProtect Node supports Ceph RBD and for that you will need to install ceph libraries:
+vProtect Node supports Ceph RBD and for that, you will need to install ceph libraries:
 
 1. On **vProtect Node** enable required repositories:
 
@@ -62,21 +73,21 @@ vProtect Node supports Ceph RBD and for that you will need to install ceph libra
 
 1.3 For vProtect node installed on CentOS7:
 
-```text
-   sudo yum install epel-release
-   sudo rpm --import 'https://download.ceph.com/keys/release.asc'
-   sudo yum install https://download.ceph.com/rpm-octopus/el7/noarch/ceph-release-1-1.el7.noarch.rpm
-```
+{% hint style="info" %}
+sudo yum install epel-release  
+sudo rpm --import '[https://download.ceph.com/keys/release.asc](https://download.ceph.com/keys/release.asc)'  
+sudo yum install [https://download.ceph.com/rpm-octopus/el7/noarch/ceph-release-1-1.el7.noarch.rpm](https://download.ceph.com/rpm-octopus/el7/noarch/ceph-release-1-1.el7.noarch.rpm)
+{% endhint %}
 
 1.4 For vProtect node installed on CentOS8:
 
-```text
-   sudo yum install epel-release
-   sudo rpm --import 'https://download.ceph.com/keys/release.asc'
-   sudo yum install https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm
-```
+{% hint style="info" %}
+sudo yum install epel-release  
+sudo rpm --import '[https://download.ceph.com/keys/release.asc](https://download.ceph.com/keys/release.asc)'  
+sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm](https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm)
+{% endhint %}
 
-1. Install rbd-nbd and ceph-common package, with all dependencies:
+1. Install `rbd-nbd` and `ceph-common` package, with all dependencies:
 
    ```text
    yum install rbd-nbd ceph-common
@@ -115,16 +126,6 @@ vProtect Node supports Ceph RBD and for that you will need to install ceph libra
 
 * Now you can save and sync inventory - if Ceph communication works properly you should be able to see Hypervisor Storage entries \(in Hypervisors -&gt; Storage tab\) representing your Ceph storage pools.
 
-### Disk attachment using Cinder
-
-vProtect supports also disk-attachment method using cinder. This should allow you to use cinder-compatible storage and still allow vProtect to create backups. Currently, only full backup is supported. vProtect needs to communicate OpenStack service's API to attach drives to the proxy VM with the vProtect Node installed.
-
-![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment.png)
-
-### Disk attachment
-
-This backup mode requires the vProtect Node to be installed in one of the VMs residing on your OpenStack installation. vProtect should detect automatically the VM with vProtect during index operation.
-
 ## QCOW2 files on NFS storage
 
 **Example:** scenario QCOW2 files residing on NFS
@@ -159,5 +160,6 @@ When you index the hypervisor manager, **make sure to provide correct SSH creden
 
 ## Limitations
 
-vProtect does not backup and restore keypairs that were created by other OpenStack user than the one used in vProtect. Restored instance will have no keypairs assigned. In such case, the keypairs have to be backed up and restored manually under the same name before restoring the instance.
-
+* vProtect does not backup and restore keypairs that were created by other OpenStack users than the one used in vProtect. Restored instance will have no keypairs assigned. In such a case, the keypairs have to be backed up and restored manually under the same name before restoring the instance.
+* For libvirt strategy only QCOW2/RAW files or Ceph RBD are supported as the backend
+* Disk attachment method with Ceph requires access to the monitors from the Proxy VM.
