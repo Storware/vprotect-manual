@@ -28,7 +28,7 @@
 | IBM Spectrum Protect | 7.1.5+ | ❌ | ✅ | Provider dependent | ✅ |
 | Veritas Netbackup | 7.5+ | ❌ | ✅ | Provider dependent | ✅ |
 
-## Backup strategies - features and requirements
+## Virtualization Platforms - features and requirements
 
 ## Virtual Machines
 
@@ -528,11 +528,11 @@
 | Available space for snapshot check | ✅ | ✅ |
 | Power-on VM after restore | ✅ | ✅ |
 
-## Containers
+## Containers - features and requirements
 
 ### Kubernetes
 
-|  | Name? |
+|  | Helper pod/Ceph RBD |
 | :--- | :--- |
 | Minimum version | 1.10+ |
 | Status | In operation \(**preferred**\) |
@@ -540,15 +540,15 @@
 | Hypervisor OS access needed | no |
 | Proxy VM needed | no |
 
-| Feature | Name? |
+| Feature | Helper pod/Ceph RBD |
 | :--- | :--- |
-| Incremental backup | ✅ \(ceph RBD\) |
-| File-level restore | ❌ |
+| Incremental backup | ✅ \(when using Ceph RBD as PV\) |
+| File-level restore | ✅ \(when using Ceph RBD as PV\)  |
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
-| Quiesced snapshot | ❌ |
-| Pre/post snapshot command execution | ❌ |
-| Backup disks sharable over iSCSI | ❌ |
+| Quiesced snapshot | ✅ \(optional deployment pause\) |
+| Pre/post snapshot command execution | ✅ \(post export) |
+| Backup disks sharable over iSCSI | ✅ \(when using Ceph RBD as PV\) |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ |
 | Available space for snapshot check | N/A |
@@ -556,23 +556,23 @@
 
 ### Red Hat OpenShift
 
-|  | Name? |
+|  | Helper pod/Ceph RBD |
 | :--- | :--- |
-| Minimum version | 3.11+ |
+| Minimum version | 4+ |
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | Yes |
 | Hypervisor OS access needed | no |
 | Proxy VM needed | no |
 
-| Feature | Name? |
+| Feature | Helper pod/Ceph RBD |
 | :--- | :--- |
-| Incremental backup | ✅ \(ceph RBD\) |
-| File-level restore | ❌ |
+| Incremental backup | ✅ \(when using Ceph RBD as PV\) |
+| File-level restore | ✅ \(when using Ceph RBD as PV\)  |
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
-| Quiesced snapshot | ❌ |
-| Pre/post snapshot command execution | ❌ |
-| Backup disks sharable over iSCSI | ❌ |
+| Quiesced snapshot | ✅ \(optional deployment pause\) |
+| Pre/post snapshot command execution | ✅ \(post export) |
+| Backup disks sharable over iSCSI | ✅ \(when using Ceph RBD as PV\) |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ |
 | Available space for snapshot check | N/A |
@@ -580,54 +580,112 @@
 
 ### Proxmox VE
 
-|  | Name? |
+|  | Export storage repository |
 | :--- | :--- |
 | Minimum version | 5+ |
 | Status | In operation \(**preferred**\) |
-| Last snapshot kept on hypervisor for inc. backups | Yes |
-| Hypervisor OS access needed | no |
+| Last snapshot kept on hypervisor for inc. backups | No |
+| Hypervisor OS access needed | yes |
 | Proxy VM needed | no |
 
-| Feature | Name? |
+| Feature | Export storage repository |
 | :--- | :--- |
-| Incremental backup | ✅ \(ceph RBD\) |
+| Incremental backup | ❌ |
 | File-level restore | ❌ |
 | VM disk exclusion | ✅ |
-| Snapshot management | ❌ |
+| Snapshot management | ✅ |
 | Quiesced snapshot | ❌ |
-| Pre/post snapshot command execution | ❌ |
+| Pre/post snapshot command execution | ✅ |
 | Backup disks sharable over iSCSI | ❌ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ❌ |
 | Available space for snapshot check | ❌ \(hypervisor-dependent\) |
 | Power-on VM after restore | ✅ |
 
-## Cloud
+## Cloud - features and requirements
 
 ### AWS EC2
 
-|  | Strategy1 | Strategy2 |
+|  | Disk attachment |
 | :--- | :--- | :--- |
-| Minimum version | 7.4+ | 7.4+ |
-| Status | In operation | In operation \(**preferred**\) |
-| Last snapshot kept on hypervisor for inc. backups | yes | yes |
-| Hypervisor OS access needed | no | no |
-| Proxy VM needed | no | no |
-| Key Caveats | file-level restore not supported |  |
+| Minimum version | N/A |
+| Status | In operation \(**preferred**\) |
+| Last snapshot kept on hypervisor for inc. backups | yes |
+| Hypervisor OS access needed | no |
+| Proxy VM needed | yes |
 
-| Feature | Strategy1 | Strategy2 |
+| Feature | Disk attachment |
 | :--- | :--- | :--- |
-| Incremental backup | ✅ | ✅ |
-| File-level restore | ❌ | ✅ |
-| VM disk exclusion | ❌ | ✅ |
-| Snapshot management | ✅ | ✅ |
-| Quiesced snapshot | ✅ | ✅ |
-| Pre/post snapshot command execution | ✅ | ✅ |
-| Backup disks sharable over iSCSI | ❌ | ✅ |
-| Name-based policy assignment | ✅ | ✅ |
-| Tag-based policy assignment | ✅ | ✅ |
-| Available space for snapshot check | ✅ | ✅ |
-| Power-on VM after restore | ✅ | ✅ |
+| Incremental backup | ❌ |
+| File-level restore | ✅ |
+| VM disk exclusion | ✅ |
+| Snapshot management | ✅ |
+| Quiesced snapshot | ❌ |
+| Pre/post snapshot command execution | ✅ |
+| Backup disks sharable over iSCSI | ✅ |
+| Name-based policy assignment | ✅ |
+| Tag-based policy assignment | ✅ |
+| Available space for snapshot check | ❌ |
+| Power-on VM after restore | ✅ |
+
+## Storage Providers - features and requirements
+
+### File system
+
+|  | Mounted file system |
+| :--- | :--- |
+| Minimum version | N/A |
+| Status | In operation \(**preferred**\) |
+| Last snapshot kept in provider for inc. backups | N/A |
+| Source type | any POSIX-compliant file system mounted on the node |
+
+| Feature | Mounted file system |
+| :--- | :--- |
+| Incremental backup | ✅ |
+| Incremental backup change source | file scan (file modification time/size) |
+| File-level restore | ✅ |
+| Snapshot management | ❌ |
+| Pre/post snapshot command execution | ✅ |
+| Backups sharable over iSCSI | ✅ |
+| Name-based policy assignment | ❌ |
+
+### Nutanix Files (AFS)
+
+|  | File shares with CFT |
+| :--- | :--- |
+| Minimum version | N/A |
+| Status | In operation \(**preferred**\) |
+| Last snapshot kept in provider for inc. backups | N/A |
+| Source type | NFS and SMB shares |
+
+| Feature | File shares with CFT |
+| :--- | :--- |
+| Incremental backup | ✅ |
+| Incremental backup change source | CFT API |
+| File-level restore | ✅ |
+| Snapshot management | ❌ |
+| Pre/post snapshot command execution | ✅ |
+| Backups sharable over iSCSI | ✅ |
+| Name-based policy assignment | ✅ |
+
+### Ceph RBD
+
+|  | RBD export/RBD-NBD |
+| :--- | :--- |
+| Minimum version | Red Hat Ceph Storage 4.0+, Ceph nautilus+ |
+| Status | In operation \(**preferred**\) |
+| Last snapshot kept in provider for inc. backups | Yes |
+| Source type | RBD volume |
+
+| Feature | Base |
+| :--- | :--- |
+| Incremental backup | ✅ |
+| Incremental backup change source | RBD snap-diff |
+| File-level restore | ✅ |
+| Snapshot management | ✅ |
+| Pre/post snapshot command execution | ✅ |
+| Backups sharable over iSCSI | ✅ |
+| Name-based policy assignment | ✅ |
 
 ## Conditions / Exclusion
 
