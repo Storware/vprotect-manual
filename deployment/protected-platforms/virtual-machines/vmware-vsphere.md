@@ -15,6 +15,7 @@ Full backup contains entire virtual machine data (and metadata) each time backup
 ### Incremental Backup
 
 Incremental backups consume less space and resources than full backups because they include only the pieces of data that have changed since the last backup. Consider following scenario, where we want to protect 3 files:
+
 ![](../../../.gitbook/assets/protected-platforms-vm-vcenter-incr_backup.png)
 
 First request for incremental backup will always result in full backup (all data is considered as new), so all three files are backed up. At some point in time **File1** changes while **File2** and **File3** remain untouched. 
@@ -44,9 +45,11 @@ Transport modes are detected and selected automatically depending on the deploym
 This is the default transport mode if you choose to deploy a **Proxy VM** (vProtect Node in a VM) inside your VMware cluster. During the backup a cloned VM is created from the backup snapshot, then these disks are hot-added to our **Proxy VM** and transferred to backup destination. This approach eliminates data transfer over LAN during backup and restore.
 
 Here is example where vProtect Server is installed anywhere in your infrastructure (accessible to the nodes) and node is installed inside a VM in VMware environment:
+
 ![](../../../.gitbook/assets/protected-platforms-vm-vcenter-deployment1.png)
 
 Server and node can also be installed together:
+
 ![](../../../.gitbook/assets/protected-platforms-vm-vcenter-deployment2.png)
 
 ### Network Block Device (NBD)
