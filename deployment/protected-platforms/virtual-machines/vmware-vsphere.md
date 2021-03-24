@@ -55,7 +55,9 @@ Server and node can also be installed together:
 ### Network Block Device (NBD)
 
 This transport mode is used when **Hot-Add** is not available for some reason (i.e. you decided to deploy Node outside of VMware environment). NBD is a Linux style kernel module which handles remote storage as a block device and passes it over TCP/IP connection.
+
 In this example vProtect Server and Node is deployed outside of VMware environment:
+
 ![](../../../.gitbook/assets/protected-platforms-vm-vcenter-deployment3.png)
 
 **Note:**
