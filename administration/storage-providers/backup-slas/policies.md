@@ -2,7 +2,7 @@
 
 Policies allow you to group storage instances in many ways. For example, based on the type of Storage Provider.
 
-To create a new backup policy, please open the Backup SLAs tab under the Storage Provider section and click on ![](../../../.gitbook/assets/create-policy%20%281%29.jpg) button on the right.
+To create a new backup policy, please open the Backup SLAs tab under the Storage Provider section and click on ![](../../../.gitbook/assets/create-policy%20%281%29%20%281%29.jpg) button on the right.
 
 ![](../../../.gitbook/assets/storage-providers-slas.jpg)
 

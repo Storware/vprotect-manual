@@ -127,8 +127,8 @@ MariaDB 10.4
 | Source | Destination | Ports | Description |
 | :--- | :--- | :--- | :--- |
 | Node | oVirt/RHV/OLVM manager | 443/tcp | oVirt/RHV/OLVM API access |
-| Node | oVirt/RHV/OLVM hypervisor | 54322/tcp, 54323/tcp | oVirt/RHV/OLVM ImageIO services - for data transfer (primary source)|
-| Node | oVirt/RHV/OLVM manager | 54322/tcp, 54323/tcp | oVirt/RHV/OLVM ImageIO services - for data transfer (fallback to ImageIO Proxy)|
+| Node | oVirt/RHV/OLVM hypervisor | 54322/tcp, 54323/tcp | oVirt/RHV/OLVM ImageIO services - for data transfer \(primary source\) |
+| Node | oVirt/RHV/OLVM manager | 54322/tcp, 54323/tcp | oVirt/RHV/OLVM ImageIO services - for data transfer \(fallback to ImageIO Proxy\) |
 
 #### SSH Transfer
 

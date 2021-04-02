@@ -5,7 +5,7 @@
 ‌vProtect provides reporting functionality to obtain information on historical activity.  
 You can reach them from the main dashboard in the "Activity" section with the button -![](https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-MRdb5zWCDMFpI4vZOjE%2Fsync%2Fdc0792ef6682f4b02ebf4a963d448eb5b7d95fff.jpg?generation=1611311314140472&alt=media)
 
-![](../../.gitbook/assets/reporting-dashboard%20%281%29.jpg)
+![](../../.gitbook/assets/reporting-dashboard%20%281%29%20%281%29.jpg)
 
 You can also open the Storage reports in the reporting section from the left menu.
 

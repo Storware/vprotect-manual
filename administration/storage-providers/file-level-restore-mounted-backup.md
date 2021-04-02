@@ -2,7 +2,7 @@
 
 To mount backup go to the Instances tab under the Storage Providers section on the left side menu, then click on the mount icon next to a chosen storage instance ![](../../.gitbook/assets/icon-mount%20%281%29.jpg)
 
-![](../../.gitbook/assets/storage-providers-instances.jpg)
+![](../../.gitbook/assets/storage-providers-instances%20%282%29%20%281%29.jpg)
 
 On the popup window, you can select which backup you want to mount and on which node.
 

@@ -4,7 +4,7 @@
 
 List of currently known storage instances and access to the details page of each object. From this place, you can also perform on-demand actions like backup, restore and file-level restore.
 
-![](../../../.gitbook/assets/storage-providers-instances%20%282%29.jpg)
+![](../../../.gitbook/assets/storage-providers-instances%20%282%29%20%282%29.jpg)
 
 Going back to the Storage details page, this is how it looks like:
 

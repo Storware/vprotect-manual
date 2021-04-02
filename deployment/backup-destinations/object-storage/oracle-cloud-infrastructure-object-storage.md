@@ -68,7 +68,7 @@ After generating the secret key you can view access key, just move the mouse ove
 
 Now we can go to the vProtect Dashboard. Open "Backup Destination" tab from the left side menu, then sub-tab "Object Storage" and choose "Amazon S3 / S3-compatible" as a new type of backup destination
 
-![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29.jpg)
 
 At the beginning let's focus on the "S3-Compatible" section.  
 To generate API URL you will need this site: [https://docs.cloud.oracle.com/en-us/iaas/api/\#/en/s3objectstorage/20160918/](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/s3objectstorage/20160918/)  

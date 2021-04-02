@@ -48,7 +48,7 @@ Now expand the detailed information about the created credentials by clicking on
 
 Now we can log in to vProtect Dashboard and create a backup destination. Please go to the backup destination tab on the left side menu and then choose "Amazon S3 / S3-compatible".
 
-![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%284%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29%20%284%29.jpg)
 
 As IBM cloud storage is compatible with Amazon-S3, many settings will be very similar. However, remember to enter the API URL \(remember about https:// at the beginning\), select the "Record backup time after store" option, and enter the region.
 

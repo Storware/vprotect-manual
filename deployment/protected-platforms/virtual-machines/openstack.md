@@ -27,13 +27,14 @@ vProtect supports also disk-attachment method using cinder. This should allow yo
 
 ### Ceph RBD storage backend
 
-vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD export/RBD-NBD when used with Libvirt strategy or - when used with Disk-attachment method - only during incremental backups (snapshot difference).
+vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD export/RBD-NBD when used with Libvirt strategy or - when used with Disk-attachment method - only during incremental backups \(snapshot difference\).
 
 #### Libvirt straegy
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-ceph.png)
 
 #### Disk attachment strategy
+
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment-ceph.png)
 
 vProtect supports OpenStack with Ceph RBD volumes. Here is an example of a typical \(expected\) section that needs to be added in `cinder.conf` for Ceph in the OpenStack environment:
@@ -163,3 +164,4 @@ When you index the hypervisor manager, **make sure to provide correct SSH creden
 * vProtect does not backup and restore keypairs that were created by other OpenStack users than the one used in vProtect. Restored instance will have no keypairs assigned. In such a case, the keypairs have to be backed up and restored manually under the same name before restoring the instance.
 * For libvirt strategy only QCOW2/RAW files or Ceph RBD are supported as the backend
 * Disk attachment method with Ceph requires access to the monitors from the Proxy VM.
+
