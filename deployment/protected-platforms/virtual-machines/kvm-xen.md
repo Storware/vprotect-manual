@@ -4,6 +4,16 @@ vProtect accesses KVM/Xen \(stand-alone libvirt\) hosts over SSH. Node can be in
 
 ![](../../../.gitbook/assets/deployment-vprotect-kvm-ssh-transfer.png)
 
+#### Backup Process
+
+* direct access to the hypervisor over SSH
+* crash-consistent snapshot taken directly using virsh \(QCOW2/RAW file\), lvcreate \(LVM\), rbd snapshot for Ceph \(separate call for each storage backend\) For QCOW2/RAW file, virsh snapshot-create-as is used when VM is running - otherwise, qemu-img create is used
+* optional application consistency using pre/post snapshot command execution
+* QCOW2/RAW-file/LVM data exported over SSH \(optionally with netcat\)
+* Ceph RBD data exported using rbd export or RBD-NBD when incremental is used If last stored snapshot is not missing, snapshot diffs are downloaded using rbd diff, then changes are written to inc file and diff file. If it is missing, export is treated as full and then rbd export is used.
+* libvirt XML metadata saved • last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
+* restore recreates files/volumes according to their backend \(same transfer mechanism as used in backup\) and then defines VM on the hypervisor
+
 KVM/Xen \(libvirt\) environments require to have the correct entry in known\_hosts on the **node**:
 
 * it must be `known_hosts` file that belongs to `vprotect` user
