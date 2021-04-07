@@ -8,6 +8,17 @@ In this strategy, VM is exported as a single XVA bundle containing all of the da
 
 ![](../../../.gitbook/assets/deployment-vprotect-xcp-ng-xva.png)
 
+#### Backup Process
+
+* crash-consistent snapshot using hypervisor's API only for full backups
+* optionally quiesced snapshot can be done if enabled and guest tools installed inside - if quiesced snapshot has been failed we are doing regular one
+* optional application consistency using pre/post snapshot command execution
+* data export directly from the hypervisor using hypervisor's API - both full \(XVA\) and delta \(VHD for each disk\)
+* full backup \(XVA\) contains metadata
+* snapshot taken with full backup is kept on the hypervisor for the next incremental backup - if at least one schedule assigned to the VM has backup type set to incremental
+* incremental backups are cumulative \(all data since last full backup\)
+* restore recreates VM from XVA, and then applies changes from each incremental backup using Hypervisor APIs
+
 ### Changed-Block Tracking
 
 In this strategy, VM is exported using API \(full backup\) and Network Block Device service \(NBD, incremental backups\) on the hypervisor hosts. The CBT feature in Citrix XenServer 7.3+ may require an additional license \(for XCP-NG, CBT should be free\). Result backup has separate files for each disk + metadata, so you have the option to exclude specific drives as well.
@@ -15,6 +26,18 @@ In this strategy, VM is exported using API \(full backup\) and Network Block Dev
 **Note:** For full backups only, you can still use this strategy without CBT enabled on the hypervisor.
 
 ![](../../../.gitbook/assets/deployment-vprotect-xcp-ng-cbt.png)
+
+#### Backup Process
+
+* crash-consistent snapshot using hypervisor's API
+* optionally quiesced snapshot can be done if enabled and guest tools installed inside - if quiesced snapshot has been failed we are doing regular one
+* optional application consistency using pre/post snapshot command execution
+* CBT enabled during full backup on each disk if it wasn't done earlier
+* metadata exported from API
+* full backup - each disk exported from API \(RAW format\)
+* incremental backup - each disk queried for changed blocks and which are exported over NBD
+* last snapshot kept on the hypervisor for the next incremental backup - if at least one schedule assigned to the VM has backup type set to incremental
+* restore recreates VM from metadata using API and imports merged chain of data for each disk using API
 
 ## Change Block Tracking setup
 
