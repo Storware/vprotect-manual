@@ -84,7 +84,7 @@ Unfortunately, there are a few problems with the current architecture of this so
 * last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
 * restore recreates VM from metadata using API and imports merged chain of data for each disk using imageio API
 
-Disk image transfer mode exports data directly using RHV 4.2+ API. There is no need to setup an export storage domain or setup LVM. This mode uses snapshot chains provided by the new RHV.
+Disk image transfer mode exports data directly using RHV 4.2+ API. There is no need to setup an export storage domain or LVM. This mode uses snapshot chains provided by the new RHV.
 
 You may need to open communication for additional port **54323** on the RHV manager - it needs to be accessible from vProtect Node. Also, make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with RHV UI\).
 
