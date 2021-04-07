@@ -4,9 +4,12 @@
 
 Microsoft Hyper-v is the only hypervisor that requires the installation of an agent. The process is very simple, the rest of the configuration is similar to other suppliers. With RCT \(also known as CBT in other virtualization platforms\) both full and incremental backups are supported for this hypervisor
 
+![](../../../.gitbook/assets/hyper-v%20%281%29.png)
+
 **Note:** Installation requires .NET Framework 4.7.2 or higher  
-**Note:** vProtect supports backup for Hyper-V 2016 and newer versions \(also non-GUI versions\)  
-**Note:** Hyper-V 2016 does not support the disk exclusion feature during export operation \(because of WMI Framework version 14393\). Therefore, the disk of the virtual machine will be cloned to the export directory and deleted later in the execution.
+**Note:** vProtect supports backup for Hyper-V 2016 and newer versions \(also non-GUI\)  
+**Note:** Hyper-V 2016 does not support the disk exclusion feature during export operation \(because of WMI Framework version 14393\). Therefore, the disk of the virtual machine will be cloned to the export directory and deleted later in the execution.  
+**Note:** Instead of using accounts for authentication, in the case of Hyper-V we only use the password provided during the agent installation. So for the username in the vProtect dashboard, you can use even a non-existent name.
 
 To add a Hyper-V hypervisor host to vProtect, use a URL similar to the following:
 
@@ -15,8 +18,6 @@ http://10.40.1.146
 or
 https://10.40.1.146
 ```
-
-**Note:** Instead of using accounts for authentication, in the case of Hyper-V we only use the password provided during the agent installation. So for the username in the vProtect dashboard, you can use even a non-existent name.
 
 ## Example
 
