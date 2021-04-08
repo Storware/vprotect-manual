@@ -43,48 +43,25 @@ Drawback - no incremental backup for now.
 
 ![](../../../.gitbook/assets/deployment-vprotect-ovirt-disk-attachment.png)
 
-#### **Backup Process**
-
-* crash-consistent snapshot using hypervisor's API
-* optionally FS freeze can be executed before snapshot can be executed \(FS thaw once the snapshot is completed\) if enabled and guest tools installed inside
-* optional application consistency using pre/post snapshot command execution
-* metadata exported from API
-* snapshot disks are mounted one by one to the Proxy VM
-* data read directly on the Proxy VM
-* incremental backups are ****not supported
-* restore creates empty disks on the Proxy VM, imports merged data then recreates VM and reattaches volumes to the target VM
-
 **Note**: oVirt API v4 environments require vProtect Node to be installed in one of the VMs residing on the oVirt cluster. vProtect should detect automatically the VM with vProtect during index operation.
 
 Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node VM \(which can be enabled in VM settings -&gt; `Resource Allocation` -&gt; `VirtIO-SCSI Enabled` at the bottom\).
 
-During the backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require an export storage domain to be set up.
+During the backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require export storage domain to be set up.
 
 Please make sure to follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](../../common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md).
 
 ### Disk image transfer API
 
-This API appeared in oVirt 4.2 and allowed the export of individual snapshots directly from the oVirt manager. So, instead of having to install multiple Proxy VMs, you can have a single external Node installation, which just invokes APIs via oVirt manager.
+This API appeared in oVirt 4.2 and allowed export of individual snapshots directly from the oVirt manager. So, instead of having to install multiple Proxy VMs, you can have a single external Node installation, which just invokes APIs via oVirt manager.
 
 This strategy supports incremental backups. Assuming you have oVirt 4.2 or newer – just add your manager to vProtect and setup is done. From a network perspective - it requires two additional ports to open 54322 and 54323 and your data to be pulled from the hypervisor manager.
 
-Unfortunately, there are a few problems with the current architecture of this solution. The biggest issue is that all traffic passes via oVirt manager, which may impact transfer rates that you can achieve during the backup process. To put that into perspective – in disk attachment, you can basically read data as if it is a local drive, where it could potentially be deduplicated even before transferring it to the backup destination.
+Unfortunately, there are a few problems with the current architecture of this solution. The biggest issue is that all traffic passes via oVirt manager, which may impact transfer rates that you can achieve during the backup process. To put that into perspective – in disk attachment you can basically read data as if it is a local drive, where it could potentially be deduplicated even before transferring it to the backup destination.
 
 ![](../../../.gitbook/assets/deployment-vprotect-ovirt-disk-image-transfer.png)
 
-#### Backup Process
-
-* crash-consistent snapshot using hypervisor's API
-* optionally FS freeze can be executed before snapshot can be executed \(FS thaw once the snapshot is completed\) if enabled and guest tools installed inside
-* optional application consistency using pre/post snapshot command execution
-* supported for oVirt/RHV/OLVM 4.3+
-* metadata exported from API
-* data transfer initiated on the manager and actual data exported from the hypervisor using imageio API
-* incremental backups use the same APIs, but requests for changed blocks only
-* last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
-* restore recreates VM from metadata using API and imports merged chain of data for each disk using imageio API
-
-Disk image transfer mode exports data directly using oVirt 4.2+ API. There is no need to set up an export storage domain or LVM. This mode uses snapshot-chains provided by oVirt.
+Disk image transfer mode exports data directly using oVirt 4.2+ API. There is no need to setup export storage domain or setup LVM. This mode uses snapshot-chains provided by oVirt.
 
 You may need to open communication for additional port **54323** on the oVirt manager - it needs to be accessible from vProtect Node. Also, make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with oVirt UI\).
 
@@ -95,16 +72,6 @@ Follow the steps in this section: [Full versions of libvirt/qemu packages instal
 This is an enhancement for the disk image transfer API strategy. It allows vProtect to use oVirt API v4.2+ \(HTTPS connection to oVirt manager\) only to collect metadata. Backup is done over SSH directly from the hypervisor \(optionally using netcat for transfer\), import is also using SSH \(without netcat option\). No need to install a node on the oVirt environment. This method can significantly boost backup transfers and supports incremental backups.
 
 ![](../../../.gitbook/assets/deployment-vprotect-ovirt-ssh-transfer.png)
-
-#### Backup Process
-
-* crash-consistent snapshot using hypervisor's API
-* optionally FS freeze can be executed before snapshot can be executed \(FS thaw once the snapshot is completed\) if enabled and guest tools installed inside
-* optional application consistency using pre/post snapshot command execution • metadata exported from API
-* data transfer via SSH \(optional using netcat\) - full chain of disk snapshot files for each disk o if LVM-based storage is used, then node activates volumes if necessary to read data o if Gluster FS is used, then disk files are copied directly
-* incremental backup export just sub-chain of QCOW2-deltas snapshots since last stored snapshot
-* last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
-* restore recreates VM with empty storage from metadata using API and imports merged data over SSH to appropriate location on hypervisor
 
 This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding oVirt manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
 
@@ -122,36 +89,25 @@ Also, this strategy doesn't need snapshots in the backup process. Instead of it,
 
 ### Export storage domain \(API v3\)
 
-This setup requires you to create a storage domain used for VM export. Export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both oVirt host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and oVirt to read and write files.
+This setup requires you to create storage domain used for VM export. Export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from external source. The only requirement is to have it visible from both oVirt host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and oVirt to read and write files.
 
-The Backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\). The reason for additional cloning is that oVirt doesn’t allow you to export snapshot directly. Node can be outside of the environment that you backup.
+Backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\). The reason for additional cloning is that oVirt doesn’t allow you to export snapshot directly. Node can be outside of the environment that you backup.
 
-This strategy is going to be deprecated, as oVirt may no longer support it in future releases.
+This strategy is going to be deprecated, as oVirt may no longer support it in the future releases.
 
 ![](../../../.gitbook/assets/deployment-vprotect-ovirt-export-storage-domain.png)
-
-#### Backup Process
-
-* crash-consistent snapshot is taken via API
-* optional application consistency using pre/post snapshot command execution
-* initial VM clone of the snapshot to the local repository is created
-* cloned VM \(data+metadata\) exported by the manager to the vProtect staging space \(visible as the export Storage Domain in managers UI\)
-* full backup only is supported
-* restore is done to the export Storage Repository, the administrator needs to import the VM using manager UI
-
-#### How to set up backup with export storage domain
 
 oVirt 3.5.1+ environments \(using API v3\) require export storage domain to be set up.
 
 1. Add backup storage domain in the oVirt \(which points to the NFS export on vProtect Node\)
-   * If you have multiple data centres you need to enable the`Multi DC export` checkbox in node configuration
-     * Remember that you need to use named datacenters in your oVirt environment to avoid name conflicts
-     * oVirt data centre may use only one export storage domain, that is why you need to create subdirectories for each data centre in the export path i.e. `/vprotect_data/dc01`, `/vprotect_data/dc02`, and use each subdirectory as NFS share for each data centre export domain \(separate NFS exports\)
-     * Export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `dc01` and `dc02` are datacenter names
+   * If you have multiple datacenters you need to enable the`Multi DC export` checkbox in node configuration
+     * Remember that you need to use named datacenters in your oVirt enviornment to avoid name conflicts
+     * oVirt datacenter may use only one export storage domain, that is why you need to create subdirectories for each data center in export path i.e. `/vprotect_data/dc01`, `/vprotect_data/dc02`, and use each subdirectory as NFS share for each data center export domain \(separate NFS exports\)
+     * Export \(staging\) path in above-mentioned scenario is still `/vprotect_data`, while `dc01` and `dc02` are datacenter names
      * Older versions of oVirt \(3.5.x\) require to specify mapping between DC names and export storage domains - you need to provide pairs of DC name and corresponding SD name in node configuration \(section `Hypervisor`\)
-   * If you have only one data centre and don't want to use multiple datacenters export feature in the future, you can use default settings, and setup NFS export pointing to the staging path \(e.g. `/vprotect_data`\)
+   * If you have only one datacenter and don't want to use multiple datacenters export feature in the future, you can use default settings, and setup NFS export pointing to the staging path \(e.g. `/vprotect_data`\)
    * Note that export must be set to use UID and GID of `vprotect` user
-   * Example export configuration in `/etc/exports` to the selected hypervisor in the oVirt cluster:
+   * Example export configuration in `/etc/exports` to the selected hypervisor in oVirt cluster:
 
      ```text
      /vprotect_data    10.50.1.101(fsid=6,rw,sync,insecure,all_squash,anonuid=993,anongid=990)
@@ -163,7 +119,7 @@ oVirt 3.5.1+ environments \(using API v3\) require export storage domain to be s
      [root@vProtect3 ~]# id vprotect
      uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
      ```
-2. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import the backup into oVirt \(shown below\)
+2. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import backup into oVirt \(shown below\)
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by oVirt manager.
 3. When adding oVirt 4.0+ hypervisors managers make sure to have URL like the following:
 
