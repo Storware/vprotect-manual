@@ -3,7 +3,7 @@
 ## Prerequisites
 
 1. Install CentOS/RHEL 8 minimal
-   * if you plan to use deduplication with VDO we recommend to install RHEL to have Red Hat's support available
+   * if you plan to use deduplication with VDO we recommend to use RHEL to have Red Hat's support available
    * you also can use version CentOS/RHEL 7
 2. Make sure your OS is up to date:
 
@@ -30,7 +30,7 @@
      * `http://repo.storware.eu/vprotect/current/el7`
      * `http://repo.storware.eu/vprotect/3.9.2/el8`
 
-4. Install MariaDB repository \(vProtect Server host only\)
+4. Install MariaDB repository \(**vProtect Server host only**\)
    * generate .repo file at [MariaDB download](https://downloads.mariadb.org/mariadb/repositories) site
    * copy and paste generated repo file into `/etc/yum.repos.d/MariaDB.repo`, so it looks similar to this \(this one for CentOS/RHEL 8\):
 
@@ -94,15 +94,16 @@ vProtect consists of a server \(central management point with WebUI\) and one or
 
 vProtect Node is a component that executes all tasks. It can be installed together with a Server \(it is common to have 1 server and just 1 node\). More nodes can be always added later.
 
-1. Install vprotect-node using DNF:
+1. Install vprotect-node using DNF:  
+   _Remember to add our repository to host machine_
 
    ```text
    dnf -y install vprotect-node
    ```
 
 2. Prepare your staging space \(on vProtect Node host only\):
-   * Please follow the steps described in the [Staging space configuration](common-tasks/staging-space-configuration.md)
-   * **if your path is different than** `/vprotect_data` \_\*\*\_it is recommended to create a symlink `/vprotect_data` pointing to your mount point of the staging space, e.g.:
+   * If you just started with vProtect, and do not know what is staging space please follow the steps described in the [Staging space configuration](common-tasks/staging-space-configuration.md)
+   * **if your path is different than** `/vprotect_data` it is recommended to create a symlink `/vprotect_data` pointing to your mount point of the staging space, e.g.:
 
      ```text
      ln -s /mnt/staging /vprotect_data

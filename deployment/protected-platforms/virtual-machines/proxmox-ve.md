@@ -13,11 +13,30 @@ SSH Transfer strategy:
 
 Backup is done by transferring QCOW2 disk images over SSH directly from the hypervisor \(optionally using netcat for transfer\). Metadata is backed up only in full backup. This method supports incremental backups where the last snapshot is required for the next incremental backups. Result backup has separate files for each disk + metadata, so you have the option to exclude specific drives as well.
 
+#### Backup Process
+
+* QCOW2 - file based storage only
+* crash-consistent snapshots created using hypervisor CLI over SSH
+* optionally FS freeze can be executed before snapshot can be executed \(FS thaw once the snapshot is completed\) if enabled and guest tools installed inside
+* QCOW2 snapshots mounted locally on the hypervisor and exported via SSH \(optionally with netcat\)
+* for incremental backups, both last and currently created snapshots are mounted and block-difference is sent via SSH
+* metadata exported via SSH • restore imports metadata and overwrites empty disks with data from merged backup over SSH
+
 ## Export storage repository
 
 Proxmox virtual environment requires you to create storage used for VM export. Export storage should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both Proxmox VE hosts and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and Proxmox VE to read and write files.
 
 ![](../../../.gitbook/assets/deployment-vprotect-proxmox-storage-domain.png)
+
+#### Backup Process
+
+* native VM export done to the prepared NFS storage \(staging space on vProtect\) using SSH access to the hypervisor
+* crash-consistency - FS freeze used for VMs, LVM snapshot for containers
+* optional application consistency using pre/post export command execution for VMs \(pre/post snapshot\) for containers
+* data and metadata are in a single VMA image
+* only full backups are supported • restore imports VMA image to the hypervisor
+
+#### How to set up export storage repository backup
 
 Proxmox virtual environments require backup storage to be defined on each server. This storage must be location accessible from vProtect Node \(the simplest setup, when you use only 1 node, is to create NFS share for staging path on vProtect Node\)
 
