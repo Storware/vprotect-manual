@@ -20,7 +20,7 @@ Multi-tenancy and permission handling is on the 3rd-party system side. There is 
 
 3rd-party system must use a dedicated vProtect account to perform operations.
 
-![](.gitbook/assets/vprotect-detailed-architecture%20%281%29%20%281%29%20%282%29.png)
+![](.gitbook/assets/vprotect-detailed-architecture%20%281%29%20%281%29%20%282%29%20%281%29.png)
 
 ## Integration steps
 

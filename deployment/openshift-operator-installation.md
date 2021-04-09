@@ -5,7 +5,7 @@ vProtect can also be installed in OpenShift environments using OperatorHub with 
 **Note:**
 
 * vProtect Operator is intended to be used with OpenShift only - if you intend to protect other Virtualization Plaforms - you may nee do deploy vProtect using other methods on a VM or physical server
-* some of the features may not be available because of container restrictions (compared to VM deployment)
+* some of the features may not be available because of container restrictions \(compared to VM deployment\)
 
 vProtect Operator will be installed from OperatorHub available in Openshift GUI
 
@@ -78,4 +78,5 @@ To check effective URL to vProtect press newly created route and read **Location
 
 ![vProtect location](../.gitbook/assets/deployment-openshift-vprotect_full.jpg)
 
-By default, vProtect console has one admin account - `admin` with password `vPr0tect` (with zero)
+By default, vProtect console has one admin account - `admin` with password `vPr0tect` \(with zero\)
+

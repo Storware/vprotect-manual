@@ -26,5 +26,5 @@
    * Make sure to type the IP address of your ISP server, TCP port, node name correctly:
    * Example:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-ibm-spectrum-protect-install-script%20%282%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-ibm-spectrum-protect-install-script%20%282%29%20%282%29.png)
 

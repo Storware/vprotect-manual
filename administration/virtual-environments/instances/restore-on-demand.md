@@ -2,9 +2,9 @@
 
 ## Restore from virtual environment menu
 
-To restore a single virtual machine on-demand, go to the instances tab under the Virtual Environment section. Click on the restore icon next to the virtual machine ![](../../../.gitbook/assets/icon-restore%20%281%29%20%283%29%20%283%29.jpg)
+To restore a single virtual machine on-demand, go to the instances tab under the Virtual Environment section. Click on the restore icon next to the virtual machine ![](../../../.gitbook/assets/icon-restore%20%281%29%20%283%29%20%283%29%20%284%29.jpg)
 
-![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%281%29.jpg)
+![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29.jpg)
 
 Now you should see a popup window where you might customize restore settings.
 
@@ -25,7 +25,7 @@ Finally, after customizing the restore, click the restore button.
 
 ## Restore on-demand using recovery plans
 
-To restore several virtual machines, you have to use recovery plans. As you can see on the below screenshot, next to the recovery plan policy you can find the same icon that allows you to restore virtual machines ![](../../../.gitbook/assets/icon-restore%20%281%29%20%283%29%20%283%29%20%281%29.jpg)
+To restore several virtual machines, you have to use recovery plans. As you can see on the below screenshot, next to the recovery plan policy you can find the same icon that allows you to restore virtual machines ![](../../../.gitbook/assets/icon-restore%20%281%29%20%283%29%20%283%29%20%284%29%20%281%29.jpg)
 
 ![](../../../.gitbook/assets/instances-restore-on-demand-recovery-plans.jpg)
 

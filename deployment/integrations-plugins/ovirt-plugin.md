@@ -16,27 +16,27 @@ As usual, it contains a short summary of the environment along with a handful of
 
 You can also see the data summary of the backup destination
 
-![](../../.gitbook/assets/integration-plugins-rhv-dashboard-backup-destination%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-dashboard-backup-destination%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 ### Virtual Machines
 
 This tab shows all inventoried virtual machines in your oVirt environment. Besides, you can also perform a basic backup or restore operations.
 
-![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 But that's not all, you can also go into the details of the virtual machine by clicking on its name:
 
-![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines-details%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines-details%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
 
 Backup window view:
 
-![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines-backup%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines-backup%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 ### Task console
 
 Basic information about current tasks performed by vProtect.
 
-![](../../.gitbook/assets/integration-plugins-rhv-task-console%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-task-console%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
 
 ### Policies
 
@@ -48,21 +48,21 @@ Allows you to create policies for VM's backups and snapshot. It basically has th
 
 As with the policies tab, it allows you to create schedules for the created rules.
 
-![](../../.gitbook/assets/integration-plugins-rhv-schedules%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-schedules%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 ### Mounted Backups
 
 Finally, you can also browse your mounted backups from the oVirt dashboard. You only need to enter the backup details using the menu on the right.
 
-![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
 
 From here we can see the basic information about the backup and start browsing the files using the "Browse" button on the right.
 
-![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 Just select a folder or file and then press the "download selected" button to have the files on your computer.
 
-![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details-browse%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details-browse%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 ## Installation
 

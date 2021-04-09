@@ -24,7 +24,7 @@ Proxmox environments require backup storage to be defined on each server. This s
   * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by Proxmox.
 * Name for storage must be later provided in node configuration \(`Hypervisor -> Proxmox` section\)
 
-![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29%20%282%29%20%281%29.jpg)
+![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29%20%282%29%20%281%29%20%281%29.jpg)
 
 ## File-level restore support for VMA images
 
