@@ -1,6 +1,6 @@
 # Schedules
 
-The Schedule defines when and on which days recovery plans should run. To define a new schedule use the ![](../../../.gitbook/assets/create-schedule.jpg)
+The Schedule defines when and on which days recovery plans should run. To define a new schedule use the ![](../../../.gitbook/assets/create-schedule%20%281%29.jpg)
 
 ![](../../../.gitbook/assets/virtual-environments-recovery-plans-schedules.jpg)
 

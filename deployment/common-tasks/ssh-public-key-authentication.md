@@ -47,12 +47,15 @@ vProtect does not support keys other than "RSA"
 3. Check if you're able to log into the hypervisor using local `vprotect` user without being asked for a password:
 
    ```text
-   [root@vProtect3 vprotect]# sudo -u vprotect ssh root@dkvm
+   [root@vProtect3]# sudo -u vprotect ssh -i /opt/vprotect/.ssh/id_rsa root@dkvm
    Last failed login: Mon Jan 29 17:53:01 CET 2018 from 10.50.1.107 on ssh:notty
    There was 1 failed login attempt since the last successful login.
    Last login: Mon Jan 29 17:52:39 2018 from 10.50.1.107
    [root@dKVM ~]# logout
    ```
 
-4. Now you should be able to index VMs regardless of the password set for the hypervisor \(key should be used instead\)
+4. Now you should be able to index VMs regardless of the password set for the hypervisor \(key should be used instead\).
+5. Provide path to key \(default: /opt/vprotect/.ssh/id\_rsa\) in vProtect dashboard
+
+![](../../.gitbook/assets/common-tasks-public-authentication.png)
 

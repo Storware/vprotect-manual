@@ -15,25 +15,47 @@ vProtect supports backup for OpenStack:
 
 ### Libvirt strategy
 
-vProtect supports OpenStack environments that use KVM hypervisors and VMs running on QCOW2 or RAW files. vProtect communicates with OpenStack APIs such as Nova and Glance to collect metadata and for import of the restored process. However, the actual backup is done over SSH directly from the hypervisor. Process is exactly the same as in [Deployment in KVM/Xen environment](kvm-xen.md). vProtect Node can be installed anywhere - it just needs to reach OpenStack APIs and hypervisors SSH via network. Both full and incremental backups are supported.
+vProtect supports OpenStack environments that use KVM hypervisors and VMs running on QCOW2 or RAW files. vProtect communicates with OpenStack APIs such as Nova and Glance to collect metadata and for the import of the restored process. However, the actual backup is done over SSH directly from the hypervisor. Process is exactly the same as in [Deployment in KVM/Xen environment](kvm-xen.md). vProtect Node can be installed anywhere - it just needs to reach OpenStack APIs and hypervisors SSH via network. Both full and incremental backups are supported.
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-libvirt.png)
 
+#### Backup Process
+
+* direct access to the hypervisor over SSH
+* crash-consistent snapshot taken directly using virsh \(QCOW2/RAW file\), rbd snapshot for Ceph \(separate call for each storage backend\)
+* optional application consistency using pre/post snapshot command execution • QCOW2/RAW-file data exported over SSH \(optionally with netcat\)
+* Ceph RBD data exported using rbd export or RBD-NBD when incremental is used
+* metadata exported from OpenStack APIs \(nova, glance, cinder\)
+* last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
+* restore recreates files/volumes according to their backend \(same transfer mechanism as used in backup\) and then defines VM on the hypervisor
+
 ### Disk attachment
 
-vProtect supports also disk-attachment method using cinder. This should allow you to use cinder-compatible storage and still allow vProtect to create backups. Currently only full backup is supported. vProtect needs to communicate OpenStack service's API to attach drives to the proxy VM with the vProtect Node installed.
+vProtect supports also disk-attachment method using cinder. This should allow you to use cinder-compatible storage and still allow vProtect to create backups. Currently, only full backup is supported. vProtect needs to communicate OpenStack service's API to attach drives to the proxy VM with the vProtect Node installed.
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment.png)
 
+#### Backup Process
+
+* crash-consistent snapshot using cinder API
+* optional application consistency using pre/post snapshot command execution
+* metadata exported from API
+* volumes created from snapshotted disks are mounted one by one to the Proxy VM
+* data read directly on the Proxy VM
+* incremental backups are only supported for Ceph RBD - a list of the changed blocks are fetched from the monitors, and only these blocks are read from the attached disk on the Proxy VM
+* if an instance is created from the glance image - data is downloaded from glance API instance is created from instance metadata and image is fetched from glance API if exists or uploaded, if image doesn't exist in the glance and was downloaded from glance API
+* restore creates empty disks on the Proxy VM, imports merged data then recreates VM using these volumes, optionally uses image from the glance if present in the target environment
+
 ### Ceph RBD storage backend
 
-vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD export/RBD-NBD when used with Libvirt strategy or - when used with Disk-attachment method - only during incremental backups (snapshot difference).
+vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD export/RBD-NBD when used with Libvirt strategy or - when used with Disk-attachment method - only during incremental backups \(snapshot difference\).
 
-#### Libvirt straegy
+#### Libvirt strategy
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-ceph.png)
 
 #### Disk attachment strategy
+
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment-ceph.png)
 
 vProtect supports OpenStack with Ceph RBD volumes. Here is an example of a typical \(expected\) section that needs to be added in `cinder.conf` for Ceph in the OpenStack environment:
@@ -136,7 +158,7 @@ You can configure the NFS volume backend here:
 
 Make sure QCOW2 volumes are enabled.
 
-For an NFS backend, it's recommended set these values in `/etc/cinder/cinder.conf`:
+For an NFS backend, it's recommended to set these values in `/etc/cinder/cinder.conf`:
 
 `default_volume_type=nfs    
 nfs_sparsed_volumes = true    
@@ -161,5 +183,6 @@ When you index the hypervisor manager, **make sure to provide correct SSH creden
 ## Limitations
 
 * vProtect does not backup and restore keypairs that were created by other OpenStack users than the one used in vProtect. Restored instance will have no keypairs assigned. In such a case, the keypairs have to be backed up and restored manually under the same name before restoring the instance.
-* For libvirt strategy only QCOW2/RAW files or Ceph RBD are supported as the backend
+* For libvirt strategy, only QCOW2/RAW files or Ceph RBD are supported as the backend
 * Disk attachment method with Ceph requires access to the monitors from the Proxy VM.
+

@@ -543,11 +543,11 @@
 | Feature | Helper pod/Ceph RBD |
 | :--- | :--- |
 | Incremental backup | ✅ \(when using Ceph RBD as PV\) |
-| File-level restore | ✅ \(when using Ceph RBD as PV\)  |
+| File-level restore | ✅ \(when using Ceph RBD as PV\) |
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
 | Quiesced snapshot | ✅ \(optional deployment pause\) |
-| Pre/post snapshot command execution | ✅ \(post export) |
+| Pre/post snapshot command execution | ✅ \(post export\) |
 | Backup disks sharable over iSCSI | ✅ \(when using Ceph RBD as PV\) |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ |
@@ -567,11 +567,11 @@
 | Feature | Helper pod/Ceph RBD |
 | :--- | :--- |
 | Incremental backup | ✅ \(when using Ceph RBD as PV\) |
-| File-level restore | ✅ \(when using Ceph RBD as PV\)  |
+| File-level restore | ✅ \(when using Ceph RBD as PV\) |
 | VM disk exclusion | ✅ |
 | Snapshot management | ❌ |
 | Quiesced snapshot | ✅ \(optional deployment pause\) |
-| Pre/post snapshot command execution | ✅ \(post export) |
+| Pre/post snapshot command execution | ✅ \(post export\) |
 | Backup disks sharable over iSCSI | ✅ \(when using Ceph RBD as PV\) |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ✅ |
@@ -607,7 +607,7 @@
 ### AWS EC2
 
 |  | Disk attachment |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Minimum version | N/A |
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | yes |
@@ -615,7 +615,7 @@
 | Proxy VM needed | yes |
 
 | Feature | Disk attachment |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Incremental backup | ❌ |
 | File-level restore | ✅ |
 | VM disk exclusion | ✅ |
@@ -642,14 +642,14 @@
 | Feature | Mounted file system |
 | :--- | :--- |
 | Incremental backup | ✅ |
-| Incremental backup change source | file scan (file modification time/size) |
+| Incremental backup change source | file scan \(file modification time/size\) |
 | File-level restore | ✅ |
 | Snapshot management | ❌ |
 | Pre/post snapshot command execution | ✅ |
 | Backups sharable over iSCSI | ✅ |
 | Name-based policy assignment | ❌ |
 
-### Nutanix Files (AFS)
+### Nutanix Files \(AFS\)
 
 |  | File shares with CFT |
 | :--- | :--- |

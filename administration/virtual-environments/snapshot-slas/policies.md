@@ -2,7 +2,7 @@
 
 In order to enable snapshot management for VM you need to do the following steps:
 
-Go to Snapshot SLAs under the Virtual Environment section and create a new Snapshot Management policy ![](../../../.gitbook/assets/create-policy%20%281%29%20%281%29.jpg)
+Go to Snapshot SLAs under the Virtual Environment section and create a new Snapshot Management policy ![](../../../.gitbook/assets/create-policy%20%281%29%20%281%29%20%281%29.jpg)
 
 ![](../../../.gitbook/assets/snapshot-sla-policies.jpg)
 

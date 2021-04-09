@@ -2,7 +2,7 @@
 
 Schedules allow you to invoke specific policies periodically. This allows you to backup multiple VMs automatically.
 
-Schedule defines when and on which days VMs should be backed up. To define a new schedule open Backup SLAs under the Virtual Environments section and go to the Schedules tab, then use the ![](../../../.gitbook/assets/create-schedule.jpg) button.
+Schedule defines when and on which days VMs should be backed up. To define a new schedule open Backup SLAs under the Virtual Environments section and go to the Schedules tab, then use the ![](../../../.gitbook/assets/create-schedule%20%281%29.jpg) button.
 
 ![](../../../.gitbook/assets/backup-sla-schedules.jpg)
 

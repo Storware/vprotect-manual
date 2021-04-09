@@ -13,7 +13,7 @@ To configure Azure as a backup destination for vProtect, we just need:
 
 Now you can go to the backup destinations tab in vProtect and create a new Microsoft Azure backup destination.
 
-![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%281%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29%20%281%29.jpg)
 
 You just need to customize retention and provide an account name and key.
 
