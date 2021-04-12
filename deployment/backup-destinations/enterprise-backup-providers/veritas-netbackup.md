@@ -9,11 +9,11 @@
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-02%20%281%29.png)
 
-* Next step is to generate token:
+* The next step is to generate a token:
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-03%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
-* Now we should copy the token to clipboard before start the installation of the client software.
+* Now we should copy the token to the clipboard before start the installation of the client software.
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-04%20%281%29%20%281%29%20%281%29.png)
 
@@ -102,7 +102,7 @@ The token format is 16 upper case letters. Be aware if you press Ctrl+C, this ac
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-19.png)
 
-* Once we have finished the installation of the client software we need to modify the firewall service to allow the double-sided communication between the server and our client. We need to allow input communication on ports 13782/tcp and 13782/udp. To do that enter commands as below:
+* Once we have finished the installation of the client software we need to modify the firewall service to allow double-sided communication between the server and our client. We need to allow input communication on ports 13782/tcp and 13782/udp. To do that enter commands as below:
 * First, we need to know what is our default zone:
 
 ```text
@@ -145,7 +145,7 @@ firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-25%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
-* The Last action is to bind the port to the netbackup client deamon” bpnd”. To do that type following command in terminal
+* The Last action is to bind the port to the NetBackup client deamon” bpnd”. To do that type the following command in terminal
 
 ```text
 /usr/openv/netbackup/bin/bpcd -port 13724

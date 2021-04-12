@@ -9,7 +9,7 @@ Import/export mode defines the way the backups and restores are done. oVirt \(wi
 1. **Disk attachment**, which exports VM metadata \(in OVF format\) with separate disk files \(in RAW format\) via Proxy VM with the Node installed.
    * supports oVirt 4.0+
    * no incremental backup
-   * proxy VM required in each cluster - used for disks attachment process
+   * proxy VM required in each cluster - used for the disks attachment process
 2. **Disk image transfer**, which exports VM metadata \(in OVF format\) with disk snapshot chains as separate files \(QCOW2 format\):
    * supports oVirt 4.2+/oVirt 4.2.3+
    * supports incremental backup
@@ -54,7 +54,7 @@ Drawback - no incremental backup for now.
 * incremental backups are ****not supported
 * restore creates empty disks on the Proxy VM, imports merged data then recreates VM and reattaches volumes to the target VM
 
-**Note**: oVirt API v4 environments require vProtect Node to be installed in one of the VMs residing on the oVirt cluster. vProtect should detect automatically the VM with vProtect during index operation.
+**Note**: oVirt API v4 environments require vProtect Node to be installed in one of the VMs residing on the oVirt cluster. vProtect should detect automatically the VM with vProtect during the index operation.
 
 Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node VM \(which can be enabled in VM settings -&gt; `Resource Allocation` -&gt; `VirtIO-SCSI Enabled` at the bottom\).
 
@@ -101,12 +101,12 @@ This is an enhancement for the disk image transfer API strategy. It allows vProt
 * crash-consistent snapshot using hypervisor's API
 * optionally FS freeze can be executed before snapshot can be executed \(FS thaw once the snapshot is completed\) if enabled and guest tools installed inside
 * optional application consistency using pre/post snapshot command execution • metadata exported from API
-* data transfer via SSH \(optional using netcat\) - full chain of disk snapshot files for each disk o if LVM-based storage is used, then node activates volumes if necessary to read data o if Gluster FS is used, then disk files are copied directly
+* data transfer via SSH \(optional using netcat\) - the full chain of disk snapshot files for each disk o if LVM-based storage is used, then node activates volumes if necessary to read data o if Gluster FS is used, then disk files are copied directly
 * incremental backup export just sub-chain of QCOW2-deltas snapshots since last stored snapshot
 * last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
-* restore recreates VM with empty storage from metadata using API and imports merged data over SSH to appropriate location on hypervisor
+* restore recreates VM with empty storage from metadata using API and imports merged data over SSH to appropriate location on a hypervisor
 
-This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding oVirt manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
+This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding oVirt manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md).
 
 ### Change Block Tracking
 
@@ -116,15 +116,15 @@ This is a new method which is possible thanks to changes in oVirt 4.4. It uses i
 
 This strategy supports incremental backups.
 
-Qcow2 format is required for incremental backups so disks enabled for incremental backup will use qcow2 format instead of raw format.
+Qcow2 format is required for incremental backups so disks enabled for the incremental backup will use qcow2 format instead of raw format.
 
 Also, this strategy doesn't need snapshots in the backup process. Instead of it, every incremental backup uses a checkpoint that is a point in time that was created after the previous backup.
 
 ### Export storage domain \(API v3\)
 
-This setup requires you to create a storage domain used for VM export. Export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both oVirt host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and oVirt to read and write files.
+This setup requires you to create a storage domain used for VM export. Export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both the oVirt host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and oVirt to read and write files.
 
-The Backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\). The reason for additional cloning is that oVirt doesn’t allow you to export snapshot directly. Node can be outside of the environment that you backup.
+The Backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\). The reason for additional cloning is that oVirt doesn’t allow you to export snapshot directly. A node can be outside of the environment that you backup.
 
 This strategy is going to be deprecated, as oVirt may no longer support it in future releases.
 
@@ -139,16 +139,16 @@ This strategy is going to be deprecated, as oVirt may no longer support it in fu
 * full backup only is supported
 * restore is done to the export Storage Repository, the administrator needs to import the VM using manager UI
 
-#### How to set up backup with export storage domain
+#### How to set up a backup with an export storage domain
 
 oVirt 3.5.1+ environments \(using API v3\) require export storage domain to be set up.
 
 1. Add backup storage domain in the oVirt \(which points to the NFS export on vProtect Node\)
-   * If you have multiple data centres you need to enable the`Multi DC export` checkbox in node configuration
+   * If you have multiple data centres you need to enable the`Multi DC export` the checkbox in node configuration
      * Remember that you need to use named datacenters in your oVirt environment to avoid name conflicts
      * oVirt data centre may use only one export storage domain, that is why you need to create subdirectories for each data centre in the export path i.e. `/vprotect_data/dc01`, `/vprotect_data/dc02`, and use each subdirectory as NFS share for each data centre export domain \(separate NFS exports\)
-     * Export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `dc01` and `dc02` are datacenter names
-     * Older versions of oVirt \(3.5.x\) require to specify mapping between DC names and export storage domains - you need to provide pairs of DC name and corresponding SD name in node configuration \(section `Hypervisor`\)
+     * The export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `dc01` and `dc02` are datacenter names
+     * Older versions of oVirt \(3.5.x\) require to specify a mapping between DC names and export storage domains - you need to provide pairs of DC name and corresponding SD name in node configuration \(section `Hypervisor`\)
    * If you have only one data centre and don't want to use multiple datacenters export feature in the future, you can use default settings, and setup NFS export pointing to the staging path \(e.g. `/vprotect_data`\)
    * Note that export must be set to use UID and GID of `vprotect` user
    * Example export configuration in `/etc/exports` to the selected hypervisor in the oVirt cluster:
@@ -165,7 +165,7 @@ oVirt 3.5.1+ environments \(using API v3\) require export storage domain to be s
      ```
 2. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import the backup into oVirt \(shown below\)
    * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by oVirt manager.
-3. When adding oVirt 4.0+ hypervisors managers make sure to have URL like the following:
+3. When adding oVirt 4.0+ hypervisors managers make sure to have a URL like the following:
 
    ```text
    https://oVirt_MGR_HOST/ovirt-engine/api/v3

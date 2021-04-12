@@ -2,7 +2,20 @@
 
 ## General
 
-List of currently known virtual machines and access to the details page of each object. From this place, you can also perform on-demand actions like backup, restore and file-level restore.
+List of currently known virtual machines and access to the details page of each object. From this place, you can perform on-demand actions like backup, restore and file-level restore or search instances.
+
+The field lets the user filter the virtual machines by their:
+
+* Name 
+* UUID 
+* GUID 
+* Tags 
+* Url of a linked hypervisor manager
+* Node configuration name linked via hypervisor manager 
+* Host field of a linked hypervisor 
+* Node configuration name linked via a hypervisor 
+* Name field of a linked VM Backup Policy 
+* Name field of a linked Snapshot Management Policy
 
 ![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%285%29.jpg)
 

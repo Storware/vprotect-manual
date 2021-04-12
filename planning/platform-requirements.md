@@ -104,7 +104,7 @@ MariaDB 10.4
 
 #### Export storage domain
 
-**Connection URL:** `https://RHV_MGR_HOST/ovirt-engine/api/v3`
+**Connection URL:** `https://RHV_MGR_HOST/ovirt-engine/api`
 
 | Source | Destination | Ports | Description |
 | :--- | :--- | :--- | :--- |

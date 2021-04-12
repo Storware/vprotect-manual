@@ -13,7 +13,7 @@ Restoring to the filesystem is an option to restore VMs directly to the vProtect
 
 ![](../../../.gitbook/assets/instances-restore-on-demand-restore-window-filesystem.jpg)
 
-Restoring to a hypervisor or hypervisor manager is allowed for several providers, but not for all \(for detailed info go to [vProtect Support Matrix](restore-on-demand.md)\).
+Restoring to a hypervisor or hypervisor manager is allowed for several providers, but not for all \(for detailed info go to [vProtect Support Matrix](../../../planning/vprotect-support-matrix.md)\).
 
 ![](../../../.gitbook/assets/instances-restore-on-demand-restore-window-hypervisor.jpg)
 

@@ -1,6 +1,6 @@
 # High Availability
 
-In this scenario, we are going to set up two vProtect servers in High Availability, Active/Passive mode. This is possible by using techniques such as pacemaker, corosync and DRBD. At least basic understanding of these is highly desirable. This how-to is intended for RPM-based systems such as Red Hat / CentOS. If you run vProtect on different OS you may need to refer to your distribution docs.
+In this scenario, we are going to set up two vProtect servers in High Availability, Active/Passive mode. This is possible by using techniques such as pacemaker, corosync and DRBD. At least a basic understanding of these is highly desirable. This how-to is intended for RPM-based systems such as Red Hat / CentOS. If you run vProtect on different OS you may need to refer to your distribution docs.
 
 Our environment is built of the following elements:
 
@@ -55,8 +55,8 @@ success
 success
 ```
 
-While testing, depending on your environment, you may encounter problems related to network traffic, permissions, etc. While it might be a good idea to temporarily disable firewall and SELinux we do not recommend disabling that mechanism in the production environment as it creates significant security issues.  
-**If you choose disable firewalld bear in mind that vProtect won't be available on ports 80/443 anymore. Instead, connect to ports 8080/8181 respectively.**
+While testing, depending on your environment, you may encounter problems related to network traffic, permissions, etc. While it might be a good idea to temporarily disable the firewall and SELinux we do not recommend disabling that mechanism in the production environment as it creates significant security issues.  
+**If you choose to disable firewalld bear in mind that vProtect won't be available on ports 80/443 anymore. Instead, connect to ports 8080/8181 respectively.**
 
 ```text
 # setenforce 0
@@ -162,7 +162,7 @@ We should also
 [root@vprotect1 ~]# pcs resource defaults migration-threshold=3
 ```
 
-Those two settings combined will define how many failures can occur for a node to be marked as ineligible for hosting a resource and after what time this restriction will be lifted off. We define defaults here, but it may be a good idea also to set thiese values also on resource level, depending on your experience.
+Those two settings combined will define how many failures can occur for a node to be marked as ineligible for hosting a resource and after what time this restriction will be lifted off. We define defaults here, but it may be a good idea also to set these values also on resource level, depending on your experience.
 
 As long we are not using any fencing device in our environment \(and here, we do not\) we need to:
 
@@ -172,7 +172,7 @@ As long we are not using any fencing device in our environment \(and here, we do
 [root@vprotect1 ~]# pcs property set stonith-enabled=false && crm_verify -L
 ```
 
-The Second part of this command verifies running config. These commands normally do not return any output.
+The second part of this command verifies running-config. These commands normally do not return any output.
 
 **Resources creation**
 
@@ -180,7 +180,7 @@ Finally, we have our cluster configured, so it's time to proceed to
 
 * **resources creation**
 
-At first, we will create a resource which represents our _**floating IP**_ 10.40.1.100. Adjust your IP and cidr\_netmask, and you're good to go.
+At first, we will create a resource that represents our _**floating IP**_ 10.40.1.100. Adjust your IP and cidr\_netmask, and you're good to go.
 
 **IMPORTANT:** From this moment we need to use this IP while connecting to our vProtect server.
 
@@ -207,7 +207,7 @@ As you can see, our floating IP 10.40.1.100 has been successfully assigned as th
 
 We should also check if vProtect web interface is up and running, we can do this by opening web browser and typing in [https://10.40.1.100](https://10.40.1.100/). At this point we should see:
 
-![](../.gitbook/assets/vprotect-high-avaliability-login-page.png)
+![](../.gitbook/assets/login.png)
 
 As a next step
 

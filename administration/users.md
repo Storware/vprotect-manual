@@ -9,7 +9,7 @@ There are two types of users with only an administrator role:
 
 ![](../.gitbook/assets/users%20%281%29.jpg)
 
-To create a new user, click the button on the right ![](../.gitbook/assets/create-user.jpg) .
+To create a new user, click the button on the right ![](../.gitbook/assets/create-user.jpg)
 
 ![](../.gitbook/assets/users-create.jpg)
 

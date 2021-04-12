@@ -19,14 +19,16 @@
 ![](../../../.gitbook/assets/object-storage-google-service-account-3.jpg)
 
 You can leave the third tab - Grant users access to this service account \(optional\)  
-To generate account key click on the "three-dot" button next to your service account and then click on "create key".  
+To generate an account key click on the "three-dot" button next to your service account and then click on "create key".  
 Then you should see below the window, click on create to download JSON file. You'll need its content in the last step.
 
 ![](../../../.gitbook/assets/object-storage-google-service-account-4.jpg)
 
 1. After the key is created, open your vProtect server page \(you can also use **CLI**\), click on **BACKUP DESTINATIONS**, press **Create Backup Destination** button, then select **Google Cloud Storage** from the drop-down list. In addition to [standard properties](../), you need to specify:
-2. **Bucket name** specified during bucket creation ![](../../../.gitbook/assets/object-storage-google-bucket-browse.jpg)
+2. **Bucket name** specified during bucket creation  
 3. **Service account key** - paste content of service account key .json file created before.
+
+![](../../../.gitbook/assets/object-storage-google-bucket-browse.jpg)
 
 ![](../../../.gitbook/assets/object-storage-google-create-backup-destination.jpg)
 
