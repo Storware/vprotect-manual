@@ -9,11 +9,11 @@
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-02%20%281%29.png)
 
-* Next step is to generate token:
+* The next step is to generate a token:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-03%20%281%29%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-03%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
-* Now we should copy the token to clipboard before start the installation of the client software.
+* Now we should copy the token to the clipboard before start the installation of the client software.
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-04%20%281%29%20%281%29%20%281%29.png)
 
@@ -40,7 +40,7 @@ Example:
      Linux, Linux - s390x            cd [path_to_downloaded_tar.gz file]/NetBackup_8.x_CLIENTS2
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-06%20%281%29%20%282%29%20%282%29%20%282%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-06%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 * Type ./install and answer the questions as follows:
 
@@ -68,7 +68,7 @@ The client binaries represent the operating system versions where the binaries w
 
 * \(Conditional\) Enter one or more media servers if prompted:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-13%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-13%20%281%29%20%281%29.png)
 
 * After you confirm you want to continue, the installer fetches the certificate authority certificate details.
 
@@ -78,7 +78,7 @@ The client binaries represent the operating system versions where the binaries w
 
 * When prompted, review the fingerprint information and confirm that it is accurate.
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-15%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-15%20%281%29%20%281%29.png)
 
 * After you confirm the fingerprint information, the installer stores the certificate authority certificate details.
 
@@ -102,7 +102,7 @@ The token format is 16 upper case letters. Be aware if you press Ctrl+C, this ac
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-19.png)
 
-* Once we have finished the installation of the client software we need to modify the firewall service to allow the double-sided communication between the server and our client. We need to allow input communication on ports 13782/tcp and 13782/udp. To do that enter commands as below:
+* Once we have finished the installation of the client software we need to modify the firewall service to allow double-sided communication between the server and our client. We need to allow input communication on ports 13782/tcp and 13782/udp. To do that enter commands as below:
 * First, we need to know what is our default zone:
 
 ```text
@@ -143,9 +143,9 @@ firewall-cmd --zone=public --permanent --add-port=13724/tcp && firewall-cmd --zo
 firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-25%20%281%29%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-25%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
-* The Last action is to bind the port to the netbackup client deamon” bpnd”. To do that type following command in terminal
+* The Last action is to bind the port to the NetBackup client deamon” bpnd”. To do that type the following command in terminal
 
 ```text
 /usr/openv/netbackup/bin/bpcd -port 13724
@@ -155,7 +155,7 @@ firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
 
 Add new Policy:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-26%20%282%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-26%20%282%29%20%282%29.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-27%20%281%29.png)
 
@@ -179,9 +179,9 @@ Add new Policy:
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-34.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-35%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-35%20%281%29%20%281%29.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-36%20%281%29%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-36%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-37%20%281%29%20%281%29%20%281%29.png)
 
@@ -189,7 +189,7 @@ Add new Policy:
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-39%20%281%29.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-40%20%281%29%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-40%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 * Finally, we have the client connected to the server.
 

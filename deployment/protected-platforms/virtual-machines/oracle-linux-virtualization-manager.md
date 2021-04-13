@@ -9,7 +9,7 @@ Import/export mode defines the way the backups and restores are done. OLVM \(wit
 1. **Disk attachment**, which exports VM metadata \(in OVF format\) with separate disk files \(in RAW format\) via Proxy VM with the Node installed.
    * supports OLVM 4.0+
    * no incremental backup
-   * proxy VM required in each cluster - used for disks attachment process
+   * proxy VM required in each cluster - used for the disks attachment process
 2. **Disk image transfer**, which exports VM metadata \(in OVF format\) with disk snapshot chains as separate files \(QCOW2 format\):
    * supports OLVM 4.2+/oVirt 4.2.3+
    * supports incremental backup
@@ -78,7 +78,7 @@ Unfortunately, there are a few problems with the current architecture of this so
 * metadata exported from API
 * data transfer initiated on the manager and actual data exported from the hypervisor using imageio API
 * incremental backups use the same APIs, but requests for changed blocks only
-* last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
+* the last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
 * restore recreates VM from metadata using API and imports merged chain of data for each disk using imageio API
 
 Disk image transfer mode exports data directly using OLVM 4.2+ API. There is no need to setup an export storage domain or LVM. This mode uses snapshot-chains provided by OLVM.
@@ -98,10 +98,10 @@ This is an enhancement for the disk image transfer API strategy. It allows vProt
 * crash-consistent snapshot using hypervisor's API
 * optionally FS freeze can be executed before snapshot can be executed \(FS thaw once the snapshot is completed\) if enabled and guest tools installed inside
 * optional application consistency using pre/post snapshot command execution • metadata exported from API
-* data transfer via SSH \(optional using netcat\) - full chain of disk snapshot files for each disk o if LVM-based storage is used, then node activates volumes if necessary to read data o if Gluster FS is used, then disk files are copied directly
+* data transfer via SSH \(optional using netcat\) - the full chain of disk snapshot files for each disk o if LVM-based storage is used, then node activates volumes if necessary to read data o if Gluster FS is used, then disk files are copied directly
 * incremental backup export just sub-chain of QCOW2-deltas snapshots since last stored snapshot
-* last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
-* restore recreates VM with empty storage from metadata using API and imports merged data over SSH to appropriate location on hypervisor
+* the last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
+* restore recreates VM with empty storage from metadata using API and imports merged data over SSH to appropriate location on a hypervisor
 
-This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding OLVM manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
+This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding OLVM manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md).
 

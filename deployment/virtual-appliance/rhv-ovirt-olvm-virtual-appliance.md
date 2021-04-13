@@ -40,7 +40,7 @@ Now you see Import wizard. Select the source of import - "Virtual appliance \(OV
 
 Enter a path where you place OVA files and click on the load button.
 
-![](../../.gitbook/assets/3%20%281%29.png)
+![](../../.gitbook/assets/3%20%281%29%20%281%29.png)
 
 Now select Virtual Machine to import.
 

@@ -15,7 +15,7 @@
 5. Setup backup provider:
    * you should check the backup destinations section for a detailed description of properties: [backup destinations](backup-destinations/)
 6. Test basic operations to verify that integration is completed:
-   * [How to backup](installation-overview.md)
-   * [How to restore](installation-overview.md)
-   * [How to mount](installation-overview.md)
+   * [How to backup](../administration/virtual-environments/instances/backup-on-demand.md)
+   * [How to restore](../administration/virtual-environments/instances/restore-on-demand.md)
+   * [How to mount](../administration/virtual-environments/file-level-restore-mounted-backup-1.md)
 

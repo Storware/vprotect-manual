@@ -1,7 +1,7 @@
 # IBM Spectrum Protect
 
 1. Register ISP node on your ISP server
-   * Log in to your ISP server and prepare policy set for vProtect backups.
+   * Log in to your ISP server and prepare a policy set for vProtect backups.
 
      ```text
       Def dom vprotect
@@ -26,5 +26,5 @@
    * Make sure to type the IP address of your ISP server, TCP port, node name correctly:
    * Example:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-ibm-spectrum-protect-install-script%20%282%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-ibm-spectrum-protect-install-script%20%282%29%20%282%29.png)
 

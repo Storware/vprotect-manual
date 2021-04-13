@@ -1,13 +1,13 @@
 # Dell EMC Avamar
 
-To integrate vProtect with Dell EMC Avamar go ahead and complete following on **vProtect Node**:
+To integrate vProtect with Dell EMC Avamar go ahead and complete the following on **vProtect Node**:
 
 1. Download the required software:
    * **mccli**
-   * \*\*Avamar Linux Client \*\*
+   * Avamar Linux Client
    * **Pubkey** \(\*.pub + sh\)
 
-You can obtain the above by browsing the downloads section of your Avamar server installation, provided you have installed 'UpgradeClientDownloads" from EMC repository to the Avamar server. When in doubt, consult Avamar documentation
+You can obtain the above by browsing the downloads section of your Avamar server installation, provided you have installed 'UpgradeClientDownloads" from the EMC repository to the Avamar server. When in doubt, consult Avamar documentation
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-avamar-download-1.png)
 
@@ -52,9 +52,9 @@ Updating / installing...
   1:dpnmccli-19.2.0-155              ################################# [100%
 ```
 
-**Note:** please change RPM name to match the file downloaded from you Avamar installation
+**Note:** please change the RPM name to match the file downloaded from your Avamar installation
 
-1. Run _**avsetup\_mccli**_ to configure management console
+1. Run _**avsetup\_mccli**_ to configure the management console
 
 You need to point mccli to your JRE installation, fill in connection details, plus provide admin username and password
 
@@ -98,7 +98,7 @@ On the left side menu click _**Backup Destinations**_ then change to _**enterpri
 
 ![](../../../.gitbook/assets/backup-destinations-enterprise.jpg)
 
-Fill in the required info. itt may look similar to the example below:
+Fill in the required info. it may look similar to the example below:
 
 ![](../../../.gitbook/assets/backup-destinations-enterprise-avamar.jpg)
 

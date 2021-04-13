@@ -4,7 +4,7 @@
 
 To restore a single storage instance on-demand, go to the instances tab under the Storage Providers section. Click on the restore icon next to the object ![](../../../.gitbook/assets/icon-restore.jpg)
 
-![](../../../.gitbook/assets/storage-providers-instances%20%282%29%20%281%29.jpg)
+![](../../../.gitbook/assets/storage-providers-instances%20%282%29%20%282%29%20%281%29.jpg)
 
 Now you should see a popup window where you might customize restore settings.
 

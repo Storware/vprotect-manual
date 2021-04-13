@@ -127,7 +127,7 @@ Select a backup strategy for your hypervisor
 
 ![](../.gitbook/assets/initial-configuration-wizard-policy-example.jpg)
 
-* Choose if you want to use auto assign mode based on tags and regular expressions \(matched against VM name, i.e. `.*` matches all characters 0 or more times, check [Policies](https://github.com/backupmonster/dell-emc-vprotect-manual/tree/c077b5308b5ade999cc43068acf4a4f03e38ae58/deployment/administration/virtual-environments/backup-slas/policies.md) section for the details\)
+* Choose if you want to use auto assign mode based on tags and regular expressions \(matched against VM name, i.e. `.*` matches all characters 0 or more times, check [Backup SLAs](../administration/virtual-environments/backup-slas/) section for the details\)
 
 ![](../.gitbook/assets/initial-configuration-wizard-policy-example2.jpg)
 

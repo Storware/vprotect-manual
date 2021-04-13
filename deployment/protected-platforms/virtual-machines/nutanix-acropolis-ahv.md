@@ -24,7 +24,7 @@ This strategy allows you to exclude disks that you don't need from your backup. 
 
 Our best practice is to use a proxy machine with one disk device for the purposes of the operating system if you are using the "Disk attachment" backup strategy. Due to the simplification of the configuration of the environment, and we also do not achieve any benefits for this element of the environment.
 
-Our experience shows that after adding a new node to the environment, is good to perform a test backup and check the logs from which disk device we want to start the backup. Depending on the proxy virtual machine configuration, vProtect will select the appropriate disk or you need to manually set the offset parameter. Rather, we do not encounter this type of situation when a virtual machine has only one disk device.
+Our experience shows that after adding a new node to the environment, is good to perform a test backup and check the logs from which disk device vProtect node want to start the backup. Depending on the proxy virtual machine configuration, vProtect will select the appropriate disk or you need to manually set the offset parameter. Rather, we do not encounter this type of situation when a virtual machine has only one disk device.
 
 ### Recommendations on how to set up the environment for vProtect
 
@@ -87,41 +87,34 @@ How to start back up for Nutanix AHV Hypervisor
 
 ![](../../../.gitbook/assets/nutanix-example-5.png)
 
-* As we can see in the logs, we need to correct the "offset" value. vProtect wants to start a backup from /dev/sdb, which is actually its own disk device.
+* As we can see in the logs, we do not need to correct the "offset" value. vProtect wants to start a backup from /dev/sdc, which is correct behaviour because this disk device does not belong to Proxy VM.
 
 ```text
-[2021-04-08 15:21:00.557] INFO [Thread-50] IProxyVmProvider.waitForDevice:38 
-[9971e4da-48df-4c21-a5eb-09ab1060f9b3] Checking if device '/dev/sdb' is  present...
+[2021-04-08 14:51:40.959] INFO [Thread-47] IProxyVmProvider.waitForDevice:38 
+[ffc65c30-8952-4ffa-b5d5-eefcfe01f333] Checking if device '/dev/sdc' is  present...
 
-[2021-04-08 15:21:05.557] DEBUG [Thread-50] CommandExecutor.exec:75 
-[9971e4da-48df-4c21-a5eb-09ab1060f9b3] Exec: [lsblk, -l, /dev/sdb]
+[2021-04-08 14:51:45.959] DEBUG [Thread-47] CommandExecutor.exec:75 
+[ffc65c30-8952-4ffa-b5d5-eefcfe01f333] Exec: [lsblk, -l, /dev/sdc]
 
-[2021-04-08 15:21:05.582] DEBUG [Thread-50] CommandExecutor.exec:102 
-[9971e4da-48df-4c21-a5eb-09ab1060f9b3] [lsblk, -l, /dev/sdb]
+[2021-04-08 14:51:45.969] DEBUG [Thread-47] CommandExecutor.exec:102 
+[ffc65c30-8952-4ffa-b5d5-eefcfe01f333] [lsblk, -l, /dev/sdc]
 Return code: 0
 output:
-[NAME MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sdb    8:16   0  100G  0 disk 
-sdb1   8:17   0  100G  0 part /vprotect_data
+[NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sdc    8:32   0  20G  0 disk 
+sdc1   8:33   0   1G  0 part 
+sdc2   8:34   0  19G  0 part 
 ]
 error:
 []
 
-[2021-04-08 15:21:05.583] INFO [Thread-50] IProxyVmProvider.waitForDevice:45 
-[9971e4da-48df-4c21-a5eb-09ab1060f9b3] Device '/dev/sdb' is present
+[2021-04-08 14:51:45.970] INFO [Thread-47] IProxyVmProvider.waitForDevice:45 
+[ffc65c30-8952-4ffa-b5d5-eefcfe01f333] Device '/dev/sdc' is present
 
-[2021-04-08 15:21:15.635] INFO [Thread-50] NutanixHypervisorManager.exportData:895 
-[9971e4da-48df-4c21-a5eb-09ab1060f9b3] Data export of scsi.0 (917a15a2-5815-4d20-b693-6fb77ea59293)[20 GiB]:
- '/dev/sdb' -> '/vprotect_data/vProtect-node__fb96db59/scsi.0.raw'...
+[2021-04-08 14:51:55.991] INFO [Thread-47] NutanixHypervisorManager.exportData:895 
+[ffc65c30-8952-4ffa-b5d5-eefcfe01f333] Data export of scsi.0
+(917a15a2-5815-4d20-b693-6fb77ea59293)[20 GiB]: '/dev/sdc' -> '/vprotect_data/vProtect-node__fb96db59/scsi.0.raw'...
 ```
 
-* To change that value, we need to go to the Node Configurations tab and open the node config
-
-![](../../../.gitbook/assets/nutanix-example-6.png)
-
-* As you can see the "Dynamically attached disks slot offset" has a default value of "0". If we see in the log file that vProtect wants to back up itself - in this case, /dev/sdb we have to go up with this parameter value. If we set it to 1, Protect will want to back up the /dev/sdc device, which is correct.
-
-![](../../../.gitbook/assets/nutanix-example-7.png)
-
-* Perform one more test backup to make sure that backup is good. After all, you can go back to the info log mode.
+* If you meet with a situation, when vProtect want to back up its own disk device, please read our knowledge base article: [KB10037 How to change "Dynamically attached disks slot offset" parameter](https://storware.atlassian.net/l/c/KJt7rid0)
 

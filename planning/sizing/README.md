@@ -2,7 +2,7 @@
 
 There are two types of people: those who are doing backups, and those who will be doing them. But just **doing** backups is not everything. To avoid unnecessary surprises the best strategy is to **plan** your backup environment/procedure **before implementing** it. In this chapter, we have collected generic hints and guides which you might find useful while thinking about your **vProtect** implementation.
 
-1. Collect information about the _\*\*_$$TotalSizeOfData$$ to be protected in your environment
+1. Collect information about the $$TotalSizeOfData$$ to be protected in your environment
    * this is the size of your VMs/Storages that will be transferred within a backup window
      * for general sizing assume all backups to be full
    * if your staging space is separate from the backup destination - please also check what are the biggest VMs/Storages that may end up in your staging area 
@@ -31,7 +31,7 @@ There are two types of people: those who are doing backups, and those who will b
    * if your backup destination is accessible over LAN
      * do a test transfer from the node to the backup destination to verify if the performance on the backup destination is able to receive such load
 6. $$NumberOfExportTasksPerNode$$
-   * we recommend to use the same node configuration for multiple nodes, so the same limit value will be applied to all nodes sharing configuration
+   * we recommend to use the same node configuration for multiple nodes, so the same limit value will be applied to all nodes sharing configuration \(except when using the "disk attachment" backup strategy - then we recommend using a separate configuration for each node\)
    * this implies, that we recommend assuming this value as follows \(rounded down\):
 
      $$NumberOfExportTasksPerNode=TotalNumberOfExportTasks/NumberOfTheNodes$$
@@ -46,7 +46,7 @@ There are two types of people: those who are doing backups, and those who will b
    * when counting tasks for each node assume:$$NumberOfExportTasksPerNode+NumberOfStoreTasksPerNode$$ 
 9. **Server resource requirements:**
    * **CPU**: Assume 0,5 CPU per task, minimum 2 cores - rounded up to full core count supported by the hypervisor or physical server \(i.e. it may be required to round 2,5 cores to 4 vCPUs if hypervisor on which node is deployed doesn't allow to assign 3 vCPUs\)
-   * **Memory**: 256 MB RAM per task., minimum of 4GB
+   * **Memory**: 256 MB RAM per task., minimum of 6GB
    * when counting tasks assume:
 
      $$TotalNumberOfExportTasks+TotalNumberOfStoreTasks$$

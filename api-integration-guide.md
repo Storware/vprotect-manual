@@ -1,6 +1,6 @@
 # Integration
 
-In this section, we're going to highlight key aspects necessary to integrate 3rd party solutions with vProtect. We assume a typical scenario, where you want to invoke vProtect operations on behalf of a user of a self-service portal. We assume that end-user uses the above-mentioned portal for a subset of administrative actions, and we want to give user ability to perform basic backup related operations.
+In this section, we're going to highlight key aspects necessary to integrate 3rd party solutions with vProtect. We assume a typical scenario, where you want to invoke vProtect operations on behalf of a user of a self-service portal. We assume that the end-user uses the above-mentioned portal for a subset of administrative actions, and we want to give user ability to perform basic backup related operations.
 
 These include:
 
@@ -20,19 +20,19 @@ Multi-tenancy and permission handling is on the 3rd-party system side. There is 
 
 3rd-party system must use a dedicated vProtect account to perform operations.
 
-![](.gitbook/assets/vprotect-detailed-architecture%20%281%29%20%281%29%20%282%29.png)
+![](.gitbook/assets/vprotect-detailed-architecture%20%281%29%20%281%29%20%282%29%20%281%29.png)
 
 ## Integration steps
 
 ### Setup
 
-Your system is going to communicate over HTTPS which by default runs on port 8181, but during the setup can optionally be exposed on 443 as well. You need to generate an SSL certificate as described [here](https://github.com/mskajba/vprotect-manual/tree/187bb7f133424d681a0af760f77a07635a4da61e/deployment/common-tasks/enabling-https-connectivity-for-remote-nodes.md).
+Your system is going to communicate over HTTPS which by default runs on port 8181, but during the setup can optionally be exposed on 443 as well. You need to generate an SSL certificate as described [here](deployment/common-tasks/enabling-https-connectivity-for-nodes.md).
 
 vProtect can invoke operations only on VMs that exist in its inventory. It is being synced periodically so that it reflects changes in the virtualization platform.
 
-REST API can either be invoked directly or using generated client for Java. Please contact us to receive the current client version matching your language.
+REST API can either be invoked directly or using the generated client for Java. Please contact us to receive the current client version matching your language.
 
-Base URL for API calls is: `https://VPROTECT_SERVER:PORT/api`. We'll assume that all endpoints are prefixed with the base URL it in the rest of this guide. In this guide we'll focus on the integration process, and skip actual requests and responses here and - please check API docs for details.
+The base URL for API calls is: `https://VPROTECT_SERVER:PORT/api`. We'll assume that all endpoints are prefixed with the base URL it in the rest of this guide. In this guide we'll focus on the integration process, and skip actual requests and responses here and - please check API docs for details.
 
 Quite often in requests or responses, vProtect requires `NameAndGuid` to refer to other objects. `GUID` is the ID that you can use later to get additional information about i.e. hypervisor or backup. For convenience, we provide `name` to present it on the list views.
 
@@ -50,7 +50,7 @@ In the rest of this guide, we assume that you have a valid session before you ca
 
 ### Listing VMs in inventory \(including already non-existing\)
 
-If you have a dedicated view of the VMs that are available for restore you need call: `/virtual-machines`. This will retrieve all VMs visible by vProtect. `GUID` is the ID that you should refer to when invoking any operation on the VM. `UUID` is the ID that your infrastructure uses to identify objects.
+If you have a dedicated view of the VMs that are available for restore you need to call: `/virtual-machines`. This will retrieve all VMs visible by vProtect. `GUID` is the ID that you should refer to when invoking any operation on the VM. `UUID` is the ID that your infrastructure uses to identify objects.
 
 For a multi-tenant environment make sure to filter out VMs on your side according to your ACLs or ownership of the VMs. For OpenStack vProtect records project ID and allows to use it to filter VMs like this: `/virtual-machines?tenantid={PROJECTID}`
 

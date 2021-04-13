@@ -29,7 +29,7 @@ Oracle VM environments require storage repositories to be defined for each serve
 
 1. Create repository from NFS share on vProtect node
    * One server pool should have a separate subdirectory in the export path i.e. `/vprotect_data/pool01`, `/vprotect_data/pool2` - each subdirectory is a separate NFS share
-   * Export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `pool01` and `pool02` are server pool names
+   * The export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `pool01` and `pool02` are server pool names
    * Specify mapping between server pool names and storage repository names in hypervisor manager configuration
    * Note that export must be set to use UID and GID of `vprotect` user
    * Example export configuration in `/etc/exports` to the selected hypervisor in the RHV cluster:
