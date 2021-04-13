@@ -127,7 +127,7 @@ Select a backup strategy for your hypervisor
 
 ![](../.gitbook/assets/initial-configuration-wizard-policy-example.jpg)
 
-* Choose if you want to use auto assign mode based on tags and regular expressions \(matched against VM name, i.e. `.*` matches all characters 0 or more times, check [Backup SLAs](../administration/virtual-environments/untitled/) section for the details\)
+* Choose if you want to use auto assign mode based on tags and regular expressions \(matched against VM name, i.e. `.*` matches all characters 0 or more times, check [Backup SLAs](../administration/virtual-environments/backup-slas/) section for the details\)
 
 ![](../.gitbook/assets/initial-configuration-wizard-policy-example2.jpg)
 
