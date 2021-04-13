@@ -1,6 +1,6 @@
 # OpenShift Operator Installation
 
-vProtect can also be installed in OpenShift environments using OperatorHub with just a few easy steps.
+vProtect can also be installed in OpenShift environments using OperatorHub with just a few easy steps. Once installed, operator can be used to create deployment with pods for: vProtect Server, vProtect Node, MariaDB and operator's sdeployment pod. Operaor also allows you to specify different storage configuration (using persistent volume) or external backup providers (only file or object based storage are supported in the operator). 
 
 **Note:**
 
