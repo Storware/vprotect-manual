@@ -4,7 +4,7 @@ vProtect can be easily installed on a single box quickly. This method is to inst
 
 Here are just a few steps that need to be done:
 
-* Install **CentOS or RHEL 8** \(optionally you can use version 7\) **minimal** with 6 **GB** of RAM and 4 **vCPUs** and some storage for staging space and optionally a backup destination:
+* Install **CentOS or RHEL 8** \(optionally you can use version 7\) **minimal** with 8 **GB** of RAM and 4 **vCPUs** and some storage for staging space and optionally a backup destination:
   * use the first disk for the operating system
   * add a secondary disk, i.e. **200GB - 1 TB** \(depending on the size of your VMs that you want to backup\) - leave it empty, you'll initialize this space later
 * log in as **root** over **SSH** to your machine, where you want to install it

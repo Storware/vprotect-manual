@@ -4,7 +4,7 @@
 
 To mount backup go to the Instances tab under Virtual Environment section on the left side menu, then click on the mount icon next to a chosen virtual machine ![](../../.gitbook/assets/icon-mount.jpg)
 
-![](../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29.jpg)
+![](../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29.jpg)
 
 On the popup window, you can select which backup you want to mount and on which node. You can also change the mount method, but we recommend leaving the default setting "Mount filesystem automatically".
 
@@ -22,7 +22,7 @@ The Mounted Backups tab show mounted Virtual Machine backup's on the vProtect no
 * `FILES` - number of mounted virtual disk images.
 
 Next to every mounted backup you can see three buttons:  
-To unmount backup click on ![](../../.gitbook/assets/icon-unmount%20%282%29%20%282%29%20%282%29.jpg)  
+To unmount backup click on ![](../../.gitbook/assets/icon-unmount%20%282%29%20%282%29%20%282%29%20%282%29.jpg)  
 To remount backup click on ![](../../.gitbook/assets/icon-remount%20%281%29.jpg)  
 To go to the details page of mounted backup click on ![](../../.gitbook/assets/icon-magnifier%20%281%29%20%281%29.jpg)
 

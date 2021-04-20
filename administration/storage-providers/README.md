@@ -4,5 +4,5 @@ vProtect introduces a new type of backup source - storage provider. Now you can 
 
 You can execute full and incremental backups, recover individual files using mounted backups or share them over iSCSI.
 
-![](../../.gitbook/assets/storage-providers-general%20%281%29%20%281%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/storage-providers-general%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29.jpg)
 

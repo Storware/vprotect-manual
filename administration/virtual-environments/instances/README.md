@@ -17,7 +17,7 @@ The field lets the user filter the virtual machines by their:
 * Name field of a linked VM Backup Policy 
 * Name field of a linked Snapshot Management Policy
 
-![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%285%29.jpg)
+![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%285%29.jpg)
 
 Going back to the VM details page, this is how it looks like:
 

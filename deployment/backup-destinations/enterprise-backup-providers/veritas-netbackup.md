@@ -11,7 +11,7 @@
 
 * The next step is to generate a token:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-03%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-03%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 * Now we should copy the token to the clipboard before start the installation of the client software.
 
@@ -40,7 +40,7 @@ Example:
      Linux, Linux - s390x            cd [path_to_downloaded_tar.gz file]/NetBackup_8.x_CLIENTS2
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-06%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-06%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 * Type ./install and answer the questions as follows:
 
@@ -143,7 +143,7 @@ firewall-cmd --zone=public --permanent --add-port=13724/tcp && firewall-cmd --zo
 firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
 ```
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-25%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-25%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 * The Last action is to bind the port to the NetBackup client deamon” bpnd”. To do that type the following command in terminal
 
@@ -155,7 +155,7 @@ firewall-cmd --zone=public --permanent --list-ports && firewall-cmd --list-all
 
 Add new Policy:
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-26%20%282%29%20%282%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-26%20%282%29%20%282%29%20%282%29.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-27%20%281%29.png)
 
@@ -181,7 +181,7 @@ Add new Policy:
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-35%20%281%29%20%281%29.png)
 
-![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-36%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-36%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-veritas-netbackup-setup-37%20%281%29%20%281%29%20%281%29.png)
 

@@ -32,5 +32,5 @@ mount -a
 
 Now go to the dashboard and create new File System Backup Destination
 
-![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 

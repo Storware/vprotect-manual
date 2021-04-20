@@ -468,7 +468,7 @@ We need still to
 
 * Make sure that our node is pointed to a localhost address. Check the _**Nodes**_ UI section.
 
-![](../.gitbook/assets/vprotect-high-avaliability-nodes-config%20%281%29%20%281%29%20%281%29.png)
+![](../.gitbook/assets/vprotect-high-avaliability-nodes-config%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 If node's IP is different than 127.0.0.1 delete the node and re-register using
 

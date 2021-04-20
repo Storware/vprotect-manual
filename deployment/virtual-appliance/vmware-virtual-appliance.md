@@ -2,15 +2,15 @@
 
 * Log in to VMware vCenter/ESXi then click on "Create/Register VM".
 
-![](../../.gitbook/assets/virtual-appliance-vmware-esxi-01%20%282%29%20%282%29%20%282%29%20%282%29.png)
+![](../../.gitbook/assets/virtual-appliance-vmware-esxi-01%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 * Select "Deploy a virtual machine from an OVF/OVA file".
 
-![](../../.gitbook/assets/virtual-appliance-vmware-esxi-02%20%282%29%20%282%29.png)
+![](../../.gitbook/assets/virtual-appliance-vmware-esxi-02%20%282%29%20%282%29%20%282%29.png)
 
 * Enter a name for the virtual machine, and select ova file.
 
-![](../../.gitbook/assets/virtual-appliance-vmware-esxi-03%20%281%29%20%282%29%20%282%29%20%281%29.png)
+![](../../.gitbook/assets/virtual-appliance-vmware-esxi-03%20%281%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
 
 * Select storage.
 
