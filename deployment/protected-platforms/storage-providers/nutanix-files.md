@@ -1,5 +1,7 @@
 # Nutanix Files
 
+![](../../../.gitbook/assets/storage-providers-nutanix-files.png)
+
 ## General
 
 Nutanix Files offers file system storage in a form of network shares \(SMB or NFS\). With vProtect, you can easily backup and recover these shares.
