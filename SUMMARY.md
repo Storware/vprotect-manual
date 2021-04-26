@@ -125,7 +125,7 @@
     * [Applications](administration/reporting/applications.md)
     * [Storage Providers](administration/reporting/storage-providers.md)
     * [Audit Log](administration/reporting/audit-log.md)
-  * [User Management](administration/users.md)
+  * [Access Management](administration/users.md)
   * [Settings](administration/settings.md)
   * [CLI Reference](administration/cli-reference.md)
   * [Upgrade](administration/upgrade.md)
