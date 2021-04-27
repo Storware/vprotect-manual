@@ -50,27 +50,39 @@ You can also use several function buttons, like:
 
 ### Daily activity
 
-![](../../../.gitbook/assets/instances-vm-details-page-statistics.jpg)
+![](../../../.gitbook/assets/vm-details-page-statistics%20%281%29.png)
 
 First, you'll see a daily summary of the backup and restore operations for the last month. This view is called "Daily Summary" and is the default view. You can switch the report between four views.
 
 ### Backup Size
 
-![](../../../.gitbook/assets/instances-vm-details-page-statistics-size.jpg)
+![](../../../.gitbook/assets/vm-details-page-statistics-size%20%281%29.png)
 
 This view shows separate columns for each backup made to the virtual machine. Thanks to this, you can easily determine what data increase occurs on a given machine.
 
 ### Backup Time
 
-![](../../../.gitbook/assets/instances-vm-details-page-statistics-time.jpg)
+![](../../../.gitbook/assets/vm-details-page-statistics-time.png)
 
 A very useful report. It allows you to determine the required window length for backups or, based on the time of individual phases, it is easy to deduce the cause of slow backups.
 
+### Transfer Rate
+
+![](../../../.gitbook/assets/vm-details-page-statistics-transfer%20%281%29.png)
+
+One of the latest reports, now you can easily see how fast data transfer is.
+
 ### Restore Duration
 
-![](../../../.gitbook/assets/instances-vm-details-page-statistics-restore.jpg)
+![](../../../.gitbook/assets/vm-details-page-statistics-restore-dur.png)
 
 A view with the same properties as "Backup Time". It allows us to estimate how long it will take to restore the machine in the event of a failure.
+
+### Restore Rate
+
+![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate.png)
+
+As in the previous case, we also have the transfer speed for the restore job.
 
 ## Events Calendar
 
