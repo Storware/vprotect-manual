@@ -28,9 +28,9 @@ In general, the process looks as follows:
 
 Please complete the following steps to add the Nutanix Files storage provider:
 
-Go to `Storage` -&gt; `Infrastructure` and add click on `Add Storage Provider`
+Go to `Storage` -&gt; `Infrastructure` and add click on `Create`
 
-![](../../../.gitbook/assets/storage-providers-infrastructure.png)
+![](../../../.gitbook/assets/storage-infrastructure.png)
 
 In the form provide:
 
