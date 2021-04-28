@@ -9,9 +9,17 @@
 Minimum version
 
 * **7.6+**
-* **8.1.1911+** _\* vProtect node must be installed on CentOS/RHEL 7.x to backup VMware virtual machines_
+* **8.1.1911+** 
 
 Minimal install \(Basic functionality\)
+
+{% hint style="warning" %}
+_vProtect node must be installed on CentOS/RHEL 7.x to backup VMware virtual machines_
+{% endhint %}
+
+{% hint style="warning" %}
+If the vProtect node is to be installed on a virtual machine with CentOS 8, make sure that **Secure Boot** is disabled in the virtual machine's **Boot Options**. 
+{% endhint %}
 
 ### External packages
 
