@@ -7,6 +7,7 @@
 | Backup Provider | Supported version | Random Access | Deduplication | Encryption | Pre/post access command execution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Filesystem | N/A | ✅ | ✅ \(built-in VDO\) | ✅ | ✅ |
+| Filesystem \(synthetic, XFS\) | Linux kernel 4.15+, xfsprogs 4.17+ | ✅ | ✅ \(built-in VDO\) | ❌ | ✅ |
 | PowerProtect DD | DD OS 7.x | ✅ | ✅ | ✅ | ✅ |
 
 ### Object storage
