@@ -551,7 +551,7 @@
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ❌ |
 | Available space for snapshot check | ❌ |
-| Power-on VM after restore | ✅  |
+| Power-on VM after restore | ❌ |
 
 
 ## Containers - features and requirements
