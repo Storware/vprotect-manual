@@ -50,6 +50,8 @@
     * [Filesystem](deployment/backup-destinations/filesystem/)
       * [Regular filesystem](deployment/backup-destinations/filesystem/regular-filesystem.md)
       * [Virtual Data Optimizer \(VDO\)](deployment/backup-destinations/filesystem/virtual-data-optimizer-vdo.md)
+      * [Synthetic filesystem XFS](deployment/backup-destinations/filesystem/synthetic-xfs.md)
+      * [Synthetic filesystem DD Boost](deployment/backup-destinations/filesystem/synthetic-ddboost.md)
     * [Deduplication Appliances](deployment/backup-destinations/deduplication-appliances/)
       * [Dell EMC Data Domain](deployment/backup-destinations/deduplication-appliances/dell-emc-data-domain.md)
       * [HPE StoreOnce](deployment/backup-destinations/deduplication-appliances/hpe-storeonce.md)

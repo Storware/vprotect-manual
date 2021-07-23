@@ -1,6 +1,9 @@
 # Synthetic XFS
 
 
+***Synthetic***
+
+Synthetic file system allows us to store and use incremental backups as if they were full backup files, but still they take up a fraction of full file's size.
 
 **Note:**
 
