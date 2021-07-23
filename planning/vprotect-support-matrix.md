@@ -542,16 +542,16 @@
 | Feature | Changed Block Tracking |
 | :--- | :--- |
 | Incremental backup | ✅ |
-| File-level restore | ❌  |
+| File-level restore | ✅ |
 | VM disk exclusion | ✅ |
 | Snapshot management | ✅ |
 | Quiesced snapshot | ❌ |
 | Pre/post snapshot command execution | ✅ |
-| Backup disks sharable over iSCSI | ❌ |
+| Backup disks sharable over iSCSI | ✅ |
 | Name-based policy assignment | ✅ |
 | Tag-based policy assignment | ❌ |
 | Available space for snapshot check | ❌ |
-| Power-on VM after restore | ❌  |
+| Power-on VM after restore | ✅  |
 
 
 ## Containers - features and requirements
