@@ -12,7 +12,7 @@ In [Typical Scenarios ](typical-scenarios.md)you can find a good starting point 
 
 Enjoy!
 
-_What next:_
+_What's next:_
 
 [_Architecture_](architecture.md)
 
