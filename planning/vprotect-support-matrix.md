@@ -529,6 +529,31 @@
 | Available space for snapshot check | ✅ | ✅ |
 | Power-on VM after restore | ✅ | ✅ |
 
+### Huawei FusionCompute
+
+|  | Changed Block Tracking |
+| :--- | :--- |
+| Minimum version | 8.0 |
+| Status | In operation |
+| Last snapshot kept on hypervisor for inc. backups | yes |
+| Hypervisor OS access needed | no |
+| Proxy VM needed | no |
+
+| Feature | Changed Block Tracking |
+| :--- | :--- |
+| Incremental backup | ✅ |
+| File-level restore | ✅ |
+| VM disk exclusion | ✅ |
+| Snapshot management | ✅ |
+| Quiesced snapshot | ❌ |
+| Pre/post snapshot command execution | ✅ |
+| Backup disks sharable over iSCSI | ✅ |
+| Name-based policy assignment | ✅ |
+| Tag-based policy assignment | ❌ |
+| Available space for snapshot check | ❌ |
+| Power-on VM after restore | ❌ |
+
+
 ## Containers - features and requirements
 
 ### Kubernetes
