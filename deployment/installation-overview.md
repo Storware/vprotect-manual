@@ -4,6 +4,7 @@
    * [All-in-one quick installation](quick-install-all-in-one.md)
    * [Installation using Ansible playbook](installation-using-ansible-playbook.md)
    * [Installation with RPMs](installation-with-rpms.md)
+   * [Virtual Appliance](virtual-appliance/README.md)
 2. Regardless of the installation option you choose:
    * The node requires **staging space** - assume a number of concurrent export and store tasks and multiply it by the biggest VM size \(**for example:** 6 export tasks + 4 store tasks \* 100 GB should require around 1 TB\)
    * The [Staging space configuration](common-tasks/staging-space-configuration.md) will guide you to prepare storage on the spare drive
