@@ -2,11 +2,11 @@
 
 ## General
 
-List of currently known storage instances and access to the details page of each object. From this place, you can also perform on-demand actions like backup, restore and file-level restore.
+A list of currently known storage instances and access to the details page of each object. From this place, you can also perform on-demand actions such as backup, restore and file-level restore.
 
 ![](../../../.gitbook/assets/storage-providers-instances%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
-Going back to the Storage details page, this is how it looks like:
+Going back to the Storage details page, this is what it looks like:
 
 ![](../../../.gitbook/assets/storage-providers-instances-details-page.jpg)
 
@@ -16,16 +16,16 @@ As you can see, the window has been divided into several areas:
 
 ![](../../../.gitbook/assets/storage-providers-instances-details-page-summary.jpg)
 
-On the top, you can see summarized pieces of information, like:
+At the top, you can see summarized pieces of information, such as:
 
 * ID of Storage instance into vProtect  
-* to which Provider instance belongs  
-* to which Pool instance belongs
+* to which Provider the instance belongs  
+* to which Pool the instance belongs
 * which node is responsible for backup  
 * short information about the last backup actions  
 * whether the storage instance has policies assigned to it  
 
-You can also use several function buttons, like:
+You can also use several function buttons, such as:
 
 * refresh  
 * back to list 
@@ -41,11 +41,11 @@ You can also use several function buttons, like:
 
 ![](../../../.gitbook/assets/vm-details-page-statistics.png)
 
-First, you'll see a daily summary of the backup and restore operations for the last month. This view is called "Daily Summary" and is the default view. You can switch a report between multiple views.
+First, you'll see a daily summary of the backup and restore operations for the last month. This view is called "Daily Summary" and is the default view. You can switch the report between multiple views.
 
 ### Backup Size
 
-![](../../../.gitbook/assets/vm-details-page-statistics-size.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-size%20%281%29%20%281%29.png)
 
 This view shows separate columns for each backup made. Thanks to this, you can easily determine what data increase occurs on a given machine.
 
@@ -88,7 +88,7 @@ In the bottom menu, you can find a large number of tabs, each of which will pres
 
 ![](../../../.gitbook/assets/storage-instances-details-bottom.jpg)
 
-The first tab shows all backups that are currently available and all basic information about them in a list. After pressing the magnifying glass button, you will see additional information. The button next to it allows you to download logs in the form of a .txt file.
+The first tab shows all backups that are currently available and all the basic information about them in a list. After clicking on the magnifying glass button, you will see additional information. The button next to it allows you to download logs in the form of a .txt file.
 
 ![](../../../.gitbook/assets/storage-instances-details-bottom-backup-details.jpg)
 
@@ -96,7 +96,7 @@ The first tab shows all backups that are currently available and all basic infor
 
 ![](../../../.gitbook/assets/storage-instances-details-bottom-backup-history.jpg)
 
-This tab shows information about all backups made. Also about failed, removed \(because of retention\) or currently executing.
+This tab shows information about all backups made. Also about those that failed, were removed \(because of retention\) or are currently executing.
 
 ### Restore History
 
@@ -111,7 +111,7 @@ This tab is similar to "Backup History". This is a list with basic information a
 ![](../../../.gitbook/assets/storage-instances-details-bottom-snapshots.jpg)
 
 This tab shows the storage instance snapshot - the tab is visible only for the ceph and nutanix Storage Provider.  
-As you can see in the list above, there is a green dot next to the snapshot. This means that this snapshot is created for incremental backup purposes. This is an automatic operation and we only keep the last snapshot.
+As you can see in the list above, there is a green dot next to the snapshot. This means that the snapshot is created for incremental backup purposes. This is an automatic operation and we only keep the last snapshot.
 
 ### Mounted Backups
 
@@ -124,7 +124,7 @@ With the buttons on the right, you can browse/remount/delete it.
 
 ![](../../../.gitbook/assets/storage-instances-details-bottom-schedules.jpg)
 
-In this tab, you can see all the schedules assigned to the instance.
+On this tab, you can see all the schedules assigned to the instance.
 
 ### Settings
 

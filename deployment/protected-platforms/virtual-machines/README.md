@@ -1,6 +1,6 @@
 # Virtual Machines
 
-vProtect supports multiple on-premise virtualization platforms. In this section, you will find what backup methods are supported and specific steps that are needed for each one of them to be integrated with vProtect.
+vProtect supports multiple on-premise virtualization platforms. In this section you will find what backup methods are supported and the specific steps that are needed for each of them to be integrated with vProtect.
 
 * [VMware vSphere/ESXi](vmware-vsphere.md)
 * [Microsoft Hyper-V](microsoft-hyper-v.md)

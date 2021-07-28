@@ -2,19 +2,19 @@
 
 ## General
 
-In order to connect to Ceph RBD, you need to provide keyring and configuration files. Ceph RBD storage provider should detect volumes and pools in the environment and allow you to assign backup policies. vProtect uses the RBD-NBD approach to mount remote RBD snapshot over NBD and read data.
+In order to connect to Ceph RBD you need to provide the keyring and configuration files. The Ceph RBD storage provider should detect the volumes and pools in the environment and allow you to assign backup policies. vProtect uses the RBD-NBD approach to mount a remote RBD snapshot over NBD and read data.
 
 **Note:**
 
 * vProtect needs access to the monitors specified in the Ceph configuration file.
-* When creating Ceph RBD storage provider for OpenStack environment only the credentials specified in the storage provider form are used by the OpenStack backup process - actual technique \(RBD-NBD mount or cinder in disk-attachment strategy\) and **node** to connect and backup volumes depends on the OpenStack hypervisor manager settings, not in the storage provider's
+* When creating Ceph RBD storage provider for the OpenStack environment only the credentials specified in the storage provider form are used by OpenStack backup process - the actual technique \(RBD-NBD mount or cinder in disk-attachment strategy\) and **node** for connecting and the backup volumes depend on the OpenStack hypervisor manager settings, not in the storage provider settings
 
 ## Example
 
 Please complete the following steps to add the Ceph RBD storage provider:
 
-* vProtect Node supports Ceph RBD and for that, you will need to install ceph libraries:
-  * On **vProtect Node** enable required repositories:
+* vProtect Node supports Ceph RBD, for which you will need to install ceph libraries:
+  * On **vProtect Node** enable the required repositories:
 
 For vProtect node installed on RHEL7:
 
@@ -44,15 +44,15 @@ sudo rpm --import '[https://download.ceph.com/keys/release.asc](https://download
 sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm](https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm)
 {% endhint %}
 
-* Install rbd-nbd and ceph-common package, with all dependencies:
+* Install the rbd-nbd and ceph-common package, with all dependencies:
 
   ```text
   yum install rbd-nbd ceph-common
   ```
 
-* Go to `Storage` -&gt; `Infrastructure` and add click `Add Storage Provider`
-* Choose `Ceph RBD` as a type and select node responsible for backup operations
-* Provide `Ceph keyring file contents` which is contents of your keyring file from Cinder host - `/etc/ceph/ceph.client.admin.keyring`, example:  
+* Go to `Storage` -&gt; `Infrastructure` and click `Add Storage Provider`
+* Choose `Ceph RBD` as the type and select the node responsible for backup operations
+* Provide `Ceph keyring file contents` which is the contents of your keyring file from the Cinder host - `/etc/ceph/ceph.client.admin.keyring`, for example: 
   **Note:** _Remember, both contents need to end with the new line sign._
 
   ```text
@@ -64,7 +64,7 @@ sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-
     caps osd = "allow *"
   ```
 
-* provide `Ceph configuration file contents` , example:
+* provide `Ceph configuration file contents` , for example:
 
   ```text
     [global]
@@ -83,6 +83,6 @@ sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-
   ```
 
 * Click `Save` - now you can initiate inventory synchronization \(pop-up message\) to collect information about available volumes and pools
-  * later you can use `Inventory Synchronization` button on the right of the newly created provider on the list.
-* Your volumes will appear in the`Instances` section in the submenu on the left, from which you can initiate backup/restore/mount tasks or view volume backup history and their details.
+  * later you can use the `Inventory Synchronization` button on the right of the newly created provider on the list.
+* Your volumes will appear in the`Instances` section in the submenu on the left, from which you can initiate backup/restore/mount tasks or view volume backup history and its details.
 

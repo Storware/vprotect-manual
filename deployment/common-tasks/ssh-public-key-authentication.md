@@ -2,9 +2,9 @@
 
 ## General
 
-Instead of using password authentication - anywhere where you're able to provide SSH credentials \(hypervisors, VMs applications etc\) you also have a public key alternative\*\*.  
-By default, vProtect will use `/opt/vprotect/.ssh/id_rsa` path however you also can override it with your own path\*.  
-_**\*\(needs to be owned by `vprotect` user and make sure it has `0400` permission set.  
+Instead of using password authentication - anywhere where you're able to provide SSH credentials \(hypervisors, VMs applications etc\) you also have the public key alternative.\*\*.  
+By default, vProtect uses the `/opt/vprotect/.ssh/id_rsa` path, however you also can override it with your own path\*.  
+_**\*\(this needs to be owned by `vprotect` user and make sure it has the `0400` permission set.  
 \*\*You don't have to pass a passphrase, you can leave this parameter blank.**_
 
 _**Note:**_  
@@ -12,7 +12,7 @@ vProtect does not support keys other than "RSA"
 
 ### **Example:**
 
-1. Generate key or use yours and store it as `/opt/vprotect/.ssh/id_rsa` \(make sure that `vprotect` user and group own the file\)
+1. Generate a key or use yours and store it as `/opt/vprotect/.ssh/id_rsa` \(make sure that the `vprotect` user and group own the file\)
    * example key generation:
 
      ```text
@@ -44,7 +44,7 @@ vProtect does not support keys other than "RSA"
    sudo -u vprotect ssh-copy-id -i /opt/vprotect/.ssh/id_rsa.pub root@HYPERVISOR
    ```
 
-3. Check if you're able to log into the hypervisor using local `vprotect` user without being asked for a password:
+3. Check if you're able to log in to the hypervisor using the local `vprotect` user without being asked for the password:
 
    ```text
    [root@vProtect3]# sudo -u vprotect ssh -i /opt/vprotect/.ssh/id_rsa root@dkvm
@@ -54,7 +54,7 @@ vProtect does not support keys other than "RSA"
    [root@dKVM ~]# logout
    ```
 
-4. Now you should be able to index VMs regardless of the password set for the hypervisor \(key should be used instead\).
+4. Now you should be able to index VMs regardless of the password set for the hypervisor \(the key should be used instead\)
 5. Provide path to key \(default: /opt/vprotect/.ssh/id\_rsa\) in vProtect dashboard
 
 ![](../../.gitbook/assets/common-tasks-public-authentication.png)

@@ -46,7 +46,7 @@ This is a backup size report that you might need for chargeback reporting.
 
 You can also send this report by email thanks to this button ![](../../.gitbook/assets/get-report-via-e-mail%20%281%29.jpg)
 
-![](../../.gitbook/assets/reporting-summary-e-mail-report.jpg)
+![](../../.gitbook/assets/reporting-summary-e-mail-report%20%281%29.jpg)
 
 **Note: export to PDF, XLS, HTML is expected to be available in June**
 

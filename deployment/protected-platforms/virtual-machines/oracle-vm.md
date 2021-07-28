@@ -2,7 +2,7 @@
 
 ## Deployment in Oracle VM environment
 
-Oracle VM environment requires you to create storage used for VM export. Export storage repository should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both OVM hosts and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and OVM to read and write files.
+The Oracle VM environment requires you to create storage used for VM export. The export storage repository should also be accessible by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both OVM hosts and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and OVM to read and write files.
 
 ![](../../../.gitbook/assets/deployment-vprotect-ovm-export-storage.png)
 
@@ -18,20 +18,21 @@ Oracle VM environment requires you to create storage used for VM export. Export 
 
 * If the virtual machines are running on NFS storage, you must shut down the Oracle virtual machines to perform the backup
 * Make sure the NFS share have the vProtect user UID and GID
-* Directory under / vprotect\_data needs to be the same name as the OVS server pool name
+* The directory under / vprotect\_data needs to be the same name as the OVS server pool name
 * Oracle VM needs to disable services \(nfslock , rpcbind**\)**
-* Restore of VM is multi-steps
-  * Restore to staging space on vNode
-  * Move VM from staging space to Oracle protection repository
+* Restore of VM is multi-step
+  * Restore to the staging space on vNode
+  * Move VM from the staging space to the Oracle protection repository
   * Migrate the VM into the Oracle server pool
 
-Oracle VM environments require storage repositories to be defined for each server pool and must be mounted on the vProtect node.
+Oracle VM environments require storage repositories to be defined for each server pool and must be mounted on vProtect node.
 
-1. Create repository from NFS share on vProtect node
+1. Create a repository from NFS share on vProtect node
    * One server pool should have a separate subdirectory in the export path i.e. `/vprotect_data/pool01`, `/vprotect_data/pool2` - each subdirectory is a separate NFS share
    * The export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `pool01` and `pool02` are server pool names
-   * Specify mapping between server pool names and storage repository names in hypervisor manager configuration
-   * Note that export must be set to use UID and GID of `vprotect` user
+   * Specify mapping between server pool names and storage repository names in the hypervisor manager configuration
+   * Note that the export must be set to use the UID and GID of the `vprotect` user
+
    * Example export configuration in `/etc/exports` to the selected hypervisor in the RHV cluster:
 
      ```text
@@ -41,20 +42,20 @@ Oracle VM environments require storage repositories to be defined for each serve
      all_squash,anonuid=993,anongid=990)
      ```
 
-     where `anonuid=993` and `anongid=990` should have correct UID and GID returned by command:
+     where `anonuid=993` and `anongid=990` should have the correct UID and GID returned by command:
 
      ```text
      [root@vProtect3 ~]# id vprotect
      uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
      ```
-2. Both import and export operations will be done using these NFS shares – restore will be done directly to this storage domain, so you can easily import the backup into the Oracle VM environment.
-   * Backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by the OVM manager.
+2. Both import and export operations will be done using these NFS shares – restore will be done directly to this storage domain, so you can easily import the backup into the Oracle VM environment
+   * Backups must be restored to the export path \(the node automatically changes the names to the original paths that are recognized by the OVM manager.
 
 ![](../../../.gitbook/assets/protected-platforms-ovm-repository.jpg)
 
 ### Example - How to configure OVM protection with PowerProtect DD
 
-* Create DDBoost device
+* Create a DDBoost device
 
 ![](../../../.gitbook/assets/ddboost-create-device.jpg)
 
@@ -62,23 +63,23 @@ Oracle VM environments require storage repositories to be defined for each serve
 
 ![](../../../.gitbook/assets/ddboost-create-nfs-share.jpg)
 
-* Mount DDBoost device on vProtect Node
+* Mount the DDBoost device on vProtect Node
 
 ![](../../../.gitbook/assets/ddboost-mount-device-on-vprotect.jpg)
 
-* Create symbolic links for OVM Pool name \(MyServerPool\) to BoostFS mount point command example: ln -s /vprotect\_data /MyServerPool
+* Create symbolic links for the OVM Pool name \(MyServerPool\) to BoostFS mount point command, for example: ln -s /vprotect\_data /MyServerPool
 
 ![](../../../.gitbook/assets/node-symbolic-link.jpg)
 
-* Create Storage Server for DD NFS Share
+* Create a Storage Server for DD NFS Share
 
 ![](../../../.gitbook/assets/ovm-create-storage-server.jpg)
 
-* Create Repository using DD
+* Create a Repository using DD
 
 ![](../../../.gitbook/assets/ovm-create-repository.jpg)
 
-* Add OVM Hypervisor Manager on vProtect _**Note:** You can get the "Storage Repository ID"_  _from the "OVM repositories" menu shown in the previous step_
+* Add the OVM Hypervisor Manager to vProtect _**Note:** You can get the "Storage Repository ID"_  _from the "OVM repositories" menu shown in the previous step_
 
 ![](../../../.gitbook/assets/vprotect-add-hypervisor-manager.jpg)
 

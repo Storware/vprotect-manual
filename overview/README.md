@@ -1,12 +1,12 @@
 # Overview
 
-In this chapter, we'll briefly discuss architecture and main features of vProtect as well as some typical use case scenarios.
+In this section, we'll briefly discuss the architecture and main features of vProtect as well as some typical use case scenarios.
 
-In [Architecture](architecture.md) section, you will also what are the main components of vProtect solution and find how to place them in your deployment.
+In the [Architecture](architecture.md) section, you will also learn what the main components of the vProtect solution are, as well as find out how to place them in your deployment.
 
 [Licensing ](licensing.md)is the source of options we provide to optimize your costs while keeping the functionality that fulfils your needs.
 
-[Main Features](main-features.md) section briefly summarizes key functionalities of vProtect solution.
+The [Main Features](main-features.md) section briefly summarizes the key functionalities of the vProtect solution.
 
 In [Typical Scenarios ](typical-scenarios.md)you can find a good starting point for your implementation.
 

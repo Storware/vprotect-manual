@@ -6,38 +6,40 @@ For RHV 4+ environments you can use API v4 for invoking all backup related tasks
 
 Import/export mode defines the way the backups and restores are done. Red Hat Virtualization \(with API v4\) supports 3 modes:
 
-1. **Disk attachment**, which exports VM metadata \(in OVF format\) with separate disk files \(in RAW format\) via Proxy VM with the Node installed.
+1. **Disk attachment**, which exports VM metadata \(in OVF format\) with separate disk files \(in RAW format\) via the Proxy VM with the Node installed.
    * supports RHV 4.0+
    * no incremental backup
-   * proxy VM required in each cluster - used for the disks attachment process
+   * proxy VM required in each cluster - used for the disk attachment process
 2. **Disk image transfer**, which exports VM metadata \(in OVF format\) with disk snapshot chains as separate files \(QCOW2 format\):
    * supports RHV 4.2+/oVirt 4.2.3+
    * supports incremental backup
    * disk images are transferred directly from API \(no Proxy VM required\)
-3. **SSH Transfer,** this method assumes that all data transfers are directly from hypervisor - over SSH
+3. **SSH Transfer,** this method assumes that all data transfers are directly from the hypervisor - over SSH
 4. **Change Block Tracking,** this method backup only blocks with changes and skips zeroed sectors.
    * supports oVirt 4.4+ \(with Libvirt 6+, qemu-kvm 4.2+ and vdsm 4.40+\)
    * supports incremental backup
 
-When adding RHV 4.0+ hypervisor managers use a URL similar to the following:
+When adding RHV 4.0+ hypervisor managers, use a URL similar to the following:
 
 ```text
 https://RHV_MGR_HOST/ovirt-engine/api
 ```
 
-**Note:** username for RHV environments needs to be provided in **user@domain** format - i.e. **admin@internal**. This user must have all permissions related to manage snapshots, create/remove VMs, operate disks and export data.
+**Note:** a username for RHV environments needs to be provided in the **user@domain** format - i.e. **admin@internal**. This user must have all permissions related to managing snapshots, creating/removing VMs, operating disks and exporting data.
 
 ## Backup Strategies
 
 Red Hat Virtualization environments can be protected in several ways.
 
-**Note:** Different strategies require a node to be installed either as a VM on the environment that you backup or installed separately.
+**Note:** Different strategies require a node to be installed either as a VM on the environment that you back up or installed separately.
+
+**Note:** All live snapshots are attempted with quiescing enabled. If the snapshot command fails because there is no compatible guest agent present, the live snapshot is re-initiated without the use-quiescing flag.
 
 ### Disk attachment with Proxy VM
 
-In this strategy, you have a VM called “Proxy VM” that invokes commands on your hypervisor manager to snapshot and attach drives of a specific VM to itself \(Proxy VM\). Proxy VM is able to read the data from the attached disk snapshots and forward them to the backup provider.
+In this strategy, you have a VM called “Proxy VM” that invokes commands on your hypervisor manager to snapshot and attach drives of a specific VM to itself \(Proxy VM\). The Proxy VM is able to read the data from the attached disk snapshots and forward them to the backup provider.
 
-This strategy allows you to exclude disks that you don't need from your backup. Remember that, you need to install 1 Proxy VM per cluster so that drives that the node tries to attach to are reachable.
+This strategy allows you to exclude drives from backup that you do not need. Remember that you need to install 1 Proxy VM per cluster so that the drives the node tries to attach are reachable.
 
 Drawback - no incremental backup for now.
 
@@ -54,21 +56,21 @@ Drawback - no incremental backup for now.
 * incremental backups are ****not supported
 * restore creates empty disks on the Proxy VM, imports merged data then recreates VM and reattaches volumes to the target VM
 
-**Note**: RHV API v4 environments require vProtect Node to be installed in one of the VMs residing on the RHV cluster. vProtect should detect automatically the VM with vProtect during index operation.
+**Note**: RHV API v4 environments require vProtect Node to be installed in one of the VMs residing on the RHV cluster. vProtect should automatically detect the VM with vProtect during the index operation.
 
 Disk attachment mode requires `Virtio-SCSI` to be enabled on the vProtect Node VM \(which can be enabled in VM settings -&gt; `Resource Allocation` -&gt; `VirtIO-SCSI Enabled` at the bottom\).
 
-During the backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require an export storage domain to be set up.
+During backup/restore operations, disks are transferred by attaching them to the proxy VM. This approach does not require an export storage domain to be set up.
 
-Please make sure to follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](../../common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md).
+Please make sure that you follow these steps: [LVM setup on vProtect Node for disk attachment backup mode](../../common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md).
 
 ### Disk image transfer API
 
-This API appeared in RHV 4.2 and allowed the ****export of individual snapshots directly from the RHV manager. So, instead of having to install multiple Proxy VMs, you can have a single external Node installation, which just invokes APIs via RHV manager.
+This API appears in RHV 4.2 and allows export of individual snapshots directly from the RHV manager. So instead of having to install multiple Proxy VMs, you can have a single external Node installation, which just invokes APIs via the RHV manager.
 
-This strategy supports incremental backups. Assuming you have RHV 4.2 or newer – just add your manager to vProtect and setup is done. From a network perspective - it requires two additional ports to open 54322 and 54323 and your data to be pulled from the hypervisor manager.
+This strategy supports incremental backups. Assuming you have RHV 4.2 or newer – just add your manager to vProtect and setup is done. From a network perspective, it requires two additional ports to be open - 54322 and 54323 - and your data to be pulled from the hypervisor manager.
 
-Unfortunately, there are a few problems with the current architecture of this solution. The biggest issue is that all traffic passes via RHV manager, which may impact transfer rates that you can achieve during the backup process. To put that into perspective – in disk attachment, you can basically read data as if it is a local drive, where it could potentially be deduplicated even before transferring it to the backup destination.
+Unfortunately, there are a few problems with the current architecture of this solution. The biggest issue is that all traffic passes via the RHV manager, which may impact the transfer rates that you can achieve during the backup process. To put this into perspective – in disk attachment, you can basically read data as if it is a local drive, where it could potentially be deduplicated even before transferring it to the backup destination.
 
 ![](../../../.gitbook/assets/deployment-vprotect-rhv-disk-image-transfer.png)
 
@@ -84,9 +86,9 @@ Unfortunately, there are a few problems with the current architecture of this so
 * the last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has backup type set to incremental\)
 * restore recreates VM from metadata using API and imports merged chain of data for each disk using imageio API
 
-Disk image transfer mode exports data directly using RHV 4.2+ API. There is no need to setup an export storage domain or LVM. This mode uses snapshot chains provided by the new RHV.
+Disk image transfer mode exports data directly using RHV 4.2+ API. There is no need to set up an export storage domain or set up an LVM. This mode uses snapshot-chains provided by RHV.
 
-You may need to open communication for additional port **54323** on the RHV manager - it needs to be accessible from vProtect Node. Also, make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify it by trying to upload images with RHV UI\).
+You may need to open communication for the additional port **54323** on the RHV manager - it needs to be accessible from vProtect Node. Also, make sure that your **ovirt-imageio-proxy** services are running and properly configured \(you can verify this by trying to upload images with RHV UI\).
 
 Follow the steps in this section: [Full versions of libvirt/qemu packages installation](../../common-tasks/full-versions-of-libvirt-qemu-packages-installation.md).
 
@@ -106,7 +108,7 @@ This is an enhancement for the disk image transfer API strategy. It allows vProt
 * the last snapshot kept on the hypervisor for the next incremental backup \(if at least one schedule assigned to the VM has the backup type set to incremental\)
 * restore recreates VM with empty storage from metadata using API and imports merged data over SSH to appropriate location on the hypervisor
 
-This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding RHV manager and detecting all available hypervisors - **you need to also provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md).
+This method assumes that all data transfers are directly from the hypervisor - over SSH. This means that after adding the RHV manager and detecting all available hypervisors - **you also need to provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
 
 ### Change Block Tracking
 
@@ -116,15 +118,15 @@ This is a new method that is possible thanks to changes in RHV 4.4. It uses info
 
 This strategy supports incremental backups.
 
-QCOW2 format is required for incremental backups so disks enabled for the incremental backup will use QCOW2 format instead of raw format.
+The QCOW2 format is required for incremental backups so that disks enabled for incremental backup use the QCOW2 format instead of the raw format.
 
-Also, this strategy doesn't need snapshots in the backup process. Instead of it, every incremental backup uses a checkpoint that is a point in time that was created after the previous backup.
+Also, this strategy doesn't need snapshots in the backup process. Instead, every incremental backup uses a checkpoint that is a point in time that was created after the previous backup.
 
 ### Export storage domain \(API v3\)
 
-This setup requires you to create a storage domain used for VM export. The export storage domain should accessible also by vProtect Node in its staging directory. This implies that storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both the RHV host and Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and RHV to read and write files.
+This setup requires you to create a storage domain used for VM export. The export storage domain should also be accessible by vProtect Node in its staging directory. This implies that the storage space doesn't have to be exported by vProtect Node - it can be mounted from an external source. The only requirement is to have it visible from both the RHV host and the Node itself. Keep in mind that ownership of the files on the share should allow both vProtect and RHV to read and write files.
 
-The backup process requires that once the snapshot is created it will be cloned and exported \(in fact to the vProtect Node staging\). The reason for additional cloning is that RHV doesn’t allow you to export a snapshot directly. The Node can be outside of the environment that you backup.
+The backup process requires that once the snapshot is created, it will be cloned and exported \(in fact to vProtect Node staging\). The reason for additional cloning is that RHV doesn’t allow you to export a snapshot directly. The Node can be outside of the environment that you back up.
 
 This strategy is going to be deprecated, as Red Hat may no longer support it in future releases.
 
@@ -143,31 +145,33 @@ This strategy is going to be deprecated, as Red Hat may no longer support it in 
 
 RHV 3.5.1+ environments \(using API v3\) require an export storage domain to be set up.
 
-1. Add backup storage domain in the RHEV \(which points to the NFS export on vProtect Node\)
-   * If you have multiple data centres you need to enable `Multi DC export` a checkbox in node configuration
-     * Remember that you need to use named datacenters in your RHV environment to avoid name conflicts
-     * RHV datacenter may use only one export storage domain, that is why you need to create subdirectories for each data centre in the export path i.e. `/vprotect_data/dc01`, `/vprotect_data/dc02`, and use each subdirectory as NFS share for each data centre export domain \(separate NFS exports\)
-     * Export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `dc01` and `dc02` are datacenter names
-     * Older versions of RHV \(3.5.x\) require to specify a mapping between DC names and export storage domains - you need to provide pairs of DC name and corresponding SD name in node configuration \(section `Hypervisor`\)
-   * If you have only one data centre and don't want to use multiple datacenters export feature in the future, you can use default settings, and setup NFS export pointing to the staging path \(e.g. `/vprotect_data`\)
-   * Note that export must be set to use UID and GID of `vprotect` user
-   * Example export configuration in `/etc/exports` to the selected hypervisor in RHV cluster:
+1. Add a backup storage domain in RHEV \(which points to the NFS export on vProtect Node\)
+   * If you have multiple data centers, you need to enable the `Multi DC export` checkbox in the node configuration
+     * Remember that you need to use named data centers in your RHV environment to avoid name conflicts
+     * An RHV datacenter may use only one export storage domain, which is why you need to create subdirectories for each data center in the export path i.e. `/vprotect_data/dc01`, `/vprotect_data/dc02`, and use each sub-directory as NFS share for each data center export domain \(separate NFS exports\)
+     * The export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `dc01` and `dc02` are data center names
+     * Older versions of RHV \(3.5.x\) require you to specify mapping between DC names and export storage domains - you need to provide pairs of a DC name and a corresponding SD name in the node configuration \(section `Hypervisor`\)
+   * If you have only one data center and don't want to use the multiple data centers export feature in the future, you can use the default settings and set up the NFS export pointing to the staging path \(e.g. `/vprotect_data`\)
+   * Note that export must be set to use the UID and GID of the `vprotect` user
+   * Example export configuration in `/etc/exports` to a selected hypervisor in the RHV cluster:
 
      ```text
      /vprotect_data    10.50.1.101(fsid=6,rw,sync,insecure,all_squash,anonuid=993,anongid=990)
      ```
 
-     where `anonuid=993` and `anongid=990` should have correct UID and GID returned by command:
+     where `anonuid=993` and `anongid=990` should have the correct UID and GID returned by command:
 
      ```text
      [root@vProtect3 ~]# id vprotect
      uid=993(vprotect) gid=990(vprotect) groups=990(vprotect)
      ```
 2. Both import and export operations will be done using this NFS share – restore will be done directly to this storage domain, so you can easily import the backup into RHV \(shown below\)
-   * backups must be restored to the export path \(node automatically changes names to the original paths that are recognized by RHV manager.
-3. When adding RHV 4.0+ hypervisor managers make sure to have a URL like the following:
+   * backups must be restored to the export path \(the node automatically changes names to the original paths that are recognized by the RHV manager\).
+3. When adding RHV 4.0+ hypervisor managers, make sure you have a URL like the following:
 
    ```text
    https://RHV_MGR_HOST/ovirt-engine/api/v3
    ```
-
+**Note:** Restore to RHV using SPARSE disk allocation format is not supported if backup files are in RAW
+format and destination storage domain type in either Fibre Channel or iSCSI. If such configuration is
+detected, then disk allocation format is automatically switched to PREALLOCATED

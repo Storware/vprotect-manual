@@ -1,6 +1,6 @@
 # Full versions of libvirt/qemu packages installation
 
-Please make sure that your `libvirt` supports `virsh blockcommit` operation. CentOS distribution requires to install full `libvirt` and `qemu-img` from `oVirt` repository. This can be done like this:
+Please make sure that your `libvirt` supports the `virsh blockcommit` operation. CentOS distribution requires you to install the full `libvirt` and `qemu-img` from the `oVirt` repository. This can be done like this:
 
 1. Install oVirt repo:
 
@@ -8,11 +8,11 @@ Please make sure that your `libvirt` supports `virsh blockcommit` operation. Cen
    yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm -y
    ```
 
-2. Update packages
+2. Update the packages
 
    ```text
    yum update -y
    ```
 
-   which should replace `qemu` related packages with full versions from oVirt repo.
+   which should replace `qemu` related packages with full versions from the oVirt repo.
 
