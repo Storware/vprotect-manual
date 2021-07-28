@@ -14,13 +14,13 @@ As usual, it contains a short summary of the environment along with a handful of
 
 ![](../../.gitbook/assets/integration-plugins-rhv-dashboard.jpg)
 
-You can also see the data summary of the backup destination
+You can also see the data summary of the backup destination.
 
 ![](../../.gitbook/assets/integration-plugins-rhv-dashboard-backup-destination%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 ### Virtual Machines
 
-This tab shows all inventoried virtual machines in your RHV environment. Besides, you can also perform a basic backup or restore operations.
+This tab shows all inventoried virtual machines in your RHV environment. In addition, you can also perform a basic backup or restore operations.
 
 ![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
@@ -40,7 +40,7 @@ Basic information about current tasks performed by vProtect.
 
 ### Policies
 
-Allows you to create policies for VM's backups and snapshot. It basically has the same functionalities as vProtect WebUI.
+Allows you to create policies for VM's backups and snapshot. These basically have the same functionalities as vProtect WebUI.
 
 ![](../../.gitbook/assets/integration-plugins-rhv-policies%20%282%29.jpg)
 
@@ -60,17 +60,17 @@ From here we can see the basic information about the backup and start browsing t
 
 ![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
-Just select a folder or file and then press the "download selected" button to have the files on your computer.
+Just select a folder or file and then click on the "download selected" button to have the files on your computer.
 
 ![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details-browse%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
 
 ## Installation
 
-1. You can find add-on in the [GitHub repository](https://github.com/Storware/ovirt-engine-ui-vprotect-extensions). Follow instructions in the REAMDE to build or download plugin. Then extract the provided archive on your RHV manager.
-2. In file `vprotect.json` edit lines in the config part:
-   * `vProtectURL` - URL to vProtect API
-   * `username` - name of the administrator in vProtect
-   * `password` - administrator password in vProtect
+1. You can find the add-on in the [GitHub repository](https://github.com/Storware/ovirt-engine-ui-vprotect-extensions). Follow the instructions in the README to build or the download plugin. Then extract the provided archive to your RHV manager.
+2. In the file `vprotect.json` edit the lines in the config part:
+   * `vProtectURL` - the URL to vProtect API
+   * `username` - the name of the administrator in vProtect
+   * `password` - the administrator password in vProtect
 
 **Example**:
 
@@ -89,5 +89,5 @@ Just select a folder or file and then press the "download selected" button to ha
    }
 ```
 
-1. Put `vprotect.json` file and `vprotect-resources` directory in the `/usr/share/ovirt-engine/ui-plugins` directory in the RHV engine.
+1. Put the `vprotect.json` file and `vprotect-resources` directory in the `/usr/share/ovirt-engine/ui-plugins` directory in the RHV engine.
 

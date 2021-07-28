@@ -14,7 +14,7 @@ As usual, it contains a short summary of the environment along with a handful of
 
 ![](../../.gitbook/assets/integration-plugins-ovirt-dashboard.jpg)
 
-You can also see the data summary of the backup destination
+You can also see the data summary of the backup destination.
 
 ![](../../.gitbook/assets/integration-plugins-rhv-dashboard-backup-destination%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
@@ -66,11 +66,11 @@ Just select a folder or file and then press the "download selected" button to ha
 
 ## Installation
 
-1. You can find add-on in the [GitHub repository](https://github.com/Storware/ovirt-engine-ui-vprotect-extensions). Follow instructions in the REAMDE to build or download plugin. Then extract the provided archive on your oVirt manager.
-2. In file `vprotect.json` edit lines in config part:
-   * `vProtectURL` - URL to vProtect API
-   * `username` - name of administrator in vProtect
-   * `password` - administrator password in vProtect
+1. You can find the add-on in the [GitHub repository](https://github.com/Storware/ovirt-engine-ui-vprotect-extensions). Follow the instructions in the README to build or download the plugin. Then extract the provided archive on to your oVirt manager.
+2. In the file `vprotect.json` edit these lines in config part:
+   * `vProtectURL` - the URL to vProtect API
+   * `username` - the name of administrator in vProtect
+   * `password` - the administrator password in vProtect
 
 **Example**:
 
@@ -89,5 +89,5 @@ Just select a folder or file and then press the "download selected" button to ha
    }
 ```
 
-1. Put `vprotect.json` file and `vprotect-resources` directory in the `/usr/share/ovirt-engine/ui-plugins` directory in the oVirt Engine.
+1. Put the `vprotect.json` file and `vprotect-resources` directory in the `/usr/share/ovirt-engine/ui-plugins` directory in the oVirt Engine.
 

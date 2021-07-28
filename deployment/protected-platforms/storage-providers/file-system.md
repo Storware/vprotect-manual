@@ -6,13 +6,13 @@ vProtect is able to protect file systems mounted on its nodes. Both full and inc
 
 **Note:**
 
-* vProtect scans for file system changes based on modification time and size of the file with each incremental backups.
+* vProtect scans for file system changes based on the modification time and size of the file with each incremental backup.
 * only regular files, symlinks and directories are backed up
-* currently, for file-systems vProtect builds images for each backup before uploading data to the specific backup provider so that it doesn't have to upload objects one-by-one - these images will be merged automatically in restore tasks
+* for file-systems, vProtect currently builds images for each backup before uploading data to the specific backup provider, so it doesn't have to upload objects one-by-one - these images will be merged automatically in restore tasks
 
-Please complete the following steps to add a file system storage provider.
+Please complete the following steps to add the file system storage provider.
 
-1. Go to `Storage` -&gt; `Infrastructure` and add click `Add Storage Provider`
-2. Choose `File system` as a type and select node responsible for backup operations
+1. Go to `Storage` -&gt; `Infrastructure` and click `Add Storage Provider`
+2. Choose `File system` as a type and select the node responsible for backup operations
 3. Click `Save` - now you can define file systems in the `Storage` -&gt; `Instances` view
 

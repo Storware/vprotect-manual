@@ -172,10 +172,9 @@ To list or register node use `vprotect node` sub-command:
 
 ```text
 [root@vprotect ~]# vprotect node
-Required option: [-r Register node, -R Check and Register node, -d Delete node, -e Register existing node, -l List nodes]
+Incorrect syntax: Missing required option: [-r Register node, -R Check and Register node, -d Delete node, -e Register existing node, -l List nodes]
 
-usage: node -d <GUID | NAME> | -e <NODE_NAME> <ADMIN_LOGIN> <API_URL> <[PASSWORD]> | -l | -r <NODE_NAME> <ADMIN_LOGIN> <API_URL> <[PASSWORD]> | -R <NODE_NAME>
-       <ADMIN_LOGIN> <API_URL> <[PASSWORD]>
+usage: node -d <GUID | NAME> | -e <NODE_NAME> <ADMIN_LOGIN> <API_URL> <[PASSWORD]> | -l | -r <NODE_NAME> <ADMIN_LOGIN> <API_URL> <[PASSWORD]> | -R <NODE_NAME> <ADMIN_LOGIN> <API_URL> <[PASSWORD]>
 Node management
  -d,--delete <GUID | NAME>                                                  Delete node
  -e,--register-existing <NODE_NAME> <ADMIN_LOGIN> <API_URL> <[PASSWORD]>    Register existing node
@@ -208,14 +207,12 @@ Node management
 
 Use `vprotect config` sub-command add/remove backup destinations from node config, list or show details of node configs.
 
-**Note**: configuration changes, as well as assigning configuration to the nodes can be done _from web UI only_.
-
 ```text
-[root@vprotect ~]# vprotect config
-Required option: [-b Add backup destinations, -r Remove backup destinations, -c Create node config, -s Modify node config., -d Delete node config, -g Show config details, -l List node configs]
+[root@dell-emc-vprotect ~]# vprotect config
+Incorrect syntax: Missing argument for option: s
+ 
+usage: config -b <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -r <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]> | -s <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2">
 
-usage: config -b <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -r <CONFIG_GUID>
-       <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]> | -s <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2">
 Node configuration management
  -b,--add-backup-destinations <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]>      Add backup destinations
  -c,--create <NAME>                                                                        Create node config
@@ -225,6 +222,9 @@ Node configuration management
  -r,--remove-backup-destinations <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]>   Remove backup destinations
  -s,--set <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2">                Modify node config.
 ```
+### Setting up parameters for node configuration
+
+In general `vprotect config -s <GUID> <PROPERTY_NO.> <VALUE>` command sets value of a property with the given number of node configuration with `GUID`. Property numbers are returned in a detailed view of each node configuration. After you create node configuration, show default values with `-g`. Then use property numbers \(the first number in the property/value line of the detailed view\).
 
 ### **Examples**
 
@@ -232,21 +232,63 @@ Node configuration management
 
   ```text
   vprotect config -l
+  
+                  GUID                       Name       Default  Nodes  Backup destinations  Modification time  
+  ------------------------------------  --------------  -------  -----  -------------------  -----------------  
+  c95fb3cc-e567-11eb-8446-566fc400002d  Default Config  true     1      1                    2021-07-16 11:41  
+
   ```
 
 * To show details of the given node config \(by GUID\)
 
   ```text
-  vprotect config -g 40212820-880e-11e7-bddf-000c2912fc7b
+  vprotect config -g c95fb3cc-e567-11eb-8446-566fc400002d
+  
+  Property                                                     Value                                                         
+  -----------------------------------------------------------  ------------------------------------------------------------  
+
+  GUID                                                         c95fb3cc-e567-11eb-8446-566fc400002d  
+  Modification time                                            2021-07-16 11:41:54  
+  1. Name                                                      Default Config  
+  2. Default                                                   true  
+  3. Export path                                               /vprotect_data  
+  4. Import path                                               /vprotect_data/import  
+  5. Mount path                                                /vprotect_data/mount  
+  6. Max. backup time diff. [sec.]                             60  
+  7. Keep last backups locally                                 false  
+  8. Min. free space for export (staging space threshold) [%]  10  
+  9. Minimal free space for snapshot in bytes                  0  
+  10. Minimal free space for snapshot in percentages           0  
+  11. Max. no. of inventory synchronization threads            1  
+  12. Max. no. of export threads                               3  
+  13. Max. no. of export threads                               3  
+  14. Max. no. of export threads per source                    2  
+  15. Max. no. of store threads                                3  
+  16. Max. no. of restore threads                              3  
+  17. Inventory synchronization task timeout [min.]            1h   
+  18. Export task timeout [min.]                               5h   
+  19. Store task timeout [min.]                                5h   
+  20. Restore task timeout [min.]                              1h   
+  21. Unmount task timeout [min.]                              1h   
+  22. Mount task timeout [min.]                                1h   
+  23. Import task timeout [min.]                               1h   
+  24. Old backups removal task timeout [min.]                  1h   
+  25. Snapshot reversion task timeout [min.]                   1h   
+  26. Old snapshot removal task timeout [min.]                 1h   
+  27. Task snapshot timeout [min.]                             1h   
+  28. Max. no. of snapshot threads                             5  
+  29. Max. no. of snapshots threads per source                 2  
+  Backup destinations                                          [backup [FILESYSTEM] (bb0524fe-40a1-4ca3-bbc9-7f0be8ac73cc)]  
+
   ```
 
 * To add backup destination \(second GUID\) to the given node configuration \(first GUID\):
 
   ```text
-  vprotect config -b 40212820-880e-11e7-bddf-000c2912fc7b f27b6018-ce1c-4d67-991e-31d9f4f6662b
+  vprotect config -b c95fb3cc-e567-11eb-8446-566fc400002d f27b6018-ce1c-4d67-991e-31d9f4f6662b
   ```
 
-  More backup destinations can be passwd by separating GUIDs with commas.
+  More backup destinations can be added by separating GUIDs with commas.
 
 ## Backup destinations
 
@@ -277,7 +319,7 @@ Backup destination management
 
 ### Setting up parameters for backup destinations
 
-In general `vprotect bd -s <GUID> <PROPERTY_NO.> <VALUE>` command sets value of property with the given number of BD with `GUID`. Property numbers are returned in detailed view of each BD \(fields obviously are different for each backup provider\). After you create backup destination show default values with `-g`. Then use property numbers \(first number in the property/value line of the detailed view\).
+In general `vprotect bd -s <GUID> <PROPERTY_NO.> <VALUE>` command sets value of property with the given number of BD with `GUID`. Property numbers are returned in detailed view of each BD \(fields obviously are different for each backup provider\). After you create backup destination, show default values with `-g`. Then use property numbers \(first number in the property/value line of the detailed view\).
 
 Retention time settings are in interpreted in days \(just give number without any additional suffixes\).
 
@@ -304,35 +346,30 @@ There are however some mode/type fields which require string to be typed in corr
 
   ```text
   [root@vprotect ~]# vprotect bd -g 3263b196-056e-4485-9e8f-932798b58eb3
-  Property                                       Value                                 
-  ---------------------------------------------  ------------------------------------  
+  Property                                                                   Value                                 
+  ------------------------------------------------------------  ------------------------------------  
 
-  GUID                                           3263b196-056e-4485-9e8f-932798b58eb3  
-  Node configs                                   0  
-  Type                                           S3  
-  Total available space                          -  
-  Total used space                               6.3 GiB  
-  1. Name                                        AWS vProGuide  
-  2. Pre-access CMD exec. enabled                false  
-  3. Pre-access CMD                              []  
-  4. Post-access CMD exec. enabled               false  
-  5. Post-access CMD                             []  
-  6. Default                                     false  
-  7. Retention (full) - keep last N backups      4  
-  8. Retention (full) - keep newer than          99999d   
-  9. Retention (inc.) - keep last N backups      30  
-  10. Retention (inc.) - keep newer than         30d   
-  11. Bucket key                                 -  
-  12. Bucket name                                vproguide  
-  13. Endpoint URL                               -  
-  14. Access key                                 ***  
-  15. Secret key                                 ***  
-  16. Backup mode                                SINGLE_BUCKET  
-  17. Record backup time after store             false  
-  18. Encryption enabled                         true  
-  19. Resolve host name to IP before connection  false  
-  20. Path style access                          false  
-  21. Region
+  GUID                                                                       bb0524fe-40a1-4ca3-bbc9-7f0be8ac73cc  
+  Node configs                                                               1  
+  Type                                                                       FILESYSTEM  
+  Total available space                                                      181 GiB  
+  Total used space                                                           9,1 GiB  
+  1. Name                                                                    backup  
+  2. Pre-access CMD exec. enabled                                            false  
+  3. Pre-access CMD                                                          []  
+  4. Post-access CMD exec. enabled                                           false  
+  5. Post-access CMD                                                         []  
+  6. Default                                                                 false  
+  7. Retention (full) - keep last N backups                                  4  
+  8. Retention (full) - keep newer than                                      30d   
+  9. Retention (inc.) - keep last N backups                                  30  
+  10. Retention (inc.) - keep newer than                                     30d   
+  11. Paths                                                                  [/backup]  
+  12. Deduplication enabled                                                  false  
+  13. Deduplication device                                                    -   
+  14. Deduplicated filesystem mount point (set as 'default' to use BD path)  /backup  
+  15. Deduplication volume used space threshold percentage                    -   
+  16. Encryption enabled         
   ```
 
 * Remember that to use a BD you need to create a new entry of a given typ and then configure its properties \(example for IBM Spectrum Protect \[ISP\], assume that GUID returned by first command was `bb74ef6c-f6de-4783-bfa7-70fc2376fb08` \):
@@ -394,26 +431,25 @@ To manage HV managers in the system use `vprotect hvm` sub-command.
 
 ```text
 [root@vprotect ~]# vprotect hvm
-Required option: [-c Create hypervisor manager (type = ["rhev", "rhv", "ovm", "nutanix", "openstack", "vcenter" , "kubernetes", "openshift", "aws"]), -s Index inventory on hypervisor manager, -d Delete hypervisor manager, -e Set export/import mode for HV manager, -u Set user/password or access key/secret key, -V List VMs managed by hypervisor manager, -g Show HV manager details, -sK Set SSH key path, -l List hypervisor managers, -L List hypervisors managed by hypervisor manager, -m Modify hypervisor manager, -n Set node for hypervisor]
+Incorrect syntax: Missing required option: [-c Create hypervisor manager (type = ["rhev", "rhv", "ovm", "nutanix", "openstack"]), -d Delete hypervisor manager, -e Set export/import mode for HV manager, -g Show HV manager details, -l List hypervisor managers, -L List hypervisors managed by hypervisor manager, -m Modify hypervisor manager, -n Set node config for hypervisor, -sC Modify hypervisor manager configuration, -s Index inventory on hypervisor manager, -u Set user/password or access key/secret key, -V List VMs managed by hypervisor manager, -sK Set SSH key path]
 
-usage: hvm -c <URL | ACCOUNT_ID> <TYPE> | -d <GUID | HOST> | -e <GUID | HOST> <DEFAULT|DISK_ATTACHMENT|DISK_IMAGE_TRANSFER|SSH_TRANSFER> | -g <GUID | HOST> |
-       -l | -L <GUID | HOST> | -m <GUID | HOST> <URL> | -n <GUID | HOST> <NODE_GUID | NODE_NAME> | -s <GUID | HOST> | -sK <GUID> <SSH_KEYPATH> | -u <GUID |
-       HOST> <USER/ACCESS_KEY> <PASSWORD/SECRET_KEY> | -V <GUID | HOST>
+usage: hvm -c <URL | ACCOUNT_ID> <TYPE> | -d <GUID | HOST> | -e <GUID | HOST> <DEFAULT|DISK_ATTACHMENT|DISK_IMAGE_TRANSFER|SSH_TRANSFER> | -g <GUID | HOST> | -l | -L <GUID | HOST> | -m <GUID | HOST> <URL> | -n <GUID | HOST> <NODE_CONFIG_GUID | NODE_CONFIG_NAME> | -s <GUID | HOST> |
+       -sC <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2"> | -sK <GUID> <SSH_KEYPATH> | -u <GUID | HOST> <USER/ACCESS_KEY> <PASSWORD/SECRET_KEY> | -V <GUID | HOST>
 Hypervisor manager management
- -c,--create <URL | ACCOUNT_ID> <TYPE>                                                                  Create hypervisor manager (type = ["rhev", "rhv",
-                                                                                                        "ovm", "nutanix", "openstack", "vcenter" ,
-                                                                                                        "kubernetes", "openshift", "aws"])
+ -c,--create <URL | ACCOUNT_ID> <TYPE>                                                                  Create hypervisor manager (type = ["rhev", "rhv", "ovm", "nutanix", "openstack"])
  -d,--delete <GUID | HOST>                                                                              Delete hypervisor manager
  -e,--set-export-import-mode <GUID | HOST> <DEFAULT|DISK_ATTACHMENT|DISK_IMAGE_TRANSFER|SSH_TRANSFER>   Set export/import mode for HV manager
  -g,--details <GUID | HOST>                                                                             Show HV manager details
  -l,--list                                                                                              List hypervisor managers
  -L,--list-hvs <GUID | HOST>                                                                            List hypervisors managed by hypervisor manager
  -m,--modify <GUID | HOST> <URL>                                                                        Modify hypervisor manager
- -n,--set-node <GUID | HOST> <NODE_GUID | NODE_NAME>                                                    Set node for hypervisor
+ -n,--set-node-config <GUID | HOST> <NODE_CONFIG_GUID | NODE_CONFIG_NAME>                               Set node config for hypervisor
  -s,--sync <GUID | HOST>                                                                                Index inventory on hypervisor manager
+ -sC,--configuration <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2">                  Modify hypervisor manager configuration
  -sK,--set-ssh-key-path <GUID> <SSH_KEYPATH>                                                            Set SSH key path
  -u,--credentials <GUID | HOST> <USER/ACCESS_KEY> <PASSWORD/SECRET_KEY>                                 Set user/password or access key/secret key
- -V,--list-vms <GUID | HOST>                                                                            List VMs managed by hypervisor manager
+ -V,--list-vms <GUID | HOST>  
+
 ```
 
 ### Examples
@@ -433,7 +469,7 @@ Hypervisor manager management
 * To index VMs and hypervisors on the given HV manager:
 
   ```text
-  vprotect hvm -i 4c999c85-e223-4df3-9c40-7b0115234c8c
+  vprotect hvm -s 4c999c85-e223-4df3-9c40-7b0115234c8c
   ```
 
 * To create a HV manager you need to execute the following commands:
@@ -449,13 +485,13 @@ Hypervisor manager management
     vprotect hvm -u 4c999c85-e223-4df3-9c40-7b0115234c8c admin@internal password
     ```
 
-  * By default current node is used for created HV manager - you may change it with this command \(first HV GUID, then node GUID\):
+  * By default current node configuration is used for created HV manager - you may change it with this command \(first HV GUID, then node configuration GUID\):
 
     ```text
     vprotect hvm -n 4c999c85-e223-4df3-9c40-7b0115234c8c e2673e8f-66fc-4e9f-aaef-20958c4c2b01
     ```
 
-    Hypervisors connected to the HV manager will have node of the HV manager assigned by default. For backup export always node assigned to the HV is used.
+    Hypervisors connected to the HV manager will have node configuration of the HV manager assigned by default. For backup export always node configuration assigned to the HV is used.
 
 ## Hypervisors
 
@@ -467,24 +503,24 @@ To manage hypervisors in the system use `vprotect hv` sub-command.
 
 ```text
 [root@vprotect ~]# vprotect hv
-Required option: [-c Create hypervisor (type = ["citrix", "xen", "kvm", "proxmox", "esxi" , "hyperv"]), -s Synchronize inventory with hypervisor, -d Delete hypervisor, -e Set export/import mode for hypervisor, -u Set user/password, -g Show hypervisor details, -sK Set SSH key path, -l List hypervisors, -L List VMs for hypervisor, -m Modify hypervisor, -n Set node for hypervisor]
+Incorrect syntax: Missing required option: [-sC Modify hypervisor configuration, -c Create hypervisor (type = ["citrix", "nutanix", "proxmox", "ovm", "kvm", "xen"]), -s Synchronize inventory with hypervisor, -d Delete hypervisor, -nC Set node config for hypervisor, -e Set export/import mode for hypervisor, -u Set user/password, -g Show hypervisor details, -sK Set SSH key path, -l List hypervisors, -L List VMs for hypervisor, -m Modify hypervisor]
+ 
+usage: hv -c <HOST> <TYPE> | -d <GUID | HOST> | -e <GUID | HOST> <DEFAULT|VM_IMAGE_PLUS_INCREMENTAL_DISKS|CHANGED_BLOCK_TRACKING|SSH_TRANSFER|EXPORT_STORAGE_REPO> | -g <GUID | HOST> | -l | -L <GUID | HOST> | -m <GUID | HOST> <NEW_HOST> | -nC <GUID | HOST> <NODE_CONFIG_GUID> | -s
+       <GUID | HOST> | -sC <GUID> <PROPERTY_NO.> <VALUE> | -sK <GUID> <SSH_KEYPATH> | -u <GUID | HOST> <USER> <PASSWORD>
 
-usage: hv -c <HOST> <TYPE> | -d <GUID | HOST> | -e <GUID | HOST> <DEFAULT|VM_IMAGE_PLUS_INCREMENTAL_DISKS|CHANGED_BLOCK_TRACKING> | -g <GUID | HOST> | -l | -L
-       <GUID | HOST> | -m <GUID | HOST> <NEW_HOST> | -n <GUID | HOST> <NODE_GUID> | -s <GUID | HOST> | -sK <GUID> <SSH_KEYPATH> | -u <GUID | HOST> <USER>
-       <PASSWORD>
 Hypervisor management
- -c,--create <HOST> <TYPE>                                                                                    Create hypervisor (type = ["citrix", "xen",
-                                                                                                              "kvm", "proxmox", "esxi" , "hyperv"])
- -d,--delete <GUID | HOST>                                                                                    Delete hypervisor
- -e,--set-export-import-mode <GUID | HOST> <DEFAULT|VM_IMAGE_PLUS_INCREMENTAL_DISKS|CHANGED_BLOCK_TRACKING>   Set export/import mode for hypervisor
- -g,--details <GUID | HOST>                                                                                   Show hypervisor details
- -l,--list                                                                                                    List hypervisors
- -L,--list-vms <GUID | HOST>                                                                                  List VMs for hypervisor
- -m,--modify <GUID | HOST> <NEW_HOST>                                                                         Modify hypervisor
- -n,--set-node <GUID | HOST> <NODE_GUID>                                                                      Set node for hypervisor
- -s,--sync <GUID | HOST>                                                                                      Synchronize inventory with hypervisor
- -sK,--set-ssh-key-path <GUID> <SSH_KEYPATH>                                                                  Set SSH key path
- -u,--credentials <GUID | HOST> <USER> <PASSWORD>                                                             Set user/password
+ -c,--create <HOST> <TYPE>                                                                                                                     Create hypervisor (type = ["citrix", "nutanix", "proxmox", "ovm", "kvm", "xen"])
+ -d,--delete <GUID | HOST>                                                                                                                     Delete hypervisor
+ -e,--set-export-import-mode <GUID | HOST> <DEFAULT|VM_IMAGE_PLUS_INCREMENTAL_DISKS|CHANGED_BLOCK_TRACKING|SSH_TRANSFER|EXPORT_STORAGE_REPO>   Set export/import mode for hypervisor
+ -g,--details <GUID | HOST>                                                                                                                    Show hypervisor details
+ -l,--list                                                                                                                                     List hypervisors
+ -L,--list-vms <GUID | HOST>                                                                                                                   List VMs for hypervisor
+ -m,--modify <GUID | HOST> <NEW_HOST>                                                                                                          Modify hypervisor
+ -nC,--set-node-config <GUID | HOST> <NODE_CONFIG_GUID>                                                                                        Set node config for hypervisor
+ -s,--sync <GUID | HOST>                                                                                                                       Synchronize inventory with hypervisor
+ -sC,--configuration <GUID> <PROPERTY_NO.> <VALUE>                                                                                             Modify hypervisor configuration
+ -sK,--set-ssh-key-path <GUID> <SSH_KEYPATH>                                                                                                   Set SSH key path
+ -u,--credentials <GUID | HOST> <USER> <PASSWORD>                                                                                              Set user/password
 ```
 
 ### Examples
@@ -504,7 +540,7 @@ Hypervisor management
 * To index VMs on the given HV:
 
   ```text
-  vprotect hv -i c93140b8-a898-4aff-8eef-645587ca8289
+  vprotect hv -s c93140b8-a898-4aff-8eef-645587ca8289
   ```
 
 * To create a hypervisor you need to execute the following commands:
@@ -520,7 +556,7 @@ Hypervisor management
     vprotect hv -u a757c6e8-ece0-467b-b912-dfe393d1e421 root password
     ```
 
-  * By default current node is used for created hypervisor - you may change it with this command \(first HV GUID, then node GUID\):
+  * By default current node configuration is used for created hypervisor - you may change it with this command \(first HV GUID, then node configuration GUID\):
 
     ```text
     vprotect hv -n a757c6e8-ece0-467b-b912-dfe393d1e421 e2673e8f-66fc-4e9f-aaef-20958c4c2b01
@@ -541,18 +577,6 @@ Hypervisor cluster management
  -d,--delete <GUID>   Delete HV cluster
  -l,--list            List HV clusters
 ```
-
-* To list all detected clusters:
-
-  ```text
-  vprotect hc -l
-  ```
-
-* To delete a cluster with GUID `107bc87a-9adf-4d6c-b732-345dd06c59e9`:
-
-  ```text
-  vprotect hc -d 107bc87a-9adf-4d6c-b732-345dd06c59e9
-  ```
 
 ### Examples
 
@@ -608,29 +632,28 @@ VMs are detected automatically during `Index` task executed on the HV or HV mana
 
 ```text
 [root@vprotect ~]# vprotect vm
-Required option: [-A Assign VM to the policy, -D List detected VM disks, -xC Set pre-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -wb Acknowledge warnings related to the backup, -L List backups of the VM, -xE Set pre-snapshot CMD exec enabled (1) / disabled (0), -rvS Revert snapshot, -cS Create VM snapshot, -se Set handling for pre-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING, -S List managed VM snapshots, -T List tasks related to the VM, -si Set pre-snap ignored command exit codes e.g. '15, 101-150' or '*', -gb Show backup details, -d Delete VM, -g Show virtual machine details, -XC Set post-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -l List VMs, -XE Set post-snapshot CMD exec enabled (1) / disabled (0), -sC Set SSH access credentials, -sE Set handling for post-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING, -sH Set SSH access host/port, -sI Set post-snap ignored command exit codes e.g. '15, 101-150' or '*', -w Acknowledge all backup warnings related to the VM, -sK Set SSH key path, -rmS Remove old snapshots]
+Incorrect syntax: Missing required option: [-A Assign VM to the policy, -D List detected VM disks, -xC Set pre-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -wb Acknowledge warnings related to the backup, -L List backups of the VM, -xE Set pre-snapshot CMD exec enabled (1) / disabled (0), -rvS Revert snapshot, -cS Create VM snapshot, -se Set handling for pre-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING, -S List managed VM snapshots, -T List tasks related to the VM, -si Set pre-snap ignored command exit codes e.g. '15, 101-150' or '*', -gb Show backup details, -d Delete VM, -g Show virtual machine details, -XC Set post-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b", -l List VMs, -XE Set post-snapshot CMD exec enabled (1) / disabled (0), -sC Set SSH access credentials, -sE Set handling for post-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING, -sH Set SSH access host/port, -sI Set post-snap ignored command exit codes e.g. '15, 101-150' or '*', -w Acknowledge all backup warnings related to the VM, -sK Set SSH key path, -rmS Remove old snapshots, -eD Exclude disk from backup excluded (1) / included (0)]
 
-usage: vm -A <GUID> <VM_POLICY_GUID> | -cS <GUID> <RULE_GUID> <PRIORITY> | -D <GUID> | -d <GUID> | -g <<VM_GUID>> | -gb <<BACKUP_GUID>> | -L <GUID> | -l |
-       -rmS <VM_GUID,...,VM_GUID> | -rvS <SNAPSHOT_GUID> | -S <GUID> | -sC <GUID> <SSH_USER> <SSH_PASS> | -se <GUID> <HANDLING> | -sE <GUID> <HANDLING> | -sH
-       <GUID> <SSH_HOST> <SSH_PORT> | -si <GUID> <IGNORED_EXIT_CODES> | -sI <GUID> <IGNORED_EXIT_CODES> | -sK <GUID> <SSH_KEYPATH> | -T <GUID> | -w <GUID> |
-       -wb <BACKUP_GUID> | -xC <GUID> <CMD_STRING> | -XC <GUID> <CMD_STRING> | -xE <GUID> <0|1> | -XE <GUID> <0|1>
+usage: vm -A <GUID> <VM_POLICY_GUID> | -cS <GUID> <RULE_GUID> <PRIORITY> | -D <GUID> | -d <GUID> | -eD <DISK_GUID> <0|1> | -g <<VM_GUID>> | -gb <BACKUP_GUID> | -L <GUID> | -l | -rmS <VM_GUID,...,VM_GUID> | -rvS <SNAPSHOT_GUID> | -S <GUID> | -sC <GUID> <SSH_USER> <SSH_PASS> | -se
+       <GUID> <HANDLING> | -sE <GUID> <HANDLING> | -sH <GUID> <SSH_HOST> <SSH_PORT> | -si <GUID> <IGNORED_EXIT_CODES> | -sI <GUID> <IGNORED_EXIT_CODES> | -sK <GUID> <SSH_KEYPATH> | -T <GUID> | -w <GUID> | -wb <BACKUP_GUID> | -xC <GUID> <CMD_STRING> | -XC <GUID> <CMD_STRING> | -xE
+       <GUID> <0|1> | -XE <GUID> <0|1>
+
 Virtual machine management
  -A,--assign-vm-policy <GUID> <VM_POLICY_GUID>              Assign VM to the policy
  -cS,--create-snapshot <GUID> <RULE_GUID> <PRIORITY>        Create VM snapshot
  -D,--list-disks <GUID>                                     List detected VM disks
  -d,--delete <GUID>                                         Delete VM
+ -eD,--exclude-disk <DISK_GUID> <0|1>                       Exclude disk from backup excluded (1) / included (0)
  -g,--details <<VM_GUID>>                                   Show virtual machine details
- -gb,--show-backup-details <<BACKUP_GUID>>                  Show backup details
+ -gb,--show-backup-details <BACKUP_GUID>                    Show backup details
  -L,--list-backups <GUID>                                   List backups of the VM
  -l,--list                                                  List VMs
  -rmS,--remove-snapshot <VM_GUID,...,VM_GUID>               Remove old snapshots
  -rvS,--revert-snapshot <SNAPSHOT_GUID>                     Revert snapshot
  -S,--list-snapshots <GUID>                                 List managed VM snapshots
  -sC,--set-ssh-credentials <GUID> <SSH_USER> <SSH_PASS>     Set SSH access credentials
- -se,--set-pre-std-error-out <GUID> <HANDLING>              Set handling for pre-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING,
-                                                            IGNORE_WITHOUT_WARNING
- -sE,--set-post-std-error-out <GUID> <HANDLING>             Set handling for post-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING,
-                                                            IGNORE_WITHOUT_WARNING
+ -se,--set-pre-std-error-out <GUID> <HANDLING>              Set handling for pre-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING
+ -sE,--set-post-std-error-out <GUID> <HANDLING>             Set handling for post-snap standard error. Values: DONT_IGNORE, IGNORE_WITH_WARNING, IGNORE_WITHOUT_WARNING
  -sH,--set-ssh-host <GUID> <SSH_HOST> <SSH_PORT>            Set SSH access host/port
  -si,--set-pre-ignored-codes <GUID> <IGNORED_EXIT_CODES>    Set pre-snap ignored command exit codes e.g. '15, 101-150' or '*'
  -sI,--set-post-ignored-codes <GUID> <IGNORED_EXIT_CODES>   Set post-snap ignored command exit codes e.g. '15, 101-150' or '*'
@@ -641,7 +664,7 @@ Virtual machine management
  -xC,--set-pre-snap-cmd <GUID> <CMD_STRING>                 Set pre-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b"
  -XC,--set-post-snap-cmd <GUID> <CMD_STRING>                Set post-snapshot CMD as semi-colon-separated string, i.e. "cmd;-a;-b"
  -xE,--set-pre-snap-cmd-exec-enabled <GUID> <0|1>           Set pre-snapshot CMD exec enabled (1) / disabled (0)
- -XE,--set-post-snap-cmd-exec-enabled <GUID> <0|1>          Set post-snapshot CMD exec enabled (1) / disabled (0)
+ -XE,--set-post-snap-cmd-exec-enabled <GUID> <0|1>          Set post-snapshot CMD exec enabled (1) / disabled (0
 ```
 
 ### Examples
@@ -658,7 +681,7 @@ Virtual machine management
   vprotect vm -g 0f36f40c-6427-4035-9f2b-1ead6aca3597
   ```
 
-* To add VM \(first GUID\) to the given group \(second GUID\):
+* To add VM \(first GUID\) to the given policy \(second GUID\):
 
   ```text
   vprotect vm -A 0f36f40c-6427-4035-9f2b-1ead6aca3597 3afcd507-a4f5-484d-8d34-53c73d7a5809
@@ -775,37 +798,21 @@ This module is responsible for managing the storage provider's infrastructure. S
 
 ```text
 [root@localhost ~]# vprotect stprovider
-Incorrect syntax: Missing required option: [-sC Modify Storage Provider
-configuration, -c Create Storage Provider, -s Synchronize inventory with
-Storage Provider, -d Delete Storage Provider, -u Set user/password,
--g Show Storage Providers details, -h Set host for Storage Provider,
--l List Storage Providers, -L List Storages for Storage Provider,
--n Set node for Storage Provider]
+Incorrect syntax: Missing required option: [-sC Modify Storage Provider configuration, -c Create Storage Provider, -s Synchronize inventory with Storage Provider, -d Delete Storage Provider, -u Set user/password, -nC Set node config for Storage Provider, -g Show Storage Providers details, -h Set host for Storage Provider, -l List Storage Providers, -L List Storages for Storage Provider, -n Set node for Storage Provider]
 
-usage: stprovider -c <HOST> <TYPE> | -d <GUID> | -g <GUID> |
-   -h <GUID> <HOST> | -l | -L <GUID> | -n <GUID> <NODE_GUID> | -s <GUID> |
-   -sC <GUID> <PROPERTY_NO.> <VALUE> | -u <GUID> <USER> <PASSWORD>
-Storage management
- -c,--create <HOST> <TYPE>
-       #Create Storage Provider
- -d,--delete <GUID>
-       #Delete Storage Provider
- -g,--details <GUID>
-       #Show Storage Providers details
- -h,--set-host <GUID> <HOST>
-       #Set host for Storage Provider
- -l,--list
-       #List Storage Providers
- -L,--list-storages <GUID>
-       #List Storages for Storage Provider
- -n,--set-node <GUID> <NODE_GUID>
-       #Set node for Storage Provider
- -s,--sync <GUID>
-       #Synchronize inventory with Storage Provider
- -sC,--configuration <GUID> <PROPERTY_NO.> <VALUE>
-       #Modify Storage Provider configuration
- -u,--credentials <GUID> <USER> <PASSWORD>
-       #Set user/password
+usage: stprovider -c <HOST> <TYPE> | -d <GUID> | -g <GUID> | -h <GUID> <HOST> | -l | -L <GUID> | -n <GUID> <NODE_GUID> | -nC <GUID> <NODE_CONFIG_GUID> | -s <GUID> | -sC <GUID> <PROPERTY_NO.> <VALUE> | -u <GUID> <USER> <PASSWORD>
++Storage provider management
+ -c,--create <HOST> <TYPE>                           Create Storage Provider
+ -d,--delete <GUID>                                  Delete Storage Provider
+ -g,--details <GUID>                                 Show Storage Providers details
+ -h,--set-host <GUID> <HOST>                         Set host for Storage Provider
+ -l,--list                                           List Storage Providers
+ -L,--list-storages <GUID>                           List Storages for Storage Provider
+ -n,--set-node <GUID> <NODE_GUID>                    Set node for Storage Provider
+ -nC,--set-node-config <GUID> <NODE_CONFIG_GUID>     Set node config for Storage Provider
+ -s,--sync <GUID>                                    Synchronize inventory with Storage Provider
+ -sC,--configuration <GUID> <PROPERTY_NO.> <VALUE>   Modify Storage Provider configuration
+ -u,--credentials <GUID> <USER> <PASSWORD>           Set user/password
 ```
 
 ### Examples
@@ -894,21 +901,21 @@ VM backup policy management
   vprotect vmpolicy -b 3afcd507-a4f5-484d-8d34-53c73d7a5809 ISP
   ```
 
-## Snapshot management policies
+## Snapshot management policies for VMs
 
 Snapshot management policies module enables CDM for your VMs and manages their retention. Currently it is supported for KVM, Citrix, RHV/oVirt/OLVM platforms.
 
-To manage snapshot policies in the system use `vprotect snappolicy` sub-command.
+To manage snapshot policies for VMs in the system use `vprotect vm-snappolicy` sub-command.
 
 VMs are assigned automatically to the policy only if VM has no policy assigned already. If automatic assignment has been turned on for a policy and either name of the VM matches regular expression, or tag detected \(Citrix/RHV/oVirt/OLVM\) matches tag defined for the policy, VM is assigned to the policy, and all schedules for a policy will also be automatically invoked for this VM.
 
 **Note:** only VMs with assigned snapshot management policy can be snapshot from the CLI or UI
 
 ```text
-[root@vprotect ~]# vprotect snappolicy
+[root@vprotect ~]# vprotect vm-snappolicy
 Required option: [-rR Remove rules from policy, -rT Remove auto-assignment tag, -aC Set auto-assignment HV clusters, -c Create a new policy, -d Delete a policy, -g Show details, -l List policies, -L List VMs in the policy, -aM Set auto-assignment mode, -m Modify policy, -aN Set auto-removal of non-present VMs flag, -p Set policy's backup task priority (0-100, 50 = default), -aR Add new rule to selected policy, -r List rules for policy, -aT Add auto-assignment tag, -U Unassign VMs from the policy, -V Assign VMs to the policy]
 
-usage: snappolicy -aC <GUID > <[HV_CLUSTER_GUID,...,HV_CLUSTER_GUID]> | -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aR <NAME>
+usage: vm-snappolicy -aC <GUID > <[HV_CLUSTER_GUID,...,HV_CLUSTER_GUID]> | -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aR <NAME>
        <POLICY_GUID> <RETENTION_DAYS> <RETENTION_VERSIONS> | -aT <GUID> <inc|exc> <TAG> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -L <GUID> | -m <GUID>
        <NAME> | -p <GUID> <PRIORITY> | -r <GUID> | -rR <POLICY_GUID> <RULE_GUID,...,RULE_GUID> | -rT <GUID> <inc|exc> <TAG> | -U <VM_GUID,...,VM_GUID> | -V
        <GUID> <VM_GUID,...,VM_GUID>
@@ -937,38 +944,99 @@ Snapshot policy management
 * To list all snapshot policies
 
   ```text
-  vprotect snappolicy -l
+  vprotect vm-snappolicy -l
   ```
 
 * To show details of the given VM \(by GUID\)
 
   ```text
-  vprotect snappolicy -g 3afcd507-a4f5-484d-8d34-53c73d7a5809
+  vprotect vm-snappolicy -g 3afcd507-a4f5-484d-8d34-53c73d7a5809
   ```
 
 * To create a new policy
 
   ```text
-  vprotect snappolicy -c "My Policy"
+  vprotect vm-snappolicy -c "My Policy"
   ```
 
 * To add `policy1` tag \(include\) for a policy:
 
   ```text
-  vprotect snappolicy -aT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
+  vprotect vm-snappolicy -aT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
   ```
 
 * To remove `policy1` tag \(include\) for a policy:
 
   ```text
-  vprotect snappolicy -rT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
+  vprotect vm-snappolicy -rT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
   ```
 
 * To set 2 schedules \(GUIDs are comma-separated\) for a policy \(first GUID\):
 
   ```text
-  vprotect snappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 391203e3-ad6c-4532-b69c-78b3a5c
+  vprotect vm-snappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 391203e3-ad6c-4532-b69c-78b3a5c
   ```
+
+## Snapshot management policies for storages
+
+To manage snapshot policies for storages in the system use `vprotect storage-snappolicy` sub-command.
+
+Storages are assigned automatically to the policy only if storage has no policy assigned already. If automatic assignment has been turned on for a policy and name of the storage matches regular expression, storage is assigned to the policy, and all schedules for a policy will also
+ be automatically invoked for this storage.
+
+**Note:** only storages with assigned snapshot management policy can be snapshot from the CLI or UI
+
+```text
+[root@vprotect ~]# vprotect storage-snappolicy
+Incorrect syntax: Missing required option: [-rR Remove rules from policy, -c Create a new policy, -d Delete a policy, -g Show details, -l List policies, -aM Set auto-assignment mode, -L List storages in the policy, -m Modify policy, -aN Set auto-removal of non-present VMs flag, -aP Set auto-assignment storage pools, -p Set policy's backup task priority (0-100, 50 = default), -aR Add new rule to selected policy, -r List rules for policy, -S Assign storages to the policy, -U Unassign storages from the policy]
+
+usage: storage-snappolicy -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aP <GUID > <[STORAGE_POOL_GUID,...,STORAGE_POOL_GUID]> | -aR <NAME> <POLICY_GUID> <RETENTION_DAYS> <RETENTION_VERSIONS> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -L <GUID> | -m
+       <GUID> <NAME> | -p <GUID> <PRIORITY> | -r <GUID> | -rR <POLICY_GUID> <RULE_GUID,...,RULE_GUID> | -S <GUID> <STORAGE_GUID,...,STORAGE_GUID> | -U <STORAGE_GUID,...,STORAGE_GUID>
++Snapshot policy management for storages
+ -aM,--set-auto-assign-mode <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE>                Set auto-assignment mode
+ -aN,--set-auto-remove-non-present <GUID> <0|1>                                            Set auto-removal of non-present VMs flag
+ -aP,--set-auto-assign-storage-pools <GUID > <[STORAGE_POOL_GUID,...,STORAGE_POOL_GUID]>   Set auto-assignment storage pools
+ -aR,--add-rule <NAME> <POLICY_GUID> <RETENTION_DAYS> <RETENTION_VERSIONS>                 Add new rule to selected policy
+ -c,--create <NAME>                                                                        Create a new policy
+ -d,--delete <GUID>                                                                        Delete a policy
+ -g,--details <GUID>                                                                       Show details
+ -l,--list                                                                                 List policies
+ -L,--list-storages <GUID>                                                                 List storages in the policy
+ -m,--modify <GUID> <NAME>                                                                 Modify policy
+ -p,--set-priority <GUID> <PRIORITY>                                                       Set policy's backup task priority (0-100, 50 = default)
+ -r,--list-rules <GUID>                                                                    List rules for policy
+ -rR,--remove-rules <POLICY_GUID> <RULE_GUID,...,RULE_GUID>                                Remove rules from policy
+ -S,--assign-storages <GUID> <STORAGE_GUID,...,STORAGE_GUID>                               Assign storages to the policy
+ -U,--unassign-storages <STORAGE_GUID,...,STORAGE_GUID>                                    Unassign storages from the policy
+```
+
+### Examples
+
+To list all snapshot policies
+
+  ```text
+  vprotect storage-snappolicy -l
+  ```
+
+* To show details of the given snapshot policy \(by GUID\)
+
+  ```text
+  vprotect storage-snappolicy -g 3afcd507-a4f5-484d-8d34-53c73d7a5809
+  ```
+
+* To create a new policy
+
+  ```text
+  vprotect storage-snappolicy -c "My Policy"
+  ```
+
+* To set 2 schedules \(GUIDs are comma-separated\) for a policy \(first GUID\):
+
+  ```text
+  vprotect vm-snappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 \
+   391203e3-ad6c-4532-b69c-78b3a5c
+   ```
+
 
 ## Schedules
 
@@ -984,13 +1052,12 @@ To manage schedules in the system use `vprotect sched` sub-command.
 
 ```text
 [root@vprotect ~]# vprotect sched
-Required option: [-a Set schedule to be active (1) / not active (0), -c Create schedule for VM (backup type: FULL / INCREMENTAL), -d Delete schedule, -g Show details, -l List schedules, -m Modify schedule (backup type: FULL / INCREMENTAL)]
+Incorrect syntax: Missing required option: [-a Set schedule to be active (1) / not active (0), -c <NAME> <VM_BACKUP | SNAPSHOT | APP_BACKUP> <BACKUP_TYPE> <TIME | INTERVAL> <START_TIME | INTERVAL_START_HOUR-INTERVAL_END_HOUR> <DURATION | INTERVAL_FREQUENCY> <everyday | LIST_OF_DAYS_OF_WEEK> <any | FIRST_IN_MONTH | SECOND_IN_MONTH | THIRD_IN_MONTH | FOURTH_IN_MONTH | LAST_IN_MONTH> <any | LIST_OF_MONTHS 
+ Create schedule for VM (backup type: FULL / INCREMENTAL), -d Delete schedule, -g Show details, -l List schedules, -m <GUID> <NAME> <TYPE> <TIME | INTERVAL> <START_TIME | INTERVAL_START_HOUR-INTERVAL_END_HOUR> <DURATION | INTERVAL_FREQUENCY> <everyday | LIST_OF_DAYS_OF_WEEK> <any | FIRST_IN_MONTH | SECOND_IN_MONTH | THIRD_IN_MONTH | FOURTH_IN_MONTH | LAST_IN_MONTH> <any | LIST_OF_MONTHS 
+ Modify schedule (backup type: FULL / INCREMENTAL)]
+ 
+usage: sched -a <arg> | -c <arg> | -d <arg> | -g <arg> | -l | -m <arg>
 
-usage: sched -a <GUID> <0|1> | -c <NAME> <VM_BACKUP | SNAPSHOT | APP_BACKUP> <BACKUP_TYPE> <TIME | INTERVAL> <START_TIME |
-       INTERVAL_START_HOUR-INTERVAL_END_HOUR> <DURATION | INTERVAL_FREQUENCY> <everyday | LIST_OF_DAYS_OF_WEEK> <any | FIRST_IN_MONTH | SECOND_IN_MONTH |
-       THIRD_IN_MONTH | FOURTH_IN_MONTH | LAST_IN_MONTH> <any | LIST_OF_MONTHS> | -d <GUID> | -g <GUID> | -l | -m <GUID> <NAME> <TYPE> <TIME | INTERVAL>
-       <START_TIME | INTERVAL_START_HOUR-INTERVAL_END_HOUR> <DURATION | INTERVAL_FREQUENCY> <everyday | LIST_OF_DAYS_OF_WEEK> <any | FIRST_IN_MONTH |
-       SECOND_IN_MONTH | THIRD_IN_MONTH | FOURTH_IN_MONTH | LAST_IN_MONTH> <any | LIST_OF_MONTHS>
 Schedule management
  -a,--set-active <GUID> <0|1>              Set schedule to be active (1) / not active (0)
  -c,--create     <NAME> <VM_BACKUP | SNAPSHOT | APP_BACKUP> <BACKUP_TYPE> <TIME | INTERVAL> <START_TIME | INTERVAL_START_HOUR-INTERVAL_END_HOUR> <DURATION |
@@ -1015,7 +1082,7 @@ Schedule management
 * To create a full backup schedule with name Schedule1 executed every day at 05:00 with 60 minutes of time window:
 
   ```text
-  vprotect sched –c Schedule1 FULL 05:00 60 everyday
+  vprotect sched -c Schedule1 FULL 05:00 60 everyday
   ```
 
 * To create a incremental backup schedule with name Schedule2 executed every Monday, Wednesday and Friday at 17:00 with 90 minutes of time window:
@@ -1029,8 +1096,8 @@ Schedule management
 * To create schedules \(full backup\) with name Schedule3 and Schedule4 executed every Tuesday at 02:00 and every Wednesday at 03:00 with 90 minutes of time window and assign them to the VM group with ID 123:
 
   ```text
-  vprotect sched –c Schedule3 FULL 02:00 90 tue
-  vprotect sched –c Schedule4 FULL 03:00 90 wed
+  vprotect sched -c Schedule3 FULL 02:00 90 tue
+  vprotect sched -c Schedule4 FULL 03:00 90 wed
   vprotect vmg -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 8d8649cf-d3a1-4e54-b58b-69e51b2456e2,e694dba7-0fdf-44dc-beec-3c9e480b0621
   ```
 
@@ -1130,19 +1197,18 @@ To invoke mount/unmount tasks use `vprotect mnt` sub-command.
 
 ```text
 [root@vprotect ~]# vprotect mnt
-Required option: [-T List tasks related to the mounted backup, -u Unmount previously mounted backup, -F List file systems, -l List mounted backups, -L List mounted files, -mi Mount iSCSI., -m Mount backup according to the MOUNT_SPECIFICATION, -Li List files for selected backup, that can be mounted using iSCSI mode.]
-
-usage: mnt -F <GUID> | -l | -L <GUID> | -Li <BACKUP_GUID> | -m <GUID> <NODE_GUID | NODE_NAME> <auto|manual> <MOUNT_SPECIFICATION> | -mi <BACKUP_GUID>
-       <NODE_GUID | NODE_NAME> <ALLOWED_CLIENT,...,ALLOWED_CLIENT> <DISK_GUID,...,DISK_GUID> | -T <GUID> | -u <GUID>
+Incorrect syntax: Missing required option: [-T List tasks related to the mounted backup, -u Unmount previously mounted backup, -F List file systems, -l List mounted backups, -L List mounted files, -mi Mount iSCSI., -m Mount backup according to the MOUNT_SPECIFICATION, -Li List files for selected backup, that can be mounted using iSCSI mode.]
+ 
+usage: mnt -F <GUID> | -l | -L <GUID> | -Li <BACKUP_GUID> | -m <GUID> <NODE_CONFIG_GUID | NODE_CONFIG_NAME> <auto|manual> <MOUNT_SPECIFICATION> | -mi <BACKUP_GUID> <NODE_CONFIG_GUID | NODE_CONFIG_NAME> <ALLOWED_CLIENT,...,ALLOWED_CLIENT> <DISK_GUID,...,DISK_GUID> | -T <GUID> | -u <GUID>
 Mounted backup management
- -F,--list-file-systems <GUID>                                                                                           List file systems
- -l,--list                                                                                                               List mounted backups
- -L,--list-files <GUID>                                                                                                  List mounted files
- -Li,--list-iscsi-mountable-files <BACKUP_GUID>                                                                          List files for selected backup, that can be mounted using iSCSI mode.
- -m,--mount <GUID> <NODE_GUID | NODE_NAME> <auto|manual> <MOUNT_SPECIFICATION>                                           Mount backup according to the MOUNT_SPECIFICATION
- -mi,--mount-iscsi <BACKUP_GUID> <NODE_GUID | NODE_NAME> <ALLOWED_CLIENT,...,ALLOWED_CLIENT> <DISK_GUID,...,DISK_GUID>   Mount iSCSI.
- -T,--list-tasks <GUID>                                                                                                  List tasks related to the mounted backup
- -u,--unmount <GUID>                                                                                                     Unmount previously mounted backup
+ -F,--list-file-systems <GUID>                                                                                                         List file systems
+ -l,--list                                                                                                                             List mounted backups
+ -L,--list-files <GUID>                                                                                                                List mounted files
+ -Li,--list-iscsi-mountable-files <BACKUP_GUID>                                                                                        List files for selected backup, that can be mounted using iSCSI mode.
+ -m,--mount <GUID> <NODE_CONFIG_GUID | NODE_CONFIG_NAME> <auto|manual> <MOUNT_SPECIFICATION>                                           Mount backup according to the MOUNT_SPECIFICATION
+ -mi,--mount-iscsi <BACKUP_GUID> <NODE_CONFIG_GUID | NODE_CONFIG_NAME> <ALLOWED_CLIENT,...,ALLOWED_CLIENT> <DISK_GUID,...,DISK_GUID>   Mount iSCSI.
+ -T,--list-tasks <GUID>                                                                                                                List tasks related to the mounted backup
+ -u,--unmount <GUID>                                                                                                                   Unmount previously mounted backup
 ```
 
 ### Examples
@@ -1165,10 +1231,10 @@ Mounted backup management
   vprotect mnt -F 1ac068d3-4848-4c98-b30b-54ce050b6a95
   ```
 
-* To mount all file systems in backup with GUID `2132182d-e9ab-4478-a1db-48222b0e515b` to /mnt/myVM/2017-01-01:
+* To mount all file systems in backup with GUID `2132182d-e9ab-4478-a1db-48222b0e515b` and node config with GUID `3a9d48dc-e48f-11eb-a1ce-005056a6b7e5` to /mnt/myVM/2017-01-01:
 
   ```text
-  vprotect mnt -m 2132182d-e9ab-4478-a1db-48222b0e515b auto /mnt/myVM/2017-01-01
+  vprotect mnt -m 2132182d-e9ab-4478-a1db-48222b0e515b 3a9d48dc-e48f-11eb-a1ce-005056a6b7e5 auto /mnt/myVM/2017-01-01
   ```
 
 * To mount manually file systems in backup with GUID `2132182d-e9ab-4478-a1db-48222b0e515b` with specifying mount points you need to provide semicolon-separated list where you provide name of the volume=mount point \(white space before or after semicolon or equal sign is not allowed\)

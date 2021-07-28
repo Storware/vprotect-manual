@@ -31,9 +31,11 @@ Group is a central place to bind together a set of roles with users. There are a
 
 **Note:**
 
-* Administrators from previous versions have been migrated to `Global Administrators` group with all permissions available.
-* automatically created accounts based on LDAP logins will have by default `Operators`
-* currently groups are managed in vProtect UI only \(they are not mapped to LDAP groups\)
+* Administrators from previous versions (19.8.0.420 and lower) have been migrated to `Global Administrators` group with all permissions available.
+* Roles from previous versions (19.8.0.420 and lower) have been added the `System Level` security context.
+* Automatically created accounts based on LDAP logins will have the `Operator` role by default.
+* Current group management is available in vProtect UI only \(they are not mapped to LDAP groups\)
+
 
 ## Roles
 
@@ -55,20 +57,6 @@ Role is a set of permissions to the different sections and actions in vProtect. 
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td style="text-align:left">Dashboard</td>
-      <td style="text-align:left">Dashboard</td>
-      <td style="text-align:left">This permission allows to enable or disable access to the entire WebUI.
-        The user for whom we disable the dashboard will be able to perform actions
-        only from the CLI</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Dashboard</td>
-      <td style="text-align:left">Configuration Wizard</td>
-      <td style="text-align:left">This permission hides or shows the wizard button. Please note that tasks
-        performed from the wizard level (e.g. adding a hypervisor) require separate
-        permissions available from other sections.</td>
-    </tr>
     <tr>
       <td style="text-align:left">Nodes</td>
       <td style="text-align:left">Instances</td>
@@ -288,3 +276,39 @@ Role is a set of permissions to the different sections and actions in vProtect. 
   </tbody>
 </table>
 
+## Security contexts
+The security context defines the set of system objects that can be accessed with defined permissions.
+
+The object hierarchy is constructed in a way that any defined privileges will apply to the specified object 
+and to all the downstream objects, therefore the `System Level` security context defines the access 
+to all objects across the platform and disables the choice of lower level objects.
+
+Security contexts have been aggregated into the specified hierarchy. Different system object types can have different parental objects (or none) and so will appear in 
+the different sections of the tree. 
+
+Selected objects will be visible in the table on the right-hand side.
+![](../.gitbook/assets/access-management-role-form.png)
+
+The full hierarchy:
+* Hypervisor Managers
+    * Projects
+        * Virtual Environments
+    * Data Centers
+        * Hypervisors
+            * Virtual Environments
+        * Clusters
+            * Hypervisors
+            * Virtual Environments
+        * Virtual Environments
+    * Clusters
+        * Hypervisors
+        * Virtual Environments
+    * Hypervisors
+        * Virtual Environments
+    * Virtual Environments
+* Hypervisors
+    * Virtual Environments
+* Application Configurations
+    * Applications
+* Storage Providers
+    * Storages

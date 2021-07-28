@@ -1,6 +1,6 @@
 # Protected Platforms
 
-vProtect supports multiple virtualization, container and cloud platforms. In this section, you will find what specific steps are needed for each one of them to be integrated with vProtect.
+vProtect supports multiple virtualization platforms. In this section you will find out what specific steps are needed for each of them to be integrated with vProtect.
 
 * [Virtual Machines](virtual-machines/)
   * [VMware vSphere](virtual-machines/vmware-vsphere.md)
@@ -23,8 +23,8 @@ vProtect supports multiple virtualization, container and cloud platforms. In thi
   * [AWS EC2](cloud/aws-ec2.md)
 * [Applications](applications.md)
 
-All methods described in this section always assume that the vProtect node is communicating with the protected platform, and the server is responsible only for the configuration and management of the metadata. This means that:
+In all the methods described in this section, it is always assumed that the vProtect Node only communicates with the protected platform and server reponsible for configuration and metadata management. This means that:
 
-* it is always Node that requires access to the infrastructure \(protected platforms APIs, storage etc., guest VMs for iSCSI shares, etc.\)
-* server only needs to be accessible by the Nodes and admin browser over HTTP/HTTPS \(which means that it can reside usually anywhere in the infrastructure\)
+* it is always the Node that requires access to the infrastructure \(protected platforms APIs, storage etc., guest VMs for iSCSI shares, etc.\)
+* the server only needs to be accessible to the Nodes and admin browser over HTTP/HTTPS \(which means that it can usually reside anywhere in the infrastructure\)
 

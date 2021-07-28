@@ -325,6 +325,17 @@
       <td style="text-align:left">Install multiple vProtect Server+Node environments and protect the non-overlapping
         set of volumes with each vProtect instance.</td>
     </tr>
+    <tr>
+      <td style="text-align:left">0033</td>
+      <td style="text-align:left">RHV - Restore with SPARSE disk allocation format</td>
+      <td style="text-align:left">Restore to RHV using SPARSE disk allocation format is not supported
+        if backup files are in RAW format and destination storage domain type in either Fibre Channel
+        or iSCSI. If such configuration is detected, then disk allocation format is automatically
+        switched to PREALLOCATED</td>
+      <td style="text-align:left">You can use other backup strategies that use QCOW2 files
+        instead of RAW (like disk image transfer). Alternatively, you can select different storage domain
+        of a type that supports SPARSE disks with RAW files</td>
+    </tr>
   </tbody>
 </table>
 

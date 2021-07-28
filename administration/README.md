@@ -11,13 +11,13 @@ This section provides information about administrative tasks such as how to back
   * [Recovery Plans](virtual-environments/recovery-plans/)
   * [File-level Restore](virtual-environments/file-level-restore-mounted-backup-1.md)
 * [Reporting](reporting/)
-* [Users Management](users.md)
+* [Access Management](users.md)
 * [Settings](settings.md)
 * [CLI Reference](cli-reference.md)
 * [Upgrade](upgrade.md)
 * [Disaster Recovery](disaster-recovery.md)
 
-We also recommend reading the [Disaster Recovery](disaster-recovery.md) section to make sure you know how to recover a vProtect installation in case of node or even server loss.
+We also recommend reading the [Disaster Recovery](disaster-recovery.md) section carefully to be sure that you understand how to recover vProtect installation in case of losing the node or even server.
 
-For a complete list of CLI commands check [CLI Reference](cli-reference.md).
+For a complete list of CLI commands, check [CLI Reference](cli-reference.md).
 

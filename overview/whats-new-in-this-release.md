@@ -1,14 +1,19 @@
 # What's new in this release
 
-## vProtect 4.0 -&gt; 4.1
+## vProtect 4.2 -&gt; 4.3
 
-* New: Storage Provider - Ceph RBD - support for backup/restore/mount of RBD volumes
-* New: Storage Provider - File system - support for backup/restore/mount of plain file systems mounted on the nodes
-* New: Storage Provider - Nutanix Files \(AFS\) - a technical preview of support for backup/restore/mount of Nutanix Files
-* New: OpenStack/OpenShift - project scanning
-* New: Backup size reporting for chargeback
-* New: DataDomain retention lock
-* New: Hyper-V multi-threaded disk export
-* New: Java update to v11
-* New: Task API performance optimizations
+**Changes:**
 
+* New: Huawei FusionCompute technical preview support
+* New: Storage Provider - Nutanix Volume Groups support
+* New: Synthetic backup with DD Boost FS
+* New: S3 backup provider - support for Cloudian S3
+* New: S3 backup provider - support for Alibaba Cloud OSS
+* New: RBAC - VM/Application/Storage instance-level permissions
+* New: Backup quotas for projects
+* New: Notification rules
+* New: VMware - support for node installation on CentOS 8/Stream
+* New: option to disable scheduled backups per policy
+* New: Web UI - backup/restore report export in PDF and HTML formats
+* New: Web UI - configuration wizard with added support for Storage Providers and additional policy types
+* New: Web UI - task duration in console

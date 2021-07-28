@@ -9,13 +9,13 @@ vProtect supports backup for OpenStack:
 * Disk attachment through Cinder:
   * supports all hypervisors and storages
   * no incremental backup
-  * proxy VM is required - used for disk attachment process.
+  * proxy VM is required - used for the disk attachment process.
 
 ## Backup Strategies
 
 ### Libvirt strategy
 
-vProtect supports OpenStack environments that use KVM hypervisors and VMs running on QCOW2 or RAW files. vProtect communicates with OpenStack APIs such as Nova and Glance to collect metadata and for the import of the restored process. However, the actual backup is done over SSH directly from the hypervisor. Process is exactly the same as in [Deployment in KVM/Xen environment](kvm-xen.md). vProtect Node can be installed anywhere - it just needs to reach OpenStack APIs and hypervisors SSH via network. Both full and incremental backups are supported.
+vProtect supports OpenStack environments that use KVM hypervisors and VMs running on QCOW2 or RAW files. vProtect communicates with OpenStack APIs such as Nova and Glance to collect metadata and for the import of the restored process. However, the actual backup is done over SSH directly from the hypervisor. The process is exactly the same as in [Deployment in the KVM/Xen environment](kvm-xen.md). vProtect Node can be installed anywhere - it just needs to have access to the OpenStack APIs and hypervisor SSH via a network. Both full and incremental backups are supported.
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-libvirt.png)
 
@@ -31,7 +31,7 @@ vProtect supports OpenStack environments that use KVM hypervisors and VMs runnin
 
 ### Disk attachment
 
-vProtect supports also disk-attachment method using cinder. This should allow you to use cinder-compatible storage and still allow vProtect to create backups. Currently, only full backup is supported. vProtect needs to communicate OpenStack service's API to attach drives to the proxy VM with the vProtect Node installed.
+vProtect also supports the disk-attachment method using cinder. This should allow you to use cinder-compatible storage and still allow vProtect to create backups. Currently only full backup is supported. vProtect needs to communicate OpenStack service's API to attach drives to the proxy VM with vProtect Node installed.
 
 ![](../../../.gitbook/assets/deployment-vprotect-openstack-disk-attachment.png)
 
@@ -48,7 +48,7 @@ vProtect supports also disk-attachment method using cinder. This should allow yo
 
 ### Ceph RBD storage backend
 
-vProtect supports also deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD export/RBD-NBD when used with Libvirt strategy or - when used with Disk-attachment method - only during incremental backups \(snapshot difference\).
+vProtect also supports deployments with Ceph RBD as a storage backend. vProtect communicates directly with Ceph monitors using RBD export/RBD-NBD when used with the Libvirt strategy or - when used with the Disk-attachment method - only during incremental backups \(snapshot difference\).
 
 #### Libvirt strategy
 
@@ -75,11 +75,11 @@ rbd_user = volumes
 rbd_secret_uuid = ce6d1549-4d63-476b-afb6-88f0b196414f
 ```
 
-A good article on how to set up Ceph with OpenStack you can find [here](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/).
+A good article on how to set up Ceph with OpenStack can be found [here](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/).
 
-vProtect Node supports Ceph RBD and for that, you will need to install ceph libraries:
+vProtect Node supports Ceph RBD, for which you will need to install ceph libraries:
 
-1. On **vProtect Node** enable required repositories:
+1. On the **vProtect Node** enable required repositories:
 
 1.1 For vProtect node installed on RHEL7:
 
@@ -109,15 +109,15 @@ sudo rpm --import '[https://download.ceph.com/keys/release.asc](https://download
 sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm](https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-1-1.el8.noarch.rpm)
 {% endhint %}
 
-1. Install `rbd-nbd` and `ceph-common` package, with all dependencies:
+1. Install the `rbd-nbd` and `ceph-common` package, with all dependencies:
 
    ```text
    yum install rbd-nbd ceph-common
    ```
 
-2. Add hypervisor manager as described [here](openstack.md) and while you add them:
-3. switch `Enable Ceph` toggle to on
-4. provide `Ceph keyring file contents` which is contents of your keyring file from Cinder host - `/etc/ceph/ceph.client.admin.keyring`, example:
+2. Add the hypervisor manager as described [here](openstack.md) and while you are adding it:
+3. Switch the `Enable Ceph` toggle to on
+4. Provide `Ceph keyring file contents` which is the contents of your keyring file from the Cinder host - `/etc/ceph/ceph.client.admin.keyring`, for example:
 
 ```text
      [client.admin]
@@ -128,7 +128,7 @@ sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-
      caps osd = "allow *"
 ```
 
-* provide `Ceph configuration file contents` , example:
+* provide the `Ceph configuration file contents`, for example:
 
 ```text
      [global]
@@ -146,7 +146,7 @@ sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-
      keyring = /etc/ceph/ceph.client.nova.keyring
 ```
 
-* Now you can save and sync inventory - if Ceph communication works properly you should be able to see Hypervisor Storage entries \(in Hypervisors -&gt; Storage tab\) representing your Ceph storage pools.
+* Now you can save and sync the inventory - if Ceph communication works properly you should be able to see Hypervisor Storage entries \(in Hypervisors -&gt; Storage tab\) representing your Ceph storage pools.
 
 ## QCOW2 files on NFS storage
 
@@ -156,7 +156,7 @@ You can configure the NFS volume backend here:
 
 [https://docs.openstack.org/cinder/rocky/admin/blockstorage-nfs-backend.html](https://docs.openstack.org/cinder/rocky/admin/blockstorage-nfs-backend.html)
 
-Make sure QCOW2 volumes are enabled.
+Make sure the QCOW2 volumes are enabled.
 
 For an NFS backend, it's recommended to set these values in `/etc/cinder/cinder.conf`:
 
@@ -168,7 +168,7 @@ enabled_backends = nfs`
 
 ## Adding hypervisor managers
 
-When creating the hypervisor manager, provide the following data in fields:
+When creating the hypervisor manager, provide the following data in the fields:
 
 URL - Keystone API URL, e.g. `http://10.201.32.40:5000/v3`
 
@@ -176,13 +176,12 @@ Username - OpenStack user
 
 Password - password for that user.
 
-When you index the hypervisor manager, **make sure to provide correct SSH credentials** for each hypervisor that appeared in the Hypervisors tab. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md).
+When you index the hypervisor manager, **make sure you provide the correct SSH credentials** for each hypervisor that appeared on the Hypervisors tab. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md).
 
 **Note: When restoring the instances, make sure that the provided user is a member of the target tenant.**
 
 ## Limitations
 
-* vProtect does not backup and restore keypairs that were created by other OpenStack users than the one used in vProtect. Restored instance will have no keypairs assigned. In such a case, the keypairs have to be backed up and restored manually under the same name before restoring the instance.
-* For libvirt strategy, only QCOW2/RAW files or Ceph RBD are supported as the backend
-* Disk attachment method with Ceph requires access to the monitors from the Proxy VM.
-
+* vProtect does not backup and restore keypairs that were created by other OpenStack users than the one used in vProtect. The restored instance will have no keypairs assigned. In such a case, the keypairs have to be backed up and restored manually under the same name before restoring the instance.
+* For the libvirt strategy only, QCOW2/RAW files or Ceph RBD are supported as the backend.
+* The disk attachment method with Ceph requires access to the monitors from the Proxy VM.

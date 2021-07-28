@@ -2,7 +2,7 @@
 
 ## General
 
-List of currently known virtual machines and access to the details page of each object. From this place, you can perform on-demand actions like backup, restore and file-level restore or search instances.
+A list of currently known virtual machines and access to the details page of each object. From this place, you can also perform on-demand actions such as backup, restore and file-level restore.
 
 The field lets the user filter the virtual machines by their:
 
@@ -19,7 +19,7 @@ The field lets the user filter the virtual machines by their:
 
 ![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%285%29.jpg)
 
-Going back to the VM details page, this is how it looks like:
+Returning to the VM details page, this is what it looks like:
 
 ![](../../../.gitbook/assets/instances-vm-details-page.jpg)
 
@@ -29,15 +29,15 @@ As you can see, the window has been divided into several areas:
 
 ![](../../../.gitbook/assets/instances-vm-details-page-vm-info.jpg)
 
-On the top, you can see summarized pieces of information about VM, like:
+At the top, you can see summarized pieces of information about the VM, such as:
 
-* ID of VM object into vProtect  
-* to which hypervisor VM belongs  
+* the ID of the VM object into vProtect  
+* to which hypervisor the VM belongs  
 * which node is backing up this virtual machine  
-* shot information about the last backup actions  
+* short information about the last backup actions
 * whether the virtual machine has tags or policies assigned to it  
 
-You can also use several function buttons, like:
+You can also use several function buttons:
 
 * refresh  
 * back to list  
@@ -72,13 +72,13 @@ A very useful report. It allows you to determine the required window length for 
 
 One of the latest reports, now you can easily see how fast data transfer is.
 
-### Restore Duration
+### Restore Time
 
 ![](../../../.gitbook/assets/vm-details-page-statistics-restore-dur.png)
 
 A view with the same properties as "Backup Time". It allows us to estimate how long it will take to restore the machine in the event of a failure.
 
-### Restore Rate
+### Transfer Rate
 
 ![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate.png)
 
@@ -99,7 +99,7 @@ In the bottom menu, you can find a large number of tabs, each of which will pres
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu.jpg)
 
-The first tab shows all virtual machine backups that are currently available and all basic information about them in a list. After pressing the magnifying glass button, you will see additional information. The button next to it allows you to download logs in the form of a .txt file.
+The first tab shows all virtual machine backups that are currently available and all basic information about them in a list. After clicking on the magnifying glass button, you will see additional information. The button next to it allows you to download logs in the form of a .txt file.
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu-backups.jpg)
 
@@ -107,13 +107,13 @@ The first tab shows all virtual machine backups that are currently available and
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu-backup-history.jpg)
 
-This tab shows information about all backups made for this virtual machine. Also about failed, removed \(because of retention\) or currently executing.
+This tab shows information about all backups made for this virtual machine, as well as information about failed, removed \(because of retention\) or currently executing backups.
 
 ### Restore History
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu-restore-history.jpg)
 
-This tab is similar to "Backup History". This is a list with basic information about the virtual machine restores performed. When you open the details of the selected restore, you will see much more detailed information.
+This tab is similar to "Backup History". This is a list with basic information about the virtual machine restores performed. When you open the details of the selected restore, you will see more detailed information.
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu-restore-history-details.jpg)
 
@@ -121,9 +121,9 @@ This tab is similar to "Backup History". This is a list with basic information a
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu-snapshots%20%281%29.jpg)
 
-This tab shows the virtual machine snapshots \(remember - snapshots are stored on the hypervisor\). The snapshot can be divided into two categories:  
+This tab shows virtual machine snapshots \(remember - snapshots are stored on the hypervisor\). The snapshot can be divided into two categories:
 1. As you can see in the list above, there is a green dot next to the snapshot. This means that this snapshot is created for incremental backup purposes. This is an automatic operation and we only keep the last snapshot.  
-2. The second on the list is a snapshot created at the user's request \(scheduled or manual\).
+2. The second one on the list is a snapshot created at the user's request \(scheduled or manual\).
 
 Next to the snapshot is a button that allows you to restore the virtual machine. It actually creates a new virtual machine and keeps the old one \(security considerations to protect against the human factor\).
 
@@ -143,7 +143,7 @@ In this tab, you can see all the schedules assigned to the virtual machine.
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu-settings.jpg)
 
-Finally, the last tab. The first two options allow you to change the policies assigned to the virtual machine. The third is a toggle to turn on or off the "Snapshot consistent technology" feature.
+Finally, the last tab. The first two options allow you to change the policies assigned to the virtual machine. The third is a toggle to turn on or off the "Snapshot consistent technology" feature. Below You can change transfer mode which is used for this VM.
 
 Performing pre/post snapshot commands is a function intended for advanced users. As the name implies, it allows us to execute scripts via an ssh connection, either before or after taking a snapshot.
 

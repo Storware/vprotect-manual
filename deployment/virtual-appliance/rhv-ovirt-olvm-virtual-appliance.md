@@ -1,58 +1,49 @@
 # RHV/oVirt/OLVM Virtual Appliance
 
-Unpack downloaded tar pack:
+## Files in this package:
+- vprotect-va-rhv-XXX.ova - OVA image of virtual machine to deploy in RHV enviroinment.
+- SHA256SUM - SHA-256 checksum file for other files.
 
+## Installation
+1. Unpack tgz archive
 ```text
-   [root@storage temp]# tar -xvf vProtect-RHV.tar.gz
-   vProtect-RHV/
-   vProtect-RHV/master/
-   vProtect-RHV/master/vms/
-   vProtect-RHV/master/vms/70dd2959-f827-42f9-a40c-1e384cb37084/
-   vProtect-RHV/master/vms/70dd2959-f827-42f9-a40c-1e384cb37084/70dd2959-f827-42f9-a40c-1e384cb37084.ovf
-   vProtect-RHV/images/
-   vProtect-RHV/images/27afaa2a-079a-4fba-8e88-5f05c752d039/
-   vProtect-RHV/images/27afaa2a-079a-4fba-8e88-5f05c752d039/c4d596fb-a4d2-4cb9-bbb5-e8e29c4e9519
-   vProtect-RHV/images/27afaa2a-079a-4fba-8e88-5f05c752d039/c4d596fb-a4d2-4cb9-bbb5-e8e29c4e9519.meta
-   vProtect-RHV/images/a425fde0-bd64-4ef9-ba13-71372c84e56c/
-   vProtect-RHV/images/a425fde0-bd64-4ef9-ba13-71372c84e56c/a8bccf24-dfc6-4b4f-b916-836a7be7a66a
-   vProtect-RHV/images/a425fde0-bd64-4ef9-ba13-71372c84e56c/a8bccf24-dfc6-4b4f-b916-836a7be7a66a.meta
+tar -xvf vprotect-va-rhv-XXX.tgz
 ```
+2. Upload OVA image to RHV host storage, or repository.
+3. Login to RHV manager.
+4. Go to tab Compute -> Virtual Machines.
+5. On right bottom of screen click on tree dots, and chose "Import".
+6. Select source "Virtual Appliance (OVA).
+7. Select host with uploaded OVA image.
+8. Enter "File Path" to OVA image file.
+9. Click button "Load".
+10. Move from list "Virtual MAchines on Source" our image "DELL EMC vProtect Virtual Appliance" to list "Virtual Machines to Import".
+11. Click "Next".
+12. Chose your target Storage Domain, Cluster, CPU Profile, Allocation Policy.
+13. In tab "General" edit Name.
+14. In tab "Network Interfaces" chose Network for your nic's in VM.
+15. Click "OK", import task is started.
+16. When VM is imported and running login to SSH to get VM IP, and next you can access vProtect by WebUI.
+    
+## Deinstallation
+1. Remove VM from virtual enviroinment.
+2. If backup destination is outside VM, then remove backup's files from backup destination.
 
-Optionally change owner for the downloaded files
+## Credentials
+### SSH
 
-```text
-   chown user_name:group_name vProtect-RHV/ -R
-```
+user name:  root
 
-Copy pack to your export domain:
+password:   vPr0tect
 
-```text
-   cp -rf temp/vProtect-RHV/* 6abe3ee7-b174-4cc3-953a-af89c6e8b82c/
-```
+### WebUI
+URL:    https://IP
 
-Log in to RHV/oVirt, go to "Compute", and "Virtual Machines" - Click the three dots icon on the right, then select import.
+user name:  admin
 
-![](../../.gitbook/assets/1.png)
+password:   vPr0tect
 
-Now you see Import wizard. Select the source of import - "Virtual appliance \(OVA\)".
+### MariaDB
+user name:  root
 
-![](../../.gitbook/assets/2.png)
-
-Enter a path where you place OVA files and click on the load button.
-
-![](../../.gitbook/assets/3%20%281%29%20%281%29%20%281%29.png)
-
-Now select Virtual Machine to import.
-
-![](../../.gitbook/assets/4.png)
-
-The last window with a summary of the virtual machine to be imported
-
-![](../../.gitbook/assets/6.png)
-
-After the image is imported into the environment, select network interface.
-
-Then connect to VM \(console or ssh\), run nmtui &gt; "Edit a connection" and check network adapter settings.
-
-You can find login credentials [here](./).
-
+password:   vPr0tect

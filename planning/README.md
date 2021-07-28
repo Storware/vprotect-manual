@@ -1,14 +1,14 @@
 # Planning
 
-In this chapter you will find key information needed to properly size and deploy vProtect solution.
+In this section you will find key information that is needed to properly size and deploy vProtect solution.
 
-In [Support Matrix](vprotect-support-matrix.md) section you can check supported versions of virtualization platforms and backup providers.
+In [support matrix](vprotect-support-matrix.md) you can check versions of supported virtualization platforms and backup providers.
 
-[Platform Requirements](platform-requirements.md) section presents what are hardware and software requirements needed to run vProtect components.
+[Platform requirements](softreqs.md) section presents what are hardware and software requirements needed to run vProtect components.
 
 [High Availability ](high-availability.md)section provides guidance to plan vProtect solution resistant to failures.
 
-In [Sizing](sizing/) section we present key information that you need to collect before installing vProtect.
+In [sizing](sizing/) section we present key information that you need to collect before installing vProtect.
 
 _What's next:_
 

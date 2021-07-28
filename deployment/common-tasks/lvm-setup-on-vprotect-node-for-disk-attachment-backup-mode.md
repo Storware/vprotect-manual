@@ -2,7 +2,7 @@
 
 **Note:** this is required for **Nutanix** and **RHV v4 API** \(when using disk attachment mode\)
 
-vProtect Node attaches VM disks that potentially are clones of its own \(i.e. if Node deployed from template\) - you need to configure LVM on the Node so that it doesn't scan for LVM volumes where disks are being attached.
+vProtect Node attaches VM disks that potentially are clones of its own \(i.e. if Node deployed from the template\) - you need to configure LVM on the Node so that it doesn't scan for LVM volumes where disks are being attached.
 
 1. Set the following variables in `/etc/lvm/lvm.conf` - so that only system volumes are being detected by LVM daemon \(in this example `/dev/sda1`\):
 
