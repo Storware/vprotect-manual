@@ -5,6 +5,8 @@ A backup destination is a storage location where vProtect keeps VMs, Containers,
 * [Filesystem](filesystem/)
   * [Regular filesystem](filesystem/regular-filesystem.md)
   * [Virtual Data Optimizer \(VDO\)](filesystem/virtual-data-optimizer-vdo.md)
+  * [Synthetic filesystem XFS](filesystem/synthetic-xfs.md)
+  * [Synthetic filesystem DD Boost](filesystem/synthetic-ddboost.md)
 * [Deduplication Appliances](deduplication-appliances/)
   * [Dell EMC Data Domain](deduplication-appliances/dell-emc-data-domain.md)
   * [HPE StoreOnce](deduplication-appliances/hpe-storeonce.md)

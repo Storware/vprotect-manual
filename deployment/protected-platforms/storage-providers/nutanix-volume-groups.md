@@ -6,6 +6,8 @@ vProtect supports volume groups for Nutanix platform. Disk snapshots are being a
 
 This storage provider also allows excluding disks for backups.
 
+![](../../../.gitbook/assets/vProtect_Nutanix-VolumeGroups.png)
+
 In general, export process looks as follows:
 * Snapshot of the volume group is taken
 * Temporary volume group with disk snapshots is created
