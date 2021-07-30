@@ -4,6 +4,8 @@
 * Node can be installed outside of the environment. But not behind a NAT.
 * Incremental backup is using CBT functionality of VRM. This means that currently incremental backup can be performed only on vms with installed VMTools(You can find instructions on how to install VMTools on VRM's Help page).  
 
+![](../../../.gitbook/assets/vProtect_FusionCompute-CBT.png)
+
 ### Creating FusionCompute HypervisorManager
 
 * fill in url field:
