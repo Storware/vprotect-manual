@@ -4,9 +4,11 @@ Automatic Backup Retry allows you to set the number of times a backup will be re
 
 Automatic backup is available for tasks created by the policy and tasks started manually.
 
-![Backup Retry Count policy](../../.gitbook/assets/backup-retry-count-policy.png)
-![Backup Retry Count policy manually](../../.gitbook/assets/backup-retry-count-policy-manually.png)
-![Backup Retry Count manually](../../.gitbook/assets/backup-retry-count-manually.png)
+![](../../.gitbook/assets/backup-retry-count-policy.png)
+
+![](../../.gitbook/assets/backup-retry-count-policy-manually.png)
+
+![](../../.gitbook/assets/backup-retry-count-manually.png)
 
 
 ## How it works
