@@ -1,8 +1,8 @@
 # Reporting
 
-Reporting features allow users to view statistics especially for backup and restore tasks. It gives also the possibility to view what happened lately in the vProtect environment.
+Reporting features allow users to view statistics, especially for backup and restore tasks. They also provide the possibility to view what has happened lately in the vProtect environment.
 
-Reporting is separated into three divisions:
+Reporting is divideed into four sections:
 
 * Virtual Environment - for general statistics about data for virtual machines
 * Applications - for general statistics about data for applications

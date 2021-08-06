@@ -42,7 +42,6 @@
 | Last snapshot kept on hypervisor for inc. backups | yes |
 | Hypervisor OS access needed | No |
 | Proxy VM needed | no \(optional for HotAdd backup\) |
-| Key Caveats | vProtect node must be installed on CentOS/RHEL 7.x to backup VMware virtual machines |
 
 | Feature | NBD & HotAdd |
 | :--- | :--- |

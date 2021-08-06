@@ -2,10 +2,6 @@
 
 vProtect supports agent-less data protection for VMware vSphere and ESXi environments. Both full and incremental backups are supported.
 
-**Note:**
-
-* vProtect node must be installed on CentOS/RHEL 7.x to backup VMware virtual machines
-
 ## Backup process
 
 ### Full Backup

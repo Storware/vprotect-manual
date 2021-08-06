@@ -1,6 +1,6 @@
 # Audit Log
 
-You can open the Audit log under the reporting section from the left side menu, to see what has happened lately in the vProtect environment.
+You can open the Audit log under the reporting section using the left side menu to see what has happened lately in the vProtect environment.
 
 ![](../../.gitbook/assets/reporting-audit-log.jpg)
 
@@ -10,7 +10,7 @@ Thanks to the filter section at the top of the page, you can easily choose a dat
 
 ![](../../.gitbook/assets/reporting-audit-log-filters.jpg)
 
-You can also open the details page of the task, by magnifier icon on the right side
+You can also open the task details page using the magnifier icon on the right.
 
 ![](../../.gitbook/assets/reporting-audit-log-details.jpg)
 

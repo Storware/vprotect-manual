@@ -15,6 +15,8 @@ vProtect supports multiple virtualization platforms. In this section you will fi
   * [Oracle VM](virtual-machines/oracle-vm.md)
   * [Citrix Hypervisor \(XenServer\)](virtual-machines/citrix-hypervisor-xenserver.md)
   * [XCP-ng](virtual-machines/xcp-ng.md)
+  * [Huawei FusionCompute](virtual-machines/huawei-fusion-compute.md)
+  * [HPE SimpliVity](virtual-machines/hpe-simplivity.md)
 * [Containers](containers/)
   * [Kubernetes](containers/kubernetes.md)
   * [Red Hat OpenShift](containers/red-hat-openshift.md)

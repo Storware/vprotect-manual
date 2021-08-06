@@ -14,5 +14,6 @@ vProtect supports multiple on-premise virtualization platforms. In this section 
 * [Oracle VM ](oracle-vm.md)
 * [Citrix Hypervisor \(Xen Server\)](citrix-hypervisor-xenserver.md)
 * [XCP-ng](xcp-ng.md)
+* [Huawei FusionCompute](huawei-fusion-compute.md)
 * [HPE SimpliVity](hpe-simplivity.md)
 
