@@ -1,6 +1,6 @@
 # Storage Providers
 
-vProtect allow backup of multiple storage platforms. You can protect Ceph RBD volumes, plain file systems, Nutanix Files \(AFS\) and Nutanix Volume Groups.
+vProtect allow backup of multiple storage providers. You can protect Ceph RBD volumes, plain file systems, Nutanix Files \(AFS\) and Nutanix Volume Groups.
 
 You can execute full and incremental backups, and recover individual files using mounted backups or share them over iSCSI.
 

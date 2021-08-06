@@ -9,30 +9,41 @@ Every node provides CLI that can be used to manage configuration and invoke task
 usage: vprotect <COMMAND> -<ARG_1> ... -<ARG_N>
 COMMAND is one of the following:
  node                   Node management
- config                 Node configuration management
- hv                     Hypervisor management
- hvm                    Hypervisor manager management
- hc                     Hypervisor cluster management
- hs                     Hypervisor storage management
- vm                     Virtual machine management
- vmpolicy               VM backup policy management
- bd                     Backup destination management
- sched                  Schedule management
- brvm                   VM backup & restore
- brapp                  Application backup & restore
- mnt                    Mounted backup management
- task                   Task management
- login                  User login
- logout                 Node and user logout
- stop                   Safely stops node
- snappolicy             Snapshot policy management
- app                    Application backup management
- appconf                App command execution management
- apppolicy              Application backup policy management
- restorejob             Restore jobs
- recplan                Recovery plan policies
- status                 Shows node status
- start                  Starts node
+ config   		          Node configuration management
+ hv       		          Hypervisor management
+ hvm      		          Hypervisor manager management
+ hc       		          Hypervisor cluster management
+ hs       		          Hypervisor storage management
+ vm       		          Virtual machine management
+ vmpolicy 		          VM backup policy management
+ bd       		          Backup destination management
+ sched    		          Schedule management
+ brvm     		          VM backup & restore
+ st       		          Storage management
+ stpool   		          Storage pool management
+ stprovider		          Storage provider management
+ brapp    		          Application backup & restore
+ mnt      		          Mounted backup management
+ task     		          Task management
+ login    		          User login
+ logout   		          Node and user logout
+ stop     		          Safely stops node
+ vm-snappolicy		      Snapshot policy management for VMs
+ storage-snappolicy		  Snapshot policy management for storages
+ app      		          Application backup management
+ appconf  		          App command execution management
+ apppolicy		          Application backup policy management
+ restorejob		          Restore jobs
+ recplan  		          Recovery plan policies
+ brst     		          Storage backup & restore
+ quota    		          Quota management
+ project  		          Project management
+ user     		          User management
+ rbac     		          Rbac management
+ role     		          AppUser Role management
+ group    		          AppUser Group management
+ status   		          Shows node status
+ start    		          Starts node
 ```
 
 ## Starting and stopping node
@@ -1189,6 +1200,70 @@ VM backup & restore
   vprotect brvm -H 2132182d-e9ab-4478-a1db-48222b0e515b c93140b8-a898-4aff-8eef-645587ca8289 "Local storage"
   ```
 
+## Storage backup/restore
+
+This module is used to manage the backup and restore process of storage providers.
+
+To invoke backup and restore tasks use `vprotect brst` sub-command.
+
+```text
+[root@localhost vprotect]# vprotect brst
+Incorrect syntax: Missing required option: [-b Backup (full), -B Backup (full) with task priority (0-100, 50 = default), -r Restore the backup, -S Restore the storage to the storage provider., -T List tasks related to the backup, -gL Show file details, -i Backup STORAGE (incremental), -I Backup STORAGE (incremental) with task priority (0-100, 50 = default), -gb Show backup details, -l List backups, -L List backup files]
+
+usage: brst -b <GUID> <BP_GUID | BP_NAME> | -B <GUID> <BP_GUID | BP_NAME> <PRIORITY> | -gb <BACKUP_GUID> | -gL <BACKUP_FILE_GUID> | -i <STORAGE_GUID> <BP_GUID | BP_NAME> | -I <STORAGE_GUID> <BP_GUID | BP_NAME> <PRIORITY> | -l | -L <GUID> | -r <GUID> <DIRECTORY> | -S <GUID>
+       <STORAGE_PROVIDER_GUID | STORAGE_PROVIDER_NAME> <RESTORE_PATH> | -T <GUID>
+Storage backup & restore
+ -b,--backup <GUID> <BP_GUID | BP_NAME>                                                                   Backup (full)
+ -B,--backup-with-priority <GUID> <BP_GUID | BP_NAME> <PRIORITY>                                          Backup (full) with task priority (0-100, 50 = default)
+ -gb,--show-backup-details <BACKUP_GUID>                                                                  Show backup details
+ -gL,--show-files-details <BACKUP_FILE_GUID>                                                              Show file details
+ -i,--backup-inc <STORAGE_GUID> <BP_GUID | BP_NAME>                                                       Backup STORAGE (incremental)
+ -I,--backup-inc-with-priority <STORAGE_GUID> <BP_GUID | BP_NAME> <PRIORITY>                              Backup STORAGE (incremental) with task priority (0-100, 50 = default)
+ -l,--list                                                                                                List backups
+ -L,--list-files <GUID>                                                                                   List backup files
+ -r,--restore <GUID> <DIRECTORY>                                                                          Restore the backup
+ -S,--restore-to-storage-provider <GUID> <STORAGE_PROVIDER_GUID | STORAGE_PROVIDER_NAME> <RESTORE_PATH>   Restore the storage to the storage provider.
+ -T,--list-tasks <GUID>                                                                                   List tasks related to the backup
+```
+
+### Examples
+
+* To list all backups and their status:
+
+  ```text
+  vprotect brst -l
+  ```
+
+* To show backups of a particular storage:
+
+  ```text
+  vprotect br -L 0f36f40c-6427-4035-9f2b-1ead6aca3597
+  ```
+
+* To show files that a specific backup consists of:
+
+  ```text
+  vprotect brst -L 4f1c7907-72e9-4797-8470-3f1fbb081751
+  ```
+
+* To create a full backup of a storage and store it in backup destination called `MyTSM`
+
+  ```text
+  vprotect brst -b 0f36f40c-6427-4035-9f2b-1ead6aca3597 MyTSM
+  ```
+
+* To restore a full backup with given GUID on the current node \(`this`\) to the `/vprotect_data`
+
+  ```text
+  vprotect brst \
+  -r 2132182d-e9ab-4478-a1db-48222b0e515b this /vprotect_data
+  ```
+* To create an incremental backup of a storage and store it in backup destination called `MyTSM`
+
+  ```text
+  vprotect brst -i 0f36f40c-6427-4035-9f2b-1ead6aca3597 MyTSM
+  ```
+
 ## Mounted backups
 
 Mounted backup management module is used to mount and unmounts backups on the given node. This feature is currently supported for RHV/oVirt/OVM VMs. Each mounted backup can be mounted automatically \(auto-detection of mount points within single root or manually with separate mount points for each volume.
@@ -1302,6 +1377,230 @@ Task management
   ```
 
 **Note:** some tasks may require to be finished before they are cancelled, i.e. export VM from the hypervisor – after cancellation it may take some time for task to process cancel request and clean up snapshots etc. if necessary - backup will be marked as failed.
+
+## Project
+
+Project module is used to view details and set quota for available projects.
+
+```
+[root@localhost vprotect]# vprotect project
+Incorrect syntax: Missing required option: [-g Show Project details, -l List Projects, -sQ Set Project Quota]
+
+usage: project -g <GUID> | -l | -sQ <GUID> <QUOTA_GUID>
+Project management
+ -g,--details <GUID>                   Show Project details
+ -l,--list                             List Projects
+ -sQ,--set-quota <GUID> <QUOTA_GUID>   Set Project Quota
+```
+
+### Examples
+* To list all projects:
+```
+vprotect project -l
+```
+* To set quota with GUID `6f0bfb3c-24dd-4d12-8a72-997ded2ecc98` to project with GUID `ca707d31-f403-40d5-b160-6ac512457b87`
+```
+vprotect project -sQ ca707d31-f403-40d5-b160-6ac512457b87 6f0bfb3c-24dd-4d12-8a72-997ded2ecc98
+```
+
+## User Management
+User module is used to manage users and their settings. You can add or remove users, change their password or timezone.
+
+```
+[root@localhost vprotect]# vprotect user
+Incorrect syntax: Missing required option: [-c Create user, -d Delete user, -g Show user details, -l List users, -m Update user's property, -sP Update user's password, -sA Update user's activation state]
+
+usage: user -c <LOGIN> <FIRST_NAME> <LAST_NAME> <TIMEZONE> <LANGUAGE> <ACTIVE> | -d <GUID> | -g <GUID> | -l | -m <GUID> <PROPERTY_NO.> <VALUE> | -sA <GUID> <ACTIVE> | -sP <GUID>>
+User management
+ -c,--create <LOGIN> <FIRST_NAME> <LAST_NAME> <TIMEZONE> <LANGUAGE> <ACTIVE>   Create user
+ -d,--delete <GUID>                                                            Delete user
+ -g,--details <GUID>                                                           Show user details
+ -l,--list                                                                     List users
+ -m,--modify <GUID> <PROPERTY_NO.> <VALUE>                                     Update user's property
+ -sA,--set-active <GUID> <ACTIVE>                                              Update user's activation state
+ -sP,--set-password <GUID>>
+ ```
+
+### Examples
+* To create new user
+```
+vprotect user -c jdoe John Doe UTC EN true
+```
+* To list all users
+```
+vprotect user -l
+
+                GUID                  First Name  Last Name  Active  
+------------------------------------  ----------  ---------  ------  
+                                   1  The         Admin      true    
+705490c2-7734-4a56-a563-24471447bf2b  John        Doe        true  
+```
+* To set password for the user
+```
+vprotect user -sP 705490c2-7734-4a56-a563-24471447bf2b
+```
+
+## Quota
+
+Quota management module is used to manage backup/restore limits for virtual machines in projects.
+
+To manage Quotas in the system use `vprotect quota` sub-command.
+
+```text
+[root@localhost vprotect]# vprotect quota
+Incorrect syntax: Missing required option: [-aR Add Rule to Quota, -c Create Quota, -d Delete Quota, -g Show Quota details, -sN Change Quota name, -l List Quotas, -L List Projects for Quota, -eR Edit Rule in Quota, -sA Change Quota active state, -dR Delete Rule from Quota]
+
+usage: quota -aR <GUID> <RULE_NAME> <TYPE> <ACTIVE> <HARD_LIMIT> <HARD_LIMIT_TIME_FRAME> <SOFT_LIMIT> <SOFT_LIMIT_TIME_FRAME> | -c <NAME> | -d <GUID> | -dR <GUID> <RULE_NAME> <TYPE> | -eR <GUID> <RULE_NAME> <TYPE> <ACTIVE>
+       <HARD_LIMIT> <HARD_LIMIT_TIME_FRAME> <SOFT_LIMIT> <SOFT_LIMIT_TIME_FRAME> | -g <GUID> | -l | -L <GUID> | -sA <GUID> <ACTIVE> | -sN <GUID> <NAME>
+Quota management
+ -aR,--add-rule <GUID> <RULE_NAME> <TYPE> <ACTIVE> <HARD_LIMIT> <HARD_LIMIT_TIME_FRAME> <SOFT_LIMIT> <SOFT_LIMIT_TIME_FRAME>    Add Rule to Quota
+ -c,--create <NAME>                                                                                                             Create Quota
+ -d,--delete <GUID>                                                                                                             Delete Quota
+ -dR,--delete-rule <GUID> <RULE_NAME> <TYPE>                                                                                    Delete Rule from Quota
+ -eR,--edit-rule <GUID> <RULE_NAME> <TYPE> <ACTIVE> <HARD_LIMIT> <HARD_LIMIT_TIME_FRAME> <SOFT_LIMIT> <SOFT_LIMIT_TIME_FRAME>   Edit Rule in Quota
+ -g,--details <GUID>                                                                                                            Show Quota details
+ -l,--list                                                                                                                      List Quotas
+ -L,--list-projects <GUID>                                                                                                      List Projects for Quota
+ -lR,--list-all-rules                                                                                                           List all possible rule names
+ -sA,--set-active <GUID> <ACTIVE>                                                                                               Change Quota active state
+ -sN,--set-name <GUID> <NAME>                                                                                                   Change Quota name
+```
+
+### Examples
+
+* To list all quotas:
+
+  ```text
+  vprotect quota -l
+  ```
+
+* To list all projects for Quota with GUID `1ac068d3-4848-4c98-b30b-54ce050b6a95`:
+
+  ```text
+  vprotect quota -L 1ac068d3-4848-4c98-b30b-54ce050b6a95
+  ```
+
+* To list all possible rule names:
+
+  ```text
+  vprotect quota -lR
+  ```
+
+* To add rule to Quota with GUID `1ac068d3-4848-4c98-b30b-54ce050b6a95`:
+
+  ```text
+  vprotect quota -aR 1ac068d3-4848-4c98-b30b-54ce050b6a95 NUMBER_OF_BACKUPS TOTAL true 10 24 5 10
+  ```
+
+## RBAC
+
+This module allows listing possible context types and privilege types used in RBAC management.
+
+This module uses `vprotect rbac` sub-command.
+
+```text
+[root@localhost vprotect]$ vprotect rbac
+Incorrect syntax: Missing required option: [-lp List all possible privilege types, -lc List all possible context types]
+
+usage: rbac -lc | -lp
+User management
+ -lc,--list-context     List all possible context types
+ -lp,--list-privilege   List all possible privilege types
+```
+
+### Examples
+
+* To list all possible privilege types
+
+  ```text
+  vprotect rbac -lp
+  ```
+  
+## User Role Management
+
+User Role management module is used to manage Roles and their privileges.
+
+**Note**:
+
+* only rules that are created by the user can be deleted.
+
+To manage User Roles in the system use `vprotect role` sub-command.
+
+```text
+[root@localhost vprotect]$ vprotect role
+Incorrect syntax: Missing required option: [-rC Remove context from the role, -aC Add context to role, -c Create role, -d Delete role, -g Get role details, -lC List contexts of the role, -l Get role list, -m Modify role name, -rP Remove privilege from the role, -aP Add privilege to role]
+
+usage: role -aC <GUID> | -aP <GUID> <PRIVILEGE NAME> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -lC <GUID> | -m <GUID> <NAME> | -rC <GUID> <CONTEXT INSTANCE GUID> | -rP <GUID> <PRIVILEGE NAME>
++Access management
+ -aC,--add-context <GUID>                              Add context to role
+ -aP,--add-privilege <GUID> <PRIVILEGE_NAME>           Add privilege to role
+ -c,--create <NAME>                                    Create role
+ -d,--delete <GUID>                                    Delete role
+ -g,--details <GUID>                                   Get role details
+ -l,--list                                             Get role list
+ -lC,--list-contexts <GUID>                            List contexts of the role
+ -m,--modify <GUID> <NAME>                             Modify role name
+ -rC,--remove-context <GUID> <CONTEXT_INSTANCE_GUID>   Remove context from the role
+ -rP,--remove-privilege <GUID> <PRIVILEGE_NAME>        Remove privilege from the role
+```
+
+### Examples
+
+* To create new Role
+
+```text
+  vprotect role -c Tester
+```
+
+* To add VE_INSTANCE_READ privilege to a Role with GUID `1ac068d3-4848-4c98-b30b-54ce050b6a95`
+
+```text
+  vprotect role -aP 1ac068d3-4848-4c98-b30b-54ce050b6a95 VE_INSTANCE_READ
+```
+
+## User Group Management
+
++User Group management module is used to bind Users with set of Roles.
+
+**Note**:
+
+* only groups that are created by the user can be deleted.
+
+To manage User Roles in the system use `vprotect group` sub-command.
+
+```text
+[root@localhost vprotect]$ vprotect group
+Incorrect syntax: Missing required option: [-rR Remove role from the group, -aR Add role to the group, -c Create group, -rU Remove user from the group, -d Delete group, -aU Add user to the group, -g Get group details, -l Get group list, -m Modify group name]
+
+usage: group -aR <GUID> <ROLE GUID> | -aU <GUID> <USER_GUID> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -m <GUID> <NAME> | -rR <GUID> <ROLE_GUID> | -rU <GUID> <USER_GUID>
+AppUser Group management
+ -aR,--add-role <GUID> <ROLE GUID>      Add role to the group
+ -aU,--add-user <GUID> <USER_GUID>      Add user to the group
+ -c,--create <NAME>                     Create group
+ -d,--delete <GUID>                     Delete group
+ -g,--details <GUID>                    Get group details
+ -l,--list                              Get group list
+ -m,--modify <GUID> <NAME>              Modify group name
+ -rR,--remove-role <GUID> <ROLE_GUID>   Remove role from the group
+ -rU,--remove-user <GUID> <USER_GUID>   Remove user from the group
+```
+
+### Examples
+
+* To add Role with GUID `1ac068d3-4848-4c98-b30b-54ce050b6a95` to Group with GUID `54c57989-9d99-480f-a6da-b4f34b7bd812`
+```text
+  vprotect group -aR 54c57989-9d99-480f-a6da-b4f34b7bd812 1ac068d3-4848-4c98-b30b-54ce050b6a95
+```
+
+* To remove User with GUID `91e6bf9c-59c6-4653-9854-e9c920198343` from Group with GUID `54c57989-9d99-480f-a6da-b4f34b7bd812`
+```text
+    vprotect group -rU 54c57989-9d99-480f-a6da-b4f34b7bd812 91e6bf9c-59c6-4653-9854-e9c920198343
+```
+
+
+
+
+
 
 ## Application backup/restore
 

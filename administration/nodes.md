@@ -14,7 +14,7 @@ Node configurations are groups of settings assignable to a set of nodes. This is
 
 **Note:**
 
-* Node Configurations from previous versions (19.8.0.420 and lower) have been migrated to new node configurations in a way that every node will have their own corresponding node configuration. The old configurations have been preserved in the system.
+* Node Configurations from previous versions (4.2 and lower) have been migrated to new node configurations in a way that every node will have their own corresponding node configuration. The old configurations have been preserved in the system.
 * The task-to-node assignment will be executed via task's hypervisor/hypervisor manager/storage provider relation to the node configuration where the system will decide on the specific node assigned to the aforementioned configuration responsible for executing the task.
 
 
