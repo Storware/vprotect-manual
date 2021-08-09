@@ -23,7 +23,7 @@ vProtect supports multiple virtualization platforms. In this section you will fi
   * [Proxmox VE](containers/proxmox-ve.md)
 * [Cloud](cloud/)
   * [AWS EC2](cloud/aws-ec2.md)
-* [Applications](applications.md)
+* [Applications](applications/)
 
 In all the methods described in this section, it is always assumed that the vProtect Node only communicates with the protected platform and server reponsible for configuration and metadata management. This means that:
 
