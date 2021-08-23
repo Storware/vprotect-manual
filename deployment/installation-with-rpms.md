@@ -22,7 +22,7 @@
    [vprotect]
    name = vProtect
    baseurl = http://repo.storware.eu/vprotect/current/el8
-   gpgcheck=0
+   gpgcheck = 0
    ```
 
    * optionally change `el8` to `el7` for older CentOS/RHEL and `current` can also be pointed to the specific version of vProtect, i.e. `3.9.2` \(not the one that is always up to date\)
