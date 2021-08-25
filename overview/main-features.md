@@ -35,7 +35,7 @@
 * Generic application backup with your custom scripts with ready templates for commonly used databases
 * OpenStack and KVM stand-alone with Ceph RBD storage support
 * Multi-node support for better scalability or geographically dispersed environments
-* Build-in vProtect DB backup
+* Built-in vProtect DB backup
 * Data encryption for file system backup destination
 * LDAP authentication 
 * Integration with different backup destinations such as: 

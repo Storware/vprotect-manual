@@ -1,7 +1,6 @@
 # Glossary of terms
 
-* **Backup Desintation** - backup provider or storage space holding backups on vProtect node where backup files are copied to from **Staging Space**.
-
+* **Backup Desintation** - backup provider or storage space holding backups on vProtect node where backup files are copied to from **Staging Space** - default and the only currently supported is PowerProtect DD via Boost FS
 * **Backup SLAs** - are responsible for automation of backups of Virtual Environments or Storage instances. Backup SLA consist of the **policy** and **schedule**.
 * **Cluster** - corresponds to server pools/clusters/availability zones that have been detected during inventory synchronization of **Hypervisors**
 * **Hypervisors** - a list of hypervisors automatically discovered during inventory synchronization of **Hypervisor Manager** or manually added to vProtect
@@ -15,6 +14,6 @@
 * **Recovery Plans** - are used to automate DR process, so that vProtect executes multiple restore operations to the target environment with preconfigured settings.
 * **Schedule** - allow you to invoke specific policies periodically. This allows you to back up multiple VMs or storage instances automatically.
 * **Snapshot SLAs** - are responsible for automation of creating snapshots of Virtual Environments or storage instances. Backup SLA consist of the **policy** and **schedule**. Instance has to be assigned to **snapshot policy** in order to execute snapshot on demand.
-* **Staging Space** - temporary space for backup files on vProtect node, by default it is in `/vprotect_data` directory.
+* **Staging Space** - temporary space for backup files mounted on a vProtect Node; ddefault and recommended configuration is shared space on a PowerProtect DD via Boost FS.
 * **Storage** - corresponds to datastores/storage repositories/storage domains that have been detected during inventory synchronization of **Hypervisors**.
 * **Storage Provider** - software storage platform that provides storage instances

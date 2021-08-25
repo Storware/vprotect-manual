@@ -14,14 +14,14 @@ vProtect consists of 2 main components:
 
 * **vProtect Server** - central point of vProtect management, provides administrative Web UI, APIs and is a central repository of metadata.
 * **vProtect Node** - data mover that performs backups, restores and mounts:
-  * you can have multiple nodes,
+  * multiple nodes can be deployed for scalability or other reasons,
   * all nodes are managed by the server and need to be registered to the server.
 
 ## Component placement
 
-* **vProtect Server and Node can be installed in the same system** 
-* Server can be installed on a physical machine or VM - nodes just need to be able to connect to it.
-* Nodes can be installed also inside a VM or physical machine, but keep in mind that some backup strategies require Node to be installed as a VM on a Hypervisor Cluster \(especially when "disk attachment" export mode is mentioned\).
+* **vProtect Server and Node can be installed on the same host** 
+* The Server can be installed on a physical machine or VM - externally deployed nodes require network connectivity to the Server and PowerProtect DD target(s).
+* Nodes may be deployed as physical or virtual systems, unless selected backup strategy requires the Node to be installed as a VM on a Hypervisor Cluster \(especially when the "disk attachment" export mode is mentioned\).
 * Both components are installed on a CentOS/RHEL 8 minimal.
 
 For detailed deployment scenarios refer to the following sections:
@@ -74,7 +74,7 @@ There are several standard workflows in vProtect and they result in a set of tas
   * **Restore** - a task that gets data from a backup provider and puts data in the staging space \(if it is a full backup that is being restored residing on the file system backup provider - this task just informs where files are waiting for mount task\)
   * **Mount** - mounts backup on the vProtect Node and either allows user to browse files or exposes backup over iSCSI, so that remote iSCSI initiator can access it\)
 * **Snapshot**
-  * **Snapshot** - a task that creates a snapshot on the VM according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
+  * **Snapshot** - a task that creates a local persisted snapshot of a VM in the hypervisor environment according to a policy that was assigned to the VM - snapshots that are no longer needed \(according to the policy\) will be removed
 
 ![](../.gitbook/assets/workflows.png)
 

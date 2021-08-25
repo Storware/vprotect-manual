@@ -4,28 +4,25 @@
 
 ### Operating Systems
 
-#### RedHat Enterprise Linux / CentOS
+#### RedHat Enterprise Linux
 
-Minimum version
-
-* **7.6+**
-* **8.1.1911+** 
+Versions: 7.x, 8.x
 
 Minimal install \(Basic functionality\)
 
-{% hint style="warning" %}
-_vProtect node must be installed on CentOS/RHEL 7.x to backup VMware virtual machines_
-{% endhint %}
+#### CentOS
 
-{% hint style="warning" %}
-If the vProtect node is to be installed on a virtual machine with CentOS 8, make sure that **Secure Boot** is disabled in the virtual machine's **Boot Options**. 
-{% endhint %}
+Versions: 7.x, 8.x and Stream
+
+Minimal install \(Basic functionality\)
 
 ### External packages
 
 #### vProtect server:
 
-MariaDB 10.4
+MariaDB 10.4 (installed from the official MariaDB repository)
+
+If you need to install MariaDB packages without accessing external repository during vProtect installation you also can download RPMs and install them manually as described in [here](https://mariadb.com/kb/en/installing-mariadb-with-the-rpm-tool/) 
 
 ## Hardware Requirements
 

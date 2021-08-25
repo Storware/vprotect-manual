@@ -2,7 +2,7 @@
 
 ## General
 
-Microsoft Hyper-v is the only hypervisor that requires the installation of an agent. The process is very simple, the rest of the configuration is similar to other suppliers. With RCT \(also known as CBT in other virtualization platforms\) both full and incremental backups are supported for this hypervisor.
+Microsoft Hyper-V is the only hypervisor that requires the installation of an agent. The process is very simple, the rest of the configuration is similar to other suppliers. With RCT \(also known as CBT in other virtualization platforms\) both full and incremental backups are supported for this hypervisor.
 
 For Microsoft Windows Server 2016 or later versions, the resilient change tracking \(RCT\) feature is used by default to back up virtual machines \(VMs\).  
 RCT makes it possible to detect changes that happened at specific points in time as opposed to scanning the entire disk for any possible changes. Using RCT, it is possible to accelerate incremental backups by as much as 50% \(compared to technologies available in Windows Server 2012\).  
@@ -19,6 +19,7 @@ RCT reduces the risk of loss of information by storing bitmaps using a more resi
 * VM backup operations with RCT require the Hyper-V VM to be Version 6.2 or later
 * Hyper-V 2016 does not support the disk exclusion feature during export operation \(because of WMI Framework version 14393\). Therefore, the disk of the virtual machine will be cloned to the export directory and deleted later in the execution.
 * Instead of using accounts for authentication, in the case of Hyper-V, we only use the password provided during the agent installation. So for the username in the vProtect dashboard, you can use even a non-existent name.
+* This platform requires a vProtect license issued after September 2021
 
 To add a Hyper-V hypervisor host to vProtect, use a URL similar to the following:
 

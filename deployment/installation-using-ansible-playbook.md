@@ -9,7 +9,7 @@ This approach installs a server and one or more nodes on remote hosts, and gener
 
 ## Prerequisites
 
-You need to prepare CentOS/RHEL 8 minimal for vProtect \(both roles can be installed on the same or different hosts\). The Ansible control host should have Ansible installed, so that it uses Python 3.x.0
+You need to prepare CentOS 7/8/Stream or RHEL 7/8 minimal for vProtect \(both roles can be installed on the same or different hosts\). The Ansible control host should have Ansible installed, so that it uses Python 3.x.0
 
 This example assumes that you have `root` access to this host and you have configured your Ansible to connect with SSH public-keys to your host. For example:
 
