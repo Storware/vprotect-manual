@@ -14,6 +14,6 @@
 * **Recovery Plans** - are used to automate DR process, so that vProtect executes multiple restore operations to the target environment with preconfigured settings.
 * **Schedule** - allow you to invoke specific policies periodically. This allows you to back up multiple VMs or storage instances automatically.
 * **Snapshot SLAs** - are responsible for automation of creating snapshots of Virtual Environments or storage instances. Backup SLA consist of the **policy** and **schedule**. Instance has to be assigned to **snapshot policy** in order to execute snapshot on demand.
-* **Staging Space** - temporary space for backup files mounted on a vProtect Node; ddefault and recommended configuration is shared space on a PowerProtect DD via Boost FS.
+* **Staging Space** - temporary space for backup files mounted on a vProtect Node; default and recommended configuration is shared space on a PowerProtect DD via Boost FS.
 * **Storage** - corresponds to datastores/storage repositories/storage domains that have been detected during inventory synchronization of **Hypervisors**.
 * **Storage Provider** - software storage platform that provides storage instances

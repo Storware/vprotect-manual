@@ -117,8 +117,7 @@ Username - OpenStack user
 
 Password - password for that user.
 
-**Note: To provide credentials for user in different domain, please enter it following format:**
-`domain\username`
+**Note: Default domain for OpenStack user is `default`. To provide credentials for user in different domain, please enter it in following format: `domain\username`**
 
 When you index the hypervisor manager, **make sure you provide the correct SSH credentials** for each hypervisor that appeared on the Hypervisors tab. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md).
 
