@@ -5,7 +5,7 @@
   * [Licensing](overview/licensing.md)
   * [Main Features](overview/main-features.md)
   * [Typical Scenarios](overview/typical-scenarios.md)
-  * [What's new in this release](overview/whats-new-in-this-release.md)
+  * [Changelog](overview/changelog.md)
 * [Planning](planning/)
   * [vProtect Support Matrix](planning/vprotect-support-matrix.md)
   * [Platform Requirements](planning/platform-requirements.md)

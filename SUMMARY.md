@@ -8,7 +8,7 @@
   * [Main Features](overview/main-features.md)
   * [Typical Scenarios](overview/typical-scenarios.md)
   * [Glossary of terms](overview/glossary.md)
-  * [What's new in this release](overview/whats-new-in-this-release.md)
+  * [Changelog](overview/changelog.md)
 * [Planning](planning/README.md)
   * [vProtect Support Matrix](planning/vprotect-support-matrix.md)
   * [Platform Requirements](planning/platform-requirements.md)
