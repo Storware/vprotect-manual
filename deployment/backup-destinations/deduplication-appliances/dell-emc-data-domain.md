@@ -86,3 +86,6 @@ Prepare your PowerProtect DD as a backup destination:
   chown vprotect:vprotect -R /vprotect_data
   ```
 
+## Synthetic DD Boost
+
+To configure synthetic backup destination, follow inctructions that are described in [documentation](../filesystem/synthetic-ddboost.md).
