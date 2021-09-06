@@ -1,13 +1,13 @@
 # High Availability
 
-In this scenario, we are going to set up two vProtect servers in High Availability, Active/Passive mode. This is possible by using techniques such as pacemaker, corosync and DRBD. At least a basic understanding of these is highly desirable. This how-to is intended for RPM-based systems such as Red Hat / CentOS. If you run vProtect on different OS you may need to refer to your distribution docs.
+In this scenario, we are going to set up two vProtect servers in High Availability, Active/Passive mode. This is possible by using techniques such as pacemaker, corosync and DRBD. At least a basic understanding of these is highly desirable. This how-to is intended for RPM-based systems such as Red Hat / CentOS. If you run vProtect on a different OS, you may need to refer to your distribution docs.
 
 Our environment is built of the following elements:
 
 1. vprotect1 - first vProtect server + vProtect node, IP: 10.40.1.50
 2. vprotect2 - second vProtect server + vProtect node, IP: 10.40.1.52
 3. Cluster IP: 10.40.1.100 - We will use this IP to connect to our **active** vProtect service. This IP will float between our servers and will point to an active instance.
-4. DRBD \(optionally with VDO\) for data replication and deduplication between nodes
+4. DRBD \(optionally with VDO\) for data replication and deduplication between nodes.
 5. MariaDB master &lt;-&gt; master replication
 
 ![](../.gitbook/assets/vprotect_high-avaliability%20%281%29.png)
@@ -16,7 +16,7 @@ Our environment is built of the following elements:
 
 ### **Preparing the environment**
 
-* Stop and disable **vProtect** server, node, database as the cluster will manage those resources
+* Stop and disable the **vProtect** server, node and database as the cluster will manage these resources.
 
 ```text
 systemctl disable vprotect-server vprotect-node mariadb
@@ -28,17 +28,15 @@ systemctl disable vprotect-server vprotect-node mariadb
 # yum update
 ```
 
-* It is a good idea to check _**/etc/hosts**_
-
-  Especially if you have installed **vProtect** using _**All in one quick installation**_ method, you might find entry such as
+* It is a good idea to check _**/etc/hosts,**_ especially if you installed **vProtect** using the _**All in one quick installation**_ method, as you might find an entry such as:
 
   ```text
   127.0.0.1 <your_hostname_here>
   ```
 
-  **delete it** as this prevents cluster from proper functioning \(your nodes will not "see" each other\).
+  **Delete it** as this prevents the cluster from functioning properly \(your nodes will not "see" each other\).
 
-Now we can proceed with installation of required packages.
+Now we can proceed with installation of the required packages.
 
 * **On both servers run**
 
@@ -55,8 +53,8 @@ success
 success
 ```
 
-While testing, depending on your environment, you may encounter problems related to network traffic, permissions, etc. While it might be a good idea to temporarily disable the firewall and SELinux we do not recommend disabling that mechanism in the production environment as it creates significant security issues.  
-**If you choose to disable firewalld bear in mind that vProtect won't be available on ports 80/443 anymore. Instead, connect to ports 8080/8181 respectively.**
+While testing, depending on your environment, you may encounter problems related to network traffic, permissions, etc. While it might be a good idea to temporarily disable the firewall and SELinux, we do not recommend disabling that mechanism in the production environment as it creates significant security issues.  
+**If you choose to disable the firewall, bear in mind that vProtect will no longer be available on ports 80/443. Instead, connect to ports 8080/8181 respectively.**
 
 ```text
 # setenforce 0
@@ -75,7 +73,7 @@ While testing, depending on your environment, you may encounter problems related
 
 **Cluster configuration**
 
-Installation of pcs package earlier automatically created a user _**hacluster**_ with no password authentication. While this may be good for running locally we will require a pass for this account to perform the rest of the configuration, so let's
+Earlier installation of a pcs package automatically creates a user _**hacluster**_ with no password authentication. While this may be good for running locally, we will require a password for this account to perform the rest of the configuration, so let's
 
 * **configure the same password on both nodes**
 
@@ -89,7 +87,7 @@ passwd: all authentication tokens updated successfully.
 
 **Corosync configuration**
 
-* On node1 issue a command to authenticate as **hacluster** user:
+* On node 1, issue a command to authenticate as a **hacluster** user:
 
 ```text
 [root@vprotect1 ~]# pcs cluster auth vprotect1 vprotect2
@@ -99,13 +97,13 @@ vprotect1: Authorized
 vprotect2: Authorized
 ```
 
-* **Generate and synchronize corosync configuration**
+* **Generate and synchronize the corosync configuration**
 
 ```text
 [root@vprotect1 ~]# pcs cluster setup --name mycluster vprotect1 vprotect2
 ```
 
-​ Take a look at your output, should look similar to:
+​ Take a look at your output, which should look similar to below:
 
 ```text
 Destroying cluster on nodes: vprotect1, vprotect2...
@@ -141,7 +139,7 @@ vprotect1: Cluster Enabled
 vprotect2: Cluster Enabled
 ```
 
-OK! We have our cluster enabled. We have not created any resources \(such as floating IP\) yet, but before we proceed we still have a few settings to modify.
+OK! We have our cluster enabled. We have not created any resources \(such as a floating IP\) yet, but before we proceed we still have a few settings to modify.
 
 Because we are using only two nodes, we need to
 
@@ -162,9 +160,9 @@ We should also
 [root@vprotect1 ~]# pcs resource defaults migration-threshold=3
 ```
 
-Those two settings combined will define how many failures can occur for a node to be marked as ineligible for hosting a resource and after what time this restriction will be lifted off. We define defaults here, but it may be a good idea also to set these values also on resource level, depending on your experience.
+These two settings combined will define how many failures can occur for a node to be marked as ineligible for hosting a resource and after what time this restriction will be lifted. We define the defaults here, but it may be a good idea to also set these values at the resource level, depending on your experience.
 
-As long we are not using any fencing device in our environment \(and here, we do not\) we need to:
+As long we are not using any fencing device in our environment \(and here we are not\) we need to:
 
 * **disable stonith**
 
@@ -174,21 +172,21 @@ As long we are not using any fencing device in our environment \(and here, we do
 
 The second part of this command verifies running-config. These commands normally do not return any output.
 
-**Resources creation**
+**Resource creation**
 
 Finally, we have our cluster configured, so it's time to proceed to
 
-* **resources creation**
+* **resource creation**
 
-At first, we will create a resource that represents our _**floating IP**_ 10.40.1.100. Adjust your IP and cidr\_netmask, and you're good to go.
+First, we will create a resource that represents our _**floating IP**_ 10.40.1.100. Adjust your IP and cidr\_netmask, and you're good to go.
 
-**IMPORTANT:** From this moment we need to use this IP while connecting to our vProtect server.
+**IMPORTANT:** From this moment on we need to use this IP when connecting to our vProtect server.
 
 ```text
 [root@vprotect1 ~]# pcs resource create "Failover_IP" ocf:heartbeat:IPaddr2 ip=10.40.1.100 cidr_netmask=22 op monitor interval=30s
 ```
 
-Immediately we should see our IP up and running on one of the nodes \(most likely on the one we issued this command\).
+Immediately, we should see our IP is up and running on one of the nodes \(most likely on the one we issued this command for\).
 
 ```text
 [root@vprotect1 ~]# ip a
@@ -205,11 +203,11 @@ Immediately we should see our IP up and running on one of the nodes \(most likel
 
 As you can see, our floating IP 10.40.1.100 has been successfully assigned as the second IP of interface ens160. This is what we wanted!
 
-We should also check if vProtect web interface is up and running, we can do this by opening web browser and typing in [https://10.40.1.100](https://10.40.1.100/). At this point we should see:
+We should also check if the vProtect web interface is up and running. We can do this by opening the web browser and typing in [https://10.40.1.100](https://10.40.1.100/). At this point we should see:
 
 ![](../.gitbook/assets/login.png)
 
-As a next step
+The next step is to
 
 * **define a resource responsible for monitoring network connectivity**
 
@@ -218,9 +216,9 @@ As a next step
 [root@vprotect1 ~]# pcs constraint location Failover_IP rule score=-INFINITY pingd lt 1 or not_defined pingd
 ```
 
-Note that you need to use **your gateway IP** in _**host\_list**_ parameter
+Note that you need to use **your gateway IP** in the _**host\_list**_ parameter
 
-Finally we have to define a set of cluster resources responsible for other services crucial for vProtect operations such as vProtect Node and vProtect server itself. We will logically link those services with our floating IP. Whenever floating IP dissapears from our server, those services will be stopped. We also have to define the proper order for services to start and stop, as for example starting vProtect-server without the running database makes little sense.
+Finally, we have to define a set of cluster resources responsible for other services crucial for vProtect operations, such as vProtect Node and the vProtect server itself. We will logically link these services with our floating IP. Whenever the floating IP disappears from our server, these services will be stopped. We also have to define the proper order for services to start and stop, as for example starting the vProtect-server without a running database makes little sense.
 
 * **Resource creation**
 
@@ -229,7 +227,7 @@ Finally we have to define a set of cluster resources responsible for other servi
 [root@vprotect1 ~]# pcs resource create "vProtect-server" service:vprotect-server op start on-fail="stop" timeout="300s" op stop timeout="300s" on-fail="stop" op monitor timeout="300s" on-fail="stop" --group vProtect-group
 ```
 
-It is OK for those commands to not return any output.
+It is OK for these commands not to return any output.
 
 * **Resource colocation**
 
@@ -237,7 +235,7 @@ It is OK for those commands to not return any output.
 [root@vprotect1 ~]# pcs constraint colocation add Failover_IP with vProtect-group
 ```
 
-At the end we can set determine which server is more preferred to run our services
+To finish with, we can set which server is more preferred for running our services
 
 * **Set node preference**
 
@@ -246,9 +244,9 @@ At the end we can set determine which server is more preferred to run our servic
 [root@vprotect1 ~]# pcs constraint location vProtect-group prefers vprotect1=INFINITY
 ```
 
-We made it to the end. At this point our pacemaker HA cluster is functional.
+We have made it to the end. At this point, our pacemaker HA cluster is functional.
 
-However, there are still two things we need to consider, such as:
+However, there are still two things we need to consider, that is:
 
 1. Creating DB replication
 2. Setting up DRBD for /vprotect\_data \(optionally with VDO\)
@@ -257,13 +255,13 @@ However, there are still two things we need to consider, such as:
 
 In this section, we will prepare our deduplicated and replicated filesystem mounted in /vprotect\_data.
 
-Using deduplicated FS is optional but highly recommended. If you don't intend to use it, skip part regarding VDO configuration.
+Using a deduplicated FS is optional but highly recommended. If you don't intend to use it, skip the part regarding VDO configuration.
 
-Note: If you are altering existing vProtect configuration it is very important to preserve /vprotect\_data contents and transfer it to the new filesystem. You may also need to re-create your backup\_destination if you previously had one in this directory. Setting up VDO and DRBD will cause all data to be wiped from the configured volume.
+Note: If you are altering existing vProtect configuration it is very important to preserve the /vprotect\_data contents and transfer them to the new filesystem. You may also need to re-create your backup\_destination if you previously had one in this directory. Setting up VDO and DRBD will cause all data to be wiped from the configured volume.
 
-Installation is split in below steps, follow them to get the job done.
+Installation is split into the steps below that you need to follow to get the job done.
 
-* **Stop vprotect server and node**
+* **Stop the vprotect server and node**
 
 ```text
 # systemctl stop vprotect-server vprotect-node
@@ -271,7 +269,7 @@ Installation is split in below steps, follow them to get the job done.
 
 No output means everything went OK.
 
-* **On both nodes install required repositories and packages**
+* **On both nodes install the equired repositories and packages**
 
 ```text
 # rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
@@ -282,7 +280,7 @@ Updating / installing...
    1:elrepo-release-7.0-4.el7.elrepo  ################################# [100%]
 ```
 
-Next command can produce quite a few lines so, I've truncated the output, however the idea is simple: install drbd packages:
+The next command can produce quite a few lines, so I've truncated the output, however the idea is simple: install drbd packages:
 
 ```text
 [root@vprotect1 ~]# yum install -y kmod-drbd84 drbd84-utils
@@ -291,7 +289,7 @@ Installed:
 drbd84-utils.x86_64 0:9.6.0-1.el7.elrepo                                               kmod-drbd84.x86_64 0:8.4.11-1.1.el7_6.elrepo
 ```
 
-If you have not disabled SELinux and firewall, remember to
+If you have not disabled SELinux and the firewall, remember to
 
 * **configure them on both nodes**
 
@@ -303,13 +301,13 @@ If you have not disabled SELinux and firewall, remember to
   success
   ```
 
-  Don't forget to repeat those steps on the second node
+  Don't forget to repeat these steps on the second node
 
-Now that we have necessary software installed we must prepare an identical size block device on both nodes. Block device could mean a hard drive, a hard drive partition, software RAID, LVM Volume, etc. In this scenario, we are going to use a hard drive connected as _**/dev/sdb**_.
+Now that we have the necessary software installed, we must prepare an identical size block device on both nodes. A block device can be a hard drive, a hard drive partition, software RAID, LVM Volume, etc. In this scenario, we are going to use a hard drive connected as _**/dev/sdb**_.
 
-To add a DRBD resource we create a file _**/etc/drbd.d/vprotect.res**_ with below content. Be sure to change "address" so it reflects your network configuration.
+To add a DRBD resource we create the file _**/etc/drbd.d/vprotect.res**_ with the content below. Be sure to change the "address" so that t reflects your network configuration.
 
-Also, node names \(vprotect1 and vprotect2\) must match your _**uname -n**_ output.
+Also, the node names \(vprotect1 and vprotect2\) must match your _**uname -n**_ output.
 
 ```text
 resource replicate {
@@ -328,9 +326,9 @@ protocol C;
         }
 ```
 
-We have config in place, we can now create and bring our resource online
+We now have config in place and can create and bring our resource online.
 
-* **On both nodes run**
+* **On both nodes, run**
 
   ```text
   # drbdadm create-md replicate
@@ -370,9 +368,9 @@ We have config in place, we can now create and bring our resource online
   replication:Established peer-disk:Inconsistent
   ```
 
-  we will notice we need to start synchronization before we can use our volume
+  we will notice we need to start synchronization before we can use our volume.
 
-* **On the first server run**
+* **On the first server, run**
 
   ```text
   [root@vprotect1 ~]# drbdadm primary --force replicate
@@ -383,7 +381,7 @@ We have config in place, we can now create and bring our resource online
   replication:SyncSource peer-disk:Inconsistent done:0.22
   ```
 
-  This way we have successfully started the process of replication between servers with vprotect1 being synchronization source.
+  This way we have successfully started the process of replication between servers with vprotect1 as the ynchronization source.
 
   If you don't want to create a VDO device, then create and mount your filesystem:
 
@@ -394,7 +392,7 @@ We have config in place, we can now create and bring our resource online
 
 * **Create VDO volume** \(optional\)
 
-  By issuing below command we will create a VDO volume called _**vdo\_data**_ and put in on the top our DRBD volume. Afterwards, we are formatting it with XFS and mounting in /vprotect\_data
+  By issuing the command below we will create a VDO volume called _**vdo\_data**_ and put in at the top our DRBD volume. Afterwards, we format it with XFS and mount it in /vprotect\_data.
 
   ```text
   [root@vprotect1 ~]# vdo create --name=vdo_data --device=/dev/drbd0 --vdoLogicalSize=400G --compression=enabled --deduplication=enabled
@@ -417,7 +415,7 @@ We have config in place, we can now create and bring our resource online
   [root@vprotect1 ~]# mount /dev/mapper/vdo_data /vprotect_data/ && chown -R vprotect:vprotect /vprotect_data
   ```
 
-* **Copy VDO config to the second node**
+* **Copy the VDO config to the second node**
 
 ```text
 [root@vprotect1 ~]# scp /etc/vdoconf.yml root@vprotect2:/etc/vdoconf.yml
@@ -425,7 +423,7 @@ We have config in place, we can now create and bring our resource online
 
 * **Disable VDO automatic startup**
 
-  As this resource will be managed by cluster we need to disable auto startup of this service _**on both nodes**_
+  As this resource will be managed by the cluster, we need to disable auto startup of this service _**on both nodes.**_
 
   ```text
   # systemctl disable vdo
@@ -433,9 +431,9 @@ We have config in place, we can now create and bring our resource online
 
 ### Final cluster settings
 
-At this point, we have three components set up. To utilize fully our HAcluster and eliminate the need for manual intervention we should add below resources and settings to our cluster.
+At this point, we have three components set up. To fully utilize our HAcluster and eliminate the need for manual intervention we should add the resources and settings below to our cluster.
 
-Issue this commands only on one node as it will propagate to cluster settings.
+Issue these commands on one node only as it will propagate to the cluster settings.
 
 ```text
 [root@vprotect1 ~]#  pcs cluster cib drbd_cfg
@@ -458,11 +456,11 @@ Issue this commands only on one node as it will propagate to cluster settings.
 [root@vprotect1 ~]#  pcs constraint order promote replicateClone then start fs_group
 ```
 
-In here we have created a temporary file _**drbd\_cfg**_ and inside this file, we added our drbd\_resource called _**replicate**_ plus a Master/Slave set for this resource.
+Here we have created a temporary file _**drbd\_cfg**_ and inside this file we have added our drbd\_resource called _**replicate**_, plus a Master/Slave set for this resource.
 
-Afterwards, we have the definition of vdo\_resource and fs\_resource in one fs\_group followed by an update of the cluster configuration.
+Afterwards, we have the definition of the vdo\_resource and fs\_resource in one fs\_group followed by an update of the cluster configuration.
 
-As a second step, we have put in place several resource colocation and constraints which allowed us to control the order and existence of newly created resources.
+As a second step, we have put in place several resource colocations and constraints which allow us to control the order and existence of newly created resources.
 
 We need still to
 
@@ -470,13 +468,13 @@ We need still to
 
 ![](../.gitbook/assets/vprotect-high-avaliability-nodes-config%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
-If node's IP is different than 127.0.0.1 delete the node and re-register using
+If the node's IP is different than 127.0.0.1, delete the node and re-register it using
 
 ```text
 [root@vprotect1 ~]# vprotect node -e <Node_Name> admin http://127.0.0.1:8080/api
 ```
 
-* copy our license and node information from first node to the second one:
+* copy our license and node information from the first node to the second node:
 
 ```text
 [root@vprotect1 ~]# scp -pr /opt/vprotect/.session.properties 
@@ -485,28 +483,28 @@ If node's IP is different than 127.0.0.1 delete the node and re-register using
 
 ### MariaDB replication
 
-In this section we will cover how to setup master&lt;-&gt;master MariaDB replication.
+In this section, we will cover how to setup master&lt;-&gt;master MariaDB replication.
 
-* On both nodes, if you have firewall enabled allow communication on port **3306**
+* On both nodes, if you have the firewall enabled, allow communication via port **3306**
 
 ```text
 # firewall-cmd --add-port=3306/tcp --permanent
 # firewall-cmd --complete-reload
 ```
 
-**Steps to run on first node vprotect1: 10.40.1.50**
+**Steps to run on the first vprotect1 node: 10.40.1.50**
 
-This server will be the source of DB replication
+This server will be the source of DB replication.
 
-* **Stop vprotect server, node and database**
+* **Stop the vprotect server, node and database**
 
 ```text
 [root@vprotect1 ~]# systemctl stop vprotect-server vprotect-node mariadb
 ```
 
-* **Edit config file**, enable binary logging, and start MariaDB again. Depending on your distribution config file location may vary, most likely it is /etc/my.cnf or /etc/my.cnf.d/server.cnf
+* **Edit the config file**, enable binary logging and start MariaDB again. Depending on your distribution, the config file location may vary, most likely it is /etc/my.cnf or /etc/my.cnf.d/server.cnf
 
-  In _**\[mysqld\]**_ section add lines:
+  In the _**\[mysqld\]**_ section, add the lines:
 
 ```text
 [root@vprotect1 ~]# vi /etc/my.cnf.d/server.cnf
@@ -516,9 +514,9 @@ replicate-do-db=vprotect
 [root@vprotect1 ~]# systemctl start mariadb
 ```
 
-* Now **login into your MariaDB**, create a user used for replication and assign appropriate rights to it.
+* Now **log in into your MariaDB**, create a user used for replication and assign appropriate rights to it.
 
-  For the purpose of this task, we will set the username to 'replicator' and password to 'R3pLic4ti0N'
+  For the purpose of this task, we will set the username to 'replicator' and the password to 'R3pLic4ti0N'
 
 ```text
 [root@vprotect1 ~]# mysql -u root -p
@@ -534,9 +532,9 @@ MariaDB [(none)]> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.001 sec)
 ```
 
-Don't log out just yet, we need to check master status and
+Don't log out just yet, we need to check the master status and
 
-* **write down log file name and position**, as it is required for proper slave configuration.
+* **write down the log file name and position**, as it is required for proper slave configuration.
 
 ```text
 MariaDB [(none)]> show master status;
@@ -547,19 +545,19 @@ MariaDB [(none)]> show master status;
 +----------------------+----------+--------------+------------------+
 ```
 
-* Dump vprotect database and copy it onto the second server \(vprotect2\)
+* Dump the vprotect database and copy it onto the second server \(vprotect2\).
 
 ```text
  [root@vprotect1 ~]# mysqldump -u root -p vprotect > /tmp/vprotect.sql
  [root@vprotect1 ~]# scp /tmp/vprotect_rep.sql root@vprotect2:/tmp/
 ```
 
-**Steps to run on 2nd server, vprotect2: 10.40.1.52**
+**Steps to run on the 2nd server, vprotect2: 10.40.1.52**
 
-For the reader's convenience, I only highlighted differences in configuration between vprotect1 and vprotect2 and omitted the output of some commands if they were the same as on the previous node.
+For the reader's convenience, I have only highlighted the differences in configuration between vprotect1 and vprotect2, and omitted the output of some commands if they are the same as on the previous node.
 
-* **Stop vprotect server, node and database**
-* Edit MariaDB config file. **Assign different server id**, for example: 2. Then start MariaDB
+* **Stop the vprotect server, node and database**
+* Edit the MariaDB config file. **Assign a different server id**, for example: 2. Then start MariaDB.
 
 ```text
 [root@vprotect2 ~]# vi /etc/my.cnf.d/server.cnf
@@ -569,16 +567,16 @@ replicate-do-db=vprotect
 [root@vprotect2 ~]# systemctl start mariadb
 ```
 
-* **Load dump of the database** copied from vprotect1
+* **Load the database dump** copied from vprotect1.
 
 ```text
 [root@vprotect2 ~]# mysql -u root -p vprotect < /tmp/vprotect.sql
 ```
 
-At this point we have two exactly the same databases on our two servers.
+At this point, we have two identical databases on our two servers.
 
-* **Log in into MariaDB instance, create replication user with password**. Use the same user as on vprotect1. Grant necessary permissions.
-* Set master host. You _**must**_ user\_master\_log\_file and master\_log\_pos written down before. Change IP of master host to match your network configuration.
+* **Log in to the MariaDB instance, create a replication user with a password**. Use the same user as on vprotect1. Grant the necessary permissions.
+* Set the master host. You _**must**_ use the user\_master\_log\_file and master\_log\_pos written down earlier. Change the IP of the master host to match your network configuration.
 
 ```text
 MariaDB [(none)]> STOP SLAVE;
@@ -586,7 +584,7 @@ MariaDB [(none)]> CHANGE MASTER TO MASTER_HOST = '10.40.10.50', MASTER_USER = 'r
 Query OK, 0 rows affected (0.004 sec)
 ```
 
-* Start slave, check master status and **write down file name and position**
+* Start the slave, check the master status and **write down the file name and position.**
 
 ```text
 MariaDB [(none)]> start slave;
@@ -603,7 +601,7 @@ MariaDB [(none)]> SHOW MASTER STATUS;
 
 **Go back to the first server \(vprotect1\)**
 
-* On **vprotect1** stop slave then change master host, use parameters noted in the previous step. Also, change  master host IP to match your network configuration.
+* On **vprotect1**, stop the slave then change the master host using the parameters noted down in the previous step. Also, change the master host IP to match your network configuration.
 
 ```text
 MariaDB [(none)]> stop slave;
@@ -627,21 +625,21 @@ The fastest way to test our setup is to invoke
 
 to put vprotect1 into standby mode, which prevents it from hosting any cluster resources.
 
-After a while, you should notice your resources being up on vprotect2.
+After a while, you should see your resources up and running on vprotect2.
 
-Note that if you perform normal OS shutdown \(not a forced one\) pacemaker will wait for a long time for a node to come back online, which in fact will prevent shutdown completion. As a result, resources _**will not**_ switch correctly to the other node.
+Note that if you perform normal OS shutdown \(not a forced one\), the pacemaker will wait for a long time for a node to come back online, which in fact will prevent completion of shutdown. As a result, resources _**will not**_ switch correctly to the other node.
 
 **Manual**
 
-If you want to dive a little bit deeper, we prepared instructions on how to manually move filesystem resource from the first node to the second.
+If you want to dive a little bit deeper, we have prepared instructions on how to manually move a filesystem resource from the first node to the second.
 
-1. Stop vprotect services
+1. Stop vprotect services.
 
    ```text
     systemctl stop vprotect-server && systemctl stop vprotect-node
    ```
 
-2. Unmount FS used by DRBD/VDO on the primary server \(here vprotect1\)
+2. Unmount the FS used by DRBD/VDO on the primary server \(here vprotect1\).
 
    ```text
    [root@vprotect1 ~]# drbdadm role replicate
@@ -649,14 +647,14 @@ If you want to dive a little bit deeper, we prepared instructions on how to manu
    [root@vprotect1 ~]# umount /vprotect_data/
    ```
 
-3. If you have used VDO device, stop it.
+3. If you are using a VDO device, stop it.
 
    ```text
    [root@vprotect1 ~]# vdo stop -n vdo_data
    Stopping VDO vdo_data
    ```
 
-4. Demote primary replication server \(still vprotect1\) to secondary
+4. Demote the primary replication server \(still vprotect1\) to secondary server.
 
    ```text
    [root@vprotect1 ~]# drbdadm secondary replicate
@@ -664,13 +662,13 @@ If you want to dive a little bit deeper, we prepared instructions on how to manu
 
 **On the second server**
 
-1. Promote second server \(here vprotect2\) to the primary DRBD role
+1. Promote the second server \(here vprotect2\) to the primary DRBD role.
 
    ```text
    [root@vprotect2 ~]# drbdadm    primary replicate
    ```
 
-2. Start VDO
+2. Start the VDO.
 
    ```text
    [root@vprotect2 ~]# vdo start -n vdo_data
@@ -679,7 +677,7 @@ If you want to dive a little bit deeper, we prepared instructions on how to manu
    VDO instance 2 volume is ready at /dev/mapper/vdo_data
    ```
 
-3. Mount filesystem on the second server
+3. Mount the filesystem on the second server.
 
    ```text
    [root@vprotect2 ~]# mount /dev/mapper/vdo_data /vprotect_data/
