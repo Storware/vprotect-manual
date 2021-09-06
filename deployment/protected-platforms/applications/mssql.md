@@ -1,6 +1,6 @@
 # MSSQL
 
-To create a new application for backup MSSQL instances, go to the tab: **Applications -&gt; Instances**
+To create a new application for MSSQL instances backup, go to the tab: **Applications -&gt; Instances**
 
 Then select the **Create** button. The Creating an Application Definition section will be displayed, which needs to be completed.
 
