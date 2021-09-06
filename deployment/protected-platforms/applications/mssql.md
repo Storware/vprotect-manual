@@ -11,10 +11,10 @@ This is a description of how your script is going to be invoked - you need to sp
 * **Backup policy** - specify which backup policy should be used for this application
 * **Command execution configuration** - select a prepared template for MSSQL backup
 
-In the **Remote PowerShell access** subtab, complete the following fields:
+On the **Remote PowerShell access** subtab, complete the following fields:
 
 * **Host** - set the address of the host where the MSSQL instance exists
 * **Port** - set the host port
-* **User** - indicate a user to connect to PS
+* **User** - indicate a user for connecting to the PS
 * **Password** - enter the connection password
 
