@@ -50,7 +50,7 @@ Drawback - no incremental backup for now.
 * metadata exported from API
 * snapshot disks are mounted one by one to the Proxy VM
 * data read directly on the Proxy VM
-* incremental backups are ****not supported
+* incremental backups are _\*\*_not supported
 * restore creates empty disks on the Proxy VM, imports merged data then recreates VM and reattaches volumes to the target VM
 
 **Note**: OLVM API v4 environments require vProtect Node to be installed in one of the VMs residing in the OLVM cluster. vProtect should automatically detect the VM with vProtect during the index operation.
@@ -106,3 +106,4 @@ This is an enhancement to the disk image transfer API strategy. It allows vProte
 * restore recreates VM with empty storage from metadata using API and imports merged data over SSH to appropriate location on a hypervisor
 
 This method assumes that all data transfers are directly from the hypervisor over SSH. This means that after adding OLVM manager and detecting all available hypervisors - **you also need to provide SSH credentials or SSH keys for each of the hypervisors**. You can also use [SSH public key authentication](red-hat-virtualization.md).
+

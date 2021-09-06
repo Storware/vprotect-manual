@@ -26,8 +26,11 @@ After downloading and importing the image to the environment set IP address:
 Then go to [Initial configuration](../initial-configuration.md) to set your backup destination, and add virtualization hosts.
 
 **Note:** Importing the image will install both the server and node. If You need only the vProtect node, then You have to stop and disable vprotect-server service.
+
 ```text
 systemctl stop vprotect-server
 systemctl disable vprotect-server
 ```
-You can register nodes installed manually (RPM/Ansible) to the vProtect server installed from OVA.
+
+You can register nodes installed manually \(RPM/Ansible\) to the vProtect server installed from OVA.
+

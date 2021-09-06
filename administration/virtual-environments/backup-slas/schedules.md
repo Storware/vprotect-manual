@@ -24,3 +24,4 @@ Now enter the properties:
 You can also use optional parameters to further personalize the backup time or select a virtual environment policy if it has been previously created.
 
 ## You can also perform the same action using the CLI interface: [CLI Reference](../../cli-reference.md#schedules)
+

@@ -1,7 +1,6 @@
-# Synthetic XFS
+# Synthetic filesystem XFS
 
-
-***Synthetic***
+_**Synthetic**_
 
 Synthetic file system allows us to store and use incremental backups as if they were full backup files, but still they take up a fraction of full file's size.
 
@@ -14,18 +13,16 @@ Synthetic file system allows us to store and use incremental backups as if they 
 
 1. Select File System from Backup Destinations, 
 
-![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-selectfs.png)
-2. Select Create Backup Destination -> File System \(Synthetic\)
+![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-selectfs.png) 2. Select Create Backup Destination -&gt; File System \(Synthetic\)
 
 ![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-xfs-selectsynth.png)
 
-3. Configuration is similar to regular Filesystem. 
-    * Just need to select XFS as Storage Backend:
-      
-      ![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-xfs-selectstorage.png)
-   
-    * Path and Retention configuration, the difference is that due to the nature of synthetic backup destination we only set retention for "Full" files. 
-    
-      ![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-xfs-selectretention.png)
-   **When setting the path make sure it's actually on the XFS!**
+1. Configuration is similar to regular Filesystem.
+   * Just need to select XFS as Storage Backend:
+
+     ![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-xfs-selectstorage.png)
+
+   * Path and Retention configuration, the difference is that due to the nature of synthetic backup destination we only set retention for "Full" files.
+
+     ![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-xfs-selectretention.png) **When setting the path make sure it's actually on the XFS!**
 

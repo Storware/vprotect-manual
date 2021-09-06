@@ -13,7 +13,7 @@ SSH Transfer strategy:
 
 Backup is done by transferring QCOW2 disk images over SSH directly from the hypervisor \(optionally using Netcat for transfer\). Metadata is backed up only in the full backup. This method supports incremental backups where the last snapshot is required for the next incremental backups. The resulting backup has separate files for each disk + metadata, so you have the option to exclude specific drives as well.
 
-#### Backup Process
+### Backup Process
 
 * QCOW2 - file based storage only
 * crash-consistent snapshots created using hypervisor CLI over SSH
@@ -28,7 +28,7 @@ The Proxmox virtual environment requires you to create storage used for VM expor
 
 ![](../../../.gitbook/assets/deployment-vprotect-proxmox-storage-domain.png)
 
-#### Backup Process
+### Backup Process
 
 * native VM export done to the prepared NFS storage \(staging space on vProtect\) using SSH access to the hypervisor
 * crash-consistency - FS freeze used for VMs, LVM snapshot for containers
@@ -36,7 +36,7 @@ The Proxmox virtual environment requires you to create storage used for VM expor
 * data and metadata are in a single VMA image
 * only full backups are supported • restore imports VMA image to the hypervisor
 
-#### How to set up export storage repository backup
+### How to set up export storage repository backup
 
 Proxmox virtual environments require backup storage to be defined on each server. This storage must be a location accessible from vProtect Node \(the simplest setup, when you use only 1 node, is to create NFS share for the staging path on vProtect Node\)
 
@@ -63,7 +63,7 @@ Proxmox virtual environments require backup storage to be defined on each server
   * backups must be restored to the export path \(the node automatically changes names to the original paths that are recognized by Proxmox VE.
 * A name for storage must be provided later in the node configuration \(`Hypervisor -> Proxmox` section\)
 
-![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29%20%282%29%20%281%29%20%283%29.jpg)
+![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29%20%282%29%20%281%29.jpg)
 
 ## File-level restore support for VMA images
 

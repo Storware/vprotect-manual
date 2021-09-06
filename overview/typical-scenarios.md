@@ -2,7 +2,7 @@
 
 ## Backup & Recovery
 
-Core functionality of vProtect is **agent-less backup** for multiple virtualization, container and cloud platforms.
+The core functionality of vProtect is **agent-less backup** for multiple virtualization, container and cloud platforms.
 
 With snapshot-based backups you don't have to install any agent inside VMs or customize your hypervisors.
 

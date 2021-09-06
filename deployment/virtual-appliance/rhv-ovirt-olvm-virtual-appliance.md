@@ -1,19 +1,23 @@
 # RHV/oVirt/OLVM Virtual Appliance
 
 ## Files in this package:
-- vprotect-va-rhv-XXX.ova - OVA image of virtual machine to deploy in RHV enviroinment.
-- SHA256SUM - SHA-256 checksum file for other files.
+
+* vprotect-va-rhv-XXX.ova - OVA image of virtual machine to deploy in RHV enviroinment.
+* SHA256SUM - SHA-256 checksum file for other files.
 
 ## Installation
+
 1. Unpack tgz archive
-```text
-tar -xvf vprotect-va-rhv-XXX.tgz
-```
+
+   ```text
+   tar -xvf vprotect-va-rhv-XXX.tgz
+   ```
+
 2. Upload OVA image to RHV host storage, or repository.
 3. Login to RHV manager.
-4. Go to tab Compute -> Virtual Machines.
+4. Go to tab Compute -&gt; Virtual Machines.
 5. On right bottom of screen click on tree dots, and chose "Import".
-6. Select source "Virtual Appliance (OVA).
+6. Select source "Virtual Appliance \(OVA\).
 7. Select host with uploaded OVA image.
 8. Enter "File Path" to OVA image file.
 9. Click button "Load".
@@ -24,26 +28,31 @@ tar -xvf vprotect-va-rhv-XXX.tgz
 14. In tab "Network Interfaces" chose Network for your nic's in VM.
 15. Click "OK", import task is started.
 16. When VM is imported and running login to SSH to get VM IP, and next you can access vProtect by WebUI.
-    
+
 ## Deinstallation
+
 1. Remove VM from virtual enviroinment.
 2. If backup destination is outside VM, then remove backup's files from backup destination.
 
 ## Credentials
+
 ### SSH
 
-user name:  root
+user name: root
 
-password:   vPr0tect
+password: vPr0tect
 
 ### WebUI
-URL:    https://IP
 
-user name:  admin
+URL: [https://IP](https://IP)
 
-password:   vPr0tect
+user name: admin
+
+password: vPr0tect
 
 ### MariaDB
-user name:  root
 
-password:   vPr0tect
+user name: root
+
+password: vPr0tect
+

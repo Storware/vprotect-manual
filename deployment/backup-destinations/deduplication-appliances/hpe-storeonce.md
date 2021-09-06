@@ -48,5 +48,5 @@ Then choose the "File system" from the list of backup destinations you can creat
 
 You only need to enter the unique name of the backup destination and mount point as the storage path.
 
-![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
 

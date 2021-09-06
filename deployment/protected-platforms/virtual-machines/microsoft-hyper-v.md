@@ -12,7 +12,7 @@ RCT reduces the risk of loss of information by storing bitmaps using a more resi
 
 ![](../../../.gitbook/assets/hyper-v%20%281%29.png)
 
-**Note:** 
+**Note:**
 
 * Agent installation requires .NET Framework 4.7.2 or higher
 * vProtect supports backup for Hyper-V 2016 and newer versions \(also non-GUI\)
@@ -62,7 +62,7 @@ How to start backup for Hyper-V platform:
 * Click **Finish** to end installation.
 * Go to vProtect WebUI &gt; Virtual Environments &gt; Infrastructure &gt; Hypervisors click on button +Add Hypervisor.
 * In the "Add New Hypervisor" window fill all fields:
-  * Host address in URL form \(eg. http://10.40.1.150\)
+  * Host address in URL form \(eg. [http://10.40.1.150\](http://10.40.1.150\)\)
   * username - we don't use this parameter at the moment, you can type anything.
   * password - use the same what you set in the installation agent process.
   * Number of disk export threads - parameter that can help with data transfer speed. _We recommend starting backups with the default value of 2 and making any changes based on the observation of the environment._ 

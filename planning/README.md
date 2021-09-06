@@ -4,7 +4,7 @@ In this section you will find key information that is needed to properly size an
 
 In [support matrix](vprotect-support-matrix.md) you can check versions of supported virtualization platforms and backup providers.
 
-[Platform requirements](softreqs.md) section presents what are hardware and software requirements needed to run vProtect components.
+[Platform requirements](https://github.com/Storware/vprotect-manual/tree/62f9b0a309aff8d03f40054743924e0d53d58a4e/planning/softreqs.md) section presents what are hardware and software requirements needed to run vProtect components.
 
 [High Availability ](high-availability.md)section provides guidance to plan vProtect solution resistant to failures.
 

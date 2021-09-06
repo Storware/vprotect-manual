@@ -2,8 +2,7 @@
 
 ## General
 
-vProtect node needs staging space available in `/vprotect_data` by default. It is common to use PowerProtect DD for both the staging and backup destination. This will result in instant "store" processing, without the need to copy data from the staging space to the backup destinations. 
-It is common to just attach an empty drive and mount it.
+vProtect node needs staging space available in `/vprotect_data` by default. It is common to use PowerProtect DD for both the staging and backup destination. This will result in instant "store" processing, without the need to copy data from the staging space to the backup destinations. It is common to just attach an empty drive and mount it.
 
 When using separate storage \(usually local disks\) for the staging space, please consider its requirements. Staging space size depends on the number and size of simultaneous backups - as a rule of a thumb make it approximately equal to the number of expected simultaneous backup threads multiplied by the size of your biggest VM.
 

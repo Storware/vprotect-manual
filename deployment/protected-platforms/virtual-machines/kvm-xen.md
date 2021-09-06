@@ -4,7 +4,7 @@ vProtect accesses KVM/Xen \(stand-alone libvirt\) hosts over SSH. Node can be in
 
 ![](../../../.gitbook/assets/deployment-vprotect-kvm-ssh-transfer.png)
 
-#### Backup Process
+### Backup Process
 
 * direct access to the hypervisor over SSH
 * crash-consistent snapshot taken directly using virsh \(QCOW2/RAW file\), lvcreate \(LVM\), rbd snapshot for Ceph \(separate call for each storage backend\) For QCOW2/RAW file, virsh snapshot-create-as is used when VM is running - otherwise, qemu-img create is used

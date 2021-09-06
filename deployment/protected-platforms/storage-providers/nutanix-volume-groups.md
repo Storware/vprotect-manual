@@ -9,6 +9,7 @@ This storage provider also allows excluding disks for backups.
 ![](../../../.gitbook/assets/vProtect_Nutanix-VolumeGroups.png)
 
 In general, export process looks as follows:
+
 * Snapshot of the volume group is taken
 * Temporary volume group with disk snapshots is created
 * Disks from the temporary volume group are attached to vProtect Node host using iSCSI
@@ -16,6 +17,7 @@ In general, export process looks as follows:
 * Disks are then detached and temporary volume group is deleted
 
 In general, restore process looks as follows:
+
 * New volume group is created with yet empty disks
 * Disks from new volume group are attached to vProtect Node host using iSCSI
 * Content from RAW files of backup is imported to attached disks
@@ -48,3 +50,4 @@ Click `Save` - now you can run inventory synchronization to detect volume groups
 ![](../../../.gitbook/assets/volume-group-instances.png)
 
 Now you can create a backup task for chosen volume group.
+

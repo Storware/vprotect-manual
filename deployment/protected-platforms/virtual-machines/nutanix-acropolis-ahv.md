@@ -11,7 +11,7 @@ This strategy allows you to exclude drives from backup that you do not need. Rem
 #### **Backup Process**
 
 * crash-consistent snapshot using hypervisor's API
-* optionally application-consistent snapshot can be done if enabled and guest tools installed inside - the type of snapshot is selected based on is QuiesceBeforeSnapshot setting and passed as part of snap request. The created snapshot might end up being of a different type \(depending on the ****presence of tools
+* optionally application-consistent snapshot can be done if enabled and guest tools installed inside - the type of snapshot is selected based on is QuiesceBeforeSnapshot setting and passed as part of snap request. The created snapshot might end up being of a different type \(depending on the _\*\*_presence of tools
 * optional application consistency using pre/post snapshot command execution
 * metadata exported from API
 * snapshot disks are mounted one by one to the Proxy VM
@@ -77,9 +77,9 @@ How to start back up for Nutanix AHV Hypervisor
 ![](../../../.gitbook/assets/nutanix-example-4.png)
 
 * We'll start by configuring the lvm filter. 
-  * Global article about LVM:[ __LVM setup manual](../../common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md)
+  * Global article about LVM:[ \_\_LVM setup manual](../../common-tasks/lvm-setup-on-vprotect-node-for-disk-attachment-backup-mode.md)
   * Remember to reboot VM after changes
-  * Remember that the structure of this file is important and you need to put the filter lines back in their original place.  Open in text editor `/etc/lvm/lvm.conf` uncomment and replace the line: `filter = [ "a|.*|" ]` to `filter = [ "a|^/dev/sda|", "a|^/dev/sda1|", "a|^/dev/sda2|", "a|^/dev/sda3|", "a|^/dev/sdb|", "a|^/dev/sdb1|", "r|.|" ]` __and __`global_filter = [ "a|.*|" ]` __to __`global_filter = [ "a|^/dev/sda|", "a|^/dev/sda1|", "a|^/dev/sda2|", "a|^/dev/sda3|", "a|^/dev/sdb|", "a|^/dev/sdb1|", "r|.|" ]` 
+  * Remember that the structure of this file is important and you need to put the filter lines back in their original place.  Open in text editor `/etc/lvm/lvm.conf` uncomment and replace the line: `filter = [ "a|.*|" ]` to `filter = [ "a|^/dev/sda|", "a|^/dev/sda1|", "a|^/dev/sda2|", "a|^/dev/sda3|", "a|^/dev/sdb|", "a|^/dev/sdb1|", "r|.|" ]` **and** `global_filter = [ "a|.*|" ]` **to** `global_filter = [ "a|^/dev/sda|", "a|^/dev/sda1|", "a|^/dev/sda2|", "a|^/dev/sda3|", "a|^/dev/sdb|", "a|^/dev/sdb1|", "r|.|" ]` 
 * Now we can move on to the "dynamically disk attachment offset" tests. _You need to do this only if Proxy VM has more than one disk device for OS purposes_
   * Switch vProtect Node logs \(Proxy VM\) to Debug mode: [How to Enable Debug mode](../../../troubleshooting/how-switch-vprotect-to-debug-mode.md#vprotect-node)
   * Run a test backup - try to choose a small VM to not wait too long

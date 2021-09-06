@@ -62,3 +62,4 @@ This section enables you to setup LDAP authentication for administrative account
 * `Anonymous access allowed` - if users are not allowed to anonymously browse LDAP directory you need to provide account which has that privilege:
 * `Service account DN` - DN of the user
 * `Service account password` - password of that user
+

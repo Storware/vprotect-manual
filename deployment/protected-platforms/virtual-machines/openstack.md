@@ -81,13 +81,15 @@ To set up the Openstack HVM with Ceph RBD volumes in vProtect:
 
 1. Add Ceph storage as described [here](../storage-providers/ceph-rbd.md)
 2. Add the hypervisor manager as described [here](openstack.md#adding-hypervisor-managers).
-3. Go to Viertual `Environments` -> `Infrastructure` -> `Clusters` and select cluster that is used by Openstack.
-![](../../../.gitbook/assets/openstack-ceph-example.png)
+3. Go to Viertual `Environments` -&gt; `Infrastructure` -&gt; `Clusters` and select cluster that is used by Openstack.
+
+   ![](../../../.gitbook/assets/openstack-ceph-example.png)
+
 4. In `Storage Provider` field select previously added Ceph storage.
-![](../../../.gitbook/assets/openstack-ceph-example2.png)
 
+   ![](../../../.gitbook/assets/openstack-ceph-example2.png)
 
-  Now you can save and sync the inventory - if Ceph communication works properly you should be able to see Hypervisor Storage entries \(in Hypervisors -&gt; Storage tab\) representing your Ceph storage pools.
+Now you can save and sync the inventory - if Ceph communication works properly you should be able to see Hypervisor Storage entries \(in Hypervisors -&gt; Storage tab\) representing your Ceph storage pools.
 
 ## QCOW2 files on NFS storage
 
@@ -128,3 +130,4 @@ When you index the hypervisor manager, **make sure you provide the correct SSH c
 * vProtect does not backup and restore keypairs that were created by other OpenStack users than the one used in vProtect. The restored instance will have no keypairs assigned. In such a case, the keypairs have to be backed up and restored manually under the same name before restoring the instance.
 * For the libvirt strategy only, QCOW2/RAW files or Ceph RBD are supported as the backend.
 * The disk attachment method with Ceph requires access to the monitors from the Proxy VM.
+

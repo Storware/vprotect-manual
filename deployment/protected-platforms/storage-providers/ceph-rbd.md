@@ -52,8 +52,7 @@ sudo yum install [https://download.ceph.com/rpm-octopus/el8/noarch/ceph-release-
 
 * Go to `Storage` -&gt; `Infrastructure` and click `Add Storage Provider`
 * Choose `Ceph RBD` as the type and select the node responsible for backup operations
-* Provide `Ceph keyring file contents` which is the contents of your keyring file from the Cinder host - `/etc/ceph/ceph.client.admin.keyring`, for example: 
-  **Note:** _Remember, both contents need to end with the new line sign._
+* Provide `Ceph keyring file contents` which is the contents of your keyring file from the Cinder host - `/etc/ceph/ceph.client.admin.keyring`, for example: **Note:** _Remember, both contents need to end with the new line sign._
 
   ```text
     [client.admin]

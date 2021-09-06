@@ -7,7 +7,7 @@ This section allows you to manage Users, Groups and Roles. The role is a set of 
 There are two types of users:
 
 * local users 
-* LDAP users \(please refer to how [setup LDAP authentication](settings.md#authentication)\)
+* LDAP users \(please refer to how [setup LDAP authentication](https://github.com/Storware/vprotect-manual/tree/62f9b0a309aff8d03f40054743924e0d53d58a4e/administration/settings.md#authentication)\)
 
 ![](../.gitbook/assets/access-management.png)
 
@@ -31,11 +31,10 @@ Group is a central place to bind together a set of roles with users. There are a
 
 **Note:**
 
-* Administrators from previous versions (19.8.0.420 and lower) have been migrated to `Global Administrators` group with all permissions available.
-* Roles from previous versions (19.8.0.420 and lower) have been added the `System Level` security context.
+* Administrators from previous versions \(19.8.0.420 and lower\) have been migrated to `Global Administrators` group with all permissions available.
+* Roles from previous versions \(19.8.0.420 and lower\) have been added the `System Level` security context.
 * Automatically created accounts based on LDAP logins will have the `Operator` role by default.
 * Current group management is available in vProtect UI only \(they are not mapped to LDAP groups\)
-
 
 ## Roles
 
@@ -277,38 +276,37 @@ Role is a set of permissions to the different sections and actions in vProtect. 
 </table>
 
 ## Security contexts
+
 The security context defines the set of system objects that can be accessed with defined permissions.
 
-The object hierarchy is constructed in a way that any defined privileges will apply to the specified object 
-and to all the downstream objects, therefore the `System Level` security context defines the access 
-to all objects across the platform and disables the choice of lower level objects.
+The object hierarchy is constructed in a way that any defined privileges will apply to the specified object and to all the downstream objects, therefore the `System Level` security context defines the access to all objects across the platform and disables the choice of lower level objects.
 
-Security contexts have been aggregated into the specified hierarchy. Different system object types can have different parental objects (or none) and so will appear in 
-the different sections of the tree. 
+Security contexts have been aggregated into the specified hierarchy. Different system object types can have different parental objects \(or none\) and so will appear in the different sections of the tree.
 
-Selected objects will be visible in the table on the right-hand side.
-![](../.gitbook/assets/access-management-role-form.png)
+Selected objects will be visible in the table on the right-hand side. ![](../.gitbook/assets/access-management-role-form.png)
 
 The full hierarchy:
+
 * Hypervisor Managers
-    * Projects
-        * Virtual Environments
-    * Data Centers
-        * Hypervisors
-            * Virtual Environments
-        * Clusters
-            * Hypervisors
-            * Virtual Environments
-        * Virtual Environments
-    * Clusters
-        * Hypervisors
-        * Virtual Environments
+  * Projects
+    * Virtual Environments
+  * Data Centers
     * Hypervisors
-        * Virtual Environments
+      * Virtual Environments
+    * Clusters
+      * Hypervisors
+      * Virtual Environments
     * Virtual Environments
+  * Clusters
+    * Hypervisors
+    * Virtual Environments
+  * Hypervisors
+    * Virtual Environments
+  * Virtual Environments
 * Hypervisors
-    * Virtual Environments
+  * Virtual Environments
 * Application Configurations
-    * Applications
+  * Applications
 * Storage Providers
-    * Storages
+  * Storages
+

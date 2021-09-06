@@ -1,6 +1,6 @@
-# PostgreSQL Application
+# PostgreSQL
 
-To create a new application for backup PostgreSQL database, go to the tab: **Applications -> Instances**
+To create a new application for backup PostgreSQL database, go to the tab: **Applications -&gt; Instances**
 
 Then select the **Create** button. The Creating an Application Definition section will be displayed, which needs to be completed.
 
@@ -23,12 +23,13 @@ After **saving** the changes to the application, you need to configure the **env
 
 When using the built-in script for database backup, define:
 
-* **VP_SQL_USER** - login username to PostgreSQL
-* **VP_SQL_COMPRESS** - if backup should be compressed on PostgreSQL server, then please type "Yes"
-* **VP_SQL_PASSWORD** - password to PostgreSQL user database
-* **VP_SQL_LOGFILE** - path on PostgreSQL server, where vProtect can place the log file from backup job
-* **VP_SQL_DBLIST** - comma separated list of database names to backup
-* **VP_SQL_STOREPATH** - path on PostgreSQL server, where vProtect can place temporary backup file. In that path don't store other files, becouse when backup is finished vProtect delete all filres from that path
-* **VP_SQL_SCRIPTPATH** - path on PostgreSQL, where vProtect can place, and execute backup script
+* **VP\_SQL\_USER** - login username to PostgreSQL
+* **VP\_SQL\_COMPRESS** - if backup should be compressed on PostgreSQL server, then please type "Yes"
+* **VP\_SQL\_PASSWORD** - password to PostgreSQL user database
+* **VP\_SQL\_LOGFILE** - path on PostgreSQL server, where vProtect can place the log file from backup job
+* **VP\_SQL\_DBLIST** - comma separated list of database names to backup
+* **VP\_SQL\_STOREPATH** - path on PostgreSQL server, where vProtect can place temporary backup file. In that path don't store other files, becouse when backup is finished vProtect delete all filres from that path
+* **VP\_SQL\_SCRIPTPATH** - path on PostgreSQL, where vProtect can place, and execute backup script
 
 After the new application is fully configured, **save** the changes and go to the [SLA backup configuration](../../../administration/applications/backup-slas.md).
+

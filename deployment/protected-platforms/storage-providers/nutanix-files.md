@@ -41,7 +41,7 @@ In the form, provide:
   * The `admin` account **cannot** be used
   * The same credentials will be used to access Prism Element and File Server
   * In Prism Element there is a dedicated account with a Cluster Admin role
-  * Create an API account for the file server (e.g. in Prism Element, go to the File Server tab, select Manage Roles, add an API user and add the user to the file server administration group)
+  * Create an API account for the file server \(e.g. in Prism Element, go to the File Server tab, select Manage Roles, add an API user and add the user to the file server administration group\)
 * the node responsible for backup operations
 
 ![](../../../.gitbook/assets/storage-providers-infrastructure-create-new.png)

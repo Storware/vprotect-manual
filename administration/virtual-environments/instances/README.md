@@ -17,7 +17,7 @@ The field lets the user filter the virtual machines by their:
 * Name field of a linked VM Backup Policy 
 * Name field of a linked Snapshot Management Policy
 
-![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%285%29.jpg)
+![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29.jpg)
 
 Returning to the VM details page, this is what it looks like:
 
@@ -62,13 +62,13 @@ This view shows separate columns for each backup made to the virtual machine. Th
 
 ### Backup Time
 
-![](../../../.gitbook/assets/vm-details-page-statistics-time.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-time%20%281%29.png)
 
 A very useful report. It allows you to determine the required window length for backups or, based on the time of individual phases, it is easy to deduce the cause of slow backups.
 
 ### Transfer Rate
 
-![](../../../.gitbook/assets/vm-details-page-statistics-transfer%20%281%29.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-transfer%20%281%29%20%281%29.png)
 
 One of the latest reports, now you can easily see how fast data transfer is.
 
@@ -80,7 +80,7 @@ A view with the same properties as "Backup Time". It allows us to estimate how l
 
 ### Transfer Rate
 
-![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate%20%281%29.png)
 
 As in the previous case, we also have the transfer speed for the restore job.
 
@@ -121,8 +121,7 @@ This tab is similar to "Backup History". This is a list with basic information a
 
 ![](../../../.gitbook/assets/instances-vm-details-page-bottom-menu-snapshots%20%281%29.jpg)
 
-This tab shows virtual machine snapshots \(remember - snapshots are stored on the hypervisor\). The snapshot can be divided into two categories:
-1. As you can see in the list above, there is a green dot next to the snapshot. This means that this snapshot is created for incremental backup purposes. This is an automatic operation and we only keep the last snapshot.  
+This tab shows virtual machine snapshots \(remember - snapshots are stored on the hypervisor\). The snapshot can be divided into two categories: 1. As you can see in the list above, there is a green dot next to the snapshot. This means that this snapshot is created for incremental backup purposes. This is an automatic operation and we only keep the last snapshot.  
 2. The second one on the list is a snapshot created at the user's request \(scheduled or manual\).
 
 Next to the snapshot is a button that allows you to restore the virtual machine. It actually creates a new virtual machine and keeps the old one \(security considerations to protect against the human factor\).

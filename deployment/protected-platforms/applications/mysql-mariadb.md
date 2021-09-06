@@ -1,6 +1,6 @@
-# MySQL/MariaDB Application
+# MySQL/MariaDB
 
-To create a new application for backup MySQL database, go to the tab: **Applications -> Instances**
+To create a new application for backup MySQL database, go to the tab: **Applications -&gt; Instances**
 
 Then select the **Create** button. The Creating an Application Definition section will be displayed, which needs to be completed.
 
@@ -23,11 +23,12 @@ After **saving** the changes to the application, you need to configure the **env
 
 When using the built-in script for database backup, define:
 
-* **VP_MYSQL_DBLIST** - comma separated list of database names to backup
-* **VP_MYSQL_SCRIPTPATH** - path on MySQL/MariaDB server, where vProtect can place, and execute backup script
-* **VP_MYSQL_STOREPATH** - path on MySQL/MariaDB server, where vProtect can place the temporary backup file. No other files should be stored in the given path since everything is removed after the backup is finished
-* **VP_MYSQL_USER** - login username to MySQL/MariaDB
-* **VP_MYSQL_LOGFILE** - path on Mysql/MariaDB server, where vProtect can place log file from backup job
-* **VP_MYSQL_PASSWORD** - password to database user
+* **VP\_MYSQL\_DBLIST** - comma separated list of database names to backup
+* **VP\_MYSQL\_SCRIPTPATH** - path on MySQL/MariaDB server, where vProtect can place, and execute backup script
+* **VP\_MYSQL\_STOREPATH** - path on MySQL/MariaDB server, where vProtect can place the temporary backup file. No other files should be stored in the given path since everything is removed after the backup is finished
+* **VP\_MYSQL\_USER** - login username to MySQL/MariaDB
+* **VP\_MYSQL\_LOGFILE** - path on Mysql/MariaDB server, where vProtect can place log file from backup job
+* **VP\_MYSQL\_PASSWORD** - password to database user
 
 After the new application is fully configured, **save** the changes and go to the [SLA backup configuration](../../../administration/applications/backup-slas.md).
+

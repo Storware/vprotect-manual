@@ -39,25 +39,25 @@ You can also use several function buttons, such as:
 
 ### Daily activity
 
-![](../../../.gitbook/assets/vm-details-page-statistics.png)
+![](../../../.gitbook/assets/vm-details-page-statistics%20%281%29%20%281%29.png)
 
 First, you'll see a daily summary of the backup and restore operations for the last month. This view is called "Daily Summary" and is the default view. You can switch the report between multiple views.
 
 ### Backup Size
 
-![](../../../.gitbook/assets/vm-details-page-statistics-size%20%281%29%20%281%29.png)
+![](https://github.com/Storware/vprotect-manual/tree/62f9b0a309aff8d03f40054743924e0d53d58a4e/.gitbook/assets/vm-details-page-statistics-size%20%281%29%20%281%29.png)
 
 This view shows separate columns for each backup made. Thanks to this, you can easily determine what data increase occurs on a given machine.
 
 ### Backup Time
 
-![](../../../.gitbook/assets/vm-details-page-statistics-time%20%281%29.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-time.png)
 
 A very useful report. It allows you to determine the required window length for backups or, based on the time of individual phases, it is easy to deduce the cause of slow backups.
 
 ### Transfer Rate
 
-![](../../../.gitbook/assets/vm-details-page-statistics-transfer.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-transfer%20%281%29.png)
 
 One of the latest reports, now you can easily see how fast data transfer is.
 
@@ -69,7 +69,7 @@ A view with the same properties as "Backup Time". It allows us to estimate how l
 
 ### Restore Rate
 
-![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate%20%281%29.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate%20%281%29%20%281%29.png)
 
 As in the previous case, we also have the transfer speed for the restore job.
 

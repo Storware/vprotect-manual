@@ -20,9 +20,9 @@ Minimal install \(Basic functionality\)
 
 #### vProtect server:
 
-MariaDB 10.4 (installed from the official MariaDB repository)
+MariaDB 10.4 \(installed from the official MariaDB repository\)
 
-If you need to install MariaDB packages without accessing external repository during vProtect installation you also can download RPMs and install them manually as described in [here](https://mariadb.com/kb/en/installing-mariadb-with-the-rpm-tool/) 
+If you need to install MariaDB packages without accessing external repository during vProtect installation you also can download RPMs and install them manually as described in [here](https://mariadb.com/kb/en/installing-mariadb-with-the-rpm-tool/)
 
 ## Hardware Requirements
 

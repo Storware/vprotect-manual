@@ -3,9 +3,9 @@
 ## General
 
 vProtect provides reporting functionality to obtain information on historical activity.  
-You can reach them from the main dashboard in the "Activity" section with the button -![](../../.gitbook/assets/reporting%20%282%29%20%281%29.jpg)
+You can reach them from the main dashboard in the "Activity" section with the button -![](../../.gitbook/assets/reporting%20%282%29.jpg)
 
-![](../../.gitbook/assets/reporting-dashboard%20%281%29.jpg)
+![](../../.gitbook/assets/reporting-dashboard%20%281%29%20%281%29.jpg)
 
 You can also open the Application reports in the reporting section from the left menu.
 

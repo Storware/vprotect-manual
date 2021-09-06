@@ -1,6 +1,6 @@
-# Relax and Recover Application
+# Relax and Recover
 
-To create a new application for backup R&R database, go to the tab: **Applications -> Instances**
+To create a new application for backup R&R database, go to the tab: **Applications -&gt; Instances**
 
 Then select the **Create** button. The Creating an Application Definition section will be displayed, which needs to be completed.
 
@@ -23,13 +23,14 @@ After **saving** the changes to the application, you need to configure the **env
 
 When using the built-in script for database backup, define:
 
-* VP_REAR_OUTPUT - Defines where the rescue image should be send to
-* VP_REAR_LOGFILE - Path on target server, where vProtect can place the log file from backup job.
-* VP_REAR_MOUNTPATH - Path where NFS directory will be mounted
-* VP_REAR_STOREPATH - Path on Relax and Recover server, where vProtect can place backup file.
-* VP_REAR_METHOD - Relax and Recover backup method
-* VP_REAR_RETENTION - Number of days to keep copy
-* VP_REAR_NFSSERVER - IP address of the NFS server
-* VP_REAR_SCRIPTPATH - Path on target server, where vProtect can place, and execute backup script.
+* VP\_REAR\_OUTPUT - Defines where the rescue image should be send to
+* VP\_REAR\_LOGFILE - Path on target server, where vProtect can place the log file from backup job.
+* VP\_REAR\_MOUNTPATH - Path where NFS directory will be mounted
+* VP\_REAR\_STOREPATH - Path on Relax and Recover server, where vProtect can place backup file.
+* VP\_REAR\_METHOD - Relax and Recover backup method
+* VP\_REAR\_RETENTION - Number of days to keep copy
+* VP\_REAR\_NFSSERVER - IP address of the NFS server
+* VP\_REAR\_SCRIPTPATH - Path on target server, where vProtect can place, and execute backup script.
 
 After the new application is fully configured, **save** the changes and go to the [SLA backup configuration](../../../administration/applications/backup-slas.md).
+

@@ -17,3 +17,4 @@ Take a look and choose the method that best suits your needs and experiences.
 [_Installation with RPMs_](installation-with-rpms.md)
 
 [_Installing vProtect Operator in OpenShift_](openshift-operator-installation.md)
+

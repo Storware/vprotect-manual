@@ -11,7 +11,7 @@ The Oracle VM environment requires you to create storage used for VM export. The
 * crash-consistent snapshot is taken by OVM during hot-clone of the VM
 * data + metadata exported by the manager to the vProtect staging space \(visible as the export Storage Repository in OVM\)
 * full backup only is supported
-* OVM exports are limited to 1 task per Storage Repository being used by VM \(this is the ****limitation of OVM\)
+* OVM exports are limited to 1 task per Storage Repository being used by VM \(this is the _\*\*_limitation of OVM\)
 * restore is done to the export Storage Repository, the administrator needs to clone the VM using manager UI
 
 **Note:**
@@ -32,7 +32,6 @@ Oracle VM environments require storage repositories to be defined for each serve
    * The export \(staging\) path in the above-mentioned scenario is still `/vprotect_data`, while `pool01` and `pool02` are server pool names
    * Specify mapping between server pool names and storage repository names in the hypervisor manager configuration
    * Note that the export must be set to use the UID and GID of the `vprotect` user
-
    * Example export configuration in `/etc/exports` to the selected hypervisor in the RHV cluster:
 
      ```text

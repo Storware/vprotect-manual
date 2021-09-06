@@ -9,41 +9,41 @@ Every node provides CLI that can be used to manage configuration and invoke task
 usage: vprotect <COMMAND> -<ARG_1> ... -<ARG_N>
 COMMAND is one of the following:
  node                   Node management
- config   		          Node configuration management
- hv       		          Hypervisor management
- hvm      		          Hypervisor manager management
- hc       		          Hypervisor cluster management
- hs       		          Hypervisor storage management
- vm       		          Virtual machine management
- vmpolicy 		          VM backup policy management
- bd       		          Backup destination management
- sched    		          Schedule management
- brvm     		          VM backup & restore
- st       		          Storage management
- stpool   		          Storage pool management
- stprovider		          Storage provider management
- brapp    		          Application backup & restore
- mnt      		          Mounted backup management
- task     		          Task management
- login    		          User login
- logout   		          Node and user logout
- stop     		          Safely stops node
- vm-snappolicy		      Snapshot policy management for VMs
- storage-snappolicy		  Snapshot policy management for storages
- app      		          Application backup management
- appconf  		          App command execution management
- apppolicy		          Application backup policy management
- restorejob		          Restore jobs
- recplan  		          Recovery plan policies
- brst     		          Storage backup & restore
- quota    		          Quota management
- project  		          Project management
- user     		          User management
- rbac     		          Rbac management
- role     		          AppUser Role management
- group    		          AppUser Group management
- status   		          Shows node status
- start    		          Starts node
+ config                     Node configuration management
+ hv                         Hypervisor management
+ hvm                        Hypervisor manager management
+ hc                         Hypervisor cluster management
+ hs                         Hypervisor storage management
+ vm                         Virtual machine management
+ vmpolicy                   VM backup policy management
+ bd                         Backup destination management
+ sched                      Schedule management
+ brvm                       VM backup & restore
+ st                         Storage management
+ stpool                     Storage pool management
+ stprovider                  Storage provider management
+ brapp                      Application backup & restore
+ mnt                        Mounted backup management
+ task                       Task management
+ login                      User login
+ logout                     Node and user logout
+ stop                       Safely stops node
+ vm-snappolicy              Snapshot policy management for VMs
+ storage-snappolicy          Snapshot policy management for storages
+ app                        Application backup management
+ appconf                    App command execution management
+ apppolicy                  Application backup policy management
+ restorejob                  Restore jobs
+ recplan                    Recovery plan policies
+ brst                       Storage backup & restore
+ quota                      Quota management
+ project                    Project management
+ user                       User management
+ rbac                       Rbac management
+ role                       AppUser Role management
+ group                      AppUser Group management
+ status                     Shows node status
+ start                      Starts node
 ```
 
 ## Starting and stopping node
@@ -221,7 +221,7 @@ Use `vprotect config` sub-command add/remove backup destinations from node confi
 ```text
 [root@dell-emc-vprotect ~]# vprotect config
 Incorrect syntax: Missing argument for option: s
- 
+
 usage: config -b <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -r <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]> | -s <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2">
 
 Node configuration management
@@ -233,6 +233,7 @@ Node configuration management
  -r,--remove-backup-destinations <CONFIG_GUID> <[BD_GUID|BD_NAME],...,[BD_GUID|BD_NAME]>   Remove backup destinations
  -s,--set <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2">                Modify node config.
 ```
+
 ### Setting up parameters for node configuration
 
 In general `vprotect config -s <GUID> <PROPERTY_NO.> <VALUE>` command sets value of a property with the given number of node configuration with `GUID`. Property numbers are returned in a detailed view of each node configuration. After you create node configuration, show default values with `-g`. Then use property numbers \(the first number in the property/value line of the detailed view\).
@@ -243,18 +244,17 @@ In general `vprotect config -s <GUID> <PROPERTY_NO.> <VALUE>` command sets value
 
   ```text
   vprotect config -l
-  
+
                   GUID                       Name       Default  Nodes  Backup destinations  Modification time  
   ------------------------------------  --------------  -------  -----  -------------------  -----------------  
-  c95fb3cc-e567-11eb-8446-566fc400002d  Default Config  true     1      1                    2021-07-16 11:41  
-
+  c95fb3cc-e567-11eb-8446-566fc400002d  Default Config  true     1      1                    2021-07-16 11:41
   ```
 
 * To show details of the given node config \(by GUID\)
 
   ```text
   vprotect config -g c95fb3cc-e567-11eb-8446-566fc400002d
-  
+
   Property                                                     Value                                                         
   -----------------------------------------------------------  ------------------------------------------------------------  
 
@@ -289,8 +289,7 @@ In general `vprotect config -s <GUID> <PROPERTY_NO.> <VALUE>` command sets value
   27. Task snapshot timeout [min.]                             1h   
   28. Max. no. of snapshot threads                             5  
   29. Max. no. of snapshots threads per source                 2  
-  Backup destinations                                          [backup [FILESYSTEM] (bb0524fe-40a1-4ca3-bbc9-7f0be8ac73cc)]  
-
+  Backup destinations                                          [backup [FILESYSTEM] (bb0524fe-40a1-4ca3-bbc9-7f0be8ac73cc)]
   ```
 
 * To add backup destination \(second GUID\) to the given node configuration \(first GUID\):
@@ -380,7 +379,7 @@ There are however some mode/type fields which require string to be typed in corr
   13. Deduplication device                                                    -   
   14. Deduplicated filesystem mount point (set as 'default' to use BD path)  /backup  
   15. Deduplication volume used space threshold percentage                    -   
-  16. Encryption enabled         
+  16. Encryption enabled
   ```
 
 * Remember that to use a BD you need to create a new entry of a given typ and then configure its properties \(example for IBM Spectrum Protect \[ISP\], assume that GUID returned by first command was `bb74ef6c-f6de-4783-bfa7-70fc2376fb08` \):
@@ -459,8 +458,7 @@ Hypervisor manager management
  -sC,--configuration <GUID> <PROPERTY_NO.> <VALUE | "MAPPING1=VALUE1;MAPPING2=VALUE2">                  Modify hypervisor manager configuration
  -sK,--set-ssh-key-path <GUID> <SSH_KEYPATH>                                                            Set SSH key path
  -u,--credentials <GUID | HOST> <USER/ACCESS_KEY> <PASSWORD/SECRET_KEY>                                 Set user/password or access key/secret key
- -V,--list-vms <GUID | HOST>  
-
+ -V,--list-vms <GUID | HOST>
 ```
 
 ### Examples
@@ -515,7 +513,7 @@ To manage hypervisors in the system use `vprotect hv` sub-command.
 ```text
 [root@vprotect ~]# vprotect hv
 Incorrect syntax: Missing required option: [-sC Modify hypervisor configuration, -c Create hypervisor (type = ["citrix", "nutanix", "proxmox", "ovm", "kvm", "xen"]), -s Synchronize inventory with hypervisor, -d Delete hypervisor, -nC Set node config for hypervisor, -e Set export/import mode for hypervisor, -u Set user/password, -g Show hypervisor details, -sK Set SSH key path, -l List hypervisors, -L List VMs for hypervisor, -m Modify hypervisor]
- 
+
 usage: hv -c <HOST> <TYPE> | -d <GUID | HOST> | -e <GUID | HOST> <DEFAULT|VM_IMAGE_PLUS_INCREMENTAL_DISKS|CHANGED_BLOCK_TRACKING|SSH_TRANSFER|EXPORT_STORAGE_REPO> | -g <GUID | HOST> | -l | -L <GUID | HOST> | -m <GUID | HOST> <NEW_HOST> | -nC <GUID | HOST> <NODE_CONFIG_GUID> | -s
        <GUID | HOST> | -sC <GUID> <PROPERTY_NO.> <VALUE> | -sK <GUID> <SSH_KEYPATH> | -u <GUID | HOST> <USER> <PASSWORD>
 
@@ -992,8 +990,7 @@ Snapshot policy management
 
 To manage snapshot policies for storages in the system use `vprotect storage-snappolicy` sub-command.
 
-Storages are assigned automatically to the policy only if storage has no policy assigned already. If automatic assignment has been turned on for a policy and name of the storage matches regular expression, storage is assigned to the policy, and all schedules for a policy will also
- be automatically invoked for this storage.
+Storages are assigned automatically to the policy only if storage has no policy assigned already. If automatic assignment has been turned on for a policy and name of the storage matches regular expression, storage is assigned to the policy, and all schedules for a policy will also be automatically invoked for this storage.
 
 **Note:** only storages with assigned snapshot management policy can be snapshot from the CLI or UI
 
@@ -1025,9 +1022,9 @@ usage: storage-snappolicy -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | 
 
 To list all snapshot policies
 
-  ```text
+```text
   vprotect storage-snappolicy -l
-  ```
+```
 
 * To show details of the given snapshot policy \(by GUID\)
 
@@ -1046,8 +1043,7 @@ To list all snapshot policies
   ```text
   vprotect vm-snappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 \
    391203e3-ad6c-4532-b69c-78b3a5c
-   ```
-
+  ```
 
 ## Schedules
 
@@ -1066,7 +1062,7 @@ To manage schedules in the system use `vprotect sched` sub-command.
 Incorrect syntax: Missing required option: [-a Set schedule to be active (1) / not active (0), -c <NAME> <VM_BACKUP | SNAPSHOT | APP_BACKUP> <BACKUP_TYPE> <TIME | INTERVAL> <START_TIME | INTERVAL_START_HOUR-INTERVAL_END_HOUR> <DURATION | INTERVAL_FREQUENCY> <everyday | LIST_OF_DAYS_OF_WEEK> <any | FIRST_IN_MONTH | SECOND_IN_MONTH | THIRD_IN_MONTH | FOURTH_IN_MONTH | LAST_IN_MONTH> <any | LIST_OF_MONTHS 
  Create schedule for VM (backup type: FULL / INCREMENTAL), -d Delete schedule, -g Show details, -l List schedules, -m <GUID> <NAME> <TYPE> <TIME | INTERVAL> <START_TIME | INTERVAL_START_HOUR-INTERVAL_END_HOUR> <DURATION | INTERVAL_FREQUENCY> <everyday | LIST_OF_DAYS_OF_WEEK> <any | FIRST_IN_MONTH | SECOND_IN_MONTH | THIRD_IN_MONTH | FOURTH_IN_MONTH | LAST_IN_MONTH> <any | LIST_OF_MONTHS 
  Modify schedule (backup type: FULL / INCREMENTAL)]
- 
+
 usage: sched -a <arg> | -c <arg> | -d <arg> | -g <arg> | -l | -m <arg>
 
 Schedule management
@@ -1258,6 +1254,7 @@ Storage backup & restore
   vprotect brst \
   -r 2132182d-e9ab-4478-a1db-48222b0e515b this /vprotect_data
   ```
+
 * To create an incremental backup of a storage and store it in backup destination called `MyTSM`
 
   ```text
@@ -1273,7 +1270,7 @@ To invoke mount/unmount tasks use `vprotect mnt` sub-command.
 ```text
 [root@vprotect ~]# vprotect mnt
 Incorrect syntax: Missing required option: [-T List tasks related to the mounted backup, -u Unmount previously mounted backup, -F List file systems, -l List mounted backups, -L List mounted files, -mi Mount iSCSI., -m Mount backup according to the MOUNT_SPECIFICATION, -Li List files for selected backup, that can be mounted using iSCSI mode.]
- 
+
 usage: mnt -F <GUID> | -l | -L <GUID> | -Li <BACKUP_GUID> | -m <GUID> <NODE_CONFIG_GUID | NODE_CONFIG_NAME> <auto|manual> <MOUNT_SPECIFICATION> | -mi <BACKUP_GUID> <NODE_CONFIG_GUID | NODE_CONFIG_NAME> <ALLOWED_CLIENT,...,ALLOWED_CLIENT> <DISK_GUID,...,DISK_GUID> | -T <GUID> | -u <GUID>
 Mounted backup management
  -F,--list-file-systems <GUID>                                                                                                         List file systems
@@ -1382,7 +1379,7 @@ Task management
 
 Project module is used to view details and set quota for available projects.
 
-```
+```text
 [root@localhost vprotect]# vprotect project
 Incorrect syntax: Missing required option: [-g Show Project details, -l List Projects, -sQ Set Project Quota]
 
@@ -1394,19 +1391,24 @@ Project management
 ```
 
 ### Examples
+
 * To list all projects:
-```
-vprotect project -l
-```
+
+  ```text
+  vprotect project -l
+  ```
+
 * To set quota with GUID `6f0bfb3c-24dd-4d12-8a72-997ded2ecc98` to project with GUID `ca707d31-f403-40d5-b160-6ac512457b87`
-```
-vprotect project -sQ ca707d31-f403-40d5-b160-6ac512457b87 6f0bfb3c-24dd-4d12-8a72-997ded2ecc98
-```
+
+  ```text
+  vprotect project -sQ ca707d31-f403-40d5-b160-6ac512457b87 6f0bfb3c-24dd-4d12-8a72-997ded2ecc98
+  ```
 
 ## User Management
+
 User module is used to manage users and their settings. You can add or remove users, change their password or timezone.
 
-```
+```text
 [root@localhost vprotect]# vprotect user
 Incorrect syntax: Missing required option: [-c Create user, -d Delete user, -g Show user details, -l List users, -m Update user's property, -sP Update user's password, -sA Update user's activation state]
 
@@ -1419,27 +1421,37 @@ User management
  -m,--modify <GUID> <PROPERTY_NO.> <VALUE>                                     Update user's property
  -sA,--set-active <GUID> <ACTIVE>                                              Update user's activation state
  -sP,--set-password <GUID>>
- ```
+```
 
 ### Examples
-* To create new user
-```
-vprotect user -c jdoe John Doe UTC EN true
-```
-* To list all users
-```
-vprotect user -l
 
-                GUID                  First Name  Last Name  Active  
-------------------------------------  ----------  ---------  ------  
-                                   1  The         Admin      true    
-705490c2-7734-4a56-a563-24471447bf2b  John        Doe        true  
+* To create new user
+
+  ```text
+  vprotect user -c jdoe John Doe UTC EN true
+  ```
+
+* To list all users
+
+  \`\`\` vprotect user -l
+
+  ```text
+            GUID                  First Name  Last Name  Active  
+  ```
+
+```text
+                               1  The         Admin      true    
 ```
+
+705490c2-7734-4a56-a563-24471447bf2b John Doe true
+
+```text
 * To set password for the user
 ```
-vprotect user -sP 705490c2-7734-4a56-a563-24471447bf2b
-```
 
+vprotect user -sP 705490c2-7734-4a56-a563-24471447bf2b
+
+```text
 ## Quota
 
 Quota management module is used to manage backup/restore limits for virtual machines in projects.
@@ -1515,7 +1527,7 @@ User management
   ```text
   vprotect rbac -lp
   ```
-  
+
 ## User Role Management
 
 User Role management module is used to manage Roles and their privileges.
@@ -1552,7 +1564,7 @@ usage: role -aC <GUID> | -aP <GUID> <PRIVILEGE NAME> | -c <NAME> | -d <GUID> | -
   vprotect role -c Tester
 ```
 
-* To add VE_INSTANCE_READ privilege to a Role with GUID `1ac068d3-4848-4c98-b30b-54ce050b6a95`
+* To add VE\_INSTANCE\_READ privilege to a Role with GUID `1ac068d3-4848-4c98-b30b-54ce050b6a95`
 
 ```text
   vprotect role -aP 1ac068d3-4848-4c98-b30b-54ce050b6a95 VE_INSTANCE_READ
@@ -1588,19 +1600,16 @@ AppUser Group management
 ### Examples
 
 * To add Role with GUID `1ac068d3-4848-4c98-b30b-54ce050b6a95` to Group with GUID `54c57989-9d99-480f-a6da-b4f34b7bd812`
-```text
+
+  ```text
   vprotect group -aR 54c57989-9d99-480f-a6da-b4f34b7bd812 1ac068d3-4848-4c98-b30b-54ce050b6a95
-```
+  ```
 
 * To remove User with GUID `91e6bf9c-59c6-4653-9854-e9c920198343` from Group with GUID `54c57989-9d99-480f-a6da-b4f34b7bd812`
-```text
+
+  ```text
     vprotect group -rU 54c57989-9d99-480f-a6da-b4f34b7bd812 91e6bf9c-59c6-4653-9854-e9c920198343
-```
-
-
-
-
-
+  ```
 
 ## Application backup/restore
 

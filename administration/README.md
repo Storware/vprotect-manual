@@ -12,7 +12,7 @@ This section provides information about administrative tasks such as how to back
   * [File-level Restore](virtual-environments/file-level-restore-mounted-backup-1.md)
 * [Reporting](reporting/)
 * [Access Management](users.md)
-* [Settings](settings.md)
+* [Settings](https://github.com/Storware/vprotect-manual/tree/62f9b0a309aff8d03f40054743924e0d53d58a4e/administration/settings.md)
 * [CLI Reference](cli-reference.md)
 * [Upgrade](upgrade.md)
 * [Disaster Recovery](disaster-recovery.md)

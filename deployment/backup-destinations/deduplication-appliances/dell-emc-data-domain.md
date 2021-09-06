@@ -89,3 +89,4 @@ Prepare your PowerProtect DD as a backup destination:
 ## Synthetic DD Boost
 
 To configure synthetic backup destination, follow inctructions that are described in [documentation](../filesystem/synthetic-ddboost.md).
+

@@ -53,7 +53,7 @@ Drawback - no incremental backup for now.
 * metadata exported from API
 * snapshot disks are mounted one by one to the Proxy VM
 * data read directly on the Proxy VM
-* incremental backups are ****not supported
+* incremental backups are _\*\*_not supported
 * restore creates empty disks on the Proxy VM, imports merged data then recreates VM and reattaches volumes to the target VM
 
 **Note**: RHV API v4 environments require vProtect Node to be installed in one of the VMs residing on the RHV cluster. vProtect should automatically detect the VM with vProtect during the index operation.
@@ -172,6 +172,6 @@ RHV 3.5.1+ environments \(using API v3\) require an export storage domain to be 
    ```text
    https://RHV_MGR_HOST/ovirt-engine/api/v3
    ```
-**Note:** Restore to RHV using SPARSE disk allocation format is not supported if backup files are in RAW
-format and destination storage domain type in either Fibre Channel or iSCSI. If such configuration is
-detected, then disk allocation format is automatically switched to PREALLOCATED
+
+   **Note:** Restore to RHV using SPARSE disk allocation format is not supported if backup files are in RAW format and destination storage domain type in either Fibre Channel or iSCSI. If such configuration is detected, then disk allocation format is automatically switched to PREALLOCATED
+

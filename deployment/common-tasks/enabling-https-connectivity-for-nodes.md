@@ -9,7 +9,6 @@ The default certificate presented by the application server uses `localhost.loca
 * For the default certificate - jump to the Node configuration and use the `localhost.localdomain` instead of the `vprotectserver.local` example
 * When registering the node locally over HTTPS please note that the URL you should use is`localhost.localdomain` - **NOT** `localhost`
 
-
 This section presents the steps necessary for generating an SSL certificate, for setup vProtect to use it and how to register a remote node.
 
 ## vProtect Server \(when using own certificate\)
@@ -98,7 +97,6 @@ When using CSR to get a trusted certificate, you need to replace step 2 \(self-s
 3. Download your CRT file and save it as `vprotect.crt` \(note that you should have your working directory set to `/opt/vprotect`\)
 4. Download your CA certificate chain \(example for a single `ca.crt`\) and import it with the `CA_ALIAS` of your choice as follows: `keytool -import -trustcacerts -keystore /usr/lib/jvm/jre/lib/security/cacerts -storepass changeit -noprompt -alias CA_ALIAS -file ca.crt`
 5. Now continue from PKCS12 bundle generation \(step 3 in the section above\).
-
 
 ## vProtect Node \(any SSL certificate\)
 

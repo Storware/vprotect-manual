@@ -552,7 +552,6 @@
 | Available space for snapshot check | ❌ |
 | Power-on VM after restore | ❌ |
 
-
 ## Containers - features and requirements
 
 ### Kubernetes

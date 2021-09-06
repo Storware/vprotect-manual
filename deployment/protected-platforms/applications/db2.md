@@ -1,6 +1,6 @@
-# DB2 Application
+# DB2
 
-To create a new application for backup DB2 database, go to the tab: **Applications -> Instances**
+To create a new application for backup DB2 database, go to the tab: **Applications -&gt; Instances**
 
 Then select the **Create** button. The Creating an Application Definition section will be displayed, which needs to be completed.
 
@@ -23,13 +23,14 @@ After **saving** the changes to the application, you need to configure the **env
 
 When using the built-in script for database backup, define:
 
-* **VP_DB2_INCREMENTAL** - if backup should be incremental on DB2 server, then please type "Yes". In other case vProtect create full backup
-* **VP_DB2_DBLIST** - comma separated list of database names to backup
-* **VP_DB2_SCRIPTPATH** - path on DB2 server, where vProtect can place, and execute backup script
-* **VP_DB2_PASSWORD** - password to DB2 user database
-* **VP_DB2_COMPRESS** - if backup should be compressed on DB2 server, then please type "Yes"
-* **VP_DB2_LOGFILE** - path on DB2 server, where vProtect can place the log file from backup job
-* **VP_DB2_USER** - login username to DB2
-* **VP_DB2_STOREPATH** - path on DB2 server, where vProtect can place backup file
+* **VP\_DB2\_INCREMENTAL** - if backup should be incremental on DB2 server, then please type "Yes". In other case vProtect create full backup
+* **VP\_DB2\_DBLIST** - comma separated list of database names to backup
+* **VP\_DB2\_SCRIPTPATH** - path on DB2 server, where vProtect can place, and execute backup script
+* **VP\_DB2\_PASSWORD** - password to DB2 user database
+* **VP\_DB2\_COMPRESS** - if backup should be compressed on DB2 server, then please type "Yes"
+* **VP\_DB2\_LOGFILE** - path on DB2 server, where vProtect can place the log file from backup job
+* **VP\_DB2\_USER** - login username to DB2
+* **VP\_DB2\_STOREPATH** - path on DB2 server, where vProtect can place backup file
 
 After the new application is fully configured, **save** the changes and go to the [SLA backup configuration](../../../administration/applications/backup-slas.md).
+

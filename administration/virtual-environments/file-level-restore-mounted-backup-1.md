@@ -22,7 +22,7 @@ The Mounted Backups tab show mounted Virtual Machine backup's on the vProtect no
 * `FILES` - number of mounted virtual disk images.
 
 Next to every mounted backup you can see three buttons:  
-To unmount backup click on ![](../../.gitbook/assets/icon-unmount%20%282%29%20%282%29%20%282%29%20%282%29.jpg)  
+To unmount backup click on ![](../../.gitbook/assets/icon-unmount%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)  
 To remount backup click on ![](../../.gitbook/assets/icon-remount%20%281%29.jpg)  
 To go to the details page of mounted backup click on ![](../../.gitbook/assets/icon-magnifier%20%281%29%20%281%29.jpg)
 

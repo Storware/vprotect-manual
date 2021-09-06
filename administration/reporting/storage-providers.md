@@ -5,7 +5,7 @@
 ‌vProtect provides reporting functionality to obtaining information on historical activity.  
 You can reach this from the main dashboard in the Activity section via the button -![](https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-MRdb5zWCDMFpI4vZOjE%2Fsync%2Fdc0792ef6682f4b02ebf4a963d448eb5b7d95fff.jpg?generation=1611311314140472&alt=media)
 
-![](../../.gitbook/assets/reporting-dashboard%20%281%29%20%281%29.jpg)
+![](../../.gitbook/assets/reporting-dashboard%20%281%29.jpg)
 
 You can also open the storage reports in the reporting section using the left menu.
 
@@ -45,7 +45,7 @@ This is a backup size report that you might need for chargeback reporting.
 
 ![](../../.gitbook/assets/reporting-storage-backup-size.jpg)
 
-You can also send these reports by email using this button: ![](../../.gitbook/assets/get-report-via-e-mail.jpg)
+You can also send these reports by email using this button: ![](../../.gitbook/assets/get-report-via-e-mail%20%281%29.jpg)
 
 ![](../../.gitbook/assets/reporting-summary-e-mail-report.jpg)
 

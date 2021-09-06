@@ -1,6 +1,6 @@
-# Oracle Application
+# Oracle
 
-To create a new application for backup Oracle database, go to the tab: **Applications -> Instances**
+To create a new application for backup Oracle database, go to the tab: **Applications -&gt; Instances**
 
 Then select the **Create** button. The Creating an Application Definition section will be displayed, which needs to be completed.
 
@@ -23,14 +23,15 @@ After **saving** the changes to the application, you need to configure the **env
 
 When using the built-in script for database backup, define:
 
-* VP_ORACLE_DBORARCH - type of backup, allowed is "db" to backup database, "arch" to backup database logs
-* VP_ORACLE_PASSWORD - password to Oracle database user
-* VP_ORACLE_RETENTION - how long RMAN should keeps backup. Allowed "RECOVERY_WINDOWS_OF_14_DAYS" to set number days, "REDUNDANCY_14" to set number of backups
-* VP_ORACLE_ENVIROINMENTVARIABLES - path to Oracle database Environment Variables
-* VP_ORACLE_SCRIPTPATH - path on Oracle server, where vProtect can place, and execute backup script
-* VP_ORACLE_COMPRESS - if backup should be compressed on Oracle server, then please type "Yes"
-* VP_ORACLE_USER - login username to Oracle
-* VP_ORACLE_LOGPATH - path on Oracle server, where vProtect can place the log file from backup job
-* VP_ORACLE_STOREPATH - path on Oracle server, where vProtect can place backup file
+* VP\_ORACLE\_DBORARCH - type of backup, allowed is "db" to backup database, "arch" to backup database logs
+* VP\_ORACLE\_PASSWORD - password to Oracle database user
+* VP\_ORACLE\_RETENTION - how long RMAN should keeps backup. Allowed "RECOVERY\_WINDOWS\_OF\_14\_DAYS" to set number days, "REDUNDANCY\_14" to set number of backups
+* VP\_ORACLE\_ENVIROINMENTVARIABLES - path to Oracle database Environment Variables
+* VP\_ORACLE\_SCRIPTPATH - path on Oracle server, where vProtect can place, and execute backup script
+* VP\_ORACLE\_COMPRESS - if backup should be compressed on Oracle server, then please type "Yes"
+* VP\_ORACLE\_USER - login username to Oracle
+* VP\_ORACLE\_LOGPATH - path on Oracle server, where vProtect can place the log file from backup job
+* VP\_ORACLE\_STOREPATH - path on Oracle server, where vProtect can place backup file
 
 After the new application is fully configured, **save** the changes and go to the [SLA backup configuration](../../../administration/applications/backup-slas.md).
+

@@ -20,7 +20,7 @@ vProtect consists of 2 main components:
 ## Component placement
 
 * **vProtect Server and Node can be installed on the same host** 
-* The Server can be installed on a physical machine or VM - externally deployed nodes require network connectivity to the Server and PowerProtect DD target(s).
+* The Server can be installed on a physical machine or VM - externally deployed nodes require network connectivity to the Server and PowerProtect DD target\(s\).
 * Nodes may be deployed as physical or virtual systems, unless selected backup strategy requires the Node to be installed as a VM on a Hypervisor Cluster \(especially when the "disk attachment" export mode is mentioned\).
 * Both components are installed on a CentOS/RHEL 8 minimal.
 
