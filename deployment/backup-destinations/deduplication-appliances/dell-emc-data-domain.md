@@ -2,45 +2,45 @@
 
 ## Create a new Backup Destination \(Dell EMC Data Domain\)
 
-* Go into a backup destination menu and click create a backup destination
-* Provide a name and description for a new backup destination
-* Specify retention days for full and incremental backups
-* Specify retention versions for full and incremental backups
-* Choose and assign node configuration, to which you want to attach a new backup destination
-* Add to one or more storage paths
+* Go into the backup destination menu and click on Create a backup destination.
+* Provide a name and description for the new backup destination.
+* Specify the retention days for full and incremental backups.
+* Specify the retention versions for full and incremental backups.
+* Choose and assign the node configuration to which you want to attach the new backup destination.
+* Add to one or more storage paths.
   * `example - /vprotect_data/backupdestination` 
-* Save configuration 
+* Save the configuration.
 
 ## DD Boost FS Plugin
 
 **Note:**
 
-* to boost the backup process we recommend to use **single** Storage Unit and mtree and use subfolders on the BoostFS for multiple backup destinations \(with possibly different retention settings\)
-  * no additional data copy is needed in store phase, when staging is using the same file system as the backup destination
-  * setup assumes a single Storage Unit and a single mtree for all backup destinations
-  * staging space should always be a top directory, and all backup destinations should be defined as separate subfolders of this file system
-  * vProtect handles retention and each backup destination may have different retention configured
-  * single Storage Unit also will affect replication as it has to cover all backup destinations, and may replicate temporary data from staging space or mounted backups
-* **sharing** the same BoostFS across multiple nodes allows administrator to create backups on one node \(i.e. one host/environment\) and restore using a different node \(to the different host/environment\)
-  * UID/GID ownership and permissions must allow vProtect to read/write contents of the BoostFS share
-  * To meet these requirements, a user and group named vprotect, that was created during the installation process must have the same UID and GID on each vProtect node machine. You can create it before installing vProtect packages or change it after installation 
+* To boost the backup process we recommend using a **single** Storage Unit and mtree, and subfolders on the BoostFS for multiple backup destinations \(with possibly different retention settings\).
+  * No additional data copy is needed in the store phase if staging is using the same file system as the backup destination.
+  * Setup assumes a single Storage Unit and a single mtree for all backup destinations.
+  * The staging space should always be a top directory, and all backup destinations should be defined as separate subfolders of this file system.
+  * vProtect handles retention, and each backup destination may have different retention configured.
+  * A single Storage Unit will also affect replication as it has to cover all backup destinations, and may replicate temporary data from the staging space or mounted backups.
+* **Sharing** the same BoostFS across multiple nodes allows the administrator to create backups on one node \(i.e. one host/environment\) and restore using a different node \(to a different host/environment\).
+  * UID/GID ownership and permissions must allow vProtect to read/write contents of the BoostFS share.
+  * To meet these requirements, the user and group named vprotect that was created during the installation process must have the same UID and GID on each vProtect node machine. You can create this before installing vProtect packages or change it after installation.
 
 Prepare your PowerProtect DD as a backup destination:
 
-* Login to PowerProtect DD and create NFS Storage Unit called `storware-vprotect`
+* Login to PowerProtect DD and create an NFS Storage Unit called `storware-vprotect`
 
 ![PowerProtect DD - login screen](../../../.gitbook/assets/powerprotect-dd-storage-unit.png)
 
 ![DD Boost - storage units](../../../.gitbook/assets/powerprotect-dd-storage-unit2.png)
 
-* Download BoostFS RPM from Dell EMC site
+* Download BoostFS RPM from the Dell EMC site.
 * Install BoostFS:
 
   ```text
   rpm -ivh DDBoostFS-7.0.0.0-633922.rhel.x86_64.rpm
   ```
 
-* Save password for BoostFS
+* Save the password for BoostFS.
 
   ```text
   # Syntax
@@ -49,7 +49,7 @@ Prepare your PowerProtect DD as a backup destination:
   /opt/emc/boostfs/bin/boostfs lockbox set -d 10.1.10.100 -u vprotect -s vprotectbackup
   ```
 
-* Add /etc/fstab entry:
+* Add the/etc/fstab entry:
 
   ```text
   # Syntax
@@ -58,13 +58,13 @@ Prepare your PowerProtect DD as a backup destination:
   10.1.10.100:/vprotectbackup /vprotect_data boostfs defaults,_netdev,bfsopt(allow-others=true) 0 0
   ```
 
-* Mount fstab entry
+* Mount the fstab entry:
 
   ```text
   mount -a
   ```
 
-* For manual, one-time mount you can run this command
+* For a manual, one-time mount you can run this command:
 
   ```text
   # Syntax
@@ -74,13 +74,13 @@ Prepare your PowerProtect DD as a backup destination:
   ```
 
 * Confirm with `df -h` that your `/vprotect_data` is mounted  
-  **Note:** Remember to specify the backup destination path to be a subdirectory of /vprotect\_data if you would like to use the same storage unit as a staging space and backup destination - for example: /vprotect\_data/my-backups
+  **Note:** Remember to specify the backup destination path as a subdirectory of /vprotect\_data if you would like to use the same storage unit as a staging space and backup destination - for example: /vprotect\_data/my-backups.
 
   ```text
   mkdir /vprotect_data/my-backups
   ```
 
-* Set ownership to vprotect user on directory /vprotect\_data
+* Set ownership to the vprotect user on the directory /vprotect\_data.
 
   ```text
   chown vprotect:vprotect -R /vprotect_data
@@ -88,5 +88,5 @@ Prepare your PowerProtect DD as a backup destination:
 
 ## Synthetic DD Boost
 
-To configure synthetic backup destination, follow inctructions that are described in [documentation](../filesystem/synthetic-ddboost.md).
+To configure synthetic backup destination, follow the instructions that are described in the [documentation](../filesystem/synthetic-ddboost.md).
 
