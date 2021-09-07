@@ -1,10 +1,10 @@
 # Virtual Data Optimizer \(VDO\)
 
-In this section. you can find information, how to enable deduplication using basically any block storage available. We assume that you have prepared your storage provider and have exposed the block device to the system where vProtect Node is installed.
+In this section, you can find information on how to enable deduplication using basically any block storage available. We assume that you have prepared your storage provider and have exposed the block device to the system where vProtect Node is installed.
 
 ## Preparation
 
-1. Log in to vProtect Node, and create a mount directory in the example `/backupdestination`
+1. Log in to vProtect Node and create a mount directory as in the example `/backupdestination`
 
    ```text
    mkdir /backupdestination
@@ -23,26 +23,25 @@ In this section. you can find information, how to enable deduplication using bas
    Disk /dev/mapper/centos-swap: 3221 MB, 3221225472 bytes, 6291456 sectors
    ```
 
-3. Let's assume `/dev/sdc` is your empty block device that you want to use
-4. Login to vProtect web UI
-5. Go to **Backup Destinations**
-6. Click on **Create Backup Destination**, choose **File system**
-7. Type name for new backup destination, set retention and select at least one node configuration
-8. Usually, you have to decide if your backup destination is a separate entity than staging space
-   * if **staging space is different than your backup destination** storage
-     * in **Storage paths** type `/backupdestination` - this path will be used to mount the prepared file system \(XFS\) on top of the VDO volume
-     * check **Enable deduplication**
-     * provide your block device \(i.e. `/dev/sdc`\)  as your Deduplication device
-9. if **staging space needs to be the same as your backup destination** storage
-   * in **Storage paths** type `/vprotect_data/backups` - this path assumes that `/vprotect_data` is your staging space path and `backups`is a subdirectory of the staging space
-   * check **Enable deduplication**
-   * provide your block device \(i.e. `/dev/sdc`\)  as your **Deduplication device**
-   * enable **Mount deduplicated file system to a different directory than backup destination path** and provide mount point - your staging space path, i.e. `/vprotect_data` - this will force vProtect to mount XFS on top of VDO in the staging space directory rather than in the backups subdirectory
+3. Let's assume `/dev/sdc` is your empty block device that you want to use.
+4. Log in to the vProtect web UI.
+5. Go to **Backup Destinations.**
+6. Click on **Create Backup Destination**, choose **File system.**
+7. Type the name for the new backup destination, set the retention and select at least one node configuration.
+8. Usually, you have to decide if your backup destination is a separate entity than the staging space.
+   * If the **staging space is different than your backup destination** storage:
+     * In **Storage paths** type `/backupdestination` - this path will be used to mount the prepared file system \(XFS\) on top of the VDO volume.
+     * Check **Enable deduplication.**
+     * Provide your block device \(i.e. `/dev/sdc`\)  as your Deduplication device.
+9. If the **staging space needs to be the same as your backup destination** storage:
+   * In **Storage paths** type `/vprotect_data/backups` - this path assumes that `/vprotect_data` is your staging space path and `backups`is a subdirectory of the staging space.
+   * Check **Enable deduplication.**
+   * Provide your block device \(i.e. `/dev/sdc`\)  as your **Deduplication device.**
+   * Enable **Mount deduplicated file system to a different directory than backup destination path** and provide the mount point - your staging space path, i.e. `/vprotect_data` - this will force vProtect to mount XFS on top of VDO in the staging space directory rather than in the backup subdirectory.
 
 ![](../../../.gitbook/assets/backup-destinations-file-system-vdo.jpg)
 
-* **Note**: O**nly one file system backup destination with deduplication using VDO pointing to the specific directory can be used**
-  * if you want to add another backup  destination using the same VDO device, but just a different subdirectory
-  * create it without deduplication enabled
-  * Save configuration.
+* **Note**: **Only one file system backup destination with deduplication using VDO pointing to a specific directory can be used.**
+  * If you want to add another backup destination using the same VDO device, but just a different subdirectory, create it without deduplication enabled.
+  * Save the configuration.
 
