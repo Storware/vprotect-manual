@@ -1,16 +1,16 @@
 # Neverfail HybriStor
 
-vProtect support integration with Neverfail HybriStor. You can use HybriStor volumes as any other file system \(mount single volume over NFS\).
+vProtect supports integration with Neverfail HybriStor. You can use HybriStor volumes like any other file system \(mount a single volume over NFS\).
 
-Login to HybriStore dashboard and create NFS share:
+Login to the HybriStore dashboard and create NFS share:
 
 ![](../../../.gitbook/assets/deduplication-appliances-hybristor-nfs-share.jpg)
 
-In "Clients" enter your vProtect node IP address and choose "No" for "allow all clients" option:
+In "Clients" enter your vProtect node IP address and choose "No" for the "allow all clients" option:
 
 ![](../../../.gitbook/assets/deduplication-appliances-hybristor-nfs-share-2.jpg)
 
-Now login to vProtect node host and mount NFS share:
+Now log in to the vProtect node host and mount NFS share:
 
 ```text
 # To create mountpoint:
@@ -30,7 +30,7 @@ HybriStor_IP:/vprotect_data /vprotect_data/backups  nfs   defaults    0     0
 mount -a
 ```
 
-Now go to the dashboard and create new File System Backup Destination
+Now go to the dashboard and create a new File System Backup Destination.
 
 ![](../../../.gitbook/assets/backup-destinations-file-system-nfs-mount%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 

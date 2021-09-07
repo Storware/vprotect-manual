@@ -2,11 +2,11 @@
 
 ## Overview
 
-HPE StoreOnce is another product that allows you to store backups from our vProtect application. As with other providers, we can use NFS share here.
+HPE StoreOnce is another product that allows you to store backups from our vProtect application. As with other providers, here we can also use NFS share.
 
 ### Example
 
-To create NFS share from StoreOnce dashboard, after login go to StoreOnce -&gt; NAS -&gt; Shares on the left side tree menu. Next click on the "Create" button on the top right.
+To create NFS share from the StoreOnce dashboard, after login go to StoreOnce -&gt; NAS -&gt; Shares on the left side tree menu. Next, click on the "Create" button in the top right.
 
 ![](../../../.gitbook/assets/deduplication-appliances-storeonce-nfs-share.jpg)
 
@@ -15,13 +15,13 @@ This is the "access protocol", you must select the NFS option.
 
 ![](../../../.gitbook/assets/deduplication-appliances-storeonce-nfs-share-2.jpg)
 
-After creating, you'll see a summary window. \(remember "Network Path"\)
+After creating it, you'll see a summary window. \(remember "Network Path"\)
 
 ![](../../../.gitbook/assets/deduplication-appliances-storeonce-nfs-share-3.jpg)
 
 Now connect to the vProtect node host:
 
-* Create NFS directory mount point
+* Create an NFS directory mount point
 
   `mkdir /directorypath`
 
@@ -35,14 +35,14 @@ Now connect to the vProtect node host:
 
 ![](../../../.gitbook/assets/deduplication-appliances-storeonce-vprotect-nfs.jpg)
 
-To permanently add an NFS share, you must edit the / etc / fstab file  
+To permanently add NFS share, you must edit the / etc / fstab file  
 `Storeonce_IP:/nas/sharename /mountdirectory nfs defaults 0 0`
 
 ![](../../../.gitbook/assets/deduplication-appliances-storeonce-vprotect-nfs-2.jpg)
 
 Now we can create a backup destination for our backups.  
-Please login to the vProtect dashboard and go to the "Backup Destination" tab from the left side menu.  
-Then choose the "File system" from the list of backup destinations you can create.
+Please log in to the vProtect dashboard and go to the "Backup Destination" tab on the left side menu.  
+Then choose "File system" from the list of backup destinations you can create.
 
 ![](../../../.gitbook/assets/backup-destinations-file-system%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.jpg)
 

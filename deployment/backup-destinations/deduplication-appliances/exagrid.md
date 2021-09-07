@@ -2,15 +2,15 @@
 
 ## Overview
 
-vProtect support integration with Exagrid. You can create two types of shares \(NFS and CIFS\), but in this case, we recommend using the CIFS share as the backup destination.
+vProtect supports integration with Exagrid. You can create two types of shares \(NFS and CIFS\), but in this case we recommend using a CIFS share as the backup destination.
 
 ### Examples
 
-To create network share login to Exagrid dashboard and go to Manage -&gt; Shares
+To create a network share, log in to the Exagrid dashboard and go to Manage -&gt; Shares.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-share.jpg)
 
-Then create a new share. From here, you can create an NFS or CIFS share, depending on the protocol you choose
+Then create a new share. From here, you can create an NFS or CIFS share, depending on the protocol you choose.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-share2.jpg)
 
@@ -18,30 +18,30 @@ Then create a new share. From here, you can create an NFS or CIFS share, dependi
 
 As we said before, we do not recommend this method for storing backups, but we will describe the basic steps for creating an NFS share.
 
-So after clicking "New Share" you'll see this window. Change "Protocol" to NFS, configure the rest according to your requirements.
+So, after clicking on "New Share" you'll see this window. Change the "Protocol" to NFS, configure the rest according to your requirements.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-nfs.jpg)
 
-After creation, you will see a summary window with commands that allow you to mount NFS share under the vProtect node machine.
+After creation, you will see a summary window with commands that allow you to mount the NFS share under the vProtect node machine.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-nfs2.jpg)
 
-From the menu, you can see that we have a new share
+From the menu, you can see that we have a new share.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-nfs3.jpg)
 
-It is good practice to create an NFS share access policy
+It is good practice to create an NFS share access policy.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-nfs4.jpg)
 
 As you can see, you can limit access to a single host or the entire address pool.  
-Remember to edit share and select Access Policy
+Remember to edit the share and select Access Policy.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-nfs5.jpg)
 
 ### CIFS
 
-Now is turn for the method we recommended. After clicking "New Share" you'll see this window. Change "Protocol" to CIFS/SMB, configure the rest according to your requirements.
+Now it is time for the method we recommended. After clicking "New Share" you'll see this window. Change "Protocol" to CIFS/SMB, configure the rest according to your requirements.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-cifs.jpg)
 
@@ -49,15 +49,15 @@ After creation, you will see a summary window with basic information about CIFS 
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-cifs2.jpg)
 
-From the menu, you can see that we have a new share
+From the menu, you can see that we have a new share.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-cifs3.jpg)
 
-It is good practice to create a CIFS share user access policy
+It is good practice to create a CIFS share user access policy.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-cifs4.jpg)
 
-Select a single user or a whole group of users
+Select a single user or a whole group of users.
 
 ![](../../../.gitbook/assets/deduplication-appliances-exagrid-create-cifs5.jpg)
 
@@ -65,7 +65,7 @@ Select a single user or a whole group of users
 
 To mount NFS share:
 
-* Create NFS directory mount point on vProtect node host machine `mkdir /directorypath`
+* Create an NFS directory mount point on the vProtect node host machine `mkdir /directorypath`
 * Mount NFS Share `mount -t nfs Exagrid_IP:/sharename /mountdirectory`
 * Check if you are connected with NFS Share `df -kh`
 
@@ -76,14 +76,14 @@ To mount CIFS share:
 
 * Install the required packages `yum install cifs-utils`
 * Create a mount point directory `mkdir /directorypath`
-* To mount CIFS share `mount.cifs //hostname-or-ip_address/sharename /mnt/testmnt -o ro,guest`
-* To permanently add a CIFS share, you must edit /etc/fstab file `//hostname-or-ip_address/sharename /mnt/testmnt cifs ro,guest 0 0`
+* To mount a CIFS share `mount.cifs //hostname-or-ip_address/sharename /mnt/testmnt -o ro,guest`
+* To permanently add a CIFS share, you must edit the /etc/fstab file `//hostname-or-ip_address/sharename /mnt/testmnt cifs ro,guest 0 0`
 
-### Creating Backup Destination
+### Creating a Backup Destination
 
 Now we can create a backup destination for our backups.  
-Please login to the vProtect dashboard and go to the "Backup Destination" tab from the left side menu.  
-Then choose the "File system" from the list of backup destinations you can create.
+Please log in to the vProtect dashboard and go to the "Backup Destination" tab on the left side menu.  
+Then choose "File system" from the list of backup destinations you can create.
 
 ![](../../../.gitbook/assets/backup-destinations-file-system%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.jpg)
 

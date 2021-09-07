@@ -2,9 +2,9 @@
 
 vProtect supports Catalogic vStor Server and integrates with it with extended File System Backup Destination logic.
 
-You can use Catalogic volumes as any other file system \(mount single volume over NFS\) or you can use provided scripts to automatically create and replicate volumes whenever vStor volume is being accessed. This documentation describes a setup with 2 vStor servers and 1-volume-per-VM approach \(with optional replication\).
+You can use Catalogic volumes like any other file system \(mount a single volume over NFS\) or you can use the scripts provided to automatically create and replicate volumes whenever vStor volume is being accessed. This documentation describes a setup with 2 vStor servers and 1-volume-per-VM approach \(with optional replication\).
 
-1. vProtect accesses vStor Servers using SSH public key authentication - first generate key:
+1. vProtect accesses vStor Servers using SSH public key authentication - first generate the key:
 
    ```text
    [root@vProtectbuild ~]# sudo -u vprotect ssh-keygen
@@ -31,10 +31,10 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
    +----[SHA256]-----+
    ```
 
-2. Add VM fingerprint to SSH known\_hosts on the **node** for primary \(and optionally secondary\) vStor Server:
+2. Add the VM fingerprint to the SSH known\_hosts on the **node** for the primary \(and optionally secondary\) vStor Server:
 
-   * it must be `known_hosts` file that belongs to `vprotect` user
-   * An algorithm must be set to `ssh-rsa`
+   * It must be a `known_hosts` file that belongs to the `vprotect` user
+   * The algorithm must be set to `ssh-rsa`
 
    ```text
    sudo -u vprotect ssh -o HostKeyAlgorithms=ssh-rsa root@VSTOR_HOST
@@ -51,7 +51,7 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
    Warning: Permanently added '10.10.10.1' (RSA) to the list of known hosts.
    ```
 
-3. Copy key to each vStor Server:
+3. Copy the key to each vStor Server:
 
    ```text
    [root@vProtectbuild ~]# sudo -u vprotect ssh-copy-id root@10.10.10.1
@@ -66,15 +66,15 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
    and check to make sure that only the key(s) you wanted were added.
    ```
 
-4. Open "BACKUP DESTINATIONS" section from the left menu
-5. Create new Catalogic vStor Server Backup Destination \(choose from the right-top drop-down menu\)
-6. Fill in the template with your information
+4. Open the "BACKUP DESTINATIONS" section on the left menu.
+5. Create a new Catalogic vStor Server Backup Destination \(choose from the top right drop-down menu\).
+6. Fill in the template with your information.
 
 ![](../../../.gitbook/assets/backup-destinations-file-system-pre-post.jpg)
 
 * `FIRST_VS_HOST` - your primary vStor Server IP/hostname
-* `SECOND_VS_HOST` - optional, secondary vStor Server IP/hostname, where data is going to be replicated to
-* `VS_PARTNER_ID` - optional, secondary vStor partner ID - you can get this ID by running this command on vStor Server shell:
+* `SECOND_VS_HOST` - optional, secondary vStor Server IP/hostname, where the data will be replicated to
+* `VS_PARTNER_ID` - optional, secondary vStor partner ID - you can get this ID by running this command on the vStor Server shell:
 
   ```text
   [root@localhost ~]# vstor partner show
@@ -82,7 +82,7 @@ You can use Catalogic volumes as any other file system \(mount single volume ove
   55cd380b7dc848bbb439bfd444bc1799 | 10.10.10.2   | 8900     | 22
   ```
 
-* if secondary server is not provided - vProtect will assume that no replication is needed
+* If a secondary server is not provided, vProtect will assume that no replication is needed.
 
 ![](../../../.gitbook/assets/backup-destinations-file-system-pre-post-example.jpg)
 
