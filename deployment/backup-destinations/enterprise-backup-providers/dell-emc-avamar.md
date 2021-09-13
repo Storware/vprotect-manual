@@ -1,25 +1,25 @@
 # Dell EMC Avamar
 
-To integrate vProtect with Dell EMC Avamar, complete the following on **vProtect Node**:
+To integrate vProtect with Dell EMC Avamar go ahead and complete the following on **vProtect Node**:
 
 1. Download the required software:
    * **mccli**
    * Avamar Linux Client
    * **Pubkey** \(\*.pub + sh\)
 
-You can obtain the above by browsing the downloads section of your Avamar server installation, provided you have installed 'UpgradeClientDownloads" from the EMC repository to the Avamar server. When in doubt, consult the Avamar documentation.
+You can obtain the above by browsing the downloads section of your Avamar server installation, provided you have installed 'UpgradeClientDownloads" from the EMC repository to the Avamar server. When in doubt, consult Avamar documentation
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-avamar-download-1.png)
 
 ![](../../../.gitbook/assets/enterprise-backup-providers-avamar-download-2.png)
 
-1. Import the GPG key by invoking the script:
+1. Import GPG key by invoking script:
 
 ```text
 sh import_avpkgkey.sh
 ```
 
-1. Run avregister and fill in the required info.
+1. Run avregister, fill in the required info
 
 ```text
 # /usr/local/avamar/bin/avregister
@@ -43,7 +43,7 @@ avagent.d Info: Client Agent stopped.                      [  OK  ]
 Registration Complete.
 ```
 
-1. Install the _**Management Console Command Line Interface**_ \(mccli\).
+1. Install _**Management Console Command Line Interface**_ \(mccli\)
 
 ```text
 # rpm -Uvh --force dpnmccli-19.2.0-155.rhel_64.x86_64.rpm
@@ -52,11 +52,11 @@ Updating / installing...
   1:dpnmccli-19.2.0-155              ################################# [100%
 ```
 
-**Note:** please change the RPM name to match the file downloaded from your Avamar installation.
+**Note:** please change the RPM name to match the file downloaded from your Avamar installation
 
-1. Run _**avsetup\_mccli**_ to configure the management console.
+1. Run _**avsetup\_mccli**_ to configure the management console
 
-You need to point mccli to your JRE installation, fill in the connection details, and provide the admin username and password.
+You need to point mccli to your JRE installation, fill in connection details, plus provide admin username and password
 
 ```text
 # /usr/local/avamar/19.2.0-155/bin/avsetup_mccli
@@ -83,22 +83,22 @@ Quickly test the correctness of this config by typing in:
 # /usr/local/avamar/19.2.0-155/bin/mccli activity show
 ```
 
-If the output shows the latest activity on Avamar, everything is OK.
+If the output shows the latest activity on Avamar, everything seems to be ok.
 
-Otherwise, check your config and/or Avamar documentation,
+In the other case check your config and/or Avamar documentation,
 
-1. Install **avtar** - [https://www.dellemc.com/en-us/collaterals/unauth/technical-guides-support-information/products/data-protection/docu91839.pdf](https://www.dellemc.com/en-us/collaterals/unauth/technical-guides-support-information/products/data-protection/docu91839.pdf) - page 16.
-2. Use the `avregister` command to register the backup client.
-3. Install **mccli** - [https://www.dellemc.com/en-us/collaterals/unauth/quick-reference-guides/products/data-protection/docu91838.pdf](https://www.dellemc.com/en-us/collaterals/unauth/quick-reference-guides/products/data-protection/docu91838.pdf) - page 18.
-4. Use `avsetup_mccli` to set up the client.
+1. Install **avtar** - [https://www.dellemc.com/en-us/collaterals/unauth/technical-guides-support-information/products/data-protection/docu91839.pdf](https://www.dellemc.com/en-us/collaterals/unauth/technical-guides-support-information/products/data-protection/docu91839.pdf) - page 16
+2. Use `avregister` command to register backup client
+3. Install **mccli** - [https://www.dellemc.com/en-us/collaterals/unauth/quick-reference-guides/products/data-protection/docu91838.pdf](https://www.dellemc.com/en-us/collaterals/unauth/quick-reference-guides/products/data-protection/docu91838.pdf) - page 18
+4. Use `avsetup_mccli` to setup client
    * **When choosing JRE - do NOT use** `/usr/java/latest` but `/usr/java/jre1.8...`
-5. Proceed with the configuration and add a _**backup destination.**_
+5. Proceed with configuration and add a _**backup destination**_
 
-On the left side menu, click on _**Backup Destinations**_, then change to the _**enterprise**_ sub-tab, click on the _**Create Backup Destination**_ button and choose:
+On the left side menu click _**Backup Destinations**_ then change to _**enterprise**_ sub-tab, click the _**Create Backup Destination**_ button and choose
 
 ![](../../../.gitbook/assets/backup-destinations-enterprise.jpg)
 
-Fill in the required info. It may look similar to the example below:
+Fill in the required info. it may look similar to the example below:
 
 ![](../../../.gitbook/assets/backup-destinations-enterprise-avamar.jpg)
 
