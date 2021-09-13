@@ -15,20 +15,20 @@ This tab allows you to create an "Application definition" and execute on-demand 
 
 ![](../../.gitbook/assets/applications-instances-details-page.png)
 
-As you can see, the window has been divided into several areas like for virtual environment instances
+As you can see, the window is divided into several areas as for virtual environment instances.
 
 ### Application summary
 
 ![](../../.gitbook/assets/applications-details-page.png)
 
-On the top, you can see summarized pieces of information about the Application, like:
+At the top, you can see summarized pieces of information about the Application, such as:
 
-* Name of application object into vProtect  
-* to which command execution is assigned  
-* which node is backing up this application  
-* short information about the last backup actions  
+* Name of application object in vProtect  
+* To which command the execution is assigned  
+* Which node is backing up this application  
+* Short information about the last backup actions  
 
-You can also use several function buttons, like:
+You can also use several function buttons, such as:
 
 * refresh  
 * back to instances list  
@@ -42,13 +42,13 @@ You can also use several function buttons, like:
 
 ![](../../.gitbook/assets/applications-details-page-daily.png)
 
-First, you'll see a daily summary of the backup and restore operations for the last month. This view is called "Daily Summary" and is the default view. You can switch a report between multiple views.
+First, you'll see a daily summary of the backup and restore operations for the last month. This view is called "Daily Summary" and is the default view. You can switch the report between multiple views.
 
 ### Backup Size
 
 ![](../../.gitbook/assets/applications-details-page-backup-size.png)
 
-This view shows separate columns for each backup made to the application. Thanks to this, you can easily determine what data increase occurs on a given app.
+This view shows separate columns for each backup made to the application. Thanks to this, you can easily determine what data increase has occurred on a given app.
 
 ### Backup Time
 
@@ -60,7 +60,7 @@ A very useful report. It allows you to determine the required window length for 
 
 ![](../../.gitbook/assets/applications-details-page-backup-rate.png)
 
-One of the latest reports, now you can easily see how fast data transfer is.
+One of the newest reports - now you can easily see how fast the data transfer is.
 
 ### Restore Duration
 
@@ -78,12 +78,12 @@ As in the previous case, we also have the transfer speed for the restore job.
 
 ![](../../.gitbook/assets/applications-details-page-event-calendar.png)
 
-The calendar extends the possibilities of adjacent statistics. It allows you to neatly define the range of days you want to see, additionally makes a quick summary of the number of backups and restores \(top right corner\).  
+The calendar extends the possibilities of adjacent statistics. It allows you to neatly define the range of days you want to see, and additionally makes a quick summary of the number of backups and restores \(top right corner\).  
 **Blue** - the sum of all backups, **Green** - the sum of successes, **Red** - the sum of failures.
 
 ## Bottom menu
 
-In the bottom menu, you can find a large number of tabs, each of which will present different information or will allow you to change the configuration of this particular application.
+In the bottom menu, you can find a large number of tabs, each of which will present different information or will allow you to change the configuration of the particular application.
 
 ### Backup
 
@@ -97,7 +97,7 @@ The first tab shows all application backups that are currently available and all
 
 ![](../../.gitbook/assets/applications-details-page-bottom-menu-backup-history.png)
 
-This tab shows information about all backups made for this application. Also about failed, removed \(because of retention\) or currently executing.
+This tab shows information about all backups made for this application, including those failed, removed \(because of retention\) or currently executing.
 
 ### Restore History
 
@@ -117,29 +117,29 @@ In this tab, you can see all the schedules assigned to the application.
 
 ![](../../.gitbook/assets/applications-details-bottom-menu-settings.png)
 
-Finally, the last tab. The first two options allow you to change the node selected to perform backups and policies assigned to the application. The third alow you to choose execution configuration.
+Finally, the last tab. The first two options allow you to change the node selected to perform backups and policies assigned to the application. The third allows you to choose the execution configuration.
 
 ## Example - How to create an application definition
 
 ![](../../.gitbook/assets/applications-instances.jpg)
 
-You need to provide at least its **name** and **Command Execution Configuration** and select **node** which is going to do the work - for command execution that have execution type "node".  
-If the command execution type is "remote ssh" you need also to provide ssh access.  
-To schedule backup of application, you need to select backup policy - more about policies and schedules you can find in this article: [Backup SLAs](backup-slas.md)
+You need to provide its **name** and the **Command Execution Configuration**, and select the **node** which is going to do the work - for "node" type command executions.  
+If the command execution type is "remote ssh", you also need to provide ssh access.  
+To schedule application backup, you need to select the backup policy - you can find more about policies and schedules in this article: [Backup SLAs](backup-slas.md).
 
 ![](../../.gitbook/assets/applications-instances-create-definition.jpg)
 
-### Example - How to restore application
+### Example - How to restore an application
 
 To perform an on-demand application restore, click the restore button on the right side of the application line.
 
 ![](../../.gitbook/assets/applications-instances-restore-app.jpg)
 
-After clicking on it, you will see a pop-up window where you can customize restore options.
+After clicking on it, you will see a pop-up window where you can customize the restore options.
 
 ![](../../.gitbook/assets/applications-instances-restore-app2.jpg)
 
-If you choose the "Restore to filesystem" option, you can select things like which backup you want to restore, on which node you want to restore files, etc.
+If you choose the "Restore to filesystem" option, you can select things such as which backup you want to restore, on which node you want to restore files, etc.
 
 The "Restore to application" option differs in that it allows you to restore files to the server where the application is located.\*\*
 
