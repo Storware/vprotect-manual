@@ -9,39 +9,39 @@ Ceph Object Gateway supports a RESTful API that is compatible with the basic dat
 
 ### Example
 
-Log in to ceph dashboard. Open Object gateway and then go to "Buckets"
+Log in to the ceph dashboard. Open Object gateway and then go to "Buckets".
 
 ![](../../../.gitbook/assets/object-storage-ceph-s3-bucket.jpg)
 
-Then click on "Create" button
+Then click on the "Create" button.
 
 ![](../../../.gitbook/assets/object-storage-ceph-s3-bucket2.jpg)
 
-Fill requirement fields
+Fill in the required fields.
 
 ![](../../../.gitbook/assets/object-storage-ceph-s3-bucket3.jpg)
 
-Now create a dedicated access account for the backup destination. Open Users tab under object gateway menu
+Now create a dedicated access account for the backup destination. Open the Users tab under the object gateway menu.
 
 ![](../../../.gitbook/assets/object-storage-ceph-s3-user.jpg)
 
-Fill out the username field, you can leave the other settings as default
+Fill in the username field, you can leave the other settings as default.
 
 ![](../../../.gitbook/assets/object-storage-ceph-s3-user4.jpg)
 
-To see account key and secret key expand user details and open keys tab, click on the key and then on the show button
+To see the account key and secret key, expand the user details and open the keys tab, click on the key and then on the show button.
 
 ![](../../../.gitbook/assets/object-storage-ceph-s3-user2.jpg)
 
-The access key and secret key will be needed to create a backup destination on vProtect
+The access key and secret key will be needed to create a backup destination on vProtect.
 
 ![](../../../.gitbook/assets/object-storage-ceph-s3-user3.jpg)
 
-Now we can go to the vProtect Dashboard. Open "Backup Destination" tab from the left side menu and choose "Amazon S3 / S3-compatible" as a new type of backup destination
+Now we can go to the vProtect Dashboard. Open the "Backup Destination" tab from the left side menu and choose "Amazon S3 / S3-compatible" as the new type of backup destination.
 
 ![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29%20%281%29.jpg)
 
-By default, Ceph provides S3 under port 8000. Also remember to enable the "record backup time after store" option
+By default, Ceph provides S3 via port 8000. Also remember to enable the "record backup time after store" option.
 
 ![](../../../.gitbook/assets/backup-destinations-object-storage-ceph.jpg)
 

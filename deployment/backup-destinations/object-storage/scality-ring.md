@@ -10,56 +10,56 @@ AWS has achieved incredible traction with services such as S3 for a wide variety
 In this example, we will show you how to use the Scality S3 connector to create a backup destination for vProtect.  
 _It assumes that S3 connector is installed and configured_
 
-We will start from creating user, please launch S3 connector user interface
+We will start by creating a user, please launch the S3 connector user interface.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-user.jpg)
 
-Log in as an account, using the password set in _Setting an account Password_ from the S3 console GUI  
-Select the user to open the user management dialog.  
-Click Add user to raise the add user dialog.  
+Log in as an account user using the password set in _Setting an account Password_ from the S3 console GUI.  
+Select the user to open the user management window.  
+Click Add user to open the add user window.  
 Enter the user name and make sure to check the box for "FullAccessGroup".
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-user2.jpg)
 
 The user management panel displays the user name and the Amazon Resource Name \(ARN\).  
-Now we will generate access and secret key for a user.  
-Click the key icon in the Actions column of the user' row.
+Now we will generate the access and secret keys for the user.  
+Click on the key icon in the Actions column of the user row.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-user3.jpg)
 
-Click on Generate a new key
+Click on Generate a new key.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-user4.jpg)
 
-Click Proceed to generate the user's AccessKey and SecretAccessKey
+Click on Proceed to generate the user's AccessKey and SecretAccessKey.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-user5.jpg)
 
-Copy and save SecretAccessKey to a secure location. It is not shown again and cannot be recovered later.
+Copy and save the SecretAccessKey to a secure location. It is not shown again and cannot be recovered later.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-user6.jpg)
 
-Now we can go to the bucket creation. Please go to S3 Browser interface
+Now we can go to bucket creation. Please go to S3 Browser interface.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-dashboard.jpg)
 
-The S3 Browser open to the main window, from which one can see the entire roster of buckets.  
-Click the Create Bucket button at the top left of the main window.
+The S3 Browser opens the main window, from which one can see the entire roster of buckets.  
+Click the Create Bucket button in the top left of the main window.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-bucket.jpg)
 
-Enter a name for the new bucket and click Create button.
+Enter a name for the new bucket and click on Create button.
 
 ![](../../../.gitbook/assets/object-storage-scality-s3-bucket2.jpg)
 
-It's all on the scality side. Now we can go to vProtect.  
-Open "Backup Destination" tab from the left side menu and choose "Amazon S3 / S3-compatible" as a new type of backup destination.
+That's all on the Scality side. Now we can go to vProtect.  
+Open the "Backup Destination" tab from the left side menu and choose "Amazon S3 / S3-compatible" as the new type of backup destination.
 
 ![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29%20%281%29%20%283%29.jpg)
 
-Like in other S3-compatible backup destinations, you have to fill below fields and provide access and secret key.
+Like in other S3-compatible backup destinations, you have to fill in the fields below and provide the access and secret key.
 
 ![](../../../.gitbook/assets/backup-destinations-object-storage-scality.jpg)
 
-That's it, you can now safely store your backups
+That's it, you can now safely store your backups.
 
