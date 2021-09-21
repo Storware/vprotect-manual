@@ -2,7 +2,7 @@
 
 ## General <a id="general"></a>
 
-‌vProtect provides reporting functionality for obtaining information on historical activity.  
+‌vProtect provides reporting functionality to obtaining information on historical activity.  
 You can reach this from the main dashboard in the Activity section via the button -![](https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-MRdb5zWCDMFpI4vZOjE%2Fsync%2Fdc0792ef6682f4b02ebf4a963d448eb5b7d95fff.jpg?generation=1611311314140472&alt=media)
 
 ![](../../.gitbook/assets/reporting-dashboard%20%281%29.jpg)
@@ -17,7 +17,7 @@ At the beginning, you should see the summary page.
 
 ![](../../.gitbook/assets/reporting-storage-general.jpg)
 
-From here, you can set the date range or go to a detailed summary of backup, restore jobs and backup size.
+From here, you can set a date range or go to a detailed summary of backup, restore jobs and backup size.
 
 ![](../../.gitbook/assets/reporting-storage-date.jpg)
 
@@ -35,7 +35,7 @@ additionally filter them by status, rules or instance.
 
 ### Restore Statistics
 
-The functionality is the same as for backup statistics, you can see all the tasks completed within the set deadline, or filter them by status, policy or instance.
+The functionality is the same as for the backup statistics, you can see all the tasks completed within the set deadline, or filter them by status, policy or instance.
 
 ![](../../.gitbook/assets/reporting-storage-restore.jpg)
 
