@@ -6,9 +6,9 @@ Log in to the web interface and add a new OpenShift Hypervisor Manager:
 
 ![](../../../.gitbook/assets/protected-platforms-containers-openshift.jpg)
 
-The Openshift Nodes should appear in vProtect after indexing the cluster.
+Openshift Nodes should appear in vProtect after indexing the cluster.
 
-**Note 1**: Please provide the URL to the web console and SSH credentials to the master node when creating the OpenShift hypervisor manager in vProtect UI. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md). This is needed for vProtect to have access to your cluster deployments. **Note 2:** Valid SSH admin credentials should be provided **for every Openshift node** by the user \(called _Hypervisor_ in the vProtect UI\). If vProtect is unable to execute docker commands on the Openshift node, it means that it is logged as a user lacking admin privileges. Make sure you have added your user to the sudo/wheel group \(so they can execute commands with `sudo`\).
+**Notice 1**: Please provide the URL to the web console and SSH credentials to the master node when creating the OpenShift hypervisor manager in vProtect UI. You can also use [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md). This is needed for vProtect to have access to your cluster deployments. **Notice 2:** Valid SSH admin credentials should be provided **for every Openshift node** by the user \(called _Hypervisor_ in the vProtect UI\). if vProtect is unable to execute docker commands on the Openshift node, it means that it logged as a user lacking admin privileges. Make sure you added your user to sudo/wheel group \( so it can execute commands with `sudo`\).
 
 **Persistent volumes restore/backup**
 
@@ -19,7 +19,7 @@ There are two ways of restoring the volume content.
 
 **OpenShift troubleshooting**
 
-The user from the current context should have cluster-admin permissions.
+User from the current context should have cluster-admin permissions.
 
 `oc adm policy add-cluster-role-to-user cluster-admin admin --as system:admin`
 
@@ -31,12 +31,13 @@ The following error might occur if the token in the kubeconfig file is invalid:
 
 Solution:
 
-In the OpenShift master node, execute `oc login -u admin` \(or any other user with cluster-admin permissions\) and index the OpenShift hypervisor manager in vProtect UI again.
+On OpenShift master node, execute `oc login -u admin` \(or any other user with cluster-admin permissions\) and index the OpenShift hypervisor manager in vProtect UI again.
 
 If indexing/export fails because no Pods could be found, please make sure they have the `app` label assigned appropriately.
 
 **Limitations**
 
-* Currently, we only support backups of Deployments/DeploymentConfigs \(persistent volumes and metadata\)
-* **All deployment pods will be paused during the backup operation** - this is required to achieve consistent backup data.
-* For a successful backup, every object used by the Deployment/DeploymentConfig should have an `app` label assigned appropriately.
+* currently, we support only backups of Deployments/DeploymentConfigs \(persistent volumes and metadata\)
+* **all deployment's pods will be paused during the backup operation** - this is required to achieve consistent backup data
+* for a successful backup, every object used by the Deployment/DeploymentConfig should have an `app` label assigned appropriately
+
