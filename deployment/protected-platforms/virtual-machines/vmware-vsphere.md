@@ -79,3 +79,4 @@ In this example, the vProtect Server and Node are deployed outside of the VMware
 If you have stand-alone ESXi hosts - add all hypervisors separately on the Hypervisors tab - simply provide their hostnames or IPs and credentials.
 
 ![](../../../.gitbook/assets/protected-platforms-vmware-esxi.png)
+

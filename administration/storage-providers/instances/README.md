@@ -4,7 +4,7 @@
 
 A list of currently known storage instances and access to the details page of each object. From this place, you can also perform on-demand actions such as backup, restore and file-level restore.
 
-![](../../../.gitbook/assets/storage-providers-instances%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../../.gitbook/assets/storage-providers-instances%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%286%29.jpg)
 
 Going back to the Storage details page, this is what it looks like:
 
@@ -39,7 +39,7 @@ You can also use several function buttons, such as:
 
 ### Daily activity
 
-![](../../../.gitbook/assets/vm-details-page-statistics%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/vm-details-page-statistics%20%281%29%20%283%29.png)
 
 First, you'll see a daily summary of the backup and restore operations for the last month. This view is called "Daily Summary" and is the default view. You can switch the report between multiple views.
 
@@ -51,7 +51,7 @@ This view shows separate columns for each backup made. Thanks to this, you can e
 
 ### Backup Time
 
-![](../../../.gitbook/assets/vm-details-page-statistics-time.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-time%20%281%29.png)
 
 A very useful report. It allows you to determine the required window length for backups or, based on the time of individual phases, it is easy to deduce the cause of slow backups.
 
@@ -69,7 +69,7 @@ A view with the same properties as "Backup Time". It allows us to estimate how l
 
 ### Restore Rate
 
-![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate%20%281%29%20%281%29.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate%20%281%29.png)
 
 As in the previous case, we also have the transfer speed for the restore job.
 

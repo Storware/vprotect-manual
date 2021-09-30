@@ -34,3 +34,4 @@ When using the built-in script for database backup, define:
 * VP\_ORACLE\_STOREPATH - path to the Oracle server, where vProtect can place the backup file
 
 After the new application is fully configured, **save** the changes and go to the [SLA backup configuration](../../../administration/applications/backup-slas.md).
+

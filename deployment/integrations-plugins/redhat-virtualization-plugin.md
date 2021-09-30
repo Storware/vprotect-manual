@@ -16,13 +16,13 @@ As usual, it contains a short summary of the environment along with a handful of
 
 You can also see the data summary of the backup destination.
 
-![](../../.gitbook/assets/integration-plugins-rhv-dashboard-backup-destination%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-dashboard-backup-destination%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
 
 ### Virtual Machines
 
 This tab shows all inventoried virtual machines in your RHV environment. In addition, you can also perform a basic backup or restore operations.
 
-![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%286%29.jpg)
 
 But that's not all, you can also go into the details of the virtual machine by clicking on its name:
 
@@ -30,13 +30,13 @@ But that's not all, you can also go into the details of the virtual machine by c
 
 Backup window view:
 
-![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines-backup%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-virtual-machines-backup%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%286%29.jpg)
 
 ### Task console
 
 Basic information about current tasks performed by vProtect.
 
-![](../../.gitbook/assets/integration-plugins-rhv-task-console%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-task-console%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%283%29.jpg)
 
 ### Policies
 
@@ -58,7 +58,7 @@ Finally, you can also browse your mounted backups from the RHV dashboard. You on
 
 From here we can see the basic information about the backup and start browsing the files using the "Browse" button on the right.
 
-![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![](../../.gitbook/assets/integration-plugins-rhv-mounted-backups-details%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%285%29.jpg)
 
 Just select a folder or file and then click on the "download selected" button to have the files on your computer.
 

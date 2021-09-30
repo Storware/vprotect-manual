@@ -17,7 +17,7 @@ The field lets the user filter the virtual machines by their:
 * Name field of a linked VM Backup Policy 
 * Name field of a linked Snapshot Management Policy
 
-![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29.jpg)
+![](../../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29.jpg)
 
 Returning to the VM details page, this is what it looks like:
 
@@ -62,7 +62,7 @@ This view shows separate columns for each backup made to the virtual machine. Th
 
 ### Backup Time
 
-![](../../../.gitbook/assets/vm-details-page-statistics-time%20%281%29.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-time.png)
 
 A very useful report. It allows you to determine the required window length for backups or, based on the time of individual phases, it is easy to deduce the cause of slow backups.
 
@@ -80,7 +80,7 @@ A view with the same properties as "Backup Time". It allows us to estimate how l
 
 ### Transfer Rate
 
-![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate%20%281%29.png)
+![](../../../.gitbook/assets/vm-details-page-statistics-restore-rate%20%281%29%20%281%29.png)
 
 As in the previous case, we also have the transfer speed for the restore job.
 

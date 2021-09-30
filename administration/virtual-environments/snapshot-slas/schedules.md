@@ -1,6 +1,6 @@
 # Schedules
 
-Schedule defines when and on which days snapshots should be created. To define new schedule use the ![](../../../.gitbook/assets/create-schedule.jpg)
+Schedule defines when and on which days snapshots should be created. To define new schedule use the ![](../../../.gitbook/assets/create-schedule%20%281%29.jpg)
 
 ![](../../../.gitbook/assets/snapshot-sla-schedules.jpg)
 

@@ -10,7 +10,7 @@ You can click on the ![](../../../.gitbook/assets/icon-backup.jpg) icon to back 
 
 Or select multiple instances and click on the ![](../../../.gitbook/assets/icon-backup2.jpg) icon to back them up.
 
-![](../../../.gitbook/assets/storage-providers-general%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
+![](../../../.gitbook/assets/storage-providers-general%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%284%29.jpg)
 
 Finally select the backup type, backup destination, when a task should start, the priority, and click on the backup button.
 

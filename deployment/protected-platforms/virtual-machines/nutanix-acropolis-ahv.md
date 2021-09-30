@@ -11,7 +11,7 @@ This strategy allows you to exclude drives from backup that you do not need. Rem
 #### **Backup Process**
 
 * crash-consistent snapshot using hypervisor's API
-* optionally application-consistent snapshot can be done if enabled and guest tools installed inside - the type of snapshot is selected based on is QuiesceBeforeSnapshot setting and passed as part of snap request. The created snapshot might end up being of a different type \(depending on the _\*\*_presence of tools
+* optionally application-consistent snapshot can be done if enabled and guest tools installed inside - the type of snapshot is selected based on is QuiesceBeforeSnapshot setting and passed as part of snap request. The created snapshot might end up being of a different type \(depending on the \_\*\*\_presence of tools
 * optional application consistency using pre/post snapshot command execution
 * metadata exported from API
 * snapshot disks are mounted one by one to the Proxy VM

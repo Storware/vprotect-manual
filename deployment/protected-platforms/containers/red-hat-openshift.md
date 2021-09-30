@@ -40,3 +40,4 @@ If indexing/export fails because no Pods could be found, please make sure they h
 * Currently, we only support backups of Deployments/DeploymentConfigs \(persistent volumes and metadata\)
 * **All deployment pods will be paused during the backup operation** - this is required to achieve consistent backup data.
 * For a successful backup, every object used by the Deployment/DeploymentConfig should have an `app` label assigned appropriately.
+

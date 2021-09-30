@@ -54,7 +54,7 @@ Drawback - no incremental backup for now.
 * metadata exported from API
 * snapshot disks are mounted one by one to the Proxy VM
 * data read directly on the Proxy VM
-* incremental backups are _\*\*_not supported
+* incremental backups are \_\*\*\_not supported
 * restore creates empty disks on the Proxy VM, imports merged data then recreates VM and reattaches volumes to the target VM
 
 **Note**: oVirt API v4 environments require vProtect Node to be installed in one of the VMs residing in the oVirt cluster. vProtect should automatically detect the VM with vProtect during the index operation.

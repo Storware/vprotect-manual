@@ -148,3 +148,4 @@ The "Restore to application" option differs in that it allows you to restore fil
 \*\*This option is available for applications using "Remote SSH" in the command execution configuration
 
 ![](../../.gitbook/assets/applications-instances-restore-app4.jpg)
+

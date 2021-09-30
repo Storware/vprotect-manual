@@ -109,3 +109,4 @@ There are a few parameters for application definition that come in several secti
 ## Scheduled backups
 
 Please check the [Scheduled Backup](../../../administration/virtual-environments/backup-slas/schedules.md) section for details.
+

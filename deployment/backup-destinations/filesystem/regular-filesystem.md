@@ -72,3 +72,4 @@ In this section, we'll show you how to set up a file system \(it can be a local 
     * If the **staging space needs to be the same as your backup storage destination:**
       * In **Storage paths** type `/vprotect_data/backups`, where you point to a subdirectory \(i.e. `backups` on your staging space path, i.e. `/vprotect_data).`
 12. Save the configuration.
+

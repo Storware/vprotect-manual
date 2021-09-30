@@ -55,7 +55,7 @@ Enter a name for the new bucket and click on Create button.
 That's all on the Scality side. Now we can go to vProtect.  
 Open the "Backup Destination" tab from the left side menu and choose "Amazon S3 / S3-compatible" as the new type of backup destination.
 
-![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29%20%281%29%20%283%29.jpg)
+![](../../../.gitbook/assets/backup-destinations-object-storage%20%284%29%20%284%29%20%282%29%20%281%29%20%289%29.jpg)
 
 Like in other S3-compatible backup destinations, you have to fill in the fields below and provide the access and secret key.
 

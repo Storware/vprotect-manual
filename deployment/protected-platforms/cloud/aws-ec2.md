@@ -145,3 +145,4 @@ From the AWS perspective, you need to take inot account several additional costs
 * Data transfer costs:
   * if you upload data to external backup providers, or if a node needs to transfer a lot of data between AZs - this can be reduced by deploying one node per AZ
   * [https://aws.amazon.com/ec2/pricing/on-demand/\#Data\_Transfer](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer)
+

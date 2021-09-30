@@ -11,7 +11,7 @@ The Oracle VM environment requires you to create storage used for VM export. The
 * crash-consistent snapshot is taken by OVM during hot-clone of the VM
 * data + metadata exported by the manager to the vProtect staging space \(visible as the export Storage Repository in OVM\)
 * full backup only is supported
-* OVM exports are limited to 1 task per Storage Repository being used by VM \(this is the _\*\*_limitation of OVM\)
+* OVM exports are limited to 1 task per Storage Repository being used by VM \(this is the \_\*\*\_limitation of OVM\)
 * restore is done to the export Storage Repository, the administrator needs to clone the VM using manager UI
 
 **Note:**

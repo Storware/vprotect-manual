@@ -33,3 +33,4 @@ When using the built-in script for database backup, define:
 * VP\_REAR\_SCRIPTPATH - Path to the target server, where vProtect can place and execute the backup script.
 
 After the new application is fully configured, **save** the changes and go to the [SLA backup configuration](../../../administration/applications/backup-slas.md).
+
