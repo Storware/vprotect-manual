@@ -715,7 +715,3 @@
 
 **File-level-restore**:  
 _When backing up CentOS 8 with a disk with the GPT partition scheme, you can use file-level restore only on the vProtect node, which also runs on CentOS 8 operating system._
-
-**VMware vSphere/ESXi backup:**  
-_We can only back up VMware products from a vProtect node that runs on CentOS 7._
-
