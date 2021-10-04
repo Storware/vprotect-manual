@@ -16,6 +16,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Amazon S3 | Current | ❌ | N/A | ✅ | ✅ |
 | S3 compatible | Current | ❌ | N/A | ✅ | ✅ |
+| Cloudian | Current | ❌ | N/A | ✅ | ✅ |
 | MS Azure Blob Storage | Current | ❌ | N/A | ✅ | ✅ |
 | OpenStack Swift | API v2 | ❌ | N/A | ❌ | ✅ |
 | Scality Ring | 6.4+ | ❌ | N/A | Provider dependent | ✅ |
