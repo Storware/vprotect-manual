@@ -14,6 +14,6 @@ Next, go to security credentials and generate new access key.
 
 ![](../../.gitbook/assets/../../../.gitbook/assets/cloudian-key.png)
 
-Now go to the Backup destination tab on the vProtect dashboard and change the sub-tab to object storage. Provide the bucket name and key credentials, and then configure the remaining options according to your requirements:
+Now go to the Backup destination tab on the vProtect dashboard and change the sub-tab to object storage. Provide the bucket name and key credentials, and then configure the remaining options according to your requirements. Also enable `Path style access enabled` option:
 
 ![](../../.gitbook/assets/../../../.gitbook/assets/cloudian-example.png)
