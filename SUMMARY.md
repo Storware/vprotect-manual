@@ -27,6 +27,7 @@
     * [RHV/oVirt/OLVM Virtual Appliance](deployment/virtual-appliance/rhv-ovirt-olvm-virtual-appliance.md)
     * [Citrix Hypervisor \| XCP-ng Virtual Appliance](deployment/virtual-appliance/citrix-hypervisor-or-xcp-ng-virtual-appliance.md)
     * [VMware Virtual Appliance](deployment/virtual-appliance/vmware-virtual-appliance.md)
+    * [Nutanix Acropolis Hypervisor \(AHV\)](deployment/virtual-appliance/nutanix-virtual-appliance.md)
   * [Initial Configuration](deployment/initial-configuration.md)
   * [Protected Platforms](deployment/protected-platforms/README.md)
     * [Virtual Machines](deployment/protected-platforms/virtual-machines/README.md)
