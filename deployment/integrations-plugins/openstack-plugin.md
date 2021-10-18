@@ -52,7 +52,7 @@ Basic information about current tasks performed by vProtect.
 
 ## OpenStack integration setup
 
-You can find the add-on in the [GitHub repository](https://github.com/Storware/ovirt-engine-ui-vprotect-extensions/releases). Extract the provided archive on to your Horizon host and execute `python install.py VPROTECT_API_URL USER PASSWORD`
+You can find the add-on in the [GitHub repository](https://github.com/Storware/openstack-horizon-ui-vprotect-extensions). Extract the provided archive on to your Horizon host and execute `python install.py VPROTECT_API_URL USER PASSWORD`
 
 **Example:** `python install.py http://localhost:8080/api admin vPr0tect`.
 
