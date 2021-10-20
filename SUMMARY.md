@@ -79,6 +79,7 @@
       * [AWS S3 or S3-compatible](deployment/backup-destinations/object-storage/aws-s3-or-s3-compatible.md)
       * [Cloudian S3](deployment/backup-destinations/object-storage/cloudian.md)
       * [Alibaba Cloud OSS](deployment/backup-destinations/object-storage/alibaba-cloud.md)
+      * [Nutanix Objects](deployment/backup-destinations/object-storage/nutanix-objects.md)
       * [Google Cloud Storage](deployment/backup-destinations/object-storage/google-cloud-storage.md)
       * [Microsoft Azure Blob Storage](deployment/backup-destinations/object-storage/microsoft-azure-blob-storage.md)
       * [OpenStack SWIFT](deployment/backup-destinations/object-storage/openstack-swift.md)
