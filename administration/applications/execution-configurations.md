@@ -20,3 +20,4 @@ This is a description of how your script is going to be invoked - you need to sp
   * **STREAM** - select if your command generates backup to the standard output.
 * **Timeout** - for script/command execution - make sure to have this timeout set to a value high enough to allow your command to complete its execution.
 * Optionally, you can define the **environment variables** that you'll later be able to use in your commands/scripts. Note that the variable name should not contain white-space characters.\*\*
+

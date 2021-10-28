@@ -96,10 +96,10 @@ Restore process also now allows to automatically power on VMs or automatically c
 
 **Changes:**
 
-* New: Proxmox VE - new backup strategy for Proxmox VE \(includes incremental backups, FS freeze, and option   to share backups over iSCSI\)
+* New: Proxmox VE - new backup strategy for Proxmox VE \(includes incremental backups, FS freeze, and option     to share backups over iSCSI\)
 * New: RHV/oVirt - new backup strategy using CBT \(using new RHV/oVirt backup APIs, currently in Technical Preview\)
 * New: Nutanix AHV – option to connect via Prism Central instead of individual Prism Elements
-* New: Nutanix AHV – option to automatically assign VMs to the policies based on Nutanix categories \(vProtect tags\)   when using Prism Central as hypervisor manager
+* New: Nutanix AHV – option to automatically assign VMs to the policies based on Nutanix categories \(vProtect tags\)     when using Prism Central as hypervisor manager
 * New: Option to automatically power on VM after restore
 * New: Option to automatically generate VM name with prefix/suffix in Recovery Plans
 * New: Major Web UI update and reorganization - better arrangment of views related to the artifacts in the same domain, such as Virtual Environment-related schedules, policies etc.
@@ -423,7 +423,7 @@ vProtect 3.2.3 release fixes incremental backup related issues, which are mostly
 
 * New: UI - add Node Config selection in Backup Destination create/edit forms
 * New: Citrix - restart CBT on all VHDs during full backup
-* New: S3 backup destination - if DNS name is used in endpoint URL, try to resolve and 
+* New: S3 backup destination - if DNS name is used in endpoint URL, try to resolve and
 
   reconnect, so that DNS Round-Robin can be effective \(third party S3 API\)
 
@@ -504,7 +504,7 @@ vProtect 3.1.4 introduces enhanced auto-assign feature. Now users can add/remove
 
 **Changes:**
 
-* New: RHV/oVirt/Citrix - include/exclude VMs automatically to/from groups 
+* New: RHV/oVirt/Citrix - include/exclude VMs automatically to/from groups
 
   using set of regular expressions or tags
 
@@ -647,7 +647,7 @@ Main improvements compared to 2.3:
 1. **File System as the backup provider**, which means that:
    * you can use any mounted set of file systems \(mount points\) as the storage space
    * especially those can have deduplication capabilities like DD Boost \(Data Domain\) or OpenDedup
-   * then you can use them as the destination for your backups \(retention settings: 
+   * then you can use them as the destination for your backups \(retention settings:
 
      N last versions and keep not older than N days backup - same as for Swift\)
 

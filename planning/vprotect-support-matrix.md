@@ -16,6 +16,9 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Amazon S3 | Current | ❌ | N/A | ✅ | ✅ |
 | S3 compatible | Current | ❌ | N/A | ✅ | ✅ |
+| Cloudian S3| Current | ❌ | N/A | ✅ | ✅ |
+| Alibaba Cloud OSS | Current | ❌ | N/A | ✅ | ✅ |
+| Nutanix Objects | Current | ❌ | N/A | ✅ | ✅ |
 | MS Azure Blob Storage | Current | ❌ | N/A | ✅ | ✅ |
 | OpenStack Swift | API v2 | ❌ | N/A | ❌ | ✅ |
 | Scality Ring | 6.4+ | ❌ | N/A | Provider dependent | ✅ |
@@ -715,7 +718,3 @@
 
 **File-level-restore**:  
 _When backing up CentOS 8 with a disk with the GPT partition scheme, you can use file-level restore only on the vProtect node, which also runs on CentOS 8 operating system._
-
-**VMware vSphere/ESXi backup:**  
-_We can only back up VMware products from a vProtect node that runs on CentOS 7._
-

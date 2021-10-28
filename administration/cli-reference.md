@@ -1436,11 +1436,11 @@ User management
   \`\`\` vprotect user -l
 
   ```text
-            GUID                  First Name  Last Name  Active  
+            GUID                  First Name  Last Name  Active
   ```
 
 ```text
-                               1  The         Admin      true    
+                               1  The         Admin      true
 ```
 
 705490c2-7734-4a56-a563-24471447bf2b John Doe true

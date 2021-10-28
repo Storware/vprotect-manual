@@ -24,7 +24,7 @@ Proxmox environments require backup storage to be defined on each server. This s
   * Backups must be restored to the export path \(the node automatically changes the names to the original paths that are recognized by Proxmox\).
 * The name for storage must be provided later in the node configuration \(`Hypervisor -> Proxmox` \)section.
 
-![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29%20%282%29%20%281%29%20%281%29.jpg)
+![](../../../.gitbook/assets/containers-proxmox-ve-storage%20%283%29%20%282%29%20%281%29%20%282%29.jpg)
 
 ## File-level restore support for VMA images
 
@@ -45,3 +45,4 @@ Proxmox environments require backup storage to be defined on each server. This s
 ## Public key authentication
 
 The details are described in the [SSH public key authentication](../../common-tasks/ssh-public-key-authentication.md) section.
+

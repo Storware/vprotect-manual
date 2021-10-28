@@ -2,7 +2,7 @@
 
 Schedules allow you to invoke specific policies periodically. This allows you to backup multiple storage instances automatically.
 
-A schedule defines when and on which days instances should be backed up. To define a new schedule, open Backup SLAs under the Storage section and go to the Schedules tab, then use the ![](../../../.gitbook/assets/create-schedule%20%281%29.jpg) button.
+A schedule defines when and on which days instances should be backed up. To define a new schedule, open Backup SLAs under the Storage section and go to the Schedules tab, then use the ![](../../../.gitbook/assets/create-schedule%20%284%29.jpg) button.
 
 ![](../../../.gitbook/assets/storage-providers-slas-schedules.jpg)
 

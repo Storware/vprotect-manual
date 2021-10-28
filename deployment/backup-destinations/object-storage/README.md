@@ -3,6 +3,9 @@
 A backup destination is a storage location where vProtect keeps VMs, Containers, Cloud and application backup copies. vProtect supports different types of object storage.
 
 * [AWS S3](aws-s3-or-s3-compatible.md)
+* [Cloudian S3](cloudian.md)
+* [Alibaba Cloud OSS](alibaba-cloud.md)
+* [Nutanix Objects](nutanix-objects.md)
 * [Google Cloud Storage](google-cloud-storage.md)
 * [Microsoft Azure Blob Storage](microsoft-azure-blob-storage.md)
 * [OpenStack SWIFT](openstack-swift.md)

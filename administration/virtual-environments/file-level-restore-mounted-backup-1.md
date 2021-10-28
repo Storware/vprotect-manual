@@ -4,7 +4,7 @@
 
 To mount backup go to the Instances tab under Virtual Environment section on the left side menu, then click on the mount icon next to a chosen virtual machine ![](../../.gitbook/assets/icon-mount.jpg)
 
-![](../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29.jpg)
+![](../../.gitbook/assets/instances%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%282%29.jpg)
 
 On the popup window, you can select which backup you want to mount and on which node. You can also change the mount method, but we recommend leaving the default setting "Mount filesystem automatically".
 

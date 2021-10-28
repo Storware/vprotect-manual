@@ -4,7 +4,7 @@
 
 vProtect provides a reporting feature for obtaining information about historical activities. You can reach this from the main dashboard under the Activity section via the ![](../../.gitbook/assets/reporting%20%282%29%20%281%29.jpg) button.
 
-![](../../.gitbook/assets/reporting-dashboard%20%281%29%20%282%29.jpg)
+![](../../.gitbook/assets/reporting-dashboard%20%281%29%20%282%29%20%282%29.jpg)
 
 Or on the left side menu - Reporting -&gt; Virtual Environments.
 
@@ -44,7 +44,7 @@ This is a backup size report that you might need for chargeback reporting.
 
 ![](../../.gitbook/assets/reporting-virtual-environments-size.png)
 
-You can also send these reports by email using this button: ![](../../.gitbook/assets/get-report-via-e-mail%20%282%29.jpg)
+You can also send these reports by email using this button: ![](../../.gitbook/assets/get-report-via-e-mail%20%282%29%20%282%29.jpg)
 
 ![](https://github.com/Storware/vprotect-manual/tree/62f9b0a309aff8d03f40054743924e0d53d58a4e/.gitbook/assets/reporting-summary-e-mail-report%20%281%29.jpg)
 

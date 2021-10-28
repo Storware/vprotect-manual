@@ -5,6 +5,7 @@
 * [RHV/oVirt/Oracle Linux VM](rhv-ovirt-olvm-virtual-appliance.md)
 * [Citrix XenServer/XCP-ng](citrix-hypervisor-or-xcp-ng-virtual-appliance.md)
 * [VMware/ESXi](vmware-virtual-appliance.md) 
+* [Nutanix Acropolis Hypervisor \(AHV\)](nutanix-virtual-appliance.md)
 
 2 vCPU core and 4GB RAM
 

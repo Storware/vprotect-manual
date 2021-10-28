@@ -44,3 +44,4 @@
 * You can specify the name for the restored vm.
 
 ![](../../../.gitbook/assets/protected-platforms-fusioncompute-restore.png)
+

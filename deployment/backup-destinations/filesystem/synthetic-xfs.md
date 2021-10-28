@@ -24,7 +24,7 @@ A synthetic file system allows us to store and use incremental backups as if the
 
    * For Path and Retention configuration, the difference is that due to the nature of the synthetic backup destination, we only set retention for "Full" files.
 
-     ![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-xfs-selectretention.png) 
+     ![](../../../.gitbook/assets/backup-destinations-file-system-synthetic-xfs-selectretention.png)
 
    * **When setting the path, make sure it's actually on the XFS!**
 
