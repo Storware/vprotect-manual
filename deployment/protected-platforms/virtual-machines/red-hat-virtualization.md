@@ -19,6 +19,8 @@ Import/export mode defines the way the backups and restores are done. Red Hat Vi
    * supports oVirt 4.4+ \(with Libvirt 6+, qemu-kvm 4.2+ and vdsm 4.40+\)
    * supports incremental backup
 
+**Note:** When using backup APIs - Red Hat highly recommends to update RHV environment to the most recent version (4.4 - at the time of writing) - please refer to this [article](https://access.redhat.com/articles/6379751) for more information.
+
 When adding RHV 4.0+ hypervisor managers, use a URL similar to the following:
 
 ```text
