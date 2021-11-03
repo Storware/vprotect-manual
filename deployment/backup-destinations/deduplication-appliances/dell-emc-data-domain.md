@@ -49,7 +49,7 @@ Prepare your PowerProtect DD as a backup destination:
   /opt/emc/boostfs/bin/boostfs lockbox set -d 10.1.10.100 -u vprotect -s vprotectbackup
   ```
 
-* Add the/etc/fstab entry:
+* Add the /etc/fstab entry:
 
   ```text
   # Syntax
