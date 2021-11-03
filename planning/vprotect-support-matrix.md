@@ -64,7 +64,7 @@
 
 |  | 2016 & 2019 |
 | :--- | :--- |
-| Minimum version | Windows Server 2016+ |
+| Minimum version | Windows Server 2016+, supported virtual machine configuration versions = 6.2 and higher |
 | Status | In operation \(**preferred**\) |
 | Last snapshot kept on hypervisor for inc. backups | yes |
 | Hypervisor OS access needed | No |
