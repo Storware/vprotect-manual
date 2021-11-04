@@ -714,6 +714,25 @@
 | Backups sharable over iSCSI | ✅ |
 | Name-based policy assignment | ✅ |
 
+### Nutanix Volume Groups
+
+|  | Disk-attachment |
+| :--- | :--- |
+| Minimum version | N/A |
+| Status | In operation \(**preferred**\) |
+| Last snapshot kept in provider for inc. backups | Yes |
+| Source type | Volume group |
+
+| Feature | Disk-attachment |
+| :--- | :--- |
+| Incremental backup | ✅ |
+| Incremental backup change source | CBT API |
+| File-level restore | ✅ |
+| Snapshot management | ✅ |
+| Pre/post snapshot command execution | ✅ |
+| Backups sharable over iSCSI | ✅ |
+| Name-based policy assignment | ✅ |
+
 ## Conditions / Exclusion
 
 **File-level-restore**:  
