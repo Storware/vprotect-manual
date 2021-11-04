@@ -1433,25 +1433,23 @@ User management
 
 * To list all users
 
-  \`\`\` vprotect user -l
+  ```text
+  vprotect user -l
+  ``` 
 
   ```text
-            GUID                  First Name  Last Name  Active
+                  GUID                  First Name  Last Name  Active  
+  ------------------------------------  ----------  ---------  ------  
+                                    1  The         Admin      true    
+  259c07ab-5097-4826-8a91-dd281840faf5  John        Doe        true 
   ```
 
-```text
-                               1  The         Admin      true
-```
-
-705490c2-7734-4a56-a563-24471447bf2b John Doe true
-
-```text
 * To set password for the user
-```
 
-vprotect user -sP 705490c2-7734-4a56-a563-24471447bf2b
+  ```text
+  vprotect user -sP 705490c2-7734-4a56-a563-24471447bf2b
+  ```
 
-```text
 ## Quota
 
 Quota management module is used to manage backup/restore limits for virtual machines in projects.
