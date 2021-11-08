@@ -7,7 +7,7 @@ This section allows you to manage Users, Groups and Roles. The role is a set of 
 There are two types of users:
 
 * local users 
-* LDAP users \(please refer to how [setup LDAP authentication](https://github.com/Storware/vprotect-manual/tree/62f9b0a309aff8d03f40054743924e0d53d58a4e/administration/settings.md#authentication)\)
+* LDAP users \(please refer to how [setup LDAP authentication](./settings/settings.md#authentication)\)
 
 ![](../.gitbook/assets/access-management.png)
 
