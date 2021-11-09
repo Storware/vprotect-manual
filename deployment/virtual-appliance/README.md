@@ -24,6 +24,13 @@ After downloading and importing the image to the environment set IP address:
 * `Edit a connection`
 * Select network interface, and edit its network settings.
 
+Now you should be able to log in to the web console using the URL:
+```text
+https://VPROTECT_HOST:8181
+```
+where VPROTECT_HOST is the hostname or IP of your vProtect Server
+
+
 Then go to [Initial configuration](../initial-configuration.md) to set your backup destination, and add virtualization hosts.
 
 **Note:** Importing the image will install both the server and node. If You need only the vProtect node, then You have to stop and disable vprotect-server service.
