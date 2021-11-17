@@ -71,3 +71,17 @@ How to start backup for Hyper-V platform:
 
 * Click **Save** to finish adding your Hyper-v host. Repeat all steps for all Hyper-v hosts.
 
+
+## Quiet Agent installation
+You can use Hyper-V Agent installer parameters to install it without the need of user interaction
+- Agent password parameter:
+```PASS=YourPassword ```
+- Transport Method (choose one of three options)
+```TRANSPORT=[HTTP|HTTPS|BOTH]```
+
+Complete installation command
+```Hyper-V-Agent-Installer.msi /qn PASS=YourPassword TRANSPORT=HTTPS```
+>**Note**
+>/qn are standard msi parameters and stand for:
+>q - quiet installation
+>n - no user interface 
