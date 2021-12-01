@@ -555,6 +555,30 @@
 | Available space for snapshot check | ❌ |
 | Power-on VM after restore | ❌ |
 
+### HC3 Scale Computing
+
+|  | Export Storage Domain | Disk-attachment |
+| :--- | :--- | :--- |
+| Minimum version | HCOS 8.0+ | HCOS 8.0+ |
+| Status | In operation | In operation \(**preferred**\) |
+| Last snapshot kept on hypervisor for inc. backups | no | yes |
+| Hypervisor OS access needed | no | no |
+| Proxy VM needed | no | yes |
+
+| Feature | Export Storage Domain | Disk-attachment |
+| :--- | :--- | :--- |
+| Incremental backup | ❌ | ✅ |
+| File-level restore | ❌ | ✅ |
+| VM disk exclusion | ✅ | ✅ |
+| Snapshot management | ✅ | ✅ |
+| Quiesced snapshot | ❌ | ❌ |
+| Pre/post snapshot command execution | ✅ | ✅ |
+| Backup disks sharable over iSCSI | ✅ | ✅ |
+| Name-based policy assignment | ✅ | ✅ |
+| Tag-based policy assignment | ✅ | ✅ |
+| Available space for snapshot check | ❌ | ❌ |
+| Power-on VM after restore | ✅ | ✅ |
+
 ## Containers - features and requirements
 
 ### Kubernetes

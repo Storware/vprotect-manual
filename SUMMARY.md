@@ -45,6 +45,7 @@
       * [XCP-ng](deployment/protected-platforms/virtual-machines/xcp-ng.md)
       * [Huawei FusionCompute](deployment/protected-platforms/virtual-machines/huawei-fusion-compute.md)
       * [HPE SimpliVity](deployment/protected-platforms/virtual-machines/hpe-simplivity.md)
+      * [HC3 Scale Computing](deployment/protected-platforms/virtual-machines/hc3-scale-computing.md)
     * [Containers](deployment/protected-platforms/containers/README.md)
       * [Kubernetes](deployment/protected-platforms/containers/kubernetes.md)
       * [Red Hat OpenShift](deployment/protected-platforms/containers/red-hat-openshift.md)

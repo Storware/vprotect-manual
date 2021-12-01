@@ -22,7 +22,8 @@
   * libvirt hypervisors \(KVM, PowerKVM, KVM for IBM z, Xen\)
   * Kubernetes
   * Red Hat OpenShift 
-  * AWS EC2 
+  * AWS EC2
+  * HC3 Scale Computing
 * Pre/post snapshot remote command execution on VM to enable operations such as DB quiesce
 * Pre/post backup destination access command execution to allow mount/unmount operations on external storage providers
 * Prioritized backup policies 

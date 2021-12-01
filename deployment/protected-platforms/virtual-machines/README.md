@@ -16,4 +16,5 @@ vProtect supports multiple on-premise virtualization platforms. In this section 
 * [XCP-ng](xcp-ng.md)
 * [Huawei FusionCompute](huawei-fusion-compute.md)
 * [HPE SimpliVity](hpe-simplivity.md)
+* [HC3 Scale Computing](hc3-scale-computing.md)
 
