@@ -43,8 +43,8 @@ vProtect also supports the disk-attachment method using cinder. This should allo
 * volumes created from snapshotted disks are mounted one by one to the Proxy VM
 * data read directly on the Proxy VM
 * incremental backups are only supported for Ceph RBD - a list of the changed blocks are fetched from the monitors, and only these blocks are read from the attached disk on the Proxy VM
-* if an instance is created from the glance image - data is downloaded from glance API instance is created from instance metadata and image is fetched from glance API if exists or uploaded, if image doesn't exist in the glance and was downloaded from glance API
-* restore creates empty disks on the Proxy VM, imports merged data then recreates VM using these volumes, optionally uses image from the glance if present in the target environment
+* if an instance is created from the glance image and "download image from glance" option is enabled data is downloaded from glance API, instance is created from the instance metadata and the images which is fetched from the glance API
+* restore creates empty disks on the Proxy VM, imports merged data then recreates the VM using these volumes, optionally if "download image from glance" option is enabled it will try to use the image from glance if present in the target environment or it will upload the image to the glance and register it with the restored VM
 
 ### Ceph RBD storage backend
 
@@ -118,6 +118,8 @@ URL - Keystone API URL, e.g. `http://10.201.32.40:5000/v3`
 Username - OpenStack user
 
 Password - password for that user.
+
+Download image from glance - allows vProtect to use images from glance as described in the disk attachment strategy
 
 **Note: Default domain for OpenStack user is `default`. To provide credentials for user in different domain, please enter it in following format: `domain\username`**
 
