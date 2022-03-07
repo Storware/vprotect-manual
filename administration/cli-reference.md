@@ -884,7 +884,7 @@ Schedule management
   vprotect sched -c Schedule1 VM_BACKUP FULL TIME 05:00 60 everyday any any
   ```
 
-* To create an incremental backup schedule with a name Schedule2 executed every Monday, Wednesday and Friday at 17:00 with 90 minutes of time window:
+* To create an incremental virtual machine backup schedule with a name Schedule2 executed every Monday, Wednesday and Friday at 17:00 with 90 minutes of time window:
 
   ```text
   vprotect sched -c Schedule2 VM_BACKUP INCREMENTAL TIME 17:00 90 mon,wed,fri any any
@@ -892,7 +892,7 @@ Schedule management
 
   **Note** that days of week are given as a single comma-separated string of short \(3-letter\) weekday names
 
-* To create schedules \(full backup\) with name Schedule3 and Schedule4 executed every Tuesday at 02:00 and every Wednesday at 03:00 with 90 minutes of time window and assign them to the VM group with ID 123:
+* To create virtual machine schedules \(full backup\) with name Schedule3 and Schedule4 executed every Tuesday at 02:00 and every Wednesday at 03:00 with 90 minutes of time window and assign them to the VM group with ID 123:
 
   ```text
   vprotect sched -c Schedule3 VM_BACKUP FULL TIME 02:00 90 tue any any
