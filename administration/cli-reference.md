@@ -21,19 +21,19 @@ COMMAND is one of the following:
  brvm                       VM backup & restore
  st                         Storage management
  stpool                     Storage pool management
- stprovider                  Storage provider management
+ stprovider                 Storage provider management
  brapp                      Application backup & restore
  mnt                        Mounted backup management
  task                       Task management
  login                      User login
  logout                     Node and user logout
  stop                       Safely stops node
- vmsnappolicy              Snapshot policy management for VMs
- stsnappolicy          Snapshot policy management for storages
+ vmsnappolicy               Snapshot policy management for VMs
+ stsnappolicy               Snapshot policy management for storages
  app                        Application backup management
  appconf                    App command execution management
  apppolicy                  Application backup policy management
- restorejob                  Restore jobs
+ restorejob                 Restore jobs
  recplan                    Recovery plan policies
  brst                       Storage backup & restore
  quota                      Quota management
@@ -838,32 +838,37 @@ VMs are assigned automatically to the policy only if VM has no policy assigned a
 
 ```text
 [root@vprotect ~]# vprotect vmpolicy
-Required option: [-rR Remove auto-assignment RE, -rT Remove auto-assignment tag, -aC Set auto-assignment HV clusters, -b Set backup destination for the VM policy, -c Create a new policy, -d Delete a policy, -g Show details, -l List policies, -L List VMs in the policy, -aM Set auto-assignment mode, -m Modify policy, -aN Set auto-removal of non-present VMs flag, -p Set policy's backup task priority (0-100, 50 = default), -aR Add auto-assignment RE, -aT Add auto-assignment tag, -S List schedules for the policy, -s Set schedules for the VM policy, -U Unassign VMs from the policy, -V Assign VMs to the policy]
+Required option: [-rR Remove rules from policy, -c Create a new policy, -d Delete a policy, -g Show details, -rib Run incremental backup for selected policy. If empty String will be passed, backups will be run for all vms assigned to policy, -l List policies, -aM Set auto-assignment mode, -L List VMs assigned to a policy, -m Modify policy name, -aN Set auto-removal of non-present VMs flag, -rfb Run full backup for selected policy. If empty String will be passed, backups will be run for all vms assigned to policy, -p Set policy's backup task priority (0-100, 50 = default), -aR Add new rule to selected policy, -r List rules for virtual machine backup policy, -act Set policy's activation state (true|false), -S List schedules for the policy, -s Set schedules for the VM policy, -U Unassign VMs from a policy, -V Assign VMs to a policy]
 
-usage: vmpolicy -aC <GUID > <[HV_CLUSTER_GUID,...,HV_CLUSTER_GUID]> | -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aR <GUID>
-       <inc|exc> <REG_EXP> | -aT <GUID> <inc|exc> <TAG> | -b <GUID> <BD_GUID | BD_NAME>> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -L <GUID> | -m <GUID>
-       <NAME> | -p <GUID> <PRIORITY> | -rR <GUID> <inc|exc> <REG_EXP> | -rT <GUID> <inc|exc> <TAG> | -S <GUID> | -s <GUID> <SCHED_GUID,...,SCHED_GUID> | -U
-       <VM_GUID,...,VM_GUID> | -V <GUID> <VM_GUID,...,VM_GUID>
+usage: vmpolicy -act <GUID> <ACTIVE> | -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aR <NAME> <POLICY_GUID> <SCHEDULE_GUID> <BACKUP_DESTINATION_GUID> <RETENTIONKEEPLASTNFULL> <RETENTIONKEEPFULLNEWERTHAN> <RETENTIONKEEPLASTNINCREMENTAL>
+       <RETENTIONKEEPINCREMENTALNEWERTHAN> <KEEPLASTBACKUPWHENSOURCEEXISTS> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -L <GUID> | -m <GUID> <NAME> | -p <GUID> <PRIORITY> | -r <GUID> | -rfb <POLICY_GUID> <PRIORITY> <RETRY_COUNT> <"" | VM_GUID,...,VM_GUID> | -rib <POLICY_GUID> <PRIORITY>
+       <RETRY_COUNT> <"" | VM_GUID,...,VM_GUID> | -rR <POLICY_GUID> <RULE_GUID,...,RULE_GUID> | -S <GUID> | -s <GUID> <SCHED_GUID,...,SCHED_GUID> | -U <VM_GUID,...,VM_GUID> | -V <GUID> <VM_GUID,...,VM_GUID>
 VM backup policy management
- -aC,--set-auto-assign-hv-clusters <GUID > <[HV_CLUSTER_GUID,...,HV_CLUSTER_GUID]>   Set auto-assignment HV clusters
- -aM,--set-auto-assign-mode <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE>          Set auto-assignment mode
- -aN,--set-auto-remove-non-present <GUID> <0|1>                                      Set auto-removal of non-present VMs flag
- -aR,--add-auto-assign-re <GUID> <inc|exc> <REG_EXP>                                 Add auto-assignment RE
- -aT,--add-auto-assign-tag <GUID> <inc|exc> <TAG>                                    Add auto-assignment tag
- -b,--set-backup-destination <GUID> <BD_GUID | BD_NAME>>                             Set backup destination for the VM policy
- -c,--create <NAME>                                                                  Create a new policy
- -d,--delete <GUID>                                                                  Delete a policy
- -g,--details <GUID>                                                                 Show details
- -l,--list                                                                           List policies
- -L,--list-vms <GUID>                                                                List VMs in the policy
- -m,--modify <GUID> <NAME>                                                           Modify policy
- -p,--set-priority <GUID> <PRIORITY>                                                 Set policy's backup task priority (0-100, 50 = default)
- -rR,--remove-auto-assign-re <GUID> <inc|exc> <REG_EXP>                              Remove auto-assignment RE
- -rT,--remove-auto-assign-tag <GUID> <inc|exc> <TAG>                                 Remove auto-assignment tag
- -S,--list-schedules <GUID>                                                          List schedules for the policy
- -s,--set-schedules <GUID> <SCHED_GUID,...,SCHED_GUID>                               Set schedules for the VM policy
- -U,--unassign-vms <VM_GUID,...,VM_GUID>                                             Unassign VMs from the policy
- -V,--assign-vms <GUID> <VM_GUID,...,VM_GUID>                                        Assign VMs to the policy
+ -act,--set-active <GUID> <ACTIVE>                                                                                                                                                                                                          Set policy's activation state (true|false)
+ -aM,--set-auto-assign-mode <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE>                                                                                                                                                                 Set auto-assignment mode
+ -aN,--set-auto-remove-non-present <GUID> <0|1>                                                                                                                                                                                             Set auto-removal of non-present VMs flag
+ -aR,--add-rule <NAME> <POLICY_GUID> <SCHEDULE_GUID> <BACKUP_DESTINATION_GUID> <RETENTIONKEEPLASTNFULL> <RETENTIONKEEPFULLNEWERTHAN> <RETENTIONKEEPLASTNINCREMENTAL> <RETENTIONKEEPINCREMENTALNEWERTHAN> <KEEPLASTBACKUPWHENSOURCEEXISTS>   Add new rule to selected policy
+ -c,--create <NAME>                                                                                                                                                                                                                         Create a new policy
+ -d,--delete <GUID>                                                                                                                                                                                                                         Delete a policy
+ -g,--details <GUID>                                                                                                                                                                                                                        Show details
+ -l,--list                                                                                                                                                                                                                                  List policies
+ -L,--list-vms <GUID>                                                                                                                                                                                                                       List VMs assigned to a policy
+ -m,--modify <GUID> <NAME>                                                                                                                                                                                                                  Modify policy name
+ -p,--set-priority <GUID> <PRIORITY>                                                                                                                                                                                                        Set policy's backup task priority (0-100, 50 =
+                                                                                                                                                                                                                                            default)
+ -r,--list-rules <GUID>                                                                                                                                                                                                                     List rules for virtual machine backup policy
+ -rfb,--run-full-backup <POLICY_GUID> <PRIORITY> <RETRY_COUNT> <"" | VM_GUID,...,VM_GUID>                                                                                                                                                   Run full backup for selected policy. If empty String
+                                                                                                                                                                                                                                            will be passed, backups will be run for all vms
+                                                                                                                                                                                                                                            assigned to policy
+ -rib,--run-inc-backup <POLICY_GUID> <PRIORITY> <RETRY_COUNT> <"" | VM_GUID,...,VM_GUID>                                                                                                                                                    Run incremental backup for selected policy. If empty
+                                                                                                                                                                                                                                            String will be passed, backups will be run for all
+                                                                                                                                                                                                                                            vms assigned to policy
+ -rR,--remove-rules <POLICY_GUID> <RULE_GUID,...,RULE_GUID>                                                                                                                                                                                 Remove rules from policy
+ -S,--list-schedules <GUID>                                                                                                                                                                                                                 List schedules for the policy
+ -s,--set-schedules <GUID> <SCHED_GUID,...,SCHED_GUID>                                                                                                                                                                                      Set schedules for the VM policy
+ -U,--unassign-vms <VM_GUID,...,VM_GUID>                                                                                                                                                                                                    Unassign VMs from a policy
+ -V,--assign-vms <GUID> <VM_GUID,...,VM_GUID>                                                                                                                                                                                               Assign VMs to a policy
+
 ```
 
 ### Examples
