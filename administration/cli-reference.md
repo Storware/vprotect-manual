@@ -538,8 +538,10 @@ Incorrect syntax: Missing required option: [-d Delete HV cluster, -l List HV clu
 
 usage: hc -d <GUID> | -l
 Hypervisor cluster management
- -d,--delete <GUID>   Delete HV cluster
- -l,--list            List HV clusters
+ -d,--delete <GUID>                                             Delete HV cluster
+ -l,--list                                                      List HV clusters
+ -sn,--set-name <GUID> <NAME>                                   Change Hypervisor Cluster name
+ -sp,--set-storage-provider <GUID> <STORAGE_PROVIDER_GUID>>     Assign Storage Provider to Hypervisor Cluster. No value unassigns Storage Provider
 ```
 
 * To list all detected clusters:
@@ -619,6 +621,7 @@ Virtual machine management
  -cS,--create-snapshot <GUID> <RULE_GUID> <PRIORITY>        Create VM snapshot
  -D,--list-disks <GUID>                                     List detected VM disks
  -d,--delete <GUID>                                         Delete VM
+ -dnp,--delete-non-present <[PROJECT_UUID]>                 Delete non-present Virtual Machines. Project UUID is optional.
  -g,--details <<VM_GUID>>                                   Show virtual machine details
  -gb,--show-backup-details <<BACKUP_GUID>>                  Show backup details
  -L,--list-backups <GUID>                                   List backups of the VM
@@ -927,6 +930,7 @@ VM backup & restore
  -F,--list-file-systems <GUID>                                                  List file systems
  -gb,--show-backup-details <BACKUP_GUID>                                        Show backup details
  -gL,--show-files-details <BACKUP_FILE_GUID>                                    Show file details
+ -gsi,--show-backup-status-info <BACKUP_GUID>                                   Show backup status info
  -H,--restore-to-hv <GUID> <HV_GUID | HV_HOST> <STORAGE_ID>                     Restore the backup to the hypervisor. For KVM mixed volumes please provide
                                                                                 storages in form of BF_GUID=STORAGE_ID with files separated by semicolon, i.e. "BF_GUID=STORAGE_ID; BF_GUID2=STORAGE_ID2 ..."
  -i,--backup-inc <VM_GUID> <BP_GUID | BP_NAME>                                  Backup VM (incremental)
