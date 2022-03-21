@@ -28,8 +28,8 @@ COMMAND is one of the following:
  login                      User login
  logout                     Node and user logout
  stop                       Safely stops node
- vm-snappolicy              Snapshot policy management for VMs
- storage-snappolicy          Snapshot policy management for storages
+ vmsnappolicy              Snapshot policy management for VMs
+ stsnappolicy          Snapshot policy management for storages
  app                        Application backup management
  appconf                    App command execution management
  apppolicy                  Application backup policy management
@@ -914,17 +914,17 @@ VM backup policy management
 
 Snapshot management policies module enables CDM for your VMs and manages their retention. Currently it is supported for KVM, Citrix, RHV/oVirt/OLVM platforms.
 
-To manage snapshot policies for VMs in the system use `vprotect vm-snappolicy` sub-command.
+To manage snapshot policies for VMs in the system use `vprotect vmsnappolicy` sub-command.
 
 VMs are assigned automatically to the policy only if VM has no policy assigned already. If automatic assignment has been turned on for a policy and either name of the VM matches regular expression, or tag detected \(Citrix/RHV/oVirt/OLVM\) matches tag defined for the policy, VM is assigned to the policy, and all schedules for a policy will also be automatically invoked for this VM.
 
 **Note:** only VMs with assigned snapshot management policy can be snapshot from the CLI or UI
 
 ```text
-[root@vprotect ~]# vprotect vm-snappolicy
+[root@vprotect ~]# vprotect vmsnappolicy
 Required option: [-rR Remove rules from policy, -rT Remove auto-assignment tag, -aC Set auto-assignment HV clusters, -c Create a new policy, -d Delete a policy, -g Show details, -l List policies, -L List VMs in the policy, -aM Set auto-assignment mode, -m Modify policy, -aN Set auto-removal of non-present VMs flag, -p Set policy's backup task priority (0-100, 50 = default), -aR Add new rule to selected policy, -r List rules for policy, -aT Add auto-assignment tag, -U Unassign VMs from the policy, -V Assign VMs to the policy]
 
-usage: vm-snappolicy -aC <GUID > <[HV_CLUSTER_GUID,...,HV_CLUSTER_GUID]> | -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aR <NAME>
+usage: vmsnappolicy -aC <GUID > <[HV_CLUSTER_GUID,...,HV_CLUSTER_GUID]> | -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aR <NAME>
        <POLICY_GUID> <RETENTION_DAYS> <RETENTION_VERSIONS> | -aT <GUID> <inc|exc> <TAG> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -L <GUID> | -m <GUID>
        <NAME> | -p <GUID> <PRIORITY> | -r <GUID> | -rR <POLICY_GUID> <RULE_GUID,...,RULE_GUID> | -rT <GUID> <inc|exc> <TAG> | -U <VM_GUID,...,VM_GUID> | -V
        <GUID> <VM_GUID,...,VM_GUID>
@@ -953,52 +953,52 @@ Snapshot policy management
 * To list all snapshot policies
 
   ```text
-  vprotect vm-snappolicy -l
+  vprotect vmsnappolicy -l
   ```
 
 * To show details of the given VM \(by GUID\)
 
   ```text
-  vprotect vm-snappolicy -g 3afcd507-a4f5-484d-8d34-53c73d7a5809
+  vprotect vmsnappolicy -g 3afcd507-a4f5-484d-8d34-53c73d7a5809
   ```
 
 * To create a new policy
 
   ```text
-  vprotect vm-snappolicy -c "My Policy"
+  vprotect vmsnappolicy -c "My Policy"
   ```
 
 * To add `policy1` tag \(include\) for a policy:
 
   ```text
-  vprotect vm-snappolicy -aT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
+  vprotect vmsnappolicy -aT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
   ```
 
 * To remove `policy1` tag \(include\) for a policy:
 
   ```text
-  vprotect vm-snappolicy -rT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
+  vprotect vmsnappolicy -rT 3afcd507-a4f5-484d-8d34-53c73d7a5809 inc policy1
   ```
 
 * To set 2 schedules \(GUIDs are comma-separated\) for a policy \(first GUID\):
 
   ```text
-  vprotect vm-snappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 391203e3-ad6c-4532-b69c-78b3a5c
+  vprotect vmsnappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 391203e3-ad6c-4532-b69c-78b3a5c
   ```
 
 ## Snapshot management policies for storages
 
-To manage snapshot policies for storages in the system use `vprotect storage-snappolicy` sub-command.
+To manage snapshot policies for storages in the system use `vprotect stsnappolicy` sub-command.
 
 Storages are assigned automatically to the policy only if storage has no policy assigned already. If automatic assignment has been turned on for a policy and name of the storage matches regular expression, storage is assigned to the policy, and all schedules for a policy will also be automatically invoked for this storage.
 
 **Note:** only storages with assigned snapshot management policy can be snapshot from the CLI or UI
 
 ```text
-[root@vprotect ~]# vprotect storage-snappolicy
+[root@vprotect ~]# vprotect stsnappolicy
 Incorrect syntax: Missing required option: [-rR Remove rules from policy, -c Create a new policy, -d Delete a policy, -g Show details, -l List policies, -aM Set auto-assignment mode, -L List storages in the policy, -m Modify policy, -aN Set auto-removal of non-present VMs flag, -aP Set auto-assignment storage pools, -p Set policy's backup task priority (0-100, 50 = default), -aR Add new rule to selected policy, -r List rules for policy, -S Assign storages to the policy, -U Unassign storages from the policy]
 
-usage: storage-snappolicy -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aP <GUID > <[STORAGE_POOL_GUID,...,STORAGE_POOL_GUID]> | -aR <NAME> <POLICY_GUID> <RETENTION_DAYS> <RETENTION_VERSIONS> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -L <GUID> | -m
+usage: stsnappolicy -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | -aN <GUID> <0|1> | -aP <GUID > <[STORAGE_POOL_GUID,...,STORAGE_POOL_GUID]> | -aR <NAME> <POLICY_GUID> <RETENTION_DAYS> <RETENTION_VERSIONS> | -c <NAME> | -d <GUID> | -g <GUID> | -l | -L <GUID> | -m
        <GUID> <NAME> | -p <GUID> <PRIORITY> | -r <GUID> | -rR <POLICY_GUID> <RULE_GUID,...,RULE_GUID> | -S <GUID> <STORAGE_GUID,...,STORAGE_GUID> | -U <STORAGE_GUID,...,STORAGE_GUID>
 +Snapshot policy management for storages
  -aM,--set-auto-assign-mode <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE>                Set auto-assignment mode
@@ -1023,25 +1023,25 @@ usage: storage-snappolicy -aM <GUID> <DISABLED|ASSIGN_ONLY|ASSIGN_AND_REMOVE> | 
 To list all snapshot policies
 
 ```text
-  vprotect storage-snappolicy -l
+  vprotect stsnappolicy -l
 ```
 
 * To show details of the given snapshot policy \(by GUID\)
 
   ```text
-  vprotect storage-snappolicy -g 3afcd507-a4f5-484d-8d34-53c73d7a5809
+  vprotect stsnappolicy -g 3afcd507-a4f5-484d-8d34-53c73d7a5809
   ```
 
 * To create a new policy
 
   ```text
-  vprotect storage-snappolicy -c "My Policy"
+  vprotect stsnappolicy -c "My Policy"
   ```
 
 * To set 2 schedules \(GUIDs are comma-separated\) for a policy \(first GUID\):
 
   ```text
-  vprotect vm-snappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 \
+  vprotect vmsnappolicy -s 3afcd507-a4f5-484d-8d34-53c73d7a5809 \
    391203e3-ad6c-4532-b69c-78b3a5c
   ```
 
