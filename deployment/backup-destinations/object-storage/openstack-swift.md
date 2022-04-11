@@ -11,7 +11,7 @@ Enter the name of new backup estination, assign it to `Node Configuration` and s
 Next, provide setting specific to `OpenStack Swift`:
 * Authentication URL - URL pointing to authentication service, it should be similiar to the following
   ```text
-    https://SWIFT_HOST/auth/v3/auth/tokens
+    https://SWIFT_HOST/v3/auth/tokens
   ```
 * User name - domain formatted username used by vProtect to log into OpenStack Swift
 * Authentication method - BASIC / TEMPAUTH / KEYSTONE / KEYSTONE_V3
