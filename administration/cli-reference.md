@@ -1172,7 +1172,7 @@ VM backup & restore
   vprotect brvm -F 4f1c7907-72e9-4797-8470-3f1fbb081751
   ```
 
-* To create a full backup of a VM and store it in backup destination called `MyTSM`
+* To create a full backup of a VM and store it in backup destination set to rule called `MyTSM`
 
   ```text
   vprotect brvm -b 0f36f40c-6427-4035-9f2b-1ead6aca3597 MyTSM
