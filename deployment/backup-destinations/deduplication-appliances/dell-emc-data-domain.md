@@ -82,9 +82,20 @@ Prepare your PowerProtect DD as a backup destination:
 
 * Set ownership to the vprotect user on the directory /vprotect\_data.
 
-  ```text
-  chown vprotect:vprotect -R /vprotect_data
-  ```
+    ```
+    chown vprotect:vprotect -R /vprotect_data
+    ```
+*   Set ownership to the vprotect user and data domain group on the directory /vprotect\_data/my-backups.
+
+    ```
+    chown vprotect:gid /vprotect_data/my-backups
+    ```
+where 'gid' is the GID of data domain user specified in Synthetic DD Boost backup destination configuration.
+*   Set read and write privileges for both user and group to the directory /vprotect\_data/my-backups.
+
+    ```
+    chmod 0775 /vprotect_data/my-backups
+    ```
 
 ## Synthetic DD Boost
 
